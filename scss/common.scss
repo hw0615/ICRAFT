@@ -1,0 +1,33 @@
+.container-fluid {
+  header{
+    background: #fff;
+    height: 140px;
+    .logo-wrapper {
+      width: 1050px;
+      height: 95px;
+      margin: 0 auto;
+      padding: 32px 0 32px 0;
+      h1 {
+        .icraft-logo{
+          // width: 145px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  .nav-container {
+    background: #174A8E;
+    height: 45px;      
+    .nav-box {
+      width: 1050px;
+      margin: 0 auto;
+      .nav-list {
+        padding-top: 13px;
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
