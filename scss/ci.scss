@@ -26,19 +26,18 @@
         &-list {
           font-size: 16px;
           position: relative;
-          // margin: 0 auto;
           height: 45px;
-          padding-top: 13px;
           float: left;
           width: 160px;
           cursor: pointer;
           &:hover .nav-menu-list-sub {
             display: block;
-            // opacity: 1;
             visibility: visible;
           }
           .nav-menu-list-name {
-            margin-left: 12px;
+            display: block;
+            padding: 14.1px 0;
+            padding-left: 12px;
             color: #fff;
             text-decoration: none;
           }
@@ -46,17 +45,13 @@
             position: absolute;
             left: 0;
             width: 160px;
-            margin-top: 13px;
             height: 225px;
             background: #fff;
             display: none;
             visibility: hidden;
             li {
               display: block;
-              padding: 15px 0;
-              height: 45px;
               font-size: 14px;
-              padding-left: 15px;
               border-bottom: 1px solid #d4d4d4;
               transition: 0.3s all;
               &:hover, &:focus {
@@ -67,6 +62,8 @@
                 display: block;
               }
               a {
+                padding: 13.6px 0 13.6px 15px;
+                display: block;
                 color: #333;
                 text-decoration: none;
               }
@@ -77,14 +74,6 @@
                 margin-right: 12px;
                 line-height: 1;
               }
-              // ul {
-              //   display: none;              
-              //   position: absolute;
-              //   top: 0;
-              //   left: 160px;
-              //   background: #fff;
-              //   border-left: 1px solid #d4d4d4;
-              // }
             }
             &-detail {
               width: 160px;
@@ -120,45 +109,8 @@
           }
         }
         .list-ir {
-          margin-left: 22px;
+          padding-left: 22px;
         }
-        // &-list-sub {
-        //   margin-top: 13px;
-        //   height: 225px;
-        //   background: #fff;
-        //   display: none;
-        //   li {
-        //     position: relative;
-        //     padding-left: 15px;
-        //     border-bottom: 1px solid #d4d4d4;
-        //     transition: 0.3s all;
-        //     &:hover, &:focus {
-        //       background: #999;
-        //     }
-        //     &:hover .nav-menu-list-sub > li > a,
-        //     &:focus .nav-menu-list-sub > li > ul{
-        //       // display: block;
-        //       color: #fff;
-        //     }
-        //     a {
-        //       color: #333;
-        //       font-size: 14px;
-        //       &:hover,
-        //       &:focus {
-        //         color: #fff;
-        //       }
-        //     }
-        //     ul {
-        //       display: none;              
-        //       position: absolute;
-        //       top: 0;
-        //       left: 160px;
-        //       background: #fff;
-        //       border-left: 1px solid #d4d4d4;
-        //     }
-        //   }
-
-        // }
       }
     }
   }
@@ -191,6 +143,7 @@
       height: 40px;
       padding: 0 125px;
       &-list {
+        cursor: pointer;
         display: block;
         margin: 0 auto;
         a {
@@ -206,6 +159,9 @@
           &:focus {
             border-bottom: 5px solid #fff;
           }
+        }
+        .ative-menu {
+          border-bottom: 5px solid #fff;
         }
       }
     }
@@ -224,8 +180,8 @@
       }
       .ci-wrapper {     
         .txt-detail {
-          width: 875px;
-          margin-top: 40px;
+          width: 870px;
+          margin: 40px 0;
           font-size: 16px;
           font-weight: 500;
           text-align: left;
@@ -238,29 +194,13 @@
           color: #174A8E;
           padding-bottom: 10px;
         }
-        .emp-2 {
-          width: 450px;
-          font-size: 20px;
-          font-weight: 600;
-          color: #333;
+        .emp-kr {
+          margin-top: 40px;
         }
-        .img-ci-en {
-          float: left;
-          // width: 330px;
-          // margin-right: 8.33333333%;
-        }
-        .img-ci-kr {
-          float: left;
-          margin-top: 25px;
-          // margin-right: 8.33333333%;        
-        }
-      }
-      .txt-box {
-        float: left;
-        width: 530px;
-        
-        .ceo-name {
-          font-weight: 600;
+        .ci-info {
+          width: 870px;
+          margin: 10px 0;
+          // float: left;
         }
       }
     }

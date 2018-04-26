@@ -111,7 +111,7 @@
     .container-fluid section .small-menu {
       background: #333;
       height: 40px;
-      padding: 0 125px; }
+      padding: 0 205px; }
       .container-fluid section .small-menu-list {
         cursor: pointer;
         display: block;
@@ -133,32 +133,25 @@
       margin: 60px 0;
       background: #fff;
       padding: 60px 0; }
-      .container-fluid section .article-1 .ci-title {
+      .container-fluid section .article-1 .overview-title {
         color: #333;
         font-size: 40px;
         font-weight: 600;
         padding-bottom: 30px;
         border-bottom: 2px solid #eee;
-        margin-bottom: 40px;
+        margin-bottom: 80px;
         margin-right: 8.33333333%; }
-      .container-fluid section .article-1 .ci-wrapper .txt-detail {
-        width: 870px;
-        margin: 40px 0;
-        font-size: 16px;
-        font-weight: 500;
-        text-align: left;
-        line-height: 1.5;
-        color: #333; }
-      .container-fluid section .article-1 .ci-wrapper .emp {
-        font-size: 23px;
-        font-weight: 600;
-        color: #174A8E;
-        padding-bottom: 10px; }
-      .container-fluid section .article-1 .ci-wrapper .emp-kr {
-        margin-top: 40px; }
-      .container-fluid section .article-1 .ci-wrapper .ci-info {
-        width: 870px;
-        margin: 10px 0; }
+      .container-fluid section .article-1 .overview-wrapper .overview-img {
+        width: 370px;
+        margin: 0 auto; }
+      .container-fluid section .article-1 .overview-wrapper table {
+        margin-top: 80px; }
+        .container-fluid section .article-1 .overview-wrapper table th {
+          text-align: center;
+          font-size: 18px;
+          font-weight: 600; }
+        .container-fluid section .article-1 .overview-wrapper table td {
+          font-size: 18px; }
     .container-fluid section .article-1:after {
       content: "";
       display: block;
@@ -169,6 +162,7 @@
     background: #333;
     padding: 37px 0; }
     .container-fluid footer .footer-wrapper .text-area {
+      width: 1050px;
       margin: 0 auto; }
       .container-fluid footer .footer-wrapper .text-area a img {
         float: left;

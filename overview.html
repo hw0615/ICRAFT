@@ -21,7 +21,7 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css" /> -->
   <link rel="stylesheet" type="text/css" href="css/reset.css" />
-  <link rel="stylesheet" type="text/css" href="css/common.css" />
+  <link rel="stylesheet" type="text/css" href="css/overview.css" />
   <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
   <!-- <script src="semantic/semantic.min.js"></script> -->
 </head>
@@ -38,17 +38,17 @@
       </div>
       <div class="nav-container">
         <ul class="nav-menu">
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">회사소개</a>
+          <li class="nav-menu-list"><a href="company.html" class="nav-menu-list-name">회사소개</a>
             <ul class="nav-menu-list-sub">
               <li><a href="#">기업개요<span> > </span></a>
                 <ul class="nav-menu-list-sub-detail">
-                  <li><a href="#">개요</a></li>
+                  <li><a href="overview.html">개요</a></li>
                   <li><a href="#">연혁</a></li>
                   <li><a href="#">조직도</a></li>
                   <li><a href="#">주요실적</a></li>
                 </ul>
               </li>
-              <li><a href="#">C.I</a></li>
+              <li><a href="ci.html">C.I</a></li>
               <li><a href="#">기업문화</a></li>
               <li><a href="#">사회공헌</a></li>
               <li><a href="#">찾아오시는 길</a></li>
@@ -121,55 +121,99 @@
       <p class="location">
         <a href="#">홈</a>
         <span> < </span>
-        <a href="#">회사소개</a>
-        <!-- <span> < </span>
-        <a href="#">기업개요</a> -->
+        <a href="company.html">회사소개</a>
+        <span> < </span>
+        <a href="co-overview.html">기업개요</a>
+        <span> < </span>
+        <a href="#">개요</a>
       </p>
       <div class="img-wrapper">
       </div>
       <ul class="small-menu">
         <li class="small-menu-list">
-          <a href="#" class="">기업개요</a>
+          <a href="#" class="ative-menu">개요</a>
         </li>
         <li class="small-menu-list">
-          <a href="#" class="">C.I</a>
+          <a href="#" class="">연혁</a>
         </li>
         <li class="small-menu-list">
-          <a href="#" class="">기업문화</a>
+          <a href="#" class="">조직도</a>
         </li>
         <li class="small-menu-list">
-          <a href="#" class="">사회공헌</a>                
-        </li>
-        <li class="small-menu-list">
-          <a href="#" class="">찾아오시는 길</a>
+          <a href="#" class="">주요실적</a>                
         </li>
       </ul>
       <div class="article-1">
-        <h2 class="ceo-msg col-xs-offset-1">CEO 메세지</h2>
-        <div class="txt-box col-xs-offset-1">
-          <p class="emp">"유비쿼터스 네트워크 세상을 열어가는 전문 IT기업"</p>
-          <p class="emp-2">기업의 최우선 가치를 고객감동에 두고 고객과 함께하는 아이크래프트입니다.</p>
-          <p class="txt-detail">대한민국 인터넷환경은 짧은 기간동안 바르게 진화를 거듭해 왔습니다.
-            우리가 살고 있는 인터넷세상은 국민 모두가 누리는 혜택이자 생활이 되어가고 있으며 향후 우리의 미래를 이끌어 갈 중요한 자산이 되어가고 있습니다.<br>
-            <br>그리고 그 진화의 중심에는 유비쿼터스 네트워크 세상을 열어가는 아이크래프트가 있습니다.
-            아이크래프트는 창사 이래로 대한민국 초고속 인터넷시대의 성장과 더불어 함께 발전해왔으며, 유비쿼터스 네트워크 세상을 주도하는 차세대 주역으로 성장하고 있습니다.<br>
-            
-            <br>IP-TV, Wibro, BcN, 홈네트워킹 등의 다양한 기술 발전과 함께 아이크래프트는 차세대 IT 기술 동력을 완성해가는 글로벌 네트웍 기업으로서 최고의 기술력을 갖추어 나갈 것입니다.
-            초고속 인터넷 인프라의 발전과 차세대 핵심 기술의 육성, 유비쿼터스와 컨버젼스 환경을 이끄는 글로벌 네트워크를 통해 대한민국 국민 모두가 선진 인프라 혜택을 누리도록 아이크래프트는 최선의 노력을 다 할 것입니다.<br>
-            <br>또한 기업의 최우선 가치를 고객만족에 두고 고객에게 사랑받고 신뢰받는 기업으로서의 역할과 책임을 다할 것이며, 코스닥 상장기업으로서의 사회적 책임을 다함으로써 주주로부터 사랑받으며 지속적으로 성장해 나가기 위해 노력하겠습니다.</p><br>
-
-            <br><p class="ceo-name">아이크래프트 대표이사</p>
-            <br><p class="ceo-name">박우진</p>
+        <h2 class="overview-title col-xs-offset-1">기업개요</h2>
+        <div class="overview-wrapper col-xs-offset-1">
+          <div class="overview-img">
+            <img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고">
+          </div>
+          <table class="table table-striped">
+            <caption>회사개요 표 - 회사개요 정보를 제공합니다</caption>
+            <colgroup>
+              <col style="width:20%">
+              <col style="width:71%">
+              <col style="width:20%">
+              <col style="width:71%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="row">회사명</th>
+                <td>아이크래프트 주식회사</td>
+              </tr>
+              <tr>
+                <th scope="row">설립일</th>
+                <td>2000년 1월 21일</td>
+              </tr>
+              <tr>
+                <th scope="row">자본금</th>
+                <td>4,026,987,000원</td>
+              </tr>
+              <tr>
+                <th scope="row">대표이사</th>
+                <td>박우진</td>
+              </tr>
+              <tr>
+                <th scope="row">임직원수</th>
+                <td>136명(2016년 12월 기준)</td>
+              </tr>
+              <tr>
+                <th scope="row">회사주소</th>
+                <td>서울특별시 강남구 연주로 726, 12층 (논현동, 두산건설 빌딩)</td>
+              </tr>
+              <tr>
+                <th scope="row">대표전화</th>
+                <td>02-541-0474</td>
+              </tr>
+              <tr>
+                <th scope="row">팩스</th>
+                <td>02-543-1442</td>
+              </tr>
+              <tr>
+                <th scope="row">매출액</th>
+                <td>‘FY16 : 799억원 /‘FY15 : 684억원 / ‘FY14 : 534억원</td>
+              </tr>
+              <tr>
+                <th scope="row">사업분야</th>
+                <td>- 인터넷 핵심망사업<br>
+                    - 신인증 사업<br>
+                    - BcN 전송솔루션 사업<br>
+                    - 서버, 스토리지, 보안 솔루션<br>
+                    - 제반 네트워크 컨설팅 및 유지보수<br>
+                    - 브랜드세이퍼 사업
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <img class="img-ceo"src="img/ceo.png" alt="아이크래프트 대표이사 박우진">
-        <img class="img-sign" src="img/sign.png" alt="아이크래프트 대표이사 박우진 서명">
       </div>
     </section>
     <footer>
       <div class="footer-wrapper">
         <div class="text-area">
-          <h1 class="col-xs-offset-3">
-            <a href="#">
+          <h1>
+            <a href="company.html">
               <img class="icraft-logo" src="img/logo-gr.png" alt="아이크래프트 로고">
             </a>
           </h1>

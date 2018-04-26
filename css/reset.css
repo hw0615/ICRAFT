@@ -48,5 +48,12 @@ blockquote:before, blockquote:after, q:before, q:after {
 blockquote, q {
   quotes: "" ""; }
 
+legend, caption {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: -1;
+}
+
 * {
   box-sizing: border-box; }
