@@ -43,6 +43,8 @@
             background: #fff;
             display: none;
             visibility: hidden; }
+            .container-fluid header .nav-container .nav-menu-list-sub .cantmove {
+              cursor: default; }
             .container-fluid header .nav-container .nav-menu-list-sub li {
               display: block;
               font-size: 14px;
@@ -75,7 +77,8 @@
             .container-fluid header .nav-container .nav-menu-list-sub .solution {
               width: 212px; }
             .container-fluid header .nav-container .nav-menu-list-sub .partner {
-              top: 135px; }
+              top: 135px;
+              width: 212px; }
             .container-fluid header .nav-container .nav-menu-list-sub .ir-detail {
               top: 90px; }
           .container-fluid header .nav-container .nav-menu-list .info-busi {
@@ -146,10 +149,13 @@
         margin: 0 auto; }
       .container-fluid section .article-1 .overview-wrapper table {
         margin-top: 80px; }
-        .container-fluid section .article-1 .overview-wrapper table th {
+        .container-fluid section .article-1 .overview-wrapper table .subject {
           text-align: center;
           font-size: 18px;
-          font-weight: 600; }
+          font-weight: 600;
+          border-right: 1px solid #d4d4d4; }
+        .container-fluid section .article-1 .overview-wrapper table .td-last {
+          border-bottom: 1px solid #d4d4d4; }
         .container-fluid section .article-1 .overview-wrapper table td {
           font-size: 18px; }
     .container-fluid section .article-1:after {
@@ -162,6 +168,7 @@
     background: #333;
     padding: 37px 0; }
     .container-fluid footer .footer-wrapper .text-area {
+      line-height: 1.4;
       width: 1050px;
       margin: 0 auto; }
       .container-fluid footer .footer-wrapper .text-area a img {

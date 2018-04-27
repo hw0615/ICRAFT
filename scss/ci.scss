@@ -49,6 +49,9 @@
             background: #fff;
             display: none;
             visibility: hidden;
+            .cantmove {
+              cursor: default;
+            }
             li {
               display: block;
               font-size: 14px;
@@ -90,6 +93,7 @@
             }
             .partner {
               top: 135px;
+              width: 212px;              
             }
             .ir-detail {
               top: 90px;
@@ -217,6 +221,8 @@
       background: #333;
       padding: 37px 0;
       .text-area {
+        line-height: 1.4;        
+        width: 1050px;
         margin: 0 auto;
         a {
           img {

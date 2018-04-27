@@ -49,6 +49,9 @@
             background: #fff;
             display: none;
             visibility: hidden;
+            .cantmove {
+              cursor: default;
+            }
             li {
               display: block;
               font-size: 14px;
@@ -90,6 +93,7 @@
             }
             .partner {
               top: 135px;
+              width: 212px;              
             }
             .ir-detail {
               top: 90px;
@@ -185,14 +189,17 @@
         }
         table {
           margin-top: 80px;
-          th {
+          .subject {
             text-align: center;
             font-size: 18px;
             font-weight: 600;
+            border-right: 1px solid #d4d4d4;
+          }
+          .td-last {
+            border-bottom: 1px solid #d4d4d4;
           }
           td {
             font-size: 18px;
-            // font-weight: 600;
           }
         }
       }
@@ -210,6 +217,7 @@
       background: #333;
       padding: 37px 0;
       .text-area {
+        line-height: 1.4;        
         width: 1050px;
         margin: 0 auto;
         a {
@@ -230,3 +238,7 @@
     }
   }
 }
+// .container-fluid {
+//   height: 400px;
+//   background: url('../img/img-test-1.png') no-repeat center top;
+// }
