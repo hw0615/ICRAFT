@@ -192,7 +192,7 @@ section {
   section .small-menu {
     background: #333;
     height: 40px;
-    padding: 0 125px; }
+    padding: 0 205px; }
     section .small-menu-list {
       cursor: pointer;
       display: block;
@@ -214,7 +214,7 @@ section {
     margin: 60px 0;
     background: #fff;
     padding: 60px 0; }
-    section .article-1 .ci-title {
+    section .article-1 .article-title {
       color: #333;
       font-size: 40px;
       font-weight: 600;
@@ -222,7 +222,7 @@ section {
       border-bottom: 2px solid #eee;
       margin-bottom: 40px;
       margin-right: 8.33333333%; }
-    section .article-1 .ci-wrapper .txt-detail {
+    section .article-1 .article-wrapper .txt-detail {
       width: 870px;
       margin: 40px 0;
       font-size: 16px;
@@ -230,14 +230,14 @@ section {
       text-align: left;
       line-height: 1.5;
       color: #333; }
-    section .article-1 .ci-wrapper .emp {
+    section .article-1 .article-wrapper .emp {
       font-size: 23px;
       font-weight: 600;
       color: #174A8E;
       padding-bottom: 10px; }
-    section .article-1 .ci-wrapper .emp-kr {
+    section .article-1 .article-wrapper .emp-kr {
       margin-top: 40px; }
-    section .article-1 .ci-wrapper .ci-info {
+    section .article-1 .article-wrapper .ci-info {
       width: 870px;
       margin: 10px 0; }
   section .article-1:after {

@@ -28,7 +28,7 @@ section {
   .small-menu {
     background: #333;
     height: 40px;
-    padding: 0 125px;
+    padding: 0 205px;
     &-list {
       cursor: pointer;
       display: block;
@@ -56,7 +56,7 @@ section {
     margin: 60px 0;
     background: #fff;
     padding: 60px 0;
-    .ci-title {
+    .article-title {
       color: #333;
       font-size: 40px;
       font-weight: 600;
@@ -65,7 +65,7 @@ section {
       margin-bottom: 40px;
       margin-right: 8.33333333%;
     }
-    .ci-wrapper {     
+    .article-wrapper {     
       .txt-detail {
         width: 870px;
         margin: 40px 0;
