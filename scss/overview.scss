@@ -24,6 +24,17 @@ section {
   .img-wrapper {
     height: 400px;
     background: url('../img/img-test-1.png') no-repeat center top;
+    .img-text-group {
+      padding: 40px 0;
+      color: #fff;
+      .img-text-title {
+        font-size: 28px;
+      }
+      .img-text-des {
+        padding: 8px 0;
+        font-size: 16px;
+      }
+    }
   }
   .small-menu {
     background: #333;

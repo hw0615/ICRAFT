@@ -172,8 +172,22 @@ legend, caption {
 section {
   width: 1050px;
   margin: 0 auto; }
+  section .img-wrapper {
+    position: relative;
+    right: 108px;
+    height: 400px;
+    width: 98.9vw;
+    background-image: url("../img/img-test-1.png"); }
+    section .img-wrapper .img-text-group {
+      padding: 25px 0;
+      color: #fff; }
+      section .img-wrapper .img-text-group .img-text-title {
+        font-size: 28px; }
+      section .img-wrapper .img-text-group .img-text-des {
+        padding: 8px 0;
+        font-size: 16px; }
   section .location {
-    margin: 15px 0 10px 0;
+    margin: 50px 0 10px 0;
     color: #666;
     font-size: 12px;
     font-weight: 600; }
@@ -186,21 +200,10 @@ section {
       width: 20px;
       font-size: 12px;
       text-align: center; }
-  section .img-wrapper {
-    height: 400px;
-    background: url("../img/img-test-1.png") no-repeat center top; }
-    section .img-wrapper .img-text-group {
-      padding: 40px 0;
-      color: #fff; }
-      section .img-wrapper .img-text-group .img-text-title {
-        font-size: 28px; }
-      section .img-wrapper .img-text-group .img-text-des {
-        padding: 8px 0;
-        font-size: 16px; }
   section .small-menu {
     background: #333;
     height: 40px;
-    padding: 0 205px; }
+    padding: 0 125px; }
     section .small-menu-list {
       cursor: pointer;
       display: block;
@@ -219,10 +222,10 @@ section {
       section .small-menu-list .ative-menu {
         border-bottom: 5px solid #fff; }
   section .article-1 {
-    margin: 60px 0;
+    margin: 0 0 60px 0;
     background: #fff;
     padding: 60px 0; }
-    section .article-1 .article-title {
+    section .article-1 .ceo-msg {
       color: #333;
       font-size: 40px;
       font-weight: 600;
@@ -230,24 +233,37 @@ section {
       border-bottom: 2px solid #eee;
       margin-bottom: 40px;
       margin-right: 8.33333333%; }
-    section .article-1 .article-wrapper .txt-detail {
-      width: 870px;
-      margin: 40px 0;
-      font-size: 16px;
-      font-weight: 500;
-      text-align: left;
-      line-height: 1.5;
-      color: #333; }
-    section .article-1 .article-wrapper .emp {
-      font-size: 23px;
-      font-weight: 600;
-      color: #174A8E;
-      padding-bottom: 10px; }
-    section .article-1 .article-wrapper .emp-kr {
-      margin-top: 40px; }
-    section .article-1 .article-wrapper .ci-info {
-      width: 870px;
-      margin: 10px 0; }
+    section .article-1 .txt-box {
+      float: left;
+      width: 530px; }
+      section .article-1 .txt-box .emp {
+        font-size: 23px;
+        font-weight: 600;
+        color: #174A8E;
+        padding-bottom: 10px; }
+      section .article-1 .txt-box .emp-2 {
+        width: 450px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #333; }
+      section .article-1 .txt-box .txt-detail {
+        width: 460px;
+        margin-top: 40px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        line-height: 1.5;
+        color: #333; }
+      section .article-1 .txt-box .ceo-name {
+        font-weight: 600; }
+    section .article-1 .img-ceo {
+      float: right;
+      width: 330px;
+      margin-right: 8.33333333%; }
+    section .article-1 .img-sign {
+      float: right;
+      margin-top: 25px;
+      margin-right: 8.33333333%; }
   section .article-1:after {
     content: "";
     display: block;
