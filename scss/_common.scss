@@ -1,10 +1,13 @@
+@import './config';
+
 .container-fluid {
   padding: 0;
   header {
     background: #fff;
     height: 140px;
     .logo-wrapper {
-      width: 1050px;
+      // width: 1050px;
+      width: 100%;
       height: 95px;
       margin: 0 auto;
       padding: 32px 0 32px 0;
@@ -17,18 +20,29 @@
       }
     }
     .nav-container {
+      width: 100%;      
       background: #174A8E;
       height: 45px;
       .nav-menu {
-        width: 1050px;
-        margin: 0 auto;
-        padding: 0 75px 0 175px;
+        display: table;
+        width: 100%;
+        // width: 1050px;
+        // transform: translateX(20%);
+        // margin: 0 auto;
+        padding: 0 18.2%;
+        a {
+          font-size: 1.05vw;
+        }
         &-list {
-          font-size: 16px;
+          display: table-cell;
+          font-size: 1.05vw;
+          // font-size: 16px;
           position: relative;
-          height: 45px;
+          height: 100%;
           float: left;
-          width: 160px;
+          // width: 100%;
+          min-width: 12vw;
+          // min-width: 160px;
           cursor: pointer;
           &:hover .nav-menu-list-sub {
             display: block;
@@ -36,7 +50,8 @@
           }
           .nav-menu-list-name {
             display: block;
-            padding: 14.1px 0;
+            height: 45px;
+            padding-top: 15px;
             padding-left: 12px;
             color: #fff;
             text-decoration: none;
@@ -44,17 +59,19 @@
           &-sub {
             position: absolute;
             left: 0;
-            width: 160px;
-            height: 225px;
+            width: 100%;
+            min-width: 160px;         
+            height: auto;
             background: #fff;
             display: none;
             visibility: hidden;
             .cantmove {
               cursor: default;
+              position: relative;              
             }
             li {
               display: block;
-              font-size: 14px;
+              // font-size: 14px;
               border-bottom: 1px solid #d4d4d4;
               transition: 0.3s all;
               &:hover, &:focus {
@@ -65,14 +82,14 @@
                 display: block;
               }
               a {
-                padding: 13.6px 0 13.6px 15px;
+                padding: 13.6px 8px 13.6px 8px;
                 display: block;
                 color: #333;
                 text-decoration: none;
               }
               span {
                 float: right;
-                font-size: 16px;
+                // font-size: 16px;
                 font-weight: 500;
                 margin-right: 12px;
                 line-height: 1;
@@ -89,28 +106,33 @@
               }
             }
             .solution {
-              width: 212px;
+              width: 100%;
             }
             .partner {
-              top: 135px;
-              width: 212px;              
+              position: absolute;
+              top: 132px;
+              width: 100%;              
             }
             .ir-detail {
-              top: 90px;
+              top: 89px;
             }
           }
-          .info-busi {
-            height: 180px;
-          }
-          .info-ir {
-            height: 135px;
-          }
-          .info-recruit {
-            height: 90px;
-          }
-          .info-customer {
-            height: 90px;
-          }
+          // .info-busi {
+          //   height: auto;
+          //   // height: 180px;
+          // }
+          // .info-ir {
+          //   height: auto;
+          //   // height: 135px;
+          // }
+          // .info-recruit {
+          //   height: auto;
+          //   // height: 90px;
+          // }
+          // .info-customer {
+          //   height: auto;
+          //   // height: 90px;
+          // }
         }
         .list-ir {
           padding-left: 22px;
@@ -118,7 +140,146 @@
       }
     }
   }
-  footer{
+  section {
+    width: 100%;
+    margin: 0 auto;
+    .img-wrapper {
+      width: 100%;
+      height: 400px;
+      .img-text-group {
+        width: 1050px;
+        margin: 0 auto;
+        color: #fff;
+        text-shadow: 2px 2px 5px #000;
+        @include respond-to($phone) {
+          width: 100%;
+          padding: 0 15px 0 15px;
+        }
+        @include respond-to($tablet) {
+          width: 100%;
+          padding: 0 25px 0 25px;
+        }
+        @include respond-to($desktop) {
+          width: 100%;
+          padding: 0 55px 0 55px;
+        }
+        .img-text-title {
+          padding-top: 50px;
+          font-size: 3vw;
+          // font-size: 28px;
+        }
+        .img-text-des {
+          padding: 8px 0;
+          font-size: 2vw;
+          // font-size: 16px; 
+        }
+      }
+    }
+    .small-menu {
+      display: table;
+      width: 100%;
+      text-align: center;
+      background: #333;
+      height: 35px;
+      // padding: 0 205px;
+      &-list {
+        cursor: pointer;
+        display: table-cell;
+        // display: block;
+        margin: 0 auto;
+        a {
+          height: 35px;
+          padding-top: 8px;
+          float: left;
+          // width: 253px;
+          width: 100%;
+          min-width: 100px;
+          font-size: 1.05vw;
+          // font-size: 14px;
+          color: #fff;
+          text-decoration: none;
+          &:hover, 
+          &:focus {
+            border-bottom: 5px solid #fff;
+          }
+        }
+        .ative-menu {
+          border-bottom: 5px solid #fff;
+        }
+      }
+    }
+  }
+  article {
+    width: 1050px;
+    // width: 100%;
+    // padding: 0 10%;
+    margin: 0 auto;
+    @include respond-to($phone) {
+      width: 100%;
+      padding: 0 15px 0 15px;
+    }
+    @include respond-to($tablet) {
+      width: 100%;
+      padding: 0 25px 0 25px;
+    }
+    @include respond-to($desktop) {
+      width: 100%;
+      padding: 0 55px 0 55px;
+    }
+    .location {
+      margin: 55px 0 10px 0;
+      color: #666;
+      font-size: 12px;
+      font-weight: 600;
+      a {
+        font-size: 12px;   
+        color: #666;
+        text-decoration: none;
+      }
+      span {
+        display: inline-block;
+        width: 20px;
+        font-size: 12px;        
+        text-align: center;
+      }
+    }   
+    .article {
+      margin: 0px auto 60px auto;
+      background: #fff;
+      padding: 60px 90px;
+      color: #333;
+      @include respond-to($phone) {
+        width: 100%;
+        padding: 30px 15px 30px 15px;
+      }
+      @include respond-to($tablet) {
+        width: 100%;
+        padding: 30px 25px 30px 25px;
+      }
+      @include respond-to($desktop) {
+        width: 100%;
+        padding: 50px 55px 50px 55px;
+      }
+      .article-title {
+        font-size: 3vw;
+        // font-size: 40px;
+        font-weight: 600;
+        padding-bottom: 30px;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 40px;
+      }
+    }
+    .article:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .hide {
+      display: none;
+      transition: all .5s;
+    }
+  }
+  footer {
     .footer-wrapper {
       width: 100%;
       height: 100px;
@@ -126,20 +287,49 @@
       padding: 37px 0;
       .text-area {
         line-height: 1.4;
+        // width: 100%;        
         width: 1050px;        
         margin: 0 auto;
+        // padding: 0 90px;
+        @include respond-to($phone) {
+          width: 100%;
+          padding: 0 15px 0 15px;
+        }
+        @include respond-to($tablet) {
+          width: 100%;
+          padding: 0 25px 0 25px;
+        }
+        @include respond-to($desktop) {
+          width: 100%;
+          padding: 0 55px 0 55px;
+        }
         a {
           img {
             float: left;
             width: 150px;
             margin-right: 25px;
+            @include respond-to($phone) {
+              float: none;
+              margin: 0 auto;
+            }
+            @include respond-to($tablet) {
+              float: none;
+              margin: 0 auto;
+            }
           }
         }
         p {
           float: left;
-          font-size: 13px;
+          font-size: 1.1vw;
+          // font-size: 13px;
           font-weight: 100;
           color: #d4d4d4;
+          @include respond-to($phone) {
+            display: none;
+          }
+          @include respond-to($tablet) {
+            display: none;
+          }
         }
       }
     }

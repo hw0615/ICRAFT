@@ -1,0 +1,23 @@
+$color-key: #174A8E;
+
+// ---------------------------------- Media Query
+$phone : '(min-width: 280px) and (max-width: 600px)';
+$tablet: '(min-width: 601px) and (max-width: 991px)';
+$desktop: '(min-width: 992px) and (max-width: 1250px)';
+$large-desktop: '(min-width: 1251px)';
+
+@mixin respond-to($phone) {
+  @media only screen and #{$phone} {
+      @content;
+  }
+}
+@mixin respond-to($tablet) {
+  @media only screen and #{$tablet} {
+      @content;
+  }
+}
+@mixin respond-to($desktop) {
+  @media only screen and #{$desktop} {
+      @content;
+  }
+}

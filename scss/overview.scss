@@ -2,105 +2,35 @@
 @import './common';
 
 section {
-  width: 1050px;
-  margin: 0 auto;
-  .location {
-    margin: 15px 0 10px 0;
-    color: #666;
-    font-size: 12px;
-    font-weight: 600;
-    a {
-      font-size: 12px;   
-      color: #666;
-      text-decoration: none;
-    }
-    span {
-      display: inline-block;
-      width: 20px;
-      font-size: 12px;        
-      text-align: center;
-    }
-  }   
-  .img-wrapper {
-    height: 400px;
-    background: url('../img/img-test-1.png') no-repeat center top;
-    .img-text-group {
-      padding: 40px 0;
-      color: #fff;
-      .img-text-title {
-        font-size: 28px;
-      }
-      .img-text-des {
-        padding: 8px 0;
-        font-size: 16px;
-      }
-    }
-  }
-  .small-menu {
-    background: #333;
-    height: 40px;
-    padding: 0 205px;
-    &-list {
-      cursor: pointer;
-      display: block;
+  background: url('../img/img-test.png') no-repeat center top;  
+}
+article {
+  .article {
+    .article-img-logo {
+      width: 290px;
       margin: 0 auto;
-      a {
-        height: 40px;
-        padding-top: 13px;
-        float: left;
-        width: 160px;
-        font-size: 14px;
-        color: #fff;
-        text-decoration: none;
+      // .icraft-logo {
+      // }
+    }
+    table {
+      // width: 875px;
+      width: 100%;
+      margin-top: 80px;
+      .subject {
         text-align: center;
-        &:hover, 
-        &:focus {
-          border-bottom: 5px solid #fff;
-        }
+        font-size: 1.5vw;
+        // font-size: 18px;
+        font-weight: 600;
+        border-right: 1px solid #d4d4d4;
       }
-      .ative-menu {
-        border-bottom: 5px solid #fff;
+      .td-last {
+        border-bottom: 1px solid #d4d4d4;
       }
-    }
-  }
-  .article-1 {
-    margin: 60px 0;
-    background: #fff;
-    padding: 60px 0;
-    .overview-title {
-      color: #333;
-      font-size: 40px;
-      font-weight: 600;
-      padding-bottom: 30px;
-      border-bottom: 2px solid #eee;
-      margin-bottom: 80px;
-      margin-right: 8.33333333%;
-    }
-    .overview-wrapper {
-      .overview-img {
-        width: 370px;
-        margin: 0 auto;
-      }
-      table {
-        margin-top: 80px;
-        .subject {
-          text-align: center;
-          font-size: 18px;
-          font-weight: 600;
-          border-right: 1px solid #d4d4d4;
-        }
-        .td-last {
-          border-bottom: 1px solid #d4d4d4;
-        }
-        td {
-          font-size: 18px;
-        }
+      td {
+        font-size: 1.5vw;
+        // font-size: 18px;
+        padding-left: 15px;
       }
     }
-  }
-  .article-1:after {
-    content: "";
-    display: block;
-    clear: both;
   }
 }
