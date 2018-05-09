@@ -64,6 +64,7 @@
           &-sub {
             position: absolute;
             left: 0;
+            z-index: 1;
             width: 100%;
             min-width: 160px;         
             height: auto;
@@ -190,8 +191,6 @@
       }
     }
     .small-menu {
-      position: absolute;
-      top: 400px;
       display: table;
       width: 100%;
       text-align: center;
@@ -201,7 +200,6 @@
       &-list {
         cursor: pointer;
         display: table-cell;
-        // display: block;
         margin: 0 auto;
         a {
           height: 35px;
@@ -230,13 +228,13 @@
           border-bottom: 5px solid #fff;
         }
       }
-      .fixed & {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        z-index: 999; 
-      }
+    }
+    .fixed-sub {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 999;
     }
   }
   article {
@@ -383,5 +381,16 @@
         }
       }
     }
+  }
+  .move-top {
+    display: none;
+    position: fixed;
+    right: 2%;
+    bottom: 130px;
+    background: #999;
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
   }
 }

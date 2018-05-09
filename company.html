@@ -184,25 +184,11 @@
         </div>
       </div>
     </footer>
+    <button class="move-top"></button>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script>
-    $(function () {
-      var nav = $('.container-fluid');
-      // var content = $('.content-wrap');
-      $(window).scroll(function () {
-        console.log($(this))
-        if ($(this).scrollTop() > 83) {
-          nav.addClass("fixed");
-          // content.addClass("topmargin");
-        } else {
-          nav.removeClass("fixed");
-          // content.removeClass("topmargin");
-        }
-      });
-    });
-  </script>
+  <script src="./js/scroll.js"></script>
 </body>
 
 </html>
