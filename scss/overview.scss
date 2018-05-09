@@ -9,27 +9,40 @@ article {
     .article-img-logo {
       width: 290px;
       margin: 0 auto;
-      // .icraft-logo {
-      // }
+      .icraft-logo {
+        margin-top: 30px;
+      }
     }
     table {
       // width: 875px;
       width: 100%;
-      margin-top: 80px;
+      margin-top: 70px;
       .subject {
         text-align: center;
-        font-size: 1.5vw;
-        // font-size: 18px;
+        // font-size: 1.5vw;
+        font-size: 18px;
         font-weight: 600;
         border-right: 1px solid #d4d4d4;
+        @include respond-to($phone) {
+          font-size: 10px;
+        }
+        @include respond-to($tablet) {
+          font-size: 14px;
+        }
       }
       .td-last {
         border-bottom: 1px solid #d4d4d4;
       }
       td {
-        font-size: 1.5vw;
-        // font-size: 18px;
+        // font-size: 1.5vw;
+        font-size: 18px;
         padding-left: 15px;
+        @include respond-to($phone) {
+          font-size: 10px;
+        }
+        @include respond-to($tablet) {
+          font-size: 14px;
+        }
       }
     }
   }

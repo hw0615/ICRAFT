@@ -38,12 +38,12 @@
         <ul class="nav-menu">
           <li class="nav-menu-list"><a href="company.html" class="nav-menu-list-name">회사소개</a>
             <ul class="nav-menu-list-sub">
-              <li><a href="#">기업개요<span> > </span></a>
+              <li class="cantmove"><a>기업개요<span> > </span></a>
                 <ul class="nav-menu-list-sub-detail">
                   <li><a href="overview.html">개요</a></li>
                   <li><a href="history.html">연혁</a></li>
                   <li><a href="organization.html">조직도</a></li>
-                  <li><a href="#">주요실적</a></li>
+                  <li><a href="major-projects.html">주요실적</a></li>
                 </ul>
               </li>
               <li><a href="ci.html">C.I</a></li>
@@ -54,7 +54,7 @@
           </li>
           <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">사업소개</a>
             <ul class="nav-menu-list-sub info-busi">
-              <li><a href="#">Solution Portfolio<span> > </span></a>
+              <li class="cantmove"><a>Solution Portfolio<span> > </span></a>
                 <ul class="nav-menu-list-sub-detail solution">
                   <li><a href="#">인터넷 핵심망/접속망</a></li>
                   <li><a href="#">인터넷 INFRA부가 서비스</a></li>
@@ -70,7 +70,7 @@
               </li>
               <li><a href="#">Product License</a></li>
               <li><a href="#">브랜드세이퍼</a></li>
-              <li><a href="#">주요 제품(파트너)<span> > </span></a>
+              <li class="cantmove"><a>주요 제품(파트너)<span> > </span></a>
                 <ul class="nav-menu-list-sub-detail partner">
                   <li><a href="#">Juniper</a></li>
                   <li><a href="#">Genband</a></li>
@@ -88,7 +88,7 @@
             <ul class="nav-menu-list-sub info-ir">
               <li><a href="#">주가정보</a></li>
               <li><a href="#">재무정보</a></li>
-              <li><a href="#">IR 자료실<span> > </span></a>
+              <li class="cantmove"><a>IR 자료실<span> > </span></a>
                 <ul class="nav-menu-list-sub-detail ir-detail">
                   <li><a href="#">경영공시</a></li>
                   <li><a href="#">내부 정보 관리 규정</a></li>
@@ -160,12 +160,14 @@
             초고속 인터넷 인프라의 발전과 차세대 핵심 기술의 육성, 유비쿼터스와 컨버젼스 환경을 이끄는 글로벌 네트워크를 통해 대한민국 국민 모두가 선진 인프라 혜택을 누리도록 아이크래프트는 최선의 노력을 다 할 것입니다.<br>
             <br>또한 기업의 최우선 가치를 고객만족에 두고 고객에게 사랑받고 신뢰받는 기업으로서의 역할과 책임을 다할 것이며, 코스닥 상장기업으로서의 사회적 책임을 다함으로써 주주로부터 사랑받으며 지속적으로 성장해 나가기 위해 노력하겠습니다.</p><br>
             <br>
-          <p class="ceo-name">아이크래프트 대표이사</p><br>
-          <p class="ceo-name">박우진</p>
+            <!-- <p class="ceo-name">아이크래프트 대표이사</p><br>
+            <p class="ceo-name">박우진</p> -->
         </div>
         <div class="img-wrapper">
           <img class="img-ceo"src="img/ceo.png" alt="아이크래프트 대표이사 박우진">
+          <p class="ceo-name">아이크래프트 대표이사 박우진</p><br>
           <img class="img-sign" src="img/sign.png" alt="아이크래프트 대표이사 박우진 서명">
+          <!-- <span class="ceo-name">박우진</span> -->
         </div>
       </div>
     </article>
@@ -185,6 +187,22 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      var nav = $('.container-fluid');
+      // var content = $('.content-wrap');
+      $(window).scroll(function () {
+        console.log($(this))
+        if ($(this).scrollTop() > 83) {
+          nav.addClass("fixed");
+          // content.addClass("topmargin");
+        } else {
+          nav.removeClass("fixed");
+          // content.removeClass("topmargin");
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -29,14 +29,19 @@
         // width: 1050px;
         // transform: translateX(20%);
         // margin: 0 auto;
-        padding: 0 18.2%;
+        padding: 0 17%;
         a {
-          font-size: 1.05vw;
+          font-size: 14px;
+          // font-size: 1.05vw;
+          @include respond-to($phone) {
+            font-size: 10px;
+          }
+          @include respond-to($tablet) {
+            font-size: 12px;
+          }
         }
         &-list {
           display: table-cell;
-          font-size: 1.05vw;
-          // font-size: 16px;
           position: relative;
           height: 100%;
           float: left;
@@ -110,29 +115,15 @@
             }
             .partner {
               position: absolute;
-              top: 132px;
+              top: 0;
               width: 100%;              
             }
             .ir-detail {
               top: 89px;
+              position: absolute;
+              top: 0;
             }
           }
-          // .info-busi {
-          //   height: auto;
-          //   // height: 180px;
-          // }
-          // .info-ir {
-          //   height: auto;
-          //   // height: 135px;
-          // }
-          // .info-recruit {
-          //   height: auto;
-          //   // height: 90px;
-          // }
-          // .info-customer {
-          //   height: auto;
-          //   // height: 90px;
-          // }
         }
         .list-ir {
           padding-left: 22px;
@@ -141,11 +132,22 @@
     }
   }
   section {
+    position: relative;
     width: 100%;
     margin: 0 auto;
+    @include respond-to($phone) {
+      background-position-y: 0;
+    }
     .img-wrapper {
       width: 100%;
       height: 400px;
+      // height: auto;
+      @include respond-to($phone) {
+        height: 250px;
+      }
+      @include respond-to($tablet) {
+        height: 260px;
+      }
       .img-text-group {
         width: 1050px;
         margin: 0 auto;
@@ -165,17 +167,31 @@
         }
         .img-text-title {
           padding-top: 50px;
-          font-size: 3vw;
-          // font-size: 28px;
+          // font-size: 3vw;
+          font-size: 28px;
+          @include respond-to($phone) {
+            font-size: 20px;
+          }
+          @include respond-to($tablet) {
+            font-size: 24px;
+          }        
         }
         .img-text-des {
           padding: 8px 0;
-          font-size: 2vw;
-          // font-size: 16px; 
+          // font-size: 2vw;
+          font-size: 18px;
+          @include respond-to($phone) {
+            font-size: 10px;
+          }
+          @include respond-to($tablet) {
+            font-size: 14px;
+          }
         }
       }
     }
     .small-menu {
+      position: absolute;
+      top: 400px;
       display: table;
       width: 100%;
       text-align: center;
@@ -189,23 +205,37 @@
         margin: 0 auto;
         a {
           height: 35px;
-          padding-top: 8px;
+          padding-top: 10px;
           float: left;
           // width: 253px;
           width: 100%;
           min-width: 100px;
-          font-size: 1.05vw;
-          // font-size: 14px;
+          // font-size: 1.05vw;
+          font-size: 14px;
           color: #fff;
           text-decoration: none;
+          @include respond-to($phone) {
+            font-size: 10px;
+            padding-top: 12px;             
+          }
+          @include respond-to($tablet) {
+            font-size: 14px;
+          }
           &:hover, 
           &:focus {
             border-bottom: 5px solid #fff;
           }
         }
-        .ative-menu {
+        .active-menu {
           border-bottom: 5px solid #fff;
         }
+      }
+      .fixed & {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 999; 
       }
     }
   }
@@ -235,11 +265,17 @@
         font-size: 12px;   
         color: #666;
         text-decoration: none;
+        @include respond-to($phone) {
+          font-size: 10px;
+        }
+        @include respond-to($tablet) {
+          font-size: 10px;
+        }
       }
       span {
         display: inline-block;
         width: 20px;
-        font-size: 12px;        
+        font-size: 12px;     
         text-align: center;
       }
     }   
@@ -250,7 +286,7 @@
       color: #333;
       @include respond-to($phone) {
         width: 100%;
-        padding: 30px 15px 30px 15px;
+        padding: 30px 25px 30px 25px;
       }
       @include respond-to($tablet) {
         width: 100%;
@@ -258,15 +294,25 @@
       }
       @include respond-to($desktop) {
         width: 100%;
-        padding: 50px 55px 50px 55px;
+        padding: 60px 75px 60px 75px;
       }
       .article-title {
-        font-size: 3vw;
-        // font-size: 40px;
+        font-size: 40px;
+        // font-size: 3vw;
         font-weight: 600;
         padding-bottom: 30px;
         border-bottom: 2px solid #eee;
         margin-bottom: 40px;
+        @include respond-to($phone) {
+          font-size: 20px;
+          padding-bottom: 15px;
+          margin-bottom: 20px;       
+        }
+        @include respond-to($tablet) {
+          font-size: 30px;
+          padding-bottom: 20px;
+          margin-bottom: 30px;       
+        }
       }
     }
     .article:after {
@@ -309,25 +355,29 @@
             width: 150px;
             margin-right: 25px;
             @include respond-to($phone) {
-              float: none;
-              margin: 0 auto;
+              width: 100px;
+              // float: none;
+              // margin: 0 auto;
             }
             @include respond-to($tablet) {
-              float: none;
-              margin: 0 auto;
+              width: 120px;
+              // float: left;
+              // margin-right: 10px;
             }
           }
         }
         p {
           float: left;
-          font-size: 1.1vw;
-          // font-size: 13px;
+          // font-size: 1.1vw;
+          font-size: 13px;
           font-weight: 100;
           color: #d4d4d4;
           @include respond-to($phone) {
             display: none;
           }
           @include respond-to($tablet) {
+            // float: left;
+            // font-size: 11px;
             display: none;
           }
         }

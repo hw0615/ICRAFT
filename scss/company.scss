@@ -4,102 +4,141 @@
 
 section {
   background: {
-    // image: url('../img/img-test.png');
+    image: url('../img/company.jpg');
     color: #000;
     repeat: no-repeat;
     size: cover; 
-    position: center;  
+    // position: top;  
+    position-y: -105px;
   }
+  // @include respond-to($phone) {
+  //   background-position-y: 0;
+  // }
 }
 article {
   .article {
     .txt-box {
       float: left;
-      // width: 530px;
+      width: 530px;
       @include respond-to($phone) {
         width: 100%;
       }
       @include respond-to($tablet) {
+        min-width: 480px;
         width: 100%;
       }
-      // @include respond-to($desktop) {
-      //   width: 100%;
-      // }
       .emp {
-        font-size: 1.8vw;
-        // font-size: 23px;
+        // font-size: 1.8vw;
+        font-size: 23px;
         font-weight: 600;
         color: $color-key;
         padding-bottom: 10px;
+        @include respond-to($phone) {
+          font-size: 16px;
+          width: 100%;
+        }
+        @include respond-to($tablet) {
+          font-size: 18px;        
+          width: 100%;
+        }
       }
       .emp-2 {
         width: 450px;
-        font-size: 1.6vw;
-        // font-size: 20px;
+        // font-size: 1.6vw;
+        font-size: 20px;
         font-weight: 600;
+        @include respond-to($phone) {
+          font-size: 16px;          
+          width: 100%;
+        }
+        @include respond-to($tablet) {
+          font-size: 18px;
+          width: 100%;
+        }
       }
       .txt-detail {
         width: 460px;
+        // width: 100%;
+        // padding-right: 25px;        
         margin-top: 40px;
-        font-size: 1.2vw;
-        // font-size: 16px;
+        font-size: 16px;
+        // font-size: 1.2vw;
         font-weight: 500;
         text-align: left;
         line-height: 1.5;
         @include respond-to($phone) {
+          font-size: 12px;          
           width: 100%;
         }
         @include respond-to($tablet) {
+          font-size: 14px;
           width: 100%;
         }
         @include respond-to($desktop) {
-          // width: 100%;
+          width: 100%;
+          padding-right: 30px;
         }
-      }
-      .ceo-name {
-        font-size: 1.2vw;        
-        font-weight: 600;
       }
     }
     .img-wrapper {
       // height: 70%;
       overflow: hidden;
       @include respond-to($phone) {
-        width: 100%;          
-        height: 550px;
+        width: 100%;
+        margin: 0 auto;        
       }
       @include respond-to($tablet) {
-        width: 100%;          
-        height: 750px;
+        width: 100%;
+        margin: 0 auto;
       }
       .img-ceo {
         float: right;
         width: 100%;
         // width: 330px;
         height: 70%;
-        // height: 555px;
         object-fit: cover;
         vertical-align: middle;
         @include respond-to($phone) {
-          width: 100%;          
-          height: 50%;
+          width: 100%;
+          height: 300px;
+          margin-bottom: 30px;
         }
         @include respond-to($tablet) {
-          width: 100%;          
-          height: 50%;
+          width: 100%;
+          height: 350px;
+          margin-bottom: 30px;
         }
         @include respond-to($desktop) {
-          width: 100%;          
+          width: 100%;
+          min-height: 500px;
+          max-height: 565px;
           height: 50%;
         }
       }
       .img-sign {
         float: right;
-        margin-top: 25px;
-        width: 50%;
-        height: 70%;
+        margin-top: 5px;
+        width: 150px;
+        height: 35px;
         object-fit: cover;
         vertical-align: middle;
+      }
+      .ceo-name {
+        float: right;
+        font-size: 16px;        
+        // font-size: 1.2vw;        
+        font-weight: 600;
+        margin-top: 30px;
+        @include respond-to($phone) {
+          float: none;
+          text-align: right;
+          font-size: 12px;
+        }
+        @include respond-to($tablet) {
+          float: none;
+          text-align: right;
+          font-size: 14px;
+        }
       }
     }
   }

@@ -3,7 +3,13 @@
 @import './config';
 
 section {
-  background: url('../img/img-test.png') no-repeat center top;  
+  background: {
+    image: url('../img/img-test.png');
+    repeat: no-repeat;
+    size: cover; 
+    // position: top;  
+    // position-y: -105px;
+  }
 }
 article { 
   .article {
@@ -14,6 +20,9 @@ article {
       color: $color-key;
       text-align: center;
       margin: 50px 0;
+    }
+    &-img-org {
+      width: 100%;
     }
   }
 }

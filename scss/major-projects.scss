@@ -65,8 +65,11 @@ section {
       @include respond-to($tablet) {
         font-size: 14px;
       }
-      // font-size: 1.5vw;
+      .same-month {
+        visibility: hidden;
+      }
     }
+    
   }
   .more-wrap {
     max-width: 870px;

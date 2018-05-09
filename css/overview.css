@@ -78,12 +78,17 @@ legend, caption {
       .container-fluid header .nav-container .nav-menu {
         display: table;
         width: 100%;
-        padding: 0 18.2%; }
+        padding: 0 17%; }
         .container-fluid header .nav-container .nav-menu a {
-          font-size: 1.05vw; }
+          font-size: 14px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid header .nav-container .nav-menu a {
+              font-size: 10px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid header .nav-container .nav-menu a {
+              font-size: 12px; } }
         .container-fluid header .nav-container .nav-menu-list {
           display: table-cell;
-          font-size: 1.05vw;
           position: relative;
           height: 100%;
           float: left;
@@ -142,18 +147,30 @@ legend, caption {
               width: 100%; }
             .container-fluid header .nav-container .nav-menu-list-sub .partner {
               position: absolute;
-              top: 132px;
+              top: 0;
               width: 100%; }
             .container-fluid header .nav-container .nav-menu-list-sub .ir-detail {
-              top: 89px; }
+              top: 89px;
+              position: absolute;
+              top: 0; }
         .container-fluid header .nav-container .nav-menu .list-ir {
           padding-left: 22px; }
   .container-fluid section {
+    position: relative;
     width: 100%;
     margin: 0 auto; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid section {
+        background-position-y: 0; } }
     .container-fluid section .img-wrapper {
       width: 100%;
       height: 400px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid section .img-wrapper {
+          height: 250px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid section .img-wrapper {
+          height: 260px; } }
       .container-fluid section .img-wrapper .img-text-group {
         width: 1050px;
         margin: 0 auto;
@@ -173,11 +190,25 @@ legend, caption {
             padding: 0 55px 0 55px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-title {
           padding-top: 50px;
-          font-size: 3vw; }
+          font-size: 28px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-title {
+              font-size: 20px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-title {
+              font-size: 24px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-des {
           padding: 8px 0;
-          font-size: 2vw; }
+          font-size: 18px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-des {
+              font-size: 10px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-des {
+              font-size: 14px; } }
     .container-fluid section .small-menu {
+      position: absolute;
+      top: 400px;
       display: table;
       width: 100%;
       text-align: center;
@@ -189,17 +220,30 @@ legend, caption {
         margin: 0 auto; }
         .container-fluid section .small-menu-list a {
           height: 35px;
-          padding-top: 8px;
+          padding-top: 10px;
           float: left;
           width: 100%;
           min-width: 100px;
-          font-size: 1.05vw;
+          font-size: 14px;
           color: #fff;
           text-decoration: none; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid section .small-menu-list a {
+              font-size: 10px;
+              padding-top: 12px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid section .small-menu-list a {
+              font-size: 14px; } }
           .container-fluid section .small-menu-list a:hover, .container-fluid section .small-menu-list a:focus {
             border-bottom: 5px solid #fff; }
-        .container-fluid section .small-menu-list .ative-menu {
+        .container-fluid section .small-menu-list .active-menu {
           border-bottom: 5px solid #fff; }
+      .fixed .container-fluid section .small-menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 999; }
   .container-fluid article {
     width: 1050px;
     margin: 0 auto; }
@@ -224,6 +268,12 @@ legend, caption {
         font-size: 12px;
         color: #666;
         text-decoration: none; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .location a {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .location a {
+            font-size: 10px; } }
       .container-fluid article .location span {
         display: inline-block;
         width: 20px;
@@ -237,7 +287,7 @@ legend, caption {
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid article .article {
           width: 100%;
-          padding: 30px 15px 30px 15px; } }
+          padding: 30px 25px 30px 25px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid article .article {
           width: 100%;
@@ -245,13 +295,23 @@ legend, caption {
       @media only screen and (min-width: 992px) and (max-width: 1250px) {
         .container-fluid article .article {
           width: 100%;
-          padding: 50px 55px 50px 55px; } }
+          padding: 60px 75px 60px 75px; } }
       .container-fluid article .article .article-title {
-        font-size: 3vw;
+        font-size: 40px;
         font-weight: 600;
         padding-bottom: 30px;
         border-bottom: 2px solid #eee;
         margin-bottom: 40px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .article-title {
+            font-size: 20px;
+            padding-bottom: 15px;
+            margin-bottom: 20px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .article-title {
+            font-size: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 30px; } }
     .container-fluid article .article:after {
       content: "";
       display: block;
@@ -286,15 +346,13 @@ legend, caption {
         margin-right: 25px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid footer .footer-wrapper .text-area a img {
-            float: none;
-            margin: 0 auto; } }
+            width: 100px; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           .container-fluid footer .footer-wrapper .text-area a img {
-            float: none;
-            margin: 0 auto; } }
+            width: 120px; } }
       .container-fluid footer .footer-wrapper .text-area p {
         float: left;
-        font-size: 1.1vw;
+        font-size: 13px;
         font-weight: 100;
         color: #d4d4d4; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -310,17 +368,31 @@ section {
 article .article .article-img-logo {
   width: 290px;
   margin: 0 auto; }
+  article .article .article-img-logo .icraft-logo {
+    margin-top: 30px; }
 
 article .article table {
   width: 100%;
-  margin-top: 80px; }
+  margin-top: 70px; }
   article .article table .subject {
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 18px;
     font-weight: 600;
     border-right: 1px solid #d4d4d4; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article table .subject {
+        font-size: 10px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article table .subject {
+        font-size: 14px; } }
   article .article table .td-last {
     border-bottom: 1px solid #d4d4d4; }
   article .article table td {
-    font-size: 1.5vw;
+    font-size: 18px;
     padding-left: 15px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article table td {
+        font-size: 10px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article table td {
+        font-size: 14px; } }
