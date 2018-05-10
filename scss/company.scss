@@ -11,77 +11,42 @@ section {
     // position: top;  
     position-y: -105px;
   }
-  // @include respond-to($phone) {
-  //   background-position-y: 0;
-  // }
+  @include respond-to($large-desktop) {
+   background-position-y: -350px;    
+  }
 }
 article {
   .article {
     .txt-box {
       float: left;
       width: 530px;
+      margin-right: 25px;
       @include respond-to($phone) {
         width: 100%;
       }
       @include respond-to($tablet) {
-        min-width: 480px;
         width: 100%;
       }
-      .emp {
-        // font-size: 1.8vw;
-        font-size: 23px;
-        font-weight: 600;
-        color: $color-key;
-        padding-bottom: 10px;
-        @include respond-to($phone) {
-          font-size: 16px;
-          width: 100%;
-        }
-        @include respond-to($tablet) {
-          font-size: 18px;        
-          width: 100%;
-        }
+      @include respond-to($desktop) {
+        min-width: 470px;
       }
       .emp-2 {
         width: 450px;
         // font-size: 1.6vw;
         font-size: 20px;
         font-weight: 600;
+        padding-bottom: 20px;
         @include respond-to($phone) {
-          font-size: 16px;          
+          font-size: 13px;          
           width: 100%;
         }
         @include respond-to($tablet) {
-          font-size: 18px;
+          font-size: 16px;
           width: 100%;
-        }
-      }
-      .txt-detail {
-        width: 460px;
-        // width: 100%;
-        // padding-right: 25px;        
-        margin-top: 40px;
-        font-size: 16px;
-        // font-size: 1.2vw;
-        font-weight: 500;
-        text-align: left;
-        line-height: 1.5;
-        @include respond-to($phone) {
-          font-size: 12px;          
-          width: 100%;
-        }
-        @include respond-to($tablet) {
-          font-size: 14px;
-          width: 100%;
-        }
-        @include respond-to($desktop) {
-          width: 100%;
-          padding-right: 30px;
         }
       }
     }
     .img-wrapper {
-      // height: 70%;
       overflow: hidden;
       @include respond-to($phone) {
         width: 100%;

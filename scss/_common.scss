@@ -217,7 +217,7 @@
             padding-top: 12px;             
           }
           @include respond-to($tablet) {
-            font-size: 14px;
+            font-size: 12px;
           }
           &:hover, 
           &:focus {
@@ -283,10 +283,12 @@
       padding: 60px 90px;
       color: #333;
       @include respond-to($phone) {
+        font-size: 12px;        
         width: 100%;
         padding: 30px 25px 30px 25px;
       }
       @include respond-to($tablet) {
+        font-size: 14px;
         width: 100%;
         padding: 30px 25px 30px 25px;
       }
@@ -310,6 +312,37 @@
           font-size: 30px;
           padding-bottom: 20px;
           margin-bottom: 30px;       
+        }
+      }
+      .article-box {
+        width: 100%;
+      }
+      .article-text {
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        line-height: 1.5;
+        margin: 20px 0;
+        color: #333;
+        @include respond-to($phone) {
+          font-size: 10px;        
+        }
+        @include respond-to($tablet) {
+          font-size: 14px;
+        }
+      }
+      .emp {
+        font-size: 22px;
+        font-weight: 600;
+        color: $color-key;
+        padding-bottom: 10px;
+        @include respond-to($phone) {
+          font-size: 14px;
+          width: 100%;
+        }
+        @include respond-to($tablet) {
+          font-size: 18px;        
+          width: 100%;
         }
       }
     }

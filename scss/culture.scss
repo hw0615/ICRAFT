@@ -1,0 +1,138 @@
+@import './reset';  
+@import './common';
+@import './config';
+
+section {
+  background: url('../img/img-test.png') no-repeat center top;  
+}
+article {
+  .article-wrapper {
+    .article-box {
+      margin-bottom: 50px;
+      .article-left {
+        width: 45%;
+        float: left;
+        margin-right: 30px;
+        .img {
+          height: 280px;
+          background: {
+            image: url('../img/coworkers.jpg');
+            color: #000;
+            repeat: no-repeat;
+            size: cover; 
+          }
+          @include respond-to($phone) {
+            height: 165px;
+          }
+        }
+        .article-text {
+          border-top: 1px solid $color-key;
+          border-bottom: 1px solid $color-key;
+          padding: 10px 0 10px 0;
+          text-align: center;
+          // margin: 45px 0;
+        }
+        // img {
+        //   width: 100%;
+        //   height: 255px;
+        //   object-fit: cover;
+        //   vertical-align: middle;
+        //   @include respond-to($phone) {
+        //     height: 165px;
+        //   }
+        // }
+        @include respond-to($phone) {
+          width: 100%;
+        }
+      }
+      .article-right {
+        width: 50%;
+        @include respond-to($tablet) {
+          width: 45%;
+        }
+        display: inline-block;
+        .text-group {
+          .text-title {
+            font-size: 18px;
+            font-weight: 600;
+            @include respond-to($phone) {
+              font-size: 14px;
+            }
+            @include respond-to($tablet) {
+              font-size: 16px;
+            }
+            span {
+              font-size: 14px;
+              color: $color-key;
+              padding-left: 10px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 12px;
+              }
+            }
+          }
+          .article-text {
+            margin: 5px 0 20px 0;
+          }
+        }
+        @include respond-to($phone) {
+          width: 100%;
+          float: none;
+        }
+      }
+    }
+    .article-box-2 {
+      width: 100%;
+      // background: #fbfbfb;
+      margin-bottom: 80px;      
+      // padding: 5px 20px;
+      .article-text {
+        margin: 10px 0;
+      }
+    }
+    .article-box-3 {
+      height: auto;
+      .article-left {
+        float: left;
+        width: 50%;
+        height: 100%;
+        // background-color: rgba(216, 179, 137, 0.6);
+        // background-color: rgba(218, 189, 137, 0.6);   
+        .article-text {
+          margin: 0 0 30px 0;
+        }
+      }
+      .article-right {
+        // display: inline-block;
+        float: right;
+        width: 48%;
+        .img {
+          height: 150px;
+          background: {
+            image: url('../img/coworkers.jpg');
+            color: #000;
+            repeat: no-repeat;
+            size: cover; 
+          }
+          @include respond-to($phone) {
+            height: 165px;
+          }
+        }
+        .article-text {
+          border-top: 1px solid $color-key;
+          border-bottom: 1px solid $color-key;
+          padding: 5px 0 5px 0;
+          text-align: center;
+          // margin: 5px 0;
+        }
+      }
+    }
+    // .article-box-3:after {
+    //   content: "";
+    //   display: block;
+    //   clear: both;
+    // }
+  }
+}

@@ -402,93 +402,91 @@ legend, caption {
     height: 45px; }
 
 section {
-  background-image: url("../img/company.jpg");
-  background-color: #000;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: -105px; }
-  @media only screen and (min-width: 1251px) {
-    section {
-      background-position-y: -350px; } }
+  background: url("../img/img-test.png") no-repeat center top; }
 
-article .article .txt-box {
-  float: left;
-  width: 530px;
-  margin-right: 25px; }
-  @media only screen and (min-width: 280px) and (max-width: 600px) {
-    article .article .txt-box {
-      width: 100%; } }
-  @media only screen and (min-width: 601px) and (max-width: 991px) {
-    article .article .txt-box {
-      width: 100%; } }
-  @media only screen and (min-width: 992px) and (max-width: 1250px) {
-    article .article .txt-box {
-      min-width: 470px; } }
-  article .article .txt-box .emp-2 {
-    width: 450px;
-    font-size: 20px;
-    font-weight: 600;
-    padding-bottom: 20px; }
+article .article-wrapper .article-box {
+  margin-bottom: 50px; }
+  article .article-wrapper .article-box .article-left {
+    width: 45%;
+    float: left;
+    margin-right: 30px; }
+    article .article-wrapper .article-box .article-left .img {
+      height: 280px;
+      background-image: url("../img/coworkers.jpg");
+      background-color: #000;
+      background-repeat: no-repeat;
+      background-size: cover; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper .article-box .article-left .img {
+          height: 165px; } }
+    article .article-wrapper .article-box .article-left .article-text {
+      border-top: 1px solid #174A8E;
+      border-bottom: 1px solid #174A8E;
+      padding: 10px 0 10px 0;
+      text-align: center; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
-      article .article .txt-box .emp-2 {
-        font-size: 13px;
+      article .article-wrapper .article-box .article-left {
         width: 100%; } }
+  article .article-wrapper .article-box .article-right {
+    width: 50%;
+    display: inline-block; }
     @media only screen and (min-width: 601px) and (max-width: 991px) {
-      article .article .txt-box .emp-2 {
-        font-size: 16px;
-        width: 100%; } }
+      article .article-wrapper .article-box .article-right {
+        width: 45%; } }
+    article .article-wrapper .article-box .article-right .text-group .text-title {
+      font-size: 18px;
+      font-weight: 600; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper .article-box .article-right .text-group .text-title {
+          font-size: 14px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article-wrapper .article-box .article-right .text-group .text-title {
+          font-size: 16px; } }
+      article .article-wrapper .article-box .article-right .text-group .text-title span {
+        font-size: 14px;
+        color: #174A8E;
+        padding-left: 10px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article-wrapper .article-box .article-right .text-group .text-title span {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article-wrapper .article-box .article-right .text-group .text-title span {
+            font-size: 12px; } }
+    article .article-wrapper .article-box .article-right .text-group .article-text {
+      margin: 5px 0 20px 0; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper .article-box .article-right {
+        width: 100%;
+        float: none; } }
 
-article .article .img-wrapper {
-  overflow: hidden; }
-  @media only screen and (min-width: 280px) and (max-width: 600px) {
-    article .article .img-wrapper {
-      width: 100%;
-      margin: 0 auto; } }
-  @media only screen and (min-width: 601px) and (max-width: 991px) {
-    article .article .img-wrapper {
-      width: 100%;
-      margin: 0 auto; } }
-  article .article .img-wrapper .img-ceo {
+article .article-wrapper .article-box-2 {
+  width: 100%;
+  margin-bottom: 80px; }
+  article .article-wrapper .article-box-2 .article-text {
+    margin: 10px 0; }
+
+article .article-wrapper .article-box-3 {
+  height: auto; }
+  article .article-wrapper .article-box-3 .article-left {
+    float: left;
+    width: 50%;
+    height: 100%; }
+    article .article-wrapper .article-box-3 .article-left .article-text {
+      margin: 0 0 30px 0; }
+  article .article-wrapper .article-box-3 .article-right {
     float: right;
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-    vertical-align: middle; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      article .article .img-wrapper .img-ceo {
-        width: 100%;
-        height: 300px;
-        margin-bottom: 30px; } }
-    @media only screen and (min-width: 601px) and (max-width: 991px) {
-      article .article .img-wrapper .img-ceo {
-        width: 100%;
-        height: 350px;
-        margin-bottom: 30px; } }
-    @media only screen and (min-width: 992px) and (max-width: 1250px) {
-      article .article .img-wrapper .img-ceo {
-        width: 100%;
-        min-height: 500px;
-        max-height: 565px;
-        height: 50%; } }
-  article .article .img-wrapper .img-sign {
-    float: right;
-    margin-top: 5px;
-    width: 150px;
-    height: 35px;
-    object-fit: cover;
-    vertical-align: middle; }
-  article .article .img-wrapper .ceo-name {
-    float: right;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 30px; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      article .article .img-wrapper .ceo-name {
-        float: none;
-        text-align: right;
-        font-size: 12px; } }
-    @media only screen and (min-width: 601px) and (max-width: 991px) {
-      article .article .img-wrapper .ceo-name {
-        float: none;
-        text-align: right;
-        font-size: 14px; } }
+    width: 48%; }
+    article .article-wrapper .article-box-3 .article-right .img {
+      height: 150px;
+      background-image: url("../img/coworkers.jpg");
+      background-color: #000;
+      background-repeat: no-repeat;
+      background-size: cover; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper .article-box-3 .article-right .img {
+          height: 165px; } }
+    article .article-wrapper .article-box-3 .article-right .article-text {
+      border-top: 1px solid #174A8E;
+      border-bottom: 1px solid #174A8E;
+      padding: 5px 0 5px 0;
+      text-align: center; }

@@ -232,7 +232,7 @@ legend, caption {
               padding-top: 12px; } }
           @media only screen and (min-width: 601px) and (max-width: 991px) {
             .container-fluid section .small-menu-list a {
-              font-size: 14px; } }
+              font-size: 12px; } }
           .container-fluid section .small-menu-list a:hover, .container-fluid section .small-menu-list a:focus {
             border-bottom: 5px solid #fff; }
         .container-fluid section .small-menu-list .active-menu {
@@ -285,10 +285,12 @@ legend, caption {
       color: #333; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid article .article {
+          font-size: 12px;
           width: 100%;
           padding: 30px 25px 30px 25px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid article .article {
+          font-size: 14px;
           width: 100%;
           padding: 30px 25px 30px 25px; } }
       @media only screen and (min-width: 992px) and (max-width: 1250px) {
@@ -311,6 +313,34 @@ legend, caption {
             font-size: 30px;
             padding-bottom: 20px;
             margin-bottom: 30px; } }
+      .container-fluid article .article .article-box {
+        width: 100%; }
+      .container-fluid article .article .article-text {
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        line-height: 1.5;
+        margin: 20px 0;
+        color: #333; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .article-text {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .article-text {
+            font-size: 14px; } }
+      .container-fluid article .article .emp {
+        font-size: 22px;
+        font-weight: 600;
+        color: #174A8E;
+        padding-bottom: 10px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .emp {
+            font-size: 14px;
+            width: 100%; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .emp {
+            font-size: 18px;
+            width: 100%; } }
     .container-fluid article .article:after {
       content: "";
       display: block;
