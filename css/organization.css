@@ -406,6 +406,10 @@ section {
   background-repeat: no-repeat;
   background-size: cover; }
 
+article .article .emp {
+  text-align: center;
+  margin: 50px 0; }
+
 article .article-text {
   line-height: 1.5;
   font-size: 1.5vw;

@@ -402,85 +402,39 @@ legend, caption {
     height: 45px; }
 
 section {
-  background-image: url("../img/img-test.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; }
+  background: url("../img/img-test.png") no-repeat center top; }
 
-.article-wrapper {
-  max-width: 870px;
+article .article .article-wrapper .emp {
+  margin-bottom: 20px; }
+
+article .article .article-wrapper #map_view {
   width: 100%;
-  margin: 0 auto; }
-  .article-wrapper .article-history {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 40px;
-    margin-bottom: 40px; }
+  height: 500px;
+  margin-bottom: 50px; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .article-wrapper #map_view {
+      height: 280px; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    article .article .article-wrapper #map_view {
+      height: 300px; } }
+
+article .article .article-wrapper .article-text-group {
+  float: left;
+  margin-right: 80px; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .article-wrapper .article-text-group {
+      width: 100%; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    article .article .article-wrapper .article-text-group {
+      width: 100%; } }
+  article .article .article-wrapper .article-text-group .article-text-title {
+    font-size: 18px;
+    font-weight: 600; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
-      .article-wrapper .article-history {
-        padding-bottom: 20px;
-        margin-bottom: 20px; } }
-  .article-wrapper .history-years {
-    float: left;
-    color: #174A8E;
-    font-size: 34px;
-    font-weight: bold;
-    margin-right: 50px; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      .article-wrapper .history-years {
-        width: 100%;
-        font-size: 20px; } }
+      article .article .article-wrapper .article-text-group .article-text-title {
+        font-size: 12px; } }
     @media only screen and (min-width: 601px) and (max-width: 991px) {
-      .article-wrapper .history-years {
-        font-size: 28px; } }
-  .article-wrapper .history-content {
-    float: left; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      .article-wrapper .history-content {
-        margin-top: 20px; } }
-    .article-wrapper .history-content p {
-      line-height: 2;
-      font-size: 18px; }
-      .article-wrapper .history-content p .history-month {
-        margin-right: 20px;
-        font-size: 18px;
-        font-weight: 600; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          .article-wrapper .history-content p .history-month {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          .article-wrapper .history-content p .history-month {
-            font-size: 14px; } }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        .article-wrapper .history-content p {
-          font-size: 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        .article-wrapper .history-content p {
-          font-size: 14px; } }
-  .article-wrapper .more-wrap {
-    max-width: 870px; }
-    .article-wrapper .more-wrap .more {
-      margin: 0 auto;
-      width: 14vw;
-      height: 5.8vh;
-      border: none;
-      border-radius: 25px; }
-      .article-wrapper .more-wrap .more .show-more {
-        width: 100%;
-        height: auto;
-        padding: 10px 0;
-        line-height: 2;
-        color: #fff;
-        font-size: 18px;
-        background: #174A8E;
-        border: none;
-        border-radius: 50px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          .article-wrapper .more-wrap .more .show-more {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          .article-wrapper .more-wrap .more .show-more {
-            font-size: 14px; } }
-  .article-wrapper .article-history:after {
-    content: "";
-    display: block;
-    clear: both; }
+      article .article .article-wrapper .article-text-group .article-text-title {
+        font-size: 16px; } }
+  article .article .article-wrapper .article-text-group .article-text {
+    margin-top: 5px; }

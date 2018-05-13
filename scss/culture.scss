@@ -7,42 +7,42 @@ section {
 }
 article {
   .article-wrapper {
+    .article-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      vertical-align: middle;
+      @include respond-to($phone) {
+        height: auto;     
+      }
+    }
     .article-box {
-      margin-bottom: 50px;
+      margin-bottom: 80px;
       .article-left {
         width: 45%;
         float: left;
         margin-right: 30px;
-        .img {
-          height: 280px;
-          background: {
-            image: url('../img/coworkers.jpg');
-            color: #000;
-            repeat: no-repeat;
-            size: cover; 
-          }
-          @include respond-to($phone) {
-            height: 165px;
-          }
-        }
-        .article-text {
-          border-top: 1px solid $color-key;
-          border-bottom: 1px solid $color-key;
-          padding: 10px 0 10px 0;
-          text-align: center;
-          // margin: 45px 0;
-        }
-        // img {
-        //   width: 100%;
-        //   height: 255px;
-        //   object-fit: cover;
-        //   vertical-align: middle;
+        // .img {
+        //   height: 280px;
+        //   background: {
+        //     image: url('../img/coworkers.jpg');
+        //     color: #000;
+        //     repeat: no-repeat;
+        //     size: cover; 
+        //   }
         //   @include respond-to($phone) {
         //     height: 165px;
         //   }
         // }
         @include respond-to($phone) {
           width: 100%;
+        }
+        .article-text {
+          font-weight: 600;          
+          border-top: 1px solid $color-key;
+          border-bottom: 1px solid $color-key;
+          padding: 15px 10px 15px 10px;
+          text-align: center;
         }
       }
       .article-right {
@@ -84,55 +84,58 @@ article {
       }
     }
     .article-box-2 {
-      width: 100%;
-      // background: #fbfbfb;
-      margin-bottom: 80px;      
-      // padding: 5px 20px;
-      .article-text {
-        margin: 10px 0;
-      }
-    }
-    .article-box-3 {
-      height: auto;
+      height: auto;      
+      margin-bottom: 110px;   
       .article-left {
         float: left;
-        width: 50%;
+        width: 60%;
         height: 100%;
-        // background-color: rgba(216, 179, 137, 0.6);
-        // background-color: rgba(218, 189, 137, 0.6);   
         .article-text {
-          margin: 0 0 30px 0;
+          margin: 10px 0;
+        }
+        @include respond-to($phone) {
+          width: 100%;
+        }
+        @include respond-to($tablet) {
+          width: 50%;
         }
       }
       .article-right {
-        // display: inline-block;
+        width: 40%;
         float: right;
-        width: 48%;
-        .img {
-          height: 150px;
-          background: {
-            image: url('../img/coworkers.jpg');
-            color: #000;
-            repeat: no-repeat;
-            size: cover; 
-          }
-          @include respond-to($phone) {
-            height: 165px;
-          }
+        @include respond-to($phone) {
+          width: 100%;
         }
-        .article-text {
-          border-top: 1px solid $color-key;
-          border-bottom: 1px solid $color-key;
-          padding: 5px 0 5px 0;
-          text-align: center;
-          // margin: 5px 0;
+        @include respond-to($tablet) {
+          width: 45%;
         }
       }
     }
-    // .article-box-3:after {
-    //   content: "";
-    //   display: block;
-    //   clear: both;
-    // }
+    .article-box-2:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .article-box-3 {
+      height: auto;
+      .article-img-group {
+        width: 100%;
+        .article-text {
+          font-weight: 600;
+          border-top: 1px solid $color-key;
+          border-bottom: 1px solid $color-key;
+          padding: 25px 42px 25px 42px;
+          text-align: center;
+          margin: 30px auto;
+          @include respond-to($phone) {
+            padding: 15px 10px 15px 10px;
+          }
+        }
+      }
+      .article-text-group {
+        width: 100%;
+        height: 100%;   
+      }
+    }
   }
 }

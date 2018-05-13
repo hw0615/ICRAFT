@@ -19,9 +19,10 @@
   <!-- <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css" /> -->
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/ci.css" />
-  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
-  <!-- <script src="semantic/semantic.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/location.css" />
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrUryC1FyvaNoM-RC2AwGYJICKu8OtOmE&callback=initMap"
+  type="text/javascript"></script> -->
 </head>
 
 <body>
@@ -49,7 +50,7 @@
               <li><a href="ci.html">C.I</a></li>
               <li><a href="culture.html">기업문화</a></li>
               <li><a href="contribution.html">사회공헌</a></li>
-              <li><a href="location.html">찾아오시는 길</a></li>
+              <li><a href="#">찾아오시는 길</a></li>
             </ul>
           </li>
           <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">사업소개</a>
@@ -120,7 +121,6 @@
         <div class="img-text-group">
           <p class="img-text-title">회사소개</p>
           <p class="img-text-des">유비쿼터스 네트워크 세상을 열어가는 전문 IT기업 아이크래프트</p>
-          <!-- <p class="img-text-title">C.I 컨셉</p> -->
         </div>
       </div>
       <ul class="small-menu">
@@ -128,7 +128,7 @@
           <a href="overview.html" class="">기업개요</a>
         </li>
         <li class="small-menu-list">
-          <a href="#" class="active-menu">C.I</a>
+          <a href="ci.html" class="">C.I</a>
         </li>
         <li class="small-menu-list">
           <a href="culture.html" class="">기업문화</a>
@@ -137,7 +137,7 @@
           <a href="contribution.html" class="">사회공헌</a>                
         </li>
         <li class="small-menu-list">
-          <a href="location.html" class="">찾아오시는 길</a>
+          <a href="#" class="active-menu">찾아오시는 길</a>
         </li>
       </ul>
     </section>
@@ -147,23 +147,27 @@
         <span> < </span>
         <a href="company.html">회사소개</a>
         <span> < </span>
-        <a href="ci.html">C.I</a>
+        <a href="#">찾아오시는 길</a>
       </p>
       <div class="article">
-        <h2 class="article-title">C.I 컨셉 및 가이드라인</h2>
+        <h2 class="article-title">찾아오시는 길</h2>
         <div class="article-wrapper">
-          <p class="article-text">심플하고 모던한 형태의 로고 타입을 사용하여 제작된 Icraft의 CI는 Master Brand로서 대표적인 이미지를 나타내며, Humanism을 바탕으로, 더 나은 삶을 추구하는 기업의 방향성을 나타냅니다.<br>
-          <!-- <p class="txt-detail">심플하고 모던한 형태의 로고 타입을 사용하여 제작된 Icraft의 CI는 Master Brand로서 대표적인 이미지를 나타내며, Humanism을 바탕으로, 더 나은 삶을 추구하는 기업의 방향성을 나타냅니다.<br> -->
-            <br>'I'에 적용된 트라이앵글 형태 Graphic Motif는 "Ubiquitous Network" 를 향한 새로운 제시라는 의미를 함축하고 있으며, 새로운 방향성을 찾아 진취적으로 도전하는 Icraft의 기업 이념을 나타냅니다. Main Color로 사용된 Blue는 Icraft의 전문성을 나타내며
-            Red는 Icraft의 Ubiquitous Network에 대한 열정과 개척정신을 상징합니다.</p> 
-          
-          <p class="emp">Basic Logo Mark & Grid System</p>
-          <img class="img-ci-en"src="img/ci-en.png" alt="아이크래프트 브랜드 아이덴티티 영문">
-          <p class="article-text ci-info">마크는 Icraft를 대표하는 모든 매체에 사용되어 기업이미지를 전달하는 중요한 역할을 합니다. 최대한 형태와 색상을 유지하도록 하고, 최소 사이즈 이하의 사용은 금합니다. 시그니처 재생은 본 항에 제시된 심볼마크의 그리드에 준하여 정확히 작도해야 합니다.<br>          
-          <p class="emp emp-kr">Korean Logo Type</p>
-          <img class="img-ci-kr" src="img/ci-kr.png" alt="아이크래프트 브랜드 아이텐티티 한글">
-          <p class="article-text ci-info">한글로고는 한글로 Communication을 해야하는 Icraft를 대표하는 모든 매체에 사용되어 Icraft의 이미지를 전달하는 중요한 역할을 합니다. 최대한 형태와 색상을 유지하도록 하고, 최소 사이즈 이하의 사용은 금합니다. 시그니처 재생은 본 항에 제시된 심볼마크의 그리드에 준하여 정확히 작도해야 합니다.<br>
-          
+          <div class="article-box">
+            <p class="emp">아이크래프트 본사 안내입니다</p>
+            <div id="map_view"></div>
+            <span class="article-text-group">
+              <p class="article-text-title">주소</p>
+              <p class="article-text">서울특별시 강남구 언주로 726, 12층(논현동, 두산건설빌딩)</p>
+            </span>
+            <span class="article-text-group">
+              <p class="article-text-title">전화</p>
+              <p class="article-text">02) 541-0474</p>
+            </span>
+            <span class="article-text-group">
+              <p class="article-text-title">팩스</p>
+              <p class="article-text">02) 543-1442</p>
+            </span>
+          </div>
         </div>
       </div>
     </article>
@@ -184,7 +188,60 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="./js/scroll.js"></script>  
+  <script src="./js/scroll.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=ko"></script>  
+  <script>
+    window.onload = function() {
+      initialize();
+    }
+
+    function initialize() {
+
+			var Y_point			= 37.519409;		
+			var X_point			= 127.035196;		
+
+			var zoomLevel		= 17;						
+
+			var markerTitle		= "아이크래프트(주)";
+			var markerMaxWidth	= 300;
+
+			var contentString	= '<div>' +
+			'<h2>아이크래프트(주)</h2><br>'+
+			'<p>유비쿼터스 네트워크 세상을 열어가는 전문 IT기업<br />' +
+            '아이크래프트 입니다.</p>' +
+			'</div>';
+
+			var myLatlng = new google.maps.LatLng(Y_point, X_point);
+			var mapOptions = {
+								zoom: zoomLevel,
+								center: myLatlng,
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(document.getElementById('map_view'), mapOptions);
+
+			var marker = new google.maps.Marker({
+													position: myLatlng,
+													map: map,
+													title: markerTitle
+			});
+
+			var infowindow = new google.maps.InfoWindow(
+														{
+															content: contentString,
+															maxWidth: markerMaxWidth
+														}
+			);
+
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+      });
+
+      function openMarker() {
+				infowindow.open(map, marker);        
+      }
+      openMarker();
+		}
+  </script>
 </body>
 
 </html>

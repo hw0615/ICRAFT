@@ -149,6 +149,15 @@
       @include respond-to($tablet) {
         height: 260px;
       }
+      // img {
+      //   width: 100%;
+      //   height: 280px;
+      //   object-fit: cover;
+      //   vertical-align: middle;
+      //   @include respond-to($phone) {
+      //     height: auto;     
+      //   }
+      // }
       .img-text-group {
         width: 1050px;
         margin: 0 auto;

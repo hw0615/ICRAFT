@@ -415,7 +415,8 @@ article .article table {
   margin-top: 70px; }
   article .article table .subject {
     text-align: center;
-    font-size: 18px;
+    vertical-align: middle;
+    font-size: 16px;
     font-weight: 600;
     border-right: 1px solid #d4d4d4; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -427,7 +428,7 @@ article .article table {
   article .article table .td-last {
     border-bottom: 1px solid #d4d4d4; }
   article .article table td {
-    font-size: 18px;
+    font-size: 16px;
     padding-left: 15px; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       article .article table td {

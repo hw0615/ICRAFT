@@ -404,29 +404,30 @@ legend, caption {
 section {
   background: url("../img/img-test.png") no-repeat center top; }
 
+article .article-wrapper .article-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  vertical-align: middle; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article-wrapper .article-img {
+      height: auto; } }
+
 article .article-wrapper .article-box {
-  margin-bottom: 50px; }
+  margin-bottom: 80px; }
   article .article-wrapper .article-box .article-left {
     width: 45%;
     float: left;
     margin-right: 30px; }
-    article .article-wrapper .article-box .article-left .img {
-      height: 280px;
-      background-image: url("../img/coworkers.jpg");
-      background-color: #000;
-      background-repeat: no-repeat;
-      background-size: cover; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article-wrapper .article-box .article-left .img {
-          height: 165px; } }
-    article .article-wrapper .article-box .article-left .article-text {
-      border-top: 1px solid #174A8E;
-      border-bottom: 1px solid #174A8E;
-      padding: 10px 0 10px 0;
-      text-align: center; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       article .article-wrapper .article-box .article-left {
         width: 100%; } }
+    article .article-wrapper .article-box .article-left .article-text {
+      font-weight: 600;
+      border-top: 1px solid #174A8E;
+      border-bottom: 1px solid #174A8E;
+      padding: 15px 10px 15px 10px;
+      text-align: center; }
   article .article-wrapper .article-box .article-right {
     width: 50%;
     display: inline-block; }
@@ -460,33 +461,49 @@ article .article-wrapper .article-box {
         float: none; } }
 
 article .article-wrapper .article-box-2 {
-  width: 100%;
-  margin-bottom: 80px; }
-  article .article-wrapper .article-box-2 .article-text {
-    margin: 10px 0; }
+  height: auto;
+  margin-bottom: 110px; }
+  article .article-wrapper .article-box-2 .article-left {
+    float: left;
+    width: 60%;
+    height: 100%; }
+    article .article-wrapper .article-box-2 .article-left .article-text {
+      margin: 10px 0; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper .article-box-2 .article-left {
+        width: 100%; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article-wrapper .article-box-2 .article-left {
+        width: 50%; } }
+  article .article-wrapper .article-box-2 .article-right {
+    width: 40%;
+    float: right; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper .article-box-2 .article-right {
+        width: 100%; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article-wrapper .article-box-2 .article-right {
+        width: 45%; } }
+
+article .article-wrapper .article-box-2:after {
+  content: "";
+  display: block;
+  clear: both; }
 
 article .article-wrapper .article-box-3 {
   height: auto; }
-  article .article-wrapper .article-box-3 .article-left {
-    float: left;
-    width: 50%;
-    height: 100%; }
-    article .article-wrapper .article-box-3 .article-left .article-text {
-      margin: 0 0 30px 0; }
-  article .article-wrapper .article-box-3 .article-right {
-    float: right;
-    width: 48%; }
-    article .article-wrapper .article-box-3 .article-right .img {
-      height: 150px;
-      background-image: url("../img/coworkers.jpg");
-      background-color: #000;
-      background-repeat: no-repeat;
-      background-size: cover; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article-wrapper .article-box-3 .article-right .img {
-          height: 165px; } }
-    article .article-wrapper .article-box-3 .article-right .article-text {
+  article .article-wrapper .article-box-3 .article-img-group {
+    width: 100%; }
+    article .article-wrapper .article-box-3 .article-img-group .article-text {
+      font-weight: 600;
       border-top: 1px solid #174A8E;
       border-bottom: 1px solid #174A8E;
-      padding: 5px 0 5px 0;
-      text-align: center; }
+      padding: 25px 42px 25px 42px;
+      text-align: center;
+      margin: 30px auto; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper .article-box-3 .article-img-group .article-text {
+          padding: 15px 10px 15px 10px; } }
+  article .article-wrapper .article-box-3 .article-text-group {
+    width: 100%;
+    height: 100%; }
