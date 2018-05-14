@@ -389,20 +389,24 @@
           width: 100%;
           padding: 0 55px 0 55px;
         }
-        a {
-          img {
-            float: left;
-            width: 150px;
-            margin-right: 25px;
-            @include respond-to($phone) {
-              width: 100px;
-              // float: none;
-              // margin: 0 auto;
-            }
-            @include respond-to($tablet) {
-              width: 120px;
-              // float: left;
-              // margin-right: 10px;
+        .img-wrapper {
+          width: 100px;
+          margin: 0 auto;
+          a {
+            img {
+              float: left;
+              width: 150px;
+              margin-right: 25px;
+              @include respond-to($phone) {
+                width: 100px;
+                // float: none;
+                // margin: 0 auto;
+              }
+              @include respond-to($tablet) {
+                width: 120px;
+                // float: left;
+                // margin-right: 10px;
+              }
             }
           }
         }
