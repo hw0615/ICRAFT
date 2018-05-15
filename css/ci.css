@@ -77,8 +77,7 @@ legend, caption {
       height: 45px; }
       .container-fluid header .nav-container .nav-menu {
         display: table;
-        width: 100%;
-        padding: 0 17%; }
+        margin: 0 auto; }
         .container-fluid header .nav-container .nav-menu a {
           font-size: 14px; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -369,15 +368,23 @@ legend, caption {
         .container-fluid footer .footer-wrapper .text-area {
           width: 100%;
           padding: 0 55px 0 55px; } }
-      .container-fluid footer .footer-wrapper .text-area a img {
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid footer .footer-wrapper .text-area .img-wrapper {
+          width: 100px;
+          margin: 0 auto; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid footer .footer-wrapper .text-area .img-wrapper {
+          width: 100px;
+          margin: 0 auto; } }
+      .container-fluid footer .footer-wrapper .text-area .img-wrapper a img {
         float: left;
         width: 150px;
         margin-right: 25px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
-          .container-fluid footer .footer-wrapper .text-area a img {
+          .container-fluid footer .footer-wrapper .text-area .img-wrapper a img {
             width: 100px; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
-          .container-fluid footer .footer-wrapper .text-area a img {
+          .container-fluid footer .footer-wrapper .text-area .img-wrapper a img {
             width: 120px; } }
       .container-fluid footer .footer-wrapper .text-area p {
         float: left;

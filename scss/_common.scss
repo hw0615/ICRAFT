@@ -25,11 +25,7 @@
       height: 45px;
       .nav-menu {
         display: table;
-        width: 100%;
-        // width: 1050px;
-        // transform: translateX(20%);
-        // margin: 0 auto;
-        padding: 0 17%;
+        margin: 0 auto;
         a {
           font-size: 14px;
           // font-size: 1.05vw;
@@ -390,8 +386,14 @@
           padding: 0 55px 0 55px;
         }
         .img-wrapper {
-          width: 100px;
-          margin: 0 auto;
+          @include respond-to($phone) {
+            width: 100px;
+            margin: 0 auto;
+          }
+          @include respond-to($tablet) {
+            width: 100px;
+            margin: 0 auto;
+          }
           a {
             img {
               float: left;

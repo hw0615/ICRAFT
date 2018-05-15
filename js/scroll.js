@@ -4,6 +4,7 @@ $(function () {
   var top = $('.move-top');
 
   $(window).scroll(function () {
+    console.log($(this).scrollTop())
     if ( $(this).scrollTop() >= 540 ) {
       nav.addClass('fixed-sub');
       top.fadeIn();
