@@ -15,9 +15,16 @@ article {
   .article {
     .article-title {
       margin-top: 50px;
+      p {
+        margin: 15px 0 0 0;
+        font-size: 20px;
+        color: gray;
+      }
     }
     .article-nav {
       width: 100%;
+      max-width: 870px;
+      margin: 0 auto;
       li {
         cursor: pointer;
         text-align: center;
@@ -25,7 +32,7 @@ article {
         width: 205px;
         background: yellow;
         padding: 10px;
-        margin-right: 12px;
+        margin: 0 6px;
         a {
           text-decoration: none;
           color: #333;
@@ -38,9 +45,53 @@ article {
       clear: both;
     }
     .article-wrapper {
-      .emp {
-        font-size: 16px;
+      img {
+        margin: 30px 0;
       }
+      ul {
+        background: #eee;
+        padding: 10px 5px;
+        li {
+          margin: 5px 10px 5px 10px;
+          p {
+            margin-left: 10px;
+          }
+        }
+      }
+      .solution-txt {
+        margin-bottom: 0;
+      }
+      .article-left {
+        width: 50%;
+        float: left;
+        background: none;
+        li {
+          margin: 22px 0 22px 10px;
+        }
+        .text-emp {
+          font-size: 18px;
+          text-align: center;
+          color: #fff;
+          background: #BAB39E;
+          padding: 10px;
+        }
+      }
+      .left-second {
+        margin-top: 33px;
+      }
+      .article-right {
+        float: left;        
+        width: 230px;
+        margin: 0;
+      }
+    }
+    .article-solution {
+      margin-top: 25px;
+    }
+    .article-solution:after {
+      content: '';
+      display: block;
+      clear: both;
     }
     &-img {
       width: 100%;
