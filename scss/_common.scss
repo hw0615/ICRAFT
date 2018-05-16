@@ -339,6 +339,7 @@
       .emp {
         font-size: 22px;
         font-weight: 600;
+        line-height: 1.8;
         color: $color-key;
         padding-bottom: 10px;
         @include respond-to($phone) {

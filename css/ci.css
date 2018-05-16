@@ -330,6 +330,7 @@ legend, caption {
       .container-fluid article .article .emp {
         font-size: 22px;
         font-weight: 600;
+        line-height: 1.8;
         color: #174A8E;
         padding-bottom: 10px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
