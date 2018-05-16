@@ -407,7 +407,9 @@ legend, caption {
     color: #fff;
     border: none;
     width: 45px;
-    height: 45px; }
+    height: 45px;
+    font-size: 32px;
+    padding-top: 5px; }
 
 section {
   background-image: url("../img/company.jpg");
