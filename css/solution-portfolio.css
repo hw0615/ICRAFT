@@ -420,6 +420,10 @@ article .article .article-title {
     font-size: 20px;
     color: gray; }
 
+article .article .article-title-sub {
+  font-size: 15px;
+  font-weight: 600; }
+
 article .article .article-nav {
   width: 100%;
   max-width: 870px;
@@ -450,7 +454,8 @@ article .article .article-wrapper ul {
   article .article .article-wrapper ul li {
     margin: 5px 10px 5px 10px; }
     article .article .article-wrapper ul li p {
-      margin-left: 10px; }
+      margin-left: 10px;
+      font-weight: 500; }
 
 article .article .article-wrapper .solution-txt {
   margin-bottom: 0; }

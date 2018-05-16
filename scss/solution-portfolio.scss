@@ -21,6 +21,10 @@ article {
         color: gray;
       }
     }
+    .article-title-sub {
+      font-size: 15px;
+      font-weight: 600;
+    }
     .article-nav {
       width: 100%;
       max-width: 870px;
@@ -55,6 +59,7 @@ article {
           margin: 5px 10px 5px 10px;
           p {
             margin-left: 10px;
+            font-weight: 500;
           }
         }
       }
