@@ -129,7 +129,8 @@ legend, caption {
                 padding: 13.6px 8px 13.6px 8px;
                 display: block;
                 color: #333;
-                text-decoration: none; }
+                text-decoration: none;
+                height: 100%; }
               .container-fluid header .nav-container .nav-menu-list-sub li span {
                 float: right;
                 font-weight: 500;

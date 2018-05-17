@@ -129,7 +129,8 @@ legend, caption {
                 padding: 13.6px 8px 13.6px 8px;
                 display: block;
                 color: #333;
-                text-decoration: none; }
+                text-decoration: none;
+                height: 100%; }
               .container-fluid header .nav-container .nav-menu-list-sub li span {
                 float: right;
                 font-weight: 500;
@@ -412,7 +413,7 @@ legend, caption {
     padding-top: 5px; }
 
 section {
-  background-image: url("../img/img-test.png");
+  background-image: url("../img/img-test-3.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
 
@@ -435,9 +436,19 @@ article .article .article-nav {
     padding: 10px;
     margin: 3px 3px;
     border: 1px solid #ddd; }
-  article .article .article-nav li:hover {
-    background-color: #174A8E;
-    color: #fff; }
+    article .article .article-nav li:hover {
+      background-color: #174A8E;
+      color: #fff; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article .article-nav li {
+        width: 100%;
+        height: 100%;
+        font-size: 10px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article .article-nav li {
+        width: 100%;
+        height: 100%;
+        font-size: 14px; } }
 
 article .article .article-nav:after {
   content: '';
@@ -484,22 +495,41 @@ article .article .article-wrapper .article-left {
   width: 50%;
   float: left;
   background: none; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .article-wrapper .article-left {
+      padding: 0; } }
   article .article .article-wrapper .article-left li {
     margin: 22px 0 22px 10px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article .article-wrapper .article-left li {
+        margin: 10px 0 10px 0; } }
   article .article .article-wrapper .article-left .text-emp {
     font-size: 18px;
     text-align: center;
     color: #fff;
     background: #BAB39E;
     padding: 10px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article .article-wrapper .article-left .text-emp {
+        width: 100%;
+        font-size: 12px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article .article-wrapper .article-left .text-emp {
+        font-size: 14px; } }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .article-wrapper .article-left {
+      width: 100%; } }
 
 article .article .article-wrapper .left-second {
   margin-top: 33px; }
 
 article .article .article-wrapper .article-right {
   float: left;
-  width: 230px;
+  width: 35%;
   margin: 0; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .article-wrapper .article-right {
+      width: 85%; } }
 
 article .article .article-solution {
   margin-top: 25px; }

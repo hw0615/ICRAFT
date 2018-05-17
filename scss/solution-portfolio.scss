@@ -4,7 +4,7 @@
 
 section {
   background: {
-    image: url('../img/img-test.png');
+    image: url('../img/img-test-3.jpg');
     repeat: no-repeat;
     size: cover; 
     // position: top;  
@@ -37,6 +37,16 @@ article {
         &:hover {
           background-color: $color-key;
           color: #fff;
+        }
+        @include respond-to($phone) {
+          width: 100%; 
+          height: 100%;
+          font-size: 10px;          
+        }
+        @include respond-to($tablet) {
+          width: 100%;
+          height: 100%;
+          font-size: 14px;
         }
       }
     }
@@ -89,8 +99,14 @@ article {
         width: 50%;
         float: left;
         background: none;
+        @include respond-to($phone) {
+          padding: 0;
+        }
         li {
           margin: 22px 0 22px 10px;
+          @include respond-to($phone) {
+            margin: 10px 0 10px 0;
+          }
         }
         .text-emp {
           font-size: 18px;
@@ -98,6 +114,16 @@ article {
           color: #fff;
           background: #BAB39E;
           padding: 10px;
+          @include respond-to($phone) {
+            width: 100%; 
+            font-size: 12px;
+          }
+          @include respond-to($tablet) {
+            font-size: 14px;
+          }
+        }
+        @include respond-to($phone) {
+          width: 100%; 
         }
       }
       .left-second {
@@ -105,8 +131,12 @@ article {
       }
       .article-right {
         float: left;        
-        width: 230px;
+        width: 35%;
+        // width: 230px;
         margin: 0;
+        @include respond-to($phone) {
+          width: 85%;
+        }
       }
     }
     .article-solution {
