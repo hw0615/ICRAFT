@@ -165,18 +165,24 @@ legend, caption {
         background-position-y: 0; } }
     .container-fluid section .img-wrapper {
       width: 100%;
-      height: 400px; }
+      height: 450px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid section .img-wrapper {
-          height: 250px; } }
+          height: 240px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid section .img-wrapper {
-          height: 260px; } }
+          height: 350px; } }
+      @media only screen and (min-width: 1251px) and (max-width: 1750px) {
+        .container-fluid section .img-wrapper {
+          height: 500px; } }
+      @media only screen and (min-width: 1751px) {
+        .container-fluid section .img-wrapper {
+          height: 600px; } }
       .container-fluid section .img-wrapper .img-text-group {
         width: 1050px;
         margin: 0 auto;
         color: #fff;
-        text-shadow: 2px 2px 5px #000; }
+        text-shadow: 4px 4px 5px #000; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid section .img-wrapper .img-text-group {
             width: 100%;
@@ -191,7 +197,8 @@ legend, caption {
             padding: 0 55px 0 55px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-title {
           padding-top: 50px;
-          font-size: 28px; }
+          font-size: 38px;
+          font-weight: 600; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
               font-size: 20px; } }
@@ -200,7 +207,8 @@ legend, caption {
               font-size: 24px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-des {
           padding: 8px 0;
-          font-size: 18px; }
+          font-size: 24px;
+          text-shadow: 3px 3px 4px #000; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-des {
               font-size: 10px; } }
@@ -413,14 +421,17 @@ legend, caption {
     padding-top: 5px; }
 
 section {
-  background-image: url("../img/company.jpg");
+  background-image: url("../img/company2.jpg");
   background-color: #000;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -105px; }
-  @media only screen and (min-width: 1251px) {
+  background-position-y: -100px; }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
     section {
-      background-position-y: -350px; } }
+      background-position-y: -30px; } }
+  @media only screen and (min-width: 1751px) {
+    section {
+      background-position-y: -375px; } }
 
 article .article .txt-box {
   float: left;

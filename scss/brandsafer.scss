@@ -1,0 +1,52 @@
+@import './reset';  
+@import './common';
+@import './config';
+
+section {
+  background: {
+    image: url('../img/img-test-3.jpg');
+    repeat: no-repeat;
+    size: cover; 
+    // position: top;  
+    // position-y: -105px;
+  }
+}
+article { 
+  .article {
+    .article-wrapper {
+      .article-title {
+        margin-top: 50px;
+      }
+      img {
+        margin: 30px 0;
+      }
+      .article-text-wrap {
+        float: left;
+        width: 33%;
+        padding: 0 10px;
+        margin: 50px 0px;
+        .article-text-title {
+          text-align: center;
+          font-size: 22px;
+          font-weight: 600;          
+        }
+        .article-text-sub {
+          text-align: center;
+          font-size: 16px;
+          color: $color-key;
+          margin: 25px 0;
+        }
+        .article-text {
+          line-height: 1.8;
+        }
+      }
+      .artice-gotoweb {
+        float: right;
+      }
+    }
+    &-img {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+  }
+}

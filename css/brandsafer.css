@@ -421,21 +421,36 @@ legend, caption {
     padding-top: 5px; }
 
 section {
-  background-image: url("../img/img-test.png");
+  background-image: url("../img/img-test-3.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
 
-article .article .emp {
-  text-align: center;
-  margin: 50px 0; }
+article .article .article-wrapper .article-title {
+  margin-top: 50px; }
 
-article .article-text {
-  line-height: 1.5;
-  font-size: 1.5vw;
-  font-weight: 600;
-  color: #174A8E;
-  text-align: center;
-  margin: 50px 0; }
+article .article .article-wrapper img {
+  margin: 30px 0; }
 
-article .article-img-org {
-  width: 100%; }
+article .article .article-wrapper .article-text-wrap {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+  margin: 50px 0px; }
+  article .article .article-wrapper .article-text-wrap .article-text-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600; }
+  article .article .article-wrapper .article-text-wrap .article-text-sub {
+    text-align: center;
+    font-size: 16px;
+    color: #174A8E;
+    margin: 25px 0; }
+  article .article .article-wrapper .article-text-wrap .article-text {
+    line-height: 1.8; }
+
+article .article .article-wrapper .artice-gotoweb {
+  float: right; }
+
+article .article-img {
+  width: 100%;
+  margin-bottom: 50px; }

@@ -138,13 +138,19 @@
     }
     .img-wrapper {
       width: 100%;
-      height: 400px;
+      height: 450px;
       // height: auto;
       @include respond-to($phone) {
-        height: 250px;
+        height: 240px;
       }
       @include respond-to($tablet) {
-        height: 260px;
+        height: 350px;
+      }
+      @include respond-to($large-desktop) {
+        height: 500px;
+      }
+      @include respond-to($large-desktop2) {
+        height: 600px;
       }
       // img {
       //   width: 100%;
@@ -159,7 +165,7 @@
         width: 1050px;
         margin: 0 auto;
         color: #fff;
-        text-shadow: 2px 2px 5px #000;
+        text-shadow: 4px 4px 5px #000;
         @include respond-to($phone) {
           width: 100%;
           padding: 0 15px 0 15px;
@@ -175,7 +181,8 @@
         .img-text-title {
           padding-top: 50px;
           // font-size: 3vw;
-          font-size: 28px;
+          font-size: 38px;
+          font-weight: 600;
           @include respond-to($phone) {
             font-size: 20px;
           }
@@ -186,7 +193,8 @@
         .img-text-des {
           padding: 8px 0;
           // font-size: 2vw;
-          font-size: 18px;
+          font-size: 24px;
+          text-shadow: 3px 3px 4px #000;          
           @include respond-to($phone) {
             font-size: 10px;
           }

@@ -4,29 +4,17 @@
 
 section {
   background: {
-    image: url('../img/cover3.jpg');
+    image: url('../img/img-test-3.jpg');
     repeat: no-repeat;
     size: cover; 
     // position: top;  
     // position-y: -105px;
-    // position-y: -75px;
-  }
-  @include respond-to($tablet) {
-    background-position-y: -50px;    
-  }
-  @include respond-to($large-desktop) {
-    background-position-y: -250px;
   }
 }
 article { 
   .article {
     .article-title {
       margin-top: 50px;
-      p {
-        margin: 15px 0 0 0;
-        font-size: 20px;
-        color: gray;
-      }
     }
     
     .article-nav {

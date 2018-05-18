@@ -165,18 +165,24 @@ legend, caption {
         background-position-y: 0; } }
     .container-fluid section .img-wrapper {
       width: 100%;
-      height: 400px; }
+      height: 450px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid section .img-wrapper {
-          height: 250px; } }
+          height: 240px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid section .img-wrapper {
-          height: 260px; } }
+          height: 350px; } }
+      @media only screen and (min-width: 1251px) and (max-width: 1750px) {
+        .container-fluid section .img-wrapper {
+          height: 500px; } }
+      @media only screen and (min-width: 1751px) {
+        .container-fluid section .img-wrapper {
+          height: 600px; } }
       .container-fluid section .img-wrapper .img-text-group {
         width: 1050px;
         margin: 0 auto;
         color: #fff;
-        text-shadow: 2px 2px 5px #000; }
+        text-shadow: 4px 4px 5px #000; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid section .img-wrapper .img-text-group {
             width: 100%;
@@ -191,7 +197,8 @@ legend, caption {
             padding: 0 55px 0 55px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-title {
           padding-top: 50px;
-          font-size: 28px; }
+          font-size: 38px;
+          font-weight: 600; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
               font-size: 20px; } }
@@ -200,7 +207,8 @@ legend, caption {
               font-size: 24px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-des {
           padding: 8px 0;
-          font-size: 18px; }
+          font-size: 24px;
+          text-shadow: 3px 3px 4px #000; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-des {
               font-size: 10px; } }
@@ -413,9 +421,15 @@ legend, caption {
     padding-top: 5px; }
 
 section {
-  background-image: url("../img/img-test-3.jpg");
+  background-image: url("../img/cover3.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    section {
+      background-position-y: -50px; } }
+  @media only screen and (min-width: 1251px) and (max-width: 1750px) {
+    section {
+      background-position-y: -250px; } }
 
 article .article .article-title {
   margin-top: 50px; }
@@ -492,18 +506,25 @@ article .article .article-wrapper .solution-txt {
   margin-bottom: 0; }
 
 article .article .article-wrapper .article-left {
-  width: 50%;
-  float: left;
+  width: 65%;
+  position: relative;
+  top: 330px;
   background: none; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
     article .article .article-wrapper .article-left {
-      padding: 0; } }
+      padding: 0;
+      width: 100%; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    article .article .article-wrapper .article-left {
+      width: 100%; } }
   article .article .article-wrapper .article-left li {
     margin: 22px 0 22px 10px; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       article .article .article-wrapper .article-left li {
         margin: 10px 0 10px 0; } }
   article .article .article-wrapper .article-left .text-emp {
+    position: relative;
+    bottom: 320px;
     font-size: 18px;
     text-align: center;
     color: #fff;
@@ -523,16 +544,59 @@ article .article .article-wrapper .article-left {
 article .article .article-wrapper .left-second {
   margin-top: 33px; }
 
+@media only screen and (min-width: 280px) and (max-width: 600px) {
+  article .article .article-wrapper {
+    width: 100%; } }
+
 article .article .article-wrapper .article-right {
-  float: left;
-  width: 35%;
-  margin: 0; }
+  float: right;
+  width: 40%; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
     article .article .article-wrapper .article-right {
-      width: 85%; } }
+      float: none;
+      width: 80%;
+      margin: 50px auto; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    article .article .article-wrapper .article-right {
+      float: none;
+      width: 50%;
+      margin: 50px auto; } }
+  article .article .article-wrapper .article-right img {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article .article-wrapper .article-right img {
+        width: 100%;
+        position: unset; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article .article-wrapper .article-right img {
+        width: 100%;
+        position: unset; } }
 
 article .article .article-solution {
-  margin-top: 25px; }
+  position: relative; }
+  article .article .article-solution .solution-list {
+    width: 65%;
+    height: 200px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article .article-solution .solution-list {
+        width: 100%;
+        height: 100%; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article .article-solution .solution-list {
+        width: 100%;
+        height: 100%; } }
+    article .article .article-solution .solution-list li {
+      margin: 25px 10px 25px 10px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article .article-solution .solution-list li {
+          margin: 15px 10px 15px 10px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article .article-solution .solution-list li {
+          margin: 15px 10px 15px 10px; } }
 
 article .article .article-solution:after {
   content: '';

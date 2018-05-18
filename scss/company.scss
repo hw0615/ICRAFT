@@ -4,15 +4,18 @@
 
 section {
   background: {
-    image: url('../img/company.jpg');
+    image: url('../img/company2.jpg');
     color: #000;
     repeat: no-repeat;
     size: cover; 
     // position: top;  
-    position-y: -105px;
+    position-y: -100px;
   }
-  @include respond-to($large-desktop) {
-   background-position-y: -350px;    
+  @include respond-to($tablet) {
+    background-position-y: -30px;    
+  }
+  @include respond-to($large-desktop2) {
+    background-position-y: -375px;
   }
 }
 article {

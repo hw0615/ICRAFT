@@ -4,7 +4,8 @@ $color-key: #174A8E;
 $phone : '(min-width: 280px) and (max-width: 600px)';
 $tablet: '(min-width: 601px) and (max-width: 991px)';
 $desktop: '(min-width: 992px) and (max-width: 1250px)';
-$large-desktop: '(min-width: 1251px)';
+$large-desktop: '(min-width: 1251px) and (max-width: 1750px)';
+$large-desktop2: '(min-width: 1751px)';
 
 @mixin respond-to($phone) {
   @media only screen and #{$phone} {
