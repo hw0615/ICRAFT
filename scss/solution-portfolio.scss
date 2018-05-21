@@ -17,6 +17,9 @@ section {
   @include respond-to($large-desktop) {
     background-position-y: -250px;
   }
+  @include respond-to($large-desktop2) {
+    background-position-y: -450px;
+  }
 }
 article { 
   .article {

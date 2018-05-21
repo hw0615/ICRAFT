@@ -146,12 +146,12 @@
       @include respond-to($tablet) {
         height: 350px;
       }
-      @include respond-to($large-desktop) {
-        height: 500px;
-      }
-      @include respond-to($large-desktop2) {
-        height: 600px;
-      }
+      // @include respond-to($large-desktop) {
+      //   height: 500px;
+      // }
+      // @include respond-to($large-desktop2) {
+      //   height: 600px;
+      // }
       // img {
       //   width: 100%;
       //   height: 280px;

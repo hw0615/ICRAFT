@@ -172,12 +172,6 @@ legend, caption {
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid section .img-wrapper {
           height: 350px; } }
-      @media only screen and (min-width: 1251px) and (max-width: 1750px) {
-        .container-fluid section .img-wrapper {
-          height: 500px; } }
-      @media only screen and (min-width: 1751px) {
-        .container-fluid section .img-wrapper {
-          height: 600px; } }
       .container-fluid section .img-wrapper .img-text-group {
         width: 1050px;
         margin: 0 auto;
@@ -430,6 +424,9 @@ section {
   @media only screen and (min-width: 1251px) and (max-width: 1750px) {
     section {
       background-position-y: -250px; } }
+  @media only screen and (min-width: 1751px) {
+    section {
+      background-position-y: -450px; } }
 
 article .article .article-title {
   margin-top: 50px; }
