@@ -1,6 +1,8 @@
 @import './reset';  
 @import './common';
 @import './config';
+@import './header';
+@import './footer';
 
 section {
   background: {
@@ -15,7 +17,7 @@ section {
     background-position-y: -50px;    
   }
   @include respond-to($large-desktop) {
-    background-position-y: -250px;
+    background-position-y: -240px;
   }
   @include respond-to($large-desktop2) {
     background-position-y: -450px;

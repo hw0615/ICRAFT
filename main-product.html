@@ -16,105 +16,14 @@
   <meta property="og:url" content="http://www.icraft21.com/" />
   <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
   <meta property="og:description" content="아이크래프트(주)" />
-  <!-- <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css" /> -->
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main-product.css" />
-  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
-  <!-- <script src="semantic/semantic.min.js"></script> -->
 </head>
 
 <body>
   <div class="container-fluid">
-    <header>
-      <div class="logo-wrapper">
-        <h1>
-          <a href="#">
-            <img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고">
-          </a>
-        </h1>                
-      </div>
-      <div class="nav-container">
-        <ul class="nav-menu">
-          <li class="nav-menu-list"><a href="company.html" class="nav-menu-list-name">회사소개</a>
-            <ul class="nav-menu-list-sub">
-              <li class="cantmove hover"><a class="hover-a">기업개요<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail">
-                  <li class="hover"><a class="hover-a" href="overview.html">개요</a></li>
-                  <li class="hover"><a class="hover-a" href="history.html">연혁</a></li>
-                  <li class="hover"><a class="hover-a" href="organization.html">조직도</a></li>
-                  <li class="hover"><a class="hover-a" href="major-projects.html">주요실적</a></li>
-                </ul>
-              </li>
-              <li class="hover"><a class="hover-a" href="ci.html">C.I</a></li>
-              <li class="hover"><a class="hover-a" href="culture.html">기업문화</a></li>
-              <li class="hover"><a class="hover-a" href="contribution.html">사회공헌</a></li>
-              <li class="hover"><a class="hover-a" href="location.html">찾아오시는 길</a></li>
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">사업소개</a>
-            <ul class="nav-menu-list-sub info-busi">
-              <li class="cantmove"><a href="solution-portfolio.html">Solution Portfolio<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail solution">
-                  <li><a href="#">인터넷 핵심망/접속망</a></li>
-                  <li><a href="#">인터넷 INFRA부가 서비스</a></li>
-                  <li><a href="#">무선 인터넷 서비스</a></li>
-                  <li><a href="#">대용량 Data 관리 솔루션</a></li>
-                  <li><a href="#">인터넷 Application</a></li>
-                  <li><a href="#">인터넷 통합 보안 서비스</a></li>
-                  <li><a href="#">음성/데이터 통합 서비스</a></li>
-                  <li><a href="#">트래픽관리/제어 서비스</a></li>
-                  <li><a href="#">국내외 사업자 망 컨설팅 서비스</a></li>
-                  <li><a href="#">블록체인 서비스</a></li>                  
-                </ul>
-              </li>
-              <!-- <li><a href="#">Product License</a></li> -->
-              <li><a href="brandsafer.html">브랜드세이퍼</a></li>
-              <li class="cantmove"><a href="#">주요 제품(파트너)<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail partner">
-                  <li><a href="#">Juniper</a></li>
-                  <li><a href="#">Genband</a></li>
-                  <li><a href="#">Arbor</a></li>
-                  <li><a href="#">Dartware(InterMapper)</a></li>
-                  <li><a href="#">Mellanox</a></li>
-                  <li><a href="#">Gigamon</a></li>
-                  <li><a href="#">기타 제품</a></li>
-                  <li><a href="#">주요고객사</a></li>
-                  </ul>
-              </li>    
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name list-ir">I.R</a>
-            <ul class="nav-menu-list-sub info-ir">
-              <li><a href="#">주가정보</a></li>
-              <li><a href="#">재무정보</a></li>
-              <li class="cantmove"><a>IR 자료실<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail ir-detail">
-                  <li><a href="#">경영공시</a></li>
-                  <li><a href="#">내부 정보 관리 규정</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">채용안내</a>
-            <ul class="nav-menu-list-sub info-recruit">
-              <li><a href="#">입사지원</a></li>
-              <li><a href="#">채용게시판</a></li>
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">고객지원</a>
-            <ul class="nav-menu-list-sub info-customer">
-              <li><a href="#">News</a></li>
-              <li><a href="#">고객소리방</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- <div class="right menu">
-            <a class="">KOR</a>
-            <a class="">ENG</a>                    
-        </div> -->
-      </div>
-    </header>
+    <header id="header"></header>
     <section>
       <div class="img-wrapper">
         <div class="img-text-group">
@@ -145,67 +54,310 @@
       <div class="article">
         <ul class="article-nav">
           <li class="nav-1">Juniper</li>
-          <li class="nav-2">인터넷 INFRA부가 서비스</li>
-          <li class="nav-3">무선 인터넷 서비스</li>
-          <li class="nav-4">대용량 Data 관리 솔루션</li>
-          <li class="nav-5">인터넷 Application</li>
-          <li class="nav-6">인터넷 통합 보안 서비스</li>
-          <li class="nav-7">음성/데이터 통합 서비스</li>
-          <li class="nav-8">트래픽관리/제어 서비스</li>
-          <li class="nav-9">국내외 사업자 망 컨설팅 서비스</li>
-          <li class="nav-10">블록체인 서비스</li>
-          <li class="nav-11">소프트웨어정의네트워크</li>
-          <li class="nav-12">인공지능 서비스</li>
+          <li class="nav-2">Genband</li>
+          <li class="nav-3">Arbor</li>
+          <li class="nav-4">Dartware(InterMapper)</li>
+          <li class="nav-5">Mellanox</li>
+          <li class="nav-6">Gigamon</li>
+          <li class="nav-7">기타 제품</li>
+          <li class="nav-8">주요고객사</li>
         </ul>
         <div class="article-wrapper sol1">
           <h2 class="article-title">Juniper</h2>
-          <p class="emp">서비스를 위한 서비스사업자의 인터넷 INFRA 구축과 INFRA를 기반으로 사용자 접속을 위한 기본 ACCESS망 구축에 관한 제반 솔루션 사업</p>
-          <div class="article-text">시장 환경 및 요구
-            <ul>
-              <li> - 교환 전송기술이 초대용량 WDM으로 전이되고 있는 추세에 맞추어 PETA-BIT 라우터와 WDM의 조합을 통한 고속의 핵심망 구축사업을 전개</li>
-              <li> - ACCESS단의 솔루션이 다양화되고, 저가의 고속 ACCESS 서비스 제공을 위한 신기술이 등장함에 따라 다양한 형태의  솔루션을 제공</li>
-            </ul>
+          <p class="emp">라우터(Router)</p>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="라우터 T4000 상세 이미지">
           </div>
-          <div class="article-text">주요서비스 및 기능
-            <ul>
-              <li> - 인터넷 접속을 위한 필수 통신 Infra Solution </li>
-              <li> - 효과적인 DATA Traffic 전송, 서로 다른 프로토콜을 관리, 통신망에서 정보를 전송하기 위해 최적의 경로를 설정하고 관리 </li>
-              <li> - LAN 및 WAN 환경에서 대규모 사용자 Network을 효과적으로 연결</li>
-            </ul>
-          </div>
-          <img class="article-img"src="img/network-solution.png" alt="인터넷 핵심망 접속망 상세 이미지">
-          <div class="article-text">적용고객
-            <ul>
-              <li> - 대형/중소형 ISP (KT, LG데이콤, SK Telecom, 세종 Telecom 등)</li>
-              <li> - Enterprise Network (KT&G, 제주항공, 나눔 로또, 연세 중앙교회 등)</li>
-              <li> - 공공, 금융, Portal Network (NHN, 도로공사, 토지공사, 원광대 등)</li>
-            </ul>
-          </div>
-          <p class="article-text solution-txt">적용 솔루션</p>
-          <div class="article-solution">
-            <ul class="solution-list">
-              <li>- 대용량의 트래픽 수용을 위하여 고집적 고성능의 데이터 핵심장비를 이용한 망 진화 사업</li>
-              <li>- PETA-Bit 라우터 / 스위치를 이용한 차세대 네트웍 구축</li>
-              <li>- ATM, IP, XDSL, PSDN, Metro Ethernet과 같은 다양한 인터넷 접속 환경에 맞는 ISP, 기업체의 인터넷 접속망 구충 및 설계</li>
-            </ul>
-            <div class="article-left">
-              <p class="text-emp">핵심망 / 접속망 고도화 사업</p>
-            </div>
-            <div class="article-right">
-              <img src="img/solution1.png" alt="인터넷 핵심망 접속망 상세 이미지">
+          <div class="article-right">
+            <p class="article-text-title">T4000</p>
+            <div class="article-text">
+              멀티섀시 성능을 갖춘 T1600 코어 라우터는 경쟁 제품보다 경쟁 제품 보다 크기는 작으면서도 확장성이 뛰어난 
+              하이 퍼포먼스 코어 라우팅을 제공합니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - HA 소프트웨어</li>
+                <li> - 광 전송 통합</li>
+                <li> - 로지컬 라우팅 기능</li>
+                <li> - 모든 규모의 가상화 지원</li>
+                <li> - 광범위한 인터페이스 지원</li>
+                <li> - HA(High-Availability) 하드웨어</li>
+                <li> - 멀티테라비트 용량 및 멀티섀시 확장성</li>
+                <li> - 견고하고 기능이 풍부한 모듈형 소프트웨어</li>
+                <li> - 프로그래머블 ASIC 기반 PFE(Packet Forwarding Engine)를 통한 탁월한 패킷 처리</li>
+              </ul>
             </div>
           </div>
-          <div class="article-solution">
-            <ul class="solution-list left-second">
-              <li>- 광 케이블 기반의 전송망 재구축 사업</li>
-              <li>- DWDM솔루션 및 방송 전송 솔루션</li>
-              <li>- IP + 전송 솔루션(Optical 스위치)</li>
-            </ul>
-            <div class="article-left">
-              <p class="text-emp">광전송 고도화 사업</p>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="라우터 PTX Series 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">PTX Series</p>
+            <div class="article-text">패킷 전송 슈퍼코어 라우터는 경쟁 제품 보다 크기는 작으면서도 확장성 있는 코어 라우팅을 제공합니다. 16개 슬롯 각각은 3Tbps의 처리 성능을 제공하고 48Tbps 용량으로 확장이 가능합니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - HA 소프트웨어</li>
+                <li> - 광 전송 통합</li>
+                <li> - 로지컬 라우팅 기능</li>
+                <li> - 모든 규모의 가상화 지원</li>
+                <li> - 광범위한 인터페이스 지원</li>
+                <li> - HA(High-Availability) 하드웨어</li>
+                <li> - 멀티테라비트 용량 및 멀티섀시 확장성</li>
+                <li> - 견고하고 기능이 풍부한 모듈형 소프트웨어</li>
+                <li> - 프로그래머블 ASIC 기반 PFE(Packet Forwarding Engine)를 통한 탁월한 패킷 처리</li>
+              </ul>
             </div>
-            <div class="article-right">
-              <img src="img/solution2.png" alt="인터넷 핵심망 접속망 상세 이미지">
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="라우터 MX2008, MX2010, MX2020 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">MX2008 / MX2010 / MX2020</p>
+            <div class="article-text">MX 2000 Series 3D 유니버설 에지 라우터는 SDN(Software Defind Network) 기능이 탑재된 진정한 클라우드급 네트워크 플래폼이며 모든 종류의 비즈니스 모바일, 댁내 서비스를 지원할 수 있는 유니버설 에지 플랫폼의 기능을 수행하는 하이 퍼포먼스 이더넷 라우터 포트폴리오입니다.
+                강력한 스위칭 및 보안 사양을 가진 MX Series는 뛰어난 유연성과 안정성으로 최신 서비스와 애플리케이션을 지원합니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 현재와 미래 지향의 브로드밴드 서비스가 용이하도록 강력한 브로드밴드 네트워크 게이트웨이 기능 제공</li>
+                <li> - 광범위한 하드웨어와 소프트웨어 기능을 탑재하면서 무중단 네트워크 가용성 확립</li>
+                <li> - 성능 및 분석, 관리를 위한 소자 수준의 데이터 수집과 관제</li>
+                <li> - 표준 기반에 안전한 인터네크워킹에서 풍부한 기능을 지원하도록 광범위한 VPN 툴킷 탑재</li>
+                <li> - 최고의 시스템 용량, 최상의 FIB 확장성, 고밀도 100GbE 인터페이스, DWDM 및 IP/Optical 지원 </li>
+                <li> - 가상과 실상 네트워크를 상호 연결하면서 가상 네트워크에서 서로 다른 기술이 동작하는 이상적인 SDN 게이트웨이</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="라우터 MX960 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">MX960</p>
+            <div class="article-text">MX Series 3D 유니버설 에지 라우터는 모든 종류의 비즈니스 모바일, 댁내 서비스를 지원할 수 있는 유니버설 에지 플랫폼의 기능을 수행하는 하이 퍼포먼스 이더넷 라우터 포트폴리오입니다.
+                강력한 스위칭 및 보안 사양을 가진 MX Series는 뛰어난 유연성과 안정성으로 최신 서비스와 애플리케이션을 지원합니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 모듈형OS/VPLS멀티호밍/무중단 라우팅/MPLS FRR</li>
+                <li> - 완전 이중화된 하드웨어/데이터 플레인과 컨트롤 플레인 분리</li>
+                <li> - 차세대 I-chip ASIC/보다 높은 수준의 QoS 기능</li>
+                <li> - 추가 패킷 처리 유연성/향상된 멀티캐스트 성능</li>
+                <li> - 향후 3-5년 동안 JUNOS® 소프트웨어 기능을 수용할 수 있는 추가 마이크로코드 용량</li>
+                <li> - 루트 룩업, 넥스트 홉, IFL 확장, 인터페이스 어카운팅 등과 같은 기능 향상 확장</li>
+                <li> - Layer2 및 Layer3 Ethernet 서비스 동시 지원</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="라우터 MX240, MX480 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">MX240 / MX480</p>
+            <div class="article-text">MX Series 에지 라우터는 모든 종류의 비즈니스, 모바일 댁내 서비스를 지원할 수 있는 유니버설 에지 플랫폼의 기능을 수행하는 하이 퍼포먼스 이더넷 라우터 포트폴리오입니다. 강력한 스위칭 및 보안 사양을 가진 MX Series는 뛰어난 유연성과 안정성으로 최신 서비스와 애플리케이션을 지원합니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 대역폭 : 16RU 섀시 한 대에서 최대 2.6Tbps의 업계 최대 용량을 제공하여 계속해서 급증하는 대역폭 요구를 지원</li>
+                <li> - 가입자 : 통신사업자가 증가하는 가입자 기반을 지원할 수 있도록 확장 가능. 패킷 포워딩 엔진당 최대가입자 32,000명 지원</li>
+                <li> - 서비스 : 통신사업자가 증가하는 가입자 기반을 지원할 수 있도록 확장 가능. 패킷 포워딩 엔진당 최대가입자 32,000명 지원</li>
+              </ul>
+            </div>
+          </div>
+          <p class="emp">스위치(Switch)</p>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="스위치 QFX10008, QFX10016 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">QFX10008 / QFX10016</p>
+            <div class="article-text">고성능의 데이터센터 코어와 스파인 스위치이며 업계를 선도하는 유연성과 개방형 특성에 10GbE과 40GbE에서 100GbE과 그 이상까지 끊임없는 포트 대역폭 전환이 용이한 설계로 클라우드와 데이터센터 운영 사업자가 미래에 적합한 네트워크 인프라 구조에서 최상의 가치와 지능을 추출할 수 있는 모듈형 스위치입니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 단일 섀시에서 최대 480개 Line-Rate 100GbE 포트 지원</li>
+                <li> - 200Tbps까지 확장이 가능한 96Tbps의 Layer2와 Layer3 성능</li>
+                <li> - 10GbE, 40GbE, 100GbE 지원 및 400GbE 예정으로 탁월한 투자보호</li>
+                <li> - Midplane없는 직교의 상호연결 아키텍처로 시스템 지속성</li>
+                <li> - 아키텍처 기반의 가상 출력 큐(VoQ)로 Head-of-Line 블럭킹 제거</li>
+                <li> - Layer2와 Layer3에 대한 Juniper MC-LAG와 Layer3 패브릭을 포함하는 유연한 네트워크 구조</li>
+                <li> - APIs로 프로그래밍이 용이하도록 구성한 주니퍼 가상화 개방 네트워크 운영체제 프레임워크</li>
+                <li> - 무중단 라우팅(NSR), 무중단 브리징(NSB), 적절한 루트 엔진 절체(GRES)에 의한 고가용성</li>
+                <li> - 이벤트 스크립트, Python, Chef, Puppet, 그리고 운영에 의한 풍부한 자동화 기능</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="스위치 QFX10002 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">QFX10002</p>
+            <div class="article-text">고성능의 코어와 스파인 스위치이며 업계를 선도하는 확장성, 포트 집적도, 유연성, 클라우드와 데이터센터 운영 사업자가 자동화된 데이터 센터 네트워크 구축이 용이하도록 지원하며 탁월한 장기적 투자 보호를 지원하는 고정형 플랫폼입니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 포트당 100ms의 하이브리드 메모리 큐브(HMC) 메모리를 이용하는 딥 버퍼로 독보적인 Congestion 관리</li>
+                <li> - 2U 크기에 60개의 100GbE 포트와 72개의 40GbE 포트까지 지원</li>
+                <li> - 6Tbps까지 Layer2와 Layer3 성능 지원</li>
+                <li> - 단일 플랫폼에서 10GbE, 40GbE, 100GbE 동시지원으로 탁월한 투자 보호</li>
+                <li> - 최상의 논리적 L2/L3 확장 – 1백 만 개 MAC 주소, 2백 만 개 호스트 경로, 2백 만 개 FIB 포워딩 테이블</li>
+                <li> - MAC과 ACL을 위해 PFE당 칩 자체 메모리</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="스위치 EX9204, EX9208, EX9214 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">EX9204 / EX9208 / EX9214</p>
+            <div class="article-text">캠퍼스와 데이터센터 환경 모두에서 주력 업무를 처리하도록 프로그램이 용이하면서 유연하고 확장성 있는 코어를 제공하며 통신사업자 수준의 신뢰도를 제공하면서 비용과 복잡성을 줄이는 모듈형 스위치입니다.</div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - TCO 절감</li>
+                <li> - 보안 위험 관리</li>
+                <li> - 캐리어급 안정성</li>
+                <li> - 애플리케이션 제어</li>
+                <li> - 가상화 : 버추얼 섀시 기술을 채용</li>
+                <li> - 섀시당 최대 400개의 유선속도 10기가빗 이더넷 포트</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="스위치 EX-Series 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">EX-Series</p>
+            <div class="article-text">EX2200 / EX2300 이더넷 스위치
+              <ul>
+                <li> - 10GbE 탑-오브-랙 데이터센터 액세스 구축을 위한 높은 에너지 효율의 컴팩트 솔루션을 제공.</li>
+                <li> - 브랜치 오피스와 캠퍼스 네트워크에 액세스 레이어 구축 시 이상적인 제품.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX3300 / EX3400 이더넷 스위치
+              <ul>
+                <li> 소규모 LAN들에 저집적도 액세스 구축을 시행하는데 적합한 하이 퍼포먼스 스탠드얼론 솔루션을 제공.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX4200 / EX4300 이더넷 스위치
+              <ul>
+                <li> 데이터센터 및 캠퍼스환경에서 요구되는 강력한 확장성을 제공하는 하이 퍼포먼스 솔루션.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX4500 이더넷 스위치
+              <ul>
+                <li> EX4500 이더넷 스위치 라인은 고집적도 10Gbps 데이터 센터, 캠퍼스, 통신사업자 구축을 지원하는 뛰어난 확장성과 하이 퍼포먼스를 제공하는 컴팩트 플랫폼.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX4600 이더넷 스위치
+              <ul>
+                <li> 고집적 캠퍼스 어그리게이션 및 소규모 캠퍼스 구축을 위한 확장 가능한 10GbE</li>
+              </ul>
+            </div>
+          </div>
+          <p class="emp">보안장비</p>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="보안장비 SRX5400, SRX5600, SRX5800 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">SRX5400 / SRX5600 / SRX5800</p>
+            <div class="article-text">SRX5600
+              <ul>
+                <li> 서비스 게이트웨이는 최대 60Gbps의 방화벽 및 15Gbps의 IDP를 지원하며, 엔터프라이즈 데이터센터를 보호하고 보안 솔루션을 통합하기에 적합한 제품.</li>
+              </ul>
+            </div>
+            <div class="article-text">SRX5800
+              <ul>
+                <li> 서비스 게이트웨이는 최대 120Gbps의 방화벽 및 30Gbps의 IDP 및 초당 350,000개의 새로운 연결을 지원.</li>
+              </ul>
+            </div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 확장 가능한 성능</li>
+                <li> - 완벽하게 통합된 UTM</li>
+                <li> - 네트워크 세그먼트 분할</li>
+                <li> - 시스템 및 네트워크 장애 내구성</li>
+                <li> - 인터페이스 유연성</li>
+                <li> - 강력한 라우팅 엔진</li>
+                <li> - 종합적인 위협 차단</li>
+                <li> - 시스템 및 네트워크 장애 내구성</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="보안장비 SRX3400, SRX3600 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">SRX3400 / SRX3600 </p>
+            <div class="article-text">SRX3400
+              <ul>
+                <li> 서비스 게이트웨이는 최대 20Gbps의 방화벽, 6Gbps의 IPsec VPN 또는 6Gbps의 IPS를 비롯해 초당 175,000개의 연결을 지원할 수 있습니다. 엔터프라이즈 인프라스트럭처, 데이터센터 또는 서버 팜 보호에 적합한 제품</li>
+              </ul>
+            </div>
+            <div class="article-text">SRX3600
+              <ul>
+                <li> 서비스 게이트웨이는 최대 30Gbps의 방화벽, 10Gbps의 IPsec VPN 또는 10Gbps의 IPS를 비롯해 초당 175,000개의 연결을 지원할 수 있습니다. 대규모 엔터프라이즈 데이터센터 및 통신사업자 보호는 물론, 다양한 보안 솔루션들의 통합에 적합한 제품</li>
+              </ul>
+            </div>
+            <div class="article-text">주요특징
+              <ul>
+                <li> - 확장 가능한 성능 / 완벽하게 통합된 UTM</li>
+                <li> - 네트워크 세그먼트 분할</li>
+                <li> - 시스템 및 네트워크 장애 내구성</li>
+                <li> - 인터페이스 유연성</li>
+                <li> - 강력한 라우팅 엔진 / 종합적인 위협 차단</li>
+                <li> - 시스템 및 네트워크 장애 내구성</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="보안장비 SRX110, SRX220, SRX300, SRX550 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">SRX110 / SRX220 / SRX300 / SRX550 </p>
+            <div class="article-text">SRX110
+              <ul>
+                <li> 8개 10/100 이더넷 LAN 포트와 1개 USB 포트(3G USB 지원), UTM, 안티바이러스, 안티스팸, 고성능 웹 및 컨텐츠 차단</li>
+                <li> VDSL/ADSL2+ 및 이더넷 WAN 인터페이스, 통합된 접근 제어(UAC) 및 컨텐츠 차단</li>
+              </ul>
+            </div>
+            <div class="article-text">SRX220
+              <ul>
+                <li> 2개 10/100/1000 이더넷, 6개 10/100 이더넷 LAN포트, 1개 Mini-PIM 슬롯, 2개 USB 포트(3G USB 지원)</li>
+                <li> T1/E1, Serial, ADSL/2/2+, VDSL, G.SHDSL, 이더넷 SFP, 침입방지시스템, 사용자 행위기반 방화벽</li>
+              </ul>
+            </div>
+            <div class="article-text">SRX300
+              <ul>
+                <li> 5Gbps 라우팅, 방화벽 성능, 실시간 링크 성능에 기반한 Route/Link Failover, Web 2.0을 포함한 3500개 이상 Layer3-7 응용서비스 감지</li>
+              </ul>
+            </div>
+            <div class="article-text">SRX550
+              <ul>
+                <li> 10개 고정 이더넷 포트(6개 10/100/1000 copper, 4SFP), 2개 Mini-PIM 스롯, 6개 GPIM 슬롯 또는 다중 GPIM과 XPIM 조합</li>
+              </ul>
+            </div>
+          </div>
+          <div class="article-left">
+            <img src="img/solution1.png" alt="보안장비 SRX1400, SRX1500, SRX4100, SRX4200, SRX4600 상세 이미지">
+          </div>
+          <div class="article-right">
+            <p class="article-text-title">EX-Series</p>
+            <div class="article-text">EX2200 / EX2300 이더넷 스위치
+              <ul>
+                <li> - 10GbE 탑-오브-랙 데이터센터 액세스 구축을 위한 높은 에너지 효율의 컴팩트 솔루션을 제공.</li>
+                <li> - 브랜치 오피스와 캠퍼스 네트워크에 액세스 레이어 구축 시 이상적인 제품.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX3300 / EX3400 이더넷 스위치
+              <ul>
+                <li> - 소규모 LAN들에 저집적도 액세스 구축을 시행하는데 적합한 하이 퍼포먼스 스탠드얼론 솔루션을 제공.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX4200 / EX4300 이더넷 스위치
+              <ul>
+                <li> - 데이터센터 및 캠퍼스환경에서 요구되는 강력한 확장성을 제공하는 하이 퍼포먼스 솔루션.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX4500 이더넷 스위치
+              <ul>
+                <li> - EX4500 이더넷 스위치 라인은 고집적도 10Gbps 데이터 센터, 캠퍼스, 통신사업자 구축을 지원하는 뛰어난 확장성과 하이 퍼포먼스를 제공하는 컴팩트 플랫폼.</li>
+              </ul>
+            </div>
+            <div class="article-text">EX4600 이더넷 스위치
+              <ul>
+                <li> - 고집적 캠퍼스 어그리게이션 및 소규모 캠퍼스 구축을 위한 확장 가능한 10GbE</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -404,106 +556,15 @@
               <li>- 삼성전자, LG전자기술원, GS홈쇼핑</li>
             </ul>
           </div>
-        </div>  
-        <div class="article-wrapper sol9">
-          <h2 class="article-title">국내외 사업자 망 컨설팅 서비스 <p>Consulting Service</p> </h2>
-          <p class="emp">고객사 네트워크 시스템에 대해 정형화된 컨설팅 방법론에 의거하여 구성 자원 및 업무 흐름에 관한 모든 형황을 정확하게 분석함으로써
-              궁극적으로 고객사의 현재와 미래에 관현된 모든 사업환경에 최적화된 구현방안을 제시</p>
-          <img class="article-img"src="img/solution14.png" alt="국내외 사업자 망 컨설팅 서비스 상세 이미지">
-        </div> 
-        <div class="article-wrapper sol10">
-          <h2 class="article-title">블록체인 서비스 <p>BlockChain SDN AI Service</p> </h2>
-          <p class="emp">중앙통제관리형 업무·서비스 프로세스 또는 데이터 수집·관리 환경 등에서 개별 업무 및 데이터 속성에 대한 상세한 분석을 통해 각각의 보안 유지 중요도와 위·변조 영향 특성을 구분하여 효율적·효과적 운영이 용이하도록 탈중앙화(Decentralized)된 데이터 저장·처리 및 관리환경 구축</p>
-          <div class="article-text">주요서비스 및 기능
-            <ul>
-              <li>- 탈중앙화 시스템(플랫폼) 구축</li>
-              <li>- 업무서비스 및 데이터 분석 컨설팅</li>
-              <li>- ICO(Initial Coin Offering) 설계 및 구축</li>
-              <li>- 공공, 금융, 인증, 플랫폼, 기업 서비스 블록체인 적용</li>
-            </ul>
-          </div>
-          <div class="article-text">대상고객
-            <ul>
-              <li>- 데이터 개방에 따른 업무 효율성 제고를 추구하는 공공부문</li>
-              <li>- 거래 원장 기록의 안전한 유지·관리를 통한 서비스 강화 추구 금융 기업</li>
-              <li>- 데이터 분산 저장 관리에 의한 서비스 운영 효율성 제고 기관 또는 기업</li>
-            </ul>
-          </div>
-          <div class="article-text">블록체인 서비스 구조(예)
-            <img class="article-img"src="img/solution13.png" alt="블록체인 서비스 상세 이미지">          
-          </div>
-          <div class="article-text">블록체인 플랫폼 구조(예)
-            <img class="article-img"src="img/solution13.png" alt="블록체인 서비스 상세 이미지">          
-          </div>
-        </div> 
-        <div class="article-wrapper sol11">
-          <h2 class="article-title">소프트웨어정의네트워크 <p>Software Defined Network, SDN</p> </h2>
-          <p class="emp">클라우드 환경의 일반화에 따른 서버 가상화 영역에서 운용중인 가상 서버를 대상으로 기존의 L2/L3스위치 교체 없이 소프트웨어적인 네트워크를 구현하는 Overlay SDN방식과 네트워크 장비 제조사의 전용 OS가 탑재되지 않은 일명 화이트박스 L2/L3스위치 또는 데이터 송수신과 송수신 제어를 소프트웨어적으로 분리하여 송수신과 제어 상호간 통신을 담당하는 오픈플로우 프로토콜을 지원하는 하드웨어 L2/L3스위치에 소프트웨어적인 변형이 용이한 운영체제를 선택적으로 설치하여 네트워크를 구현하는 hop-by-hop SDN 방식으로 SDN을 구축</p>
-          <div class="article-text">주요서비스 및 기능
-            <ul>
-              <li>- 경제성 및 운영 효율성을 적용한 통신 본연의 핵심 기능과 컨트롤러의 분리 운영</li>
-              <li>- 지역·위치적으로 분산된 통신 장비들에 대한 중앙 통제관리 강화</li>
-              <li>- 다수의 가상머신(VM)에 분산된 어플리케이션간 통신 유동성 즉각 대응</li>
-              <li>- 데이터센터 구성 요소인 서버, 스토리지, 네트워크에 대한 자동화된 오케스트레이션</li>
-              <li>- 사전에 정의된 스크립트 기반의 라이브러리 프로파일(템플릿) 적용</li>
-            </ul>
-          </div>
-          <div class="article-text">대상고객
-            <ul>
-              <li>- 가변적 구조/대역폭 변경을 필요로 하는 통신망 운영 사업자</li>
-              <li>- 글로벌 또는 지역적으로 분포된 서비스 인프라(클라우드) 운영 사업자</li>
-              <li>- 다양하고 빈번한 서비스 출시와 종료를 반복하는 서비스 사업자</li>
-              <li>- 인프라 구조에 대한 가변적 정책 적용을 필요로 하는 일반 기업 및 학교</li>
-            </ul>
-          </div>
-          <div class="article-text">Juniper Networks SDN 구성(예)
-            <img class="article-img"src="img/solution13.png" alt="소프트웨어정의네트워크 상세 이미지">          
-          </div>
-        </div> 
-        <div class="article-wrapper sol12">
-          <h2 class="article-title">인공지능 <p>Artificial Intelligence, A.I.</p> </h2>
-          <p class="emp">서비스 및 인프라 노드들로부터 수집한 다양하고 복잡한 정형 및 비정형 데이터를 근간으로 구축한 빅데이터 환경과 이러한 환경에서 추출한 정보 데이터로부터 시간, 기후, 인구, 트래픽 변화 등에 따른 비지도 학습, 통계, 확률적 정보 데이터 분석 및 추론 알고리즘 등을 적용하여 전문가의 숙련된 기술력에 의존했던 데이터 분석, 판단, 실행 작업의 일부를 인공지능이라는 첨단 기술을 적용시켜 의미있는 정보 추출을 통해 이상현상에 대한 자동화된 대응과 고 부가가치 정보에 대한 가공을 용이하게 함</p>
-          <div class="article-text">주요서비스 및 기능
-            <ul>
-              <li>- 데이터 자동 수집 엔진, 문서 분류 알고리즘, 검색 클러스터링</li>
-              <li>- 인피니밴드 기술 기반의 빅데이터 처리 인프라</li>
-              <li>- 원격 직접 메모리 접근(RDMA)을 통한 중앙처리장치 부하경감(Off-Load)</li>
-              <li>- 확률적으로 특이한 보안 위협 자동 감지 및 알림</li>
-              <li>- 분산서비스거부공격(DDoS) 자동 대응</li>
-            </ul>
-          </div>
-          <div class="article-text">대상고객
-            <ul>
-              <li>- 방대한 기저 데이터 발생 및 단순 저장 기업 또는 기관</li>
-              <li>- 정의된 정책 기반의 단순 정보보호 대응 인프라 구성 기업 또는 기관</li>
-              <li>- 방대한 기저 데이터로부터 부가가치를 창출하고자 하는 기업 또는 기관</li>
-              <li>- 시스템 부하를 최소화한 효율적 데이터 수집 및 운영 환경 구축 기업 또는 기관</li>
-            </ul>
-          </div>
-          <div class="article-text">인공지능 서비스 구조(예)
-            <img class="article-img"src="img/solution13.png" alt="인공지능 서비스 상세 이미지">
-          </div>
-        </div> 
-      </div>
-    </article>
-    <footer>
-      <div class="footer-wrapper">
-        <div class="text-area">
-          <div class="img-wrapper">          
-            <a href="company.html">
-              <img class="icraft-logo" src="img/logo-gr.png" alt="아이크래프트 로고">
-            </a>
-          </div>
-          <p>서울특별시 강남구 언주로 726, 12층(논현동, 두산건설빌딩)   대표전화 02) 541-0474   팩스번호 02) 543-1442</p><br>
-          <p>COPYRIGHT 2007 ICRAFT21.COM ALL RIGHT RESERVED</p>
         </div>
       </div>
-    </footer>
+    </article>
+    <footer id="footer"></footer>
     <button class="move-top">&uarr;</button>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="./js/scroll.js"></script>
+  <script src="./js/common.js"></script>
 </body>
 
 </html>

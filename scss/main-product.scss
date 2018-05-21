@@ -1,6 +1,8 @@
 @import './reset';  
 @import './common';
 @import './config';
+@import './header';
+@import './footer';
 
 section {
   background: {
@@ -51,6 +53,11 @@ article {
       clear: both;
     }
     .article-wrapper {
+      .article-text-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 15px 0;
+      }
       img {
         margin: 30px 0;
       }
@@ -91,10 +98,10 @@ article {
         margin-bottom: 0;
       }
       .article-left {
-        width: 65%;
-        position: relative;
-        top: 330px;
-        background: none;
+        width: 35%;
+        height: 100%;
+        float: left;
+        margin-right: 40px;
         @include respond-to($phone) {
           padding: 0;
           width: 100%;          
@@ -102,30 +109,8 @@ article {
         @include respond-to($tablet) {
           width: 100%;
         }
-        li {
-          margin: 22px 0 22px 10px;
-          @include respond-to($phone) {
-            margin: 10px 0 10px 0;
-          }
-        }
-        .text-emp {
-          position: relative;
-          bottom: 320px;
-          font-size: 18px;
-          text-align: center;
-          color: #fff;
-          background: #BAB39E;
-          padding: 10px;
-          @include respond-to($phone) {
-            width: 100%; 
-            font-size: 12px;
-          }
-          @include respond-to($tablet) {
-            font-size: 14px;
-          }
-        }
-        @include respond-to($phone) {
-          width: 100%; 
+        img {
+          width: 100%;
         }
       }
       .left-second {
@@ -135,34 +120,25 @@ article {
         width: 100%; 
       }
       .article-right {
-        float: right;        
-        width: 40%;
+        // display: inline-block;
+        float: left;
+        width: 59%;
         @include respond-to($phone) {  
           float: none;        
-          width: 80%;
+          width: 100%;
           margin: 50px auto;
         }
         @include respond-to($tablet) {
           float: none;        
-          width: 50%;
+          width: 100%;
           margin: 50px auto;          
         }
-        img {
-          margin: 0;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 30%;
-          @include respond-to($phone) {
-            width: 100%;
-            position: unset;
-          }
-          @include respond-to($tablet) {
-            width: 100%;
-            position: unset;            
-          }
-        }
       }
+    }
+    .article-wrapper:after {
+      content: '';
+      display: block;
+      clear: both;
     }
     .article-solution {
       position: relative;

@@ -1,0 +1,74 @@
+@import './config';
+
+// .container-fluid {
+//   padding: 0;
+  footer {
+    .footer-wrapper {
+      width: 100%;
+      height: 100px;
+      background: #333;
+      padding: 37px 0;
+      .text-area {
+        line-height: 1.4;
+        // width: 100%;        
+        width: 1050px;        
+        margin: 0 auto;
+        // padding: 0 90px;
+        @include respond-to($phone) {
+          width: 100%;
+          padding: 0 15px 0 15px;
+        }
+        @include respond-to($tablet) {
+          width: 100%;
+          padding: 0 25px 0 25px;
+        }
+        @include respond-to($desktop) {
+          width: 100%;
+          padding: 0 55px 0 55px;
+        }
+        .img-wrapper {
+          @include respond-to($phone) {
+            width: 100px;
+            margin: 0 auto;
+          }
+          @include respond-to($tablet) {
+            width: 100px;
+            margin: 0 auto;
+          }
+          a {
+            img {
+              float: left;
+              width: 150px;
+              margin-right: 25px;
+              @include respond-to($phone) {
+                width: 100px;
+                // float: none;
+                // margin: 0 auto;
+              }
+              @include respond-to($tablet) {
+                width: 120px;
+                // float: left;
+                // margin-right: 10px;
+              }
+            }
+          }
+        }
+        p {
+          float: left;
+          // font-size: 1.1vw;
+          font-size: 13px;
+          font-weight: 100;
+          color: #d4d4d4;
+          @include respond-to($phone) {
+            display: none;
+          }
+          @include respond-to($tablet) {
+            // float: left;
+            // font-size: 11px;
+            display: none;
+          }
+        }
+      }
+    }
+  }
+// }

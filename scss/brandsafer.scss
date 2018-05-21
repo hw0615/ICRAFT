@@ -1,6 +1,8 @@
 @import './reset';  
 @import './common';
 @import './config';
+@import './header';
+@import './footer';
 
 section {
   background: {
@@ -25,23 +27,55 @@ article {
         width: 33%;
         padding: 0 10px;
         margin: 50px 0px;
+        @include respond-to($phone) {
+          margin: 20px 0px;
+        }
+        @include respond-to($tablet) {
+          margin: 30px 0px;          
+        }
         .article-text-title {
           text-align: center;
           font-size: 22px;
-          font-weight: 600;          
+          font-weight: 600;
+          @include respond-to($phone) {
+            font-size: 14px; 
+          }
+          @include respond-to($tablet) {
+            font-size: 18px; 
+          }
         }
         .article-text-sub {
           text-align: center;
           font-size: 16px;
           color: $color-key;
           margin: 25px 0;
+          @include respond-to($phone) {
+            font-size: 12px; 
+          }
+          @include respond-to($tablet) {
+            font-size: 14px; 
+          }
         }
         .article-text {
           line-height: 1.8;
         }
+        @include respond-to($phone) {
+          width: 100%; 
+        }
+        @include respond-to($tablet) {
+          width: 100%; 
+        }
       }
-      .artice-gotoweb {
+      .article-gotoweb {
         float: right;
+        a {
+          @include respond-to($phone) {
+            font-size: 12px; 
+          }
+          @include respond-to($tablet) {
+            font-size: 14px; 
+          }
+        }
       }
     }
     &-img {

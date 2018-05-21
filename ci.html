@@ -16,105 +16,14 @@
   <meta property="og:url" content="http://www.icraft21.com/" />
   <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
   <meta property="og:description" content="아이크래프트(주)" />
-  <!-- <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css" /> -->
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/ci.css" />
-  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
-  <!-- <script src="semantic/semantic.min.js"></script> -->
 </head>
 
 <body>
   <div class="container-fluid">
-    <header>
-      <div class="logo-wrapper">
-        <h1>
-          <a href="#">
-              <img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고">
-          </a>
-        </h1>                
-      </div>
-      <div class="nav-container">
-        <ul class="nav-menu">
-          <li class="nav-menu-list"><a href="company.html" class="nav-menu-list-name">회사소개</a>
-            <ul class="nav-menu-list-sub">
-              <li class="cantmove"><a>기업개요<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail">
-                  <li><a href="overview.html">개요</a></li>
-                  <li><a href="history.html">연혁</a></li>
-                  <li><a href="organization.html">조직도</a></li>
-                  <li><a href="major-projects.html">주요실적</a></li>
-                </ul>
-              </li>
-              <li><a href="ci.html">C.I</a></li>
-              <li><a href="culture.html">기업문화</a></li>
-              <li><a href="contribution.html">사회공헌</a></li>
-              <li><a href="location.html">찾아오시는 길</a></li>
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="solution-portfolio.html" class="nav-menu-list-name">사업소개</a>
-            <ul class="nav-menu-list-sub info-busi">
-              <li class="cantmove"><a href="solution-portfolio.html">Solution Portfolio<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail solution">
-                  <li><a href="#">인터넷 핵심망/접속망</a></li>
-                  <li><a href="#">인터넷 INFRA부가 서비스</a></li>
-                  <li><a href="#">무선 인터넷 서비스</a></li>
-                  <li><a href="#">대용량 Data 관리 솔루션</a></li>
-                  <li><a href="#">인터넷 Application</a></li>
-                  <li><a href="#">인터넷 통합 보안 서비스</a></li>
-                  <li><a href="#">음성/데이터 통합 서비스</a></li>
-                  <li><a href="#">트래픽관리/제어 서비스</a></li>
-                  <li><a href="#">국내외 사업자 망 컨설팅 서비스</a></li>
-                  <li><a href="#">블록체인 서비스</a></li>                  
-                </ul>
-              </li>
-              <!-- <li><a href="#">Product License</a></li> -->
-              <li><a href="brandsafer.html">브랜드세이퍼</a></li>
-              <li class="cantmove"><a href="main-product.html">주요 제품(파트너)<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail partner">
-                  <li><a href="#">Juniper</a></li>
-                  <li><a href="#">Genband</a></li>
-                  <li><a href="#">Arbor</a></li>
-                  <li><a href="#">Dartware(InterMapper)</a></li>
-                  <li><a href="#">Mellanox</a></li>
-                  <li><a href="#">Gigamon</a></li>
-                  <li><a href="#">기타 제품</a></li>
-                  <li><a href="#">주요고객사</a></li>
-                  </ul>
-              </li>    
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name list-ir">I.R</a>
-            <ul class="nav-menu-list-sub info-ir">
-              <li><a href="#">주가정보</a></li>
-              <li><a href="#">재무정보</a></li>
-              <li class="cantmove"><a>IR 자료실<span> > </span></a>
-                <ul class="nav-menu-list-sub-detail ir-detail">
-                  <li><a href="#">경영공시</a></li>
-                  <li><a href="#">내부 정보 관리 규정</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">채용안내</a>
-            <ul class="nav-menu-list-sub info-recruit">
-              <li><a href="#">입사지원</a></li>
-              <li><a href="#">채용게시판</a></li>
-            </ul>
-          </li>
-          <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">고객지원</a>
-            <ul class="nav-menu-list-sub info-customer">
-              <li><a href="#">News</a></li>
-              <li><a href="#">고객소리방</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- <div class="right menu">
-            <a class="">KOR</a>
-            <a class="">ENG</a>                    
-        </div> -->
-      </div>
-    </header>
+    <header id="header"></header>
     <section>
       <div class="img-wrapper">
         <div class="img-text-group">
@@ -166,24 +75,12 @@
         </div>
       </div>
     </article>
-    <footer>
-      <div class="footer-wrapper">
-        <div class="text-area">
-          <div class="img-wrapper">          
-            <a href="company.html">
-              <img class="icraft-logo" src="img/logo-gr.png" alt="아이크래프트 로고">
-            </a>
-          </div>
-          <p>서울특별시 강남구 언주로 726, 12층(논현동, 두산건설빌딩)   대표전화 02) 541-0474   팩스번호 02) 543-1442</p><br>
-          <p>COPYRIGHT 2007 ICRAFT21.COM ALL RIGHT RESERVED</p>
-        </div>
-      </div>
-    </footer>
-    <button class="move-top"></button>    
+    <footer id="footer"></footer>
+    <button class="move-top">&uarr;</button>    
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="./js/scroll.js"></script>  
+  <script src="./js/common.js"></script>  
 </body>
 
 </html>
