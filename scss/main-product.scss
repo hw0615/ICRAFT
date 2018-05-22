@@ -17,6 +17,11 @@ article {
   .article {
     .article-title {
       margin-top: 50px;
+      p {
+        margin: 15px 0 0 0;
+        font-size: 20px;
+        color: gray;
+      }
     }
     
     .article-nav {
@@ -132,6 +137,11 @@ article {
           float: none;        
           width: 100%;
           margin: 50px auto;          
+        }
+        .article-text {
+          .list-sub {
+            margin-left: 20px;
+          }
         }
       }
     }
