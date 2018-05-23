@@ -5,20 +5,7 @@
 @import './footer';
 
 section {
-  background: {
-    image: url('../img/company2.jpg');
-    color: #000;
-    repeat: no-repeat;
-    size: cover; 
-    // position: top;  
-    position-y: -100px;
-  }
-  @include respond-to($tablet) {
-    background-position-y: -30px;    
-  }
-  @include respond-to($large-desktop2) {
-    background-position-y: -375px;
-  }
+  @include company-img;
 }
 article {
   .article {

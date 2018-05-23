@@ -5,12 +5,7 @@
 @import './footer';
 
 section {
-  background: {
-    image: url('../img/img-test.png');
-    repeat: no-repeat;
-    size: cover; 
-    position: center;  
-  }
+  @include company-img;
 }
 .article-wrapper {
   max-width: 870px;

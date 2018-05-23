@@ -22,7 +22,7 @@ $(function () {
   var nav11 = $('.nav-11');
   var nav12 = $('.nav-12');
 
-  // Solution Portfolio 각 솔루션 변수
+  // Solution Portfolio & Main product 각 컨텐츠 변수
   var sol1 = $('.sol1');
   var sol2 = $('.sol2');
   var sol3 = $('.sol3');
@@ -54,8 +54,9 @@ $(function () {
 
   // 소분류 카테고리 스크롤 이벤트
   $(window).scroll(function () {
-    console.log($(this).scrollTop())
-    if ( $(this).scrollTop() >= 540 ) {
+    console.log('scrollTop: ', $(this).scrollTop())
+    // if ( $(this).scrollTop() >= 540 ) {
+    if ( $(this).scrollTop() >= $('.location').offset().top - 90) {
       nav.addClass('fixed-sub');
       top.fadeIn();
     } else {

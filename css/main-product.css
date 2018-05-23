@@ -94,7 +94,7 @@ legend, caption {
             padding: 0 55px 0 55px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-title {
           padding-top: 50px;
-          font-size: 38px;
+          font-size: 55px;
           font-weight: 600; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
@@ -103,7 +103,7 @@ legend, caption {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
               font-size: 24px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-des {
-          padding: 8px 0;
+          padding: 20px 0;
           font-size: 24px;
           text-shadow: 3px 3px 4px #000; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -417,9 +417,18 @@ footer .footer-wrapper {
           display: none; } }
 
 section {
-  background-image: url("../img/img-test-3.jpg");
+  background-image: url("../img/cover3.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    section {
+      background-position-y: -35px; } }
+  @media only screen and (min-width: 1251px) and (max-width: 1750px) {
+    section {
+      background-position-y: -240px; } }
+  @media only screen and (min-width: 1751px) {
+    section {
+      background-position-y: -450px; } }
 
 article .article .article-title {
   margin-top: 50px; }
@@ -464,8 +473,11 @@ article .article .article-wrapper .article-text-title {
   font-weight: 600;
   margin: 15px 0; }
 
-article .article .article-wrapper img {
-  margin: 30px 0; }
+article .article .article-wrapper .ex {
+  margin: 110px 0; }
+
+article .article .article-wrapper .sr, article .article .article-wrapper .qfx, article .article .article-wrapper .srx, article .article .article-wrapper .gen, article .article .article-wrapper .etc {
+  margin: 80px 0; }
 
 article .article .article-wrapper ul {
   background: #eee;
@@ -513,7 +525,8 @@ article .article .article-wrapper .article-left {
     article .article .article-wrapper .article-left {
       width: 100%; } }
   article .article .article-wrapper .article-left img {
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
 
 article .article .article-wrapper .left-second {
   margin-top: 33px; }
@@ -524,7 +537,8 @@ article .article .article-wrapper .left-second {
 
 article .article .article-wrapper .article-right {
   float: left;
-  width: 59%; }
+  width: 59%;
+  margin-bottom: 50px; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
     article .article .article-wrapper .article-right {
       float: none;
@@ -542,34 +556,3 @@ article .article .article-wrapper:after {
   content: '';
   display: block;
   clear: both; }
-
-article .article .article-solution {
-  position: relative; }
-  article .article .article-solution .solution-list {
-    width: 65%;
-    height: 200px; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      article .article .article-solution .solution-list {
-        width: 100%;
-        height: 100%; } }
-    @media only screen and (min-width: 601px) and (max-width: 991px) {
-      article .article .article-solution .solution-list {
-        width: 100%;
-        height: 100%; } }
-    article .article .article-solution .solution-list li {
-      margin: 25px 10px 25px 10px; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-solution .solution-list li {
-          margin: 15px 10px 15px 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-solution .solution-list li {
-          margin: 15px 10px 15px 10px; } }
-
-article .article .article-solution:after {
-  content: '';
-  display: block;
-  clear: both; }
-
-article .article-img {
-  width: 100%;
-  margin-bottom: 50px; }

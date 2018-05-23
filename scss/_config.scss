@@ -1,6 +1,40 @@
+// color setting
 $color-key: #174A8E;
 
-// ---------------------------------- Media Query
+// bg-img 
+@mixin company-img {
+  background: {
+    image: url('../img/company2.jpg');
+    repeat: no-repeat;
+    size: cover; 
+    position-y: -100px;
+  }
+  @include respond-to($tablet) {
+    background-position-y: -30px;    
+  }
+  @include respond-to($large-desktop2) {
+    background-position-y: -375px;
+  }
+}
+
+@mixin business-img {
+  background: {
+    image: url('../img/cover3.jpg');
+    repeat: no-repeat;
+    size: cover; 
+  }
+  @include respond-to($tablet) {
+    background-position-y: -35px;    
+  }
+  @include respond-to($large-desktop) {
+    background-position-y: -240px;
+  }
+  @include respond-to($large-desktop2) {
+    background-position-y: -450px;
+  }
+}
+
+// Media Query
 $phone : '(min-width: 280px) and (max-width: 600px)';
 $tablet: '(min-width: 601px) and (max-width: 991px)';
 $desktop: '(min-width: 992px) and (max-width: 1250px)';
@@ -22,3 +56,4 @@ $large-desktop2: '(min-width: 1751px)';
       @content;
   }
 }
+

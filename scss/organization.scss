@@ -5,13 +5,7 @@
 @import './footer';
 
 section {
-  background: {
-    image: url('../img/img-test.png');
-    repeat: no-repeat;
-    size: cover; 
-    // position: top;  
-    // position-y: -105px;
-  }
+  @include company-img;
 }
 article { 
   .article {

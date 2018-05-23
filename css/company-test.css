@@ -94,7 +94,7 @@ legend, caption {
             padding: 0 55px 0 55px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-title {
           padding-top: 50px;
-          font-size: 38px;
+          font-size: 55px;
           font-weight: 600; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
@@ -103,7 +103,7 @@ legend, caption {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
               font-size: 24px; } }
         .container-fluid section .img-wrapper .img-text-group .img-text-des {
-          padding: 8px 0;
+          padding: 20px 0;
           font-size: 24px;
           text-shadow: 3px 3px 4px #000; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {

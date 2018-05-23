@@ -5,7 +5,7 @@
 @import './footer';
 
 section {
-  background: url('../img/img-test.png') no-repeat center top;  
+  @include company-img;
 }
 article {
   .article-wrapper {

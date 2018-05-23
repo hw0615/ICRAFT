@@ -5,23 +5,7 @@
 @import './footer';
 
 section {
-  background: {
-    image: url('../img/cover3.jpg');
-    repeat: no-repeat;
-    size: cover; 
-    // position: top;  
-    // position-y: -105px;
-    // position-y: -75px;
-  }
-  @include respond-to($tablet) {
-    background-position-y: -50px;    
-  }
-  @include respond-to($large-desktop) {
-    background-position-y: -240px;
-  }
-  @include respond-to($large-desktop2) {
-    background-position-y: -450px;
-  }
+  @include business-img;
 }
 article { 
   .article {
