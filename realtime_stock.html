@@ -1,0 +1,647 @@
+<html>
+<head>
+<title>실시간시세</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+
+<style>
+td,body,span { font-size : 9pt ; font-family: '돋움','verdana','arial', 'sans-serif'; }
+
+a.link.kosdaq {
+    COLOR: #7F7F7F; TEXT-DECORATION: underline;
+}
+
+a.active.kosdaq {
+    COLOR: #7F7F7F; TEXT-DECORATION: none;
+}
+
+a.visited.kosdaq {
+    COLOR: #7F7F7F; TEXT-DECORATION: underline;
+}
+a.hover.kosdaq {
+ COLOR:#7F7F7F; TEXT-DECORATION: underline;
+}
+TD.title_defult {  
+    background-color: #81ACC6;
+}
+
+TD.body_a {  
+    background-color: #C3CACC;
+}
+
+TD.body_b {  
+    background-color: #EEF9F9;
+}
+
+TD.kdaqTitle2Bg {  
+    background-color: #F6F7E4;
+}
+
+TD.body_1 {  
+    background-color: #EFEFEF;
+    font-size: 9pt;
+}
+
+TD.body_0 {  
+    background-color: #FFFFFF;
+    font-size: 9pt;
+}
+
+
+.FONT_title_defult{
+    color: #FFFFFF; 
+    font-size:9pt; 
+    font-family:"돋움"
+}
+
+.FONT_Title2Col{
+    color: #000000; 
+    font-size:9pt; 
+    font-family:"돋움"
+}
+
+.FONT_body_0{
+    color: #000000; 
+    font-size:9pt; 
+    font-family:"돋움"
+}
+
+.FONT_body_1{
+    color: #000000; 
+    font-size:9pt; 
+    font-family:"돋움"
+}
+
+</style>
+<OBJECT id="httpObj" classid="clsid:CDF26594-A9E2-4E41-87F9-6E79DD38CFE3" codebase="http://asp1.krx.co.kr/reference/AutoTrustHTTP.cab#version=1,0,1,1" width=0 height=0 align=center hspace=0 vspace=0>
+	<Param name="CheckControl" value="True">
+	<Param name="ASync" value="True">
+	<Param name="RequestURL" value="http://asp1.krx.co.kr/servlet/krx.asp.XMLSise?code=052460">
+	<Param name="HTTPMethod" value="GET">
+</OBJECT>
+<script src='http://asp1.krx.co.kr/inc/js/asp_chart.js'></script>
+<script language="javascript">
+<!--
+var timeByConText;
+var TBL_DailyStockText;
+var TBL_AskPriceText;
+var TBL_HogaText;
+var thisDispTitle="TBL_HogaText";
+// oonreadystatechange funcion 설정해제
+	function SetNULLFunction()
+	{
+		if (httpObj != null){
+			httpObj.OnReadyStateChange = document.getElementById("NULL");
+		}
+	}
+
+	// onreadystatechange functon 설정
+	function SetFunction() {
+		if (httpObj != null){
+			httpObj.OnReadyStateChange = MyOnReadyStatChange;
+		}
+	}
+	
+	//xml data 요청
+	function SendRequest() {
+		if (httpObj != null){
+			//gpDisp.innerHTML = "<img src='http://www.kosdaq.com/servlet/kosdaq.premiumasp.servlet.SiseInfoServlet?code=089480&width=200&panelBGColor=ffffff&defaultFontColor=000000&myComGrpHeight=100'><br><img src='http://www.kosdaq.com/servlet/kosdaq.premiumasp.servlet.DTRmainServlet?code=089480&width=200&panelBGColor=ffffff&defaultFontColor=000000&myComGrpHeight=100'>";
+			onChart(200, 205, '052460');
+			httpObj.DoRequest();
+		}
+	}
+
+	// onreadystatechange funcion 이 이function 으로 설정된 경우 작동
+	var dipDate;//날짜시간처리
+	function MyOnReadyStatChange() {
+        var nReadyState = httpObj.ReadyState;
+        if (4 == nReadyState){
+            if (httpObj.Status != 200){
+                alert("Error Code: " + httpObj.Status + "\r\n" + httpObj.StatusText);
+            }
+            else{
+                var contentType = httpObj.getResponseHeader("Content-Type");
+                if (contentType.length < 8 || contentType.substring(0, 8) != "text/xml") {
+                    alert("잘못된 데이터입니다. 오랫동안 사용하지 않아 세션이 종료되었거나, 서버오류입니다!");
+                    return;
+                }
+                var xmlDoc = httpObj.ResponseXML;
+				var cDate =  document.getElementById("createDate")
+                dipDate = xmlDoc.selectSingleNode("stockprice").getAttribute("querytime");
+                parseNode(xmlDoc);
+				if (thisDispTitle == "TBL_HogaText") {            
+						Disp_SetXmlPart.innerHTML = TBL_HogaText;
+				}else if (thisDispTitle == "timeByConText"){
+					Disp_SetXmlPart.innerHTML = timeByConText;
+				}else if (thisDispTitle == "TBL_AskPriceText"){
+					Disp_SetXmlPart.innerHTML = TBL_AskPriceText;
+				}else{
+					Disp_SetXmlPart.innerHTML = TBL_DailyStockText;
+				}
+	            setTimeout(SendRequest, 30000);
+            }
+		}
+	}
+	
+
+
+
+    function parseNode(xmlDoc){
+
+        /*
+            주가정보 : TBL_StockInfo
+            호가 : TBL_Hoga
+            시간대별체결가 : TBL_TimeConclude
+            회원사별거래 : TBL_AskPrice
+            일자별시세 : TBL_DailyStock
+         */
+
+        var node = xmlDoc.selectSingleNode("stockprice/TBL_StockInfo");
+        if (node != null) parseStastistics(node);
+        node = xmlDoc.selectSingleNode("stockprice/TBL_Hoga");
+        if (node !=null) parseNogoPrice(node);
+        node = xmlDoc.selectSingleNode("stockprice/TBL_TimeConclude");
+        if (node != null) parseStatusPDay(node);
+        
+        node = xmlDoc.selectSingleNode("stockprice/TBL_DailyStock");
+        if (node != null) parseCallPrice(node);
+
+        node = xmlDoc.selectSingleNode("stockprice/TBL_AskPrice");
+        if (node != null) parseDealPMemberCorp(node);
+        
+    }
+
+    function parseDealPMemberCorp(dealNode){
+        //var statusPDayTbl = document.getElementById("TBL_AskPrice");
+        //if (statusPDayTbl != null){
+            var childNodes = dealNode.selectNodes("AskPrice");
+            var nodeLength = childNodes.length;
+                 
+
+				TBL_AskPriceText  ="<table border='0' cellspacing='0' cellpadding='0' width='613' height='321' background='http://asp1.krx.co.kr/reference/images/table_03_bg.jpg'>";
+				TBL_AskPriceText +="    <tr>";
+				TBL_AskPriceText +="	<td height='50'>&nbsp;</td>";
+				TBL_AskPriceText +="   </tr>";
+				TBL_AskPriceText +="    <tr>";
+				TBL_AskPriceText +="	<td valign='center' align='center'>";
+				TBL_AskPriceText +="	    <table width='300'  border='0' cellspacing='1' cellpadding='2' id=TBL_AskPrice>";
+				TBL_AskPriceText +="		<tr>";
+				TBL_AskPriceText +="		    <td colspan='4' height='1' class='title_defult'></td>";
+				TBL_AskPriceText +="		</tr>";
+				TBL_AskPriceText +="		<tr>";
+				TBL_AskPriceText +="		    <td colspan='2' class='title_defult' align='center' height='22'><font class='FONT_title_defult'>매도 상위</font></td>";
+				TBL_AskPriceText +="		    <td colspan='2' class='title_defult' align='center'><font class='FONT_title_defult'>매수 상위</font></td>";
+				TBL_AskPriceText +="		</tr>";
+				TBL_AskPriceText +="		<tr>";
+				TBL_AskPriceText +="		    <td class='kdaqTitle2Bg' align='center' height='22'><font class='FONT_Title2Col'>증권사</font></td>";
+				TBL_AskPriceText +="		    <td class='kdaqTitle2Bg' align='center'><font class='FONT_Title2Col'>거래량</font></td>";
+				TBL_AskPriceText +="		    <td class='kdaqTitle2Bg' align='center'><font class='FONT_Title2Col'>증권사</font></td>";
+				TBL_AskPriceText +="		    <td class='kdaqTitle2Bg' align='center'><font class='FONT_Title2Col'>거래량</font></td>";
+				TBL_AskPriceText +="		</tr>";
+			 for(var i=0; i< nodeLength ; i++){    
+				TBL_AskPriceText +="		<tr>";
+				TBL_AskPriceText +="		    <td class='kdaqTd1Bg' bgcolor=#FFFFFF align='center' height='19'><font color='#404040' face='굴림' style='font-size:9pt;' class='kdaqTd1Col'>"+childNodes[i].getAttribute("member_memdoMem")+"</font></td>";
+				TBL_AskPriceText +="		    <td class='kdaqTd1Bg' bgcolor=#FFFFFF align='right'><font color='#404040' face='굴림' style='font-size:9pt;'  class='kdaqTd1Col'>"+childNodes[i].getAttribute("member_memdoVol")+"</font>&nbsp;&nbsp</td>";
+				TBL_AskPriceText +="		    <td class='kdaqTd1Bg' bgcolor=#FFFFFF align='center' height='19'><font color='#404040' face='굴림' style='font-size:9pt;'  class='kdaqTd1Col'>"+childNodes[i].getAttribute("member_memsoMem")+"</font></td>";
+				TBL_AskPriceText +="		    <td class='kdaqTd1Bg' bgcolor=#FFFFFF align='right'><font color='#404040' face='굴림' style='font-size:9pt;'  class='kdaqTd1Col'>"+childNodes[i].getAttribute("member_mesuoVol")+"</font>&nbsp;&nbsp</td>";
+				TBL_AskPriceText +="		</tr>";
+			}
+				TBL_AskPriceText +="		<tr>";
+				TBL_AskPriceText +="		    <td colspan='4' height='1' bgcolor='D0D0D0'></td>";
+				TBL_AskPriceText +="		</tr>";
+				TBL_AskPriceText +="	    </table>";
+				TBL_AskPriceText +="	</td>";
+				TBL_AskPriceText +="   </tr>";
+				TBL_AskPriceText +="    <tr>";
+				TBL_AskPriceText +="	    <td height='50' valign='center' align='center'>";
+				TBL_AskPriceText +="		<table width='90' height='20' border='0' cellspacing='0' cellpadding='0'>";
+				TBL_AskPriceText +="		    <tr>";
+				TBL_AskPriceText +="			<td align='center'><a href='http://www.krx.co.kr' target='_blank' class='kosdaq'>한국거래소 제공</a></td>";
+				TBL_AskPriceText +="		    </tr>";
+				TBL_AskPriceText +="		</table>";    
+				TBL_AskPriceText +="	    </td>";
+				TBL_AskPriceText +="   </tr>";
+				TBL_AskPriceText +="</table>";
+           
+        //}
+    }
+
+    function markTypeset(sval,sval1){
+        //sval  등락기호
+        //sval1 등락값
+        //return;
+        // 1: 상한
+        // 2: 상승
+        // 3: 보합
+        // 4: 하한
+        // 5: 하락
+        //▼↓↑▲0
+        var rtnVal="";
+        if (sval == 1) {
+            rtnVal = "<font color='#ff0000'>↑ "+sval1+"</font>";
+        }else if (sval ==2) {
+            rtnVal = "<font color='#ff0000'>▲ "+sval1+"</font>";
+        }else if (sval == 3) {
+            rtnVal = sval1;
+        }else if (sval == 4) {
+            rtnVal = "<font color='#0066FF'>↓ "+sval1+"</font>";
+        }else{
+            rtnVal = "<font color='#0066FF'>▼ "+sval1+"</font>";
+
+        }
+        //alert(rtnVal);
+        return rtnVal;
+    }
+
+    function parseStastistics(TBL_StockInfo){
+        var staticsticTbl = document.getElementById("stockInfo");
+        if (staticsticTbl != null){
+            //JongName//종목명    
+            //CurJuka//현재가        
+            //DungRak//전일대비    
+            //PrevJuka//전일종가    
+            //Volume//거래량        
+            //Money//거래대금    
+            //StartJuka//시가        
+            //HighJuka//고가        
+            //LowJuka//저가        
+            //High52//52주 최고    
+            //Low52//52주 최저    
+            //UpJuka//상한가        
+            //DownJuka//하한가        
+            //Per//PER            
+            //Amount//상장주식수    
+            //FaceJuka//액면가
+    
+            staticsticTbl.rows(0).cells(1).innerText = TBL_StockInfo.getAttribute("JongName");
+            staticsticTbl.rows(0).cells(3).innerText = TBL_StockInfo.getAttribute("CurJuka");
+
+            staticsticTbl.rows(1).cells(1).innerHTML = markTypeset(TBL_StockInfo.getAttribute("DungRak"),TBL_StockInfo.getAttribute("Debi"));
+            
+            staticsticTbl.rows(1).cells(3).innerText = TBL_StockInfo.getAttribute("PrevJuka");
+            staticsticTbl.rows(2).cells(1).innerText = TBL_StockInfo.getAttribute("Volume");
+            staticsticTbl.rows(2).cells(3).innerText = TBL_StockInfo.getAttribute("Money");
+            staticsticTbl.rows(3).cells(1).innerText = TBL_StockInfo.getAttribute("StartJuka");
+            staticsticTbl.rows(4).cells(1).innerText = TBL_StockInfo.getAttribute("HighJuka");
+            staticsticTbl.rows(4).cells(3).innerText = TBL_StockInfo.getAttribute("LowJuka");
+            staticsticTbl.rows(5).cells(1).innerText = TBL_StockInfo.getAttribute("High52");
+            staticsticTbl.rows(5).cells(3).innerText = TBL_StockInfo.getAttribute("Low52");
+            staticsticTbl.rows(6).cells(1).innerText = TBL_StockInfo.getAttribute("UpJuka");
+            staticsticTbl.rows(6).cells(3).innerText = TBL_StockInfo.getAttribute("DownJuka");
+            staticsticTbl.rows(7).cells(1).innerText = TBL_StockInfo.getAttribute("Per");
+            staticsticTbl.rows(8).cells(1).innerText = TBL_StockInfo.getAttribute("Amount");
+            staticsticTbl.rows(8).cells(3).innerText = TBL_StockInfo.getAttribute("FaceJuka"); 
+
+        }
+    }
+
+    function parseNogoPrice(TBL_Hoga){
+        //var negoPriceTbl = document.getElementById("TBL_Hoga");
+        //if (negoPriceTbl != null){
+		TBL_HogaText   ="<br>";
+        TBL_HogaText  +="<table border='0' cellspacing='0' cellpadding='0' width='612' height='321' background='http://asp1.krx.co.kr/reference/images/table_01_bg.jpg'>";
+		TBL_HogaText  +="    <tr>";
+		TBL_HogaText  +="	<td valign='top' align='center'>";
+		TBL_HogaText  +="	    <table width='335'  border='0' cellspacing='1' cellpadding='2'>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td colspan='3' height='1' class='title_defult'></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>매도잔량</font></td>";
+		TBL_HogaText  +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>호가</font></td>";
+		TBL_HogaText  +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>매수잔량</font></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='body_1' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd2Col'>"+TBL_Hoga.getAttribute("medoJan0")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("medoHoka0")+"</font></td>";
+		TBL_HogaText  +="		    <td rowspan=5 class='body_0' align='right'></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='kdaqTd1Bg' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd1Col'>"+TBL_Hoga.getAttribute("medoJan1")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("medoHoka1")+"</font></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='body_1'  align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd2Col'>"+TBL_Hoga.getAttribute("medoJan2")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("medoHoka2")+"</font></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='kdaqTd1Bg' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd1Col'>"+TBL_Hoga.getAttribute("medoJan3")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("medoHoka3")+"</font></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='body_1'  align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd2Col'>"+TBL_Hoga.getAttribute("medoJan4")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("medoHoka4")+"</font></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td rowspan=5 class='kdaqTd1Bg' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd1Col'></font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("mesuHoka0")+"</font></td>";
+		TBL_HogaText  +="		    <td class='kdaqTd1Bg' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd1Col'>"+TBL_Hoga.getAttribute("mesuJan0")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("mesuHoka1")+"</font></td>";
+		TBL_HogaText  +="		    <td class='body_1'  align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd2Col'>"+TBL_Hoga.getAttribute("mesuJan1")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("mesuHoka2")+"</font></td>";
+		TBL_HogaText  +="		    <td class='kdaqTd1Bg' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd1Col'>"+TBL_Hoga.getAttribute("mesuJan2")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("mesuHoka3")+"</font></td>";
+		TBL_HogaText  +="		    <td class='body_1'  align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd2Col'>"+TBL_Hoga.getAttribute("mesuJan3")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td class='kdaqTitle2Bg' align='center' height='19'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTitle2Col'>"+TBL_Hoga.getAttribute("mesuHoka4")+"</font></td>";
+		TBL_HogaText  +="		    <td class='kdaqTd1Bg' align='center'><font color='#404040' face='돋움' style='font-size:9pt;'  class='kdaqTd1Col'>"+TBL_Hoga.getAttribute("mesuJan4")+"</font>&nbsp;&nbsp</td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="		<tr>";
+		TBL_HogaText  +="		    <td colspan='5' height='1' bgcolor='D0D0D0'></td>";
+		TBL_HogaText  +="		</tr>";
+		TBL_HogaText  +="	    </table>";
+		TBL_HogaText  +="	</td>";
+		TBL_HogaText  +="    </tr>";
+		TBL_HogaText  +="</table>"; 
+		//}
+    }
+
+
+    function parseStatusPDay(statusPDayNode){
+        //var statusPDayTbl = document.getElementById("TBL_TimeConclude");
+        //if (statusPDayTbl != null){
+            var childNodes = statusPDayNode.selectNodes("TBL_TimeConclude");
+            var nodeLength = childNodes.length;
+            timeByConText ="<br>";
+			timeByConText +=" <table cellspacing='0' cellpadding='0' width='600' align=center>";
+			timeByConText +="     <tr>";
+			timeByConText +="	<td>";
+			timeByConText +="	    <table width='610' border='0' cellspacing='1' cellpadding='2' align=center id=TBL_TimeConclude>";
+			timeByConText +="		<tr>";
+			timeByConText +="		    <td height='1' bgColor='81ACC6' colspan='10'></td>";
+			timeByConText +="		</tr>";
+			timeByConText +="		<tr height='23'>";
+			timeByConText +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>시간</font></td>";
+			timeByConText +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>체결가</font></td>";
+			timeByConText +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>전일대비</font></td>";
+			timeByConText +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>매도호가</font></td>";
+			timeByConText +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>매수호가</font></td>";
+			timeByConText +="		    <td class='title_defult' align='center'><font class='FONT_title_defult'>체결량</font></td>";
+			timeByConText +="		</tr>";
+
+            for(var i=0; i< nodeLength; i++){
+                timeByConText +="		<tr height='23'>";
+				timeByConText +="		    <td class='body_1' align='center'><font class='FONT_body_0'>"+childNodes[i].getAttribute("time")+"</font></td>";
+				timeByConText +="		    <td class='body_1' align='right'><font class='FONT_body_0'>"+childNodes[i].getAttribute("negoprice")+"</font>&nbsp;&nbsp</td>";
+				timeByConText +="		    <td class='body_1' align='right'>";
+				timeByConText +="			<table cellspacing='0' cellpadding='0' width='100%'>";
+				timeByConText +="			<tr>";
+				timeByConText +="			    <td ALIGN=LEFT WIDTH=20>&nbsp;</td>";
+				timeByConText +="			    <td ALIGN=RIGHT ><font class='FONT_body_0'><font color='red'>"+markTypeset(childNodes[i].getAttribute("Dungrak"),childNodes[i].getAttribute("Debi"))+"</font></font>&nbsp;&nbsp;</td>";
+				timeByConText +="			</tr>";
+				timeByConText +="			</table>";
+				timeByConText +="		    </td>";
+				timeByConText +="		    <td class='body_1' align='right'><font class='FONT_body_0'>"+childNodes[i].getAttribute("sellprice")+"</font>&nbsp;&nbsp</td>";
+				timeByConText +="		    <td class='body_1' align='right'><font class='FONT_body_0'>"+childNodes[i].getAttribute("buyprice")+"</font>&nbsp;&nbsp</td>";
+				timeByConText +="		    <td class='body_1' align='right'><font class='FONT_body_0'>"+childNodes[i].getAttribute("amount")+"</font>&nbsp;&nbsp</td>";
+				timeByConText +="		</tr>";
+            }
+			    timeByConText +="		<tr>";
+				timeByConText +="		    <td colspan='10' height='1' bgcolor='D0D0D0'></td>";
+				timeByConText +="		</tr>";
+				timeByConText +="	    </table>";
+				timeByConText +="	</td>";
+				timeByConText +="    </tr>";
+				timeByConText +="    <tr>";
+				timeByConText +="	<td height='60' valign='center' align='center' background='http://asp1.krx.co.kr/reference/images/table_bg.gif'>";
+				timeByConText +="	    <table width='90' height='20' border='0' cellspacing='0' cellpadding='0'>";
+				timeByConText +="		<tr>";
+				timeByConText +="		    <td align='center'><a href='http://www.krx.co.kr' target='_blank' class='kosdaq'>한국거래소 제공</a></td>";
+				timeByConText +="		</tr>";
+				timeByConText +="	    </table>    ";
+				timeByConText +="	</td>";
+				timeByConText +="    </tr>";
+				timeByConText +="</table>";
+            
+        //}
+
+    }
+
+    function parseCallPrice(TBL_DailyStock){
+        //var statusPDayTbl = document.getElementById("TBL_DailyStock");
+        //if (statusPDayTbl != null){
+            var childNodes = TBL_DailyStock.selectNodes("DailyStock");
+            var nodeLength = childNodes.length;
+				TBL_DailyStockText = "<br>";
+				TBL_DailyStockText +="<table border='0' cellspacing='0' cellpadding='0' width='610'>";
+				TBL_DailyStockText +="    <tr>";
+				TBL_DailyStockText +="	<td>";
+				TBL_DailyStockText +="	    <table width='610' height='265' border='0' cellspacing='1' cellpadding='2' align=center>";
+				TBL_DailyStockText +="	    <tr>";
+				TBL_DailyStockText +="		<td height='1' class='title_defult' colspan='8'></td>";
+				TBL_DailyStockText +="	  </tr> ";
+				TBL_DailyStockText +="	   <tr>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center' height='22'><font class='FONT_title_defult'>일자</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>종가</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>전일대비</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>시가</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>고가</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>저가</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>거래량</font></td>";
+				TBL_DailyStockText +="		<td class='title_defult' align='center'><font class='FONT_title_defult'>거래대금</font></td>";
+				TBL_DailyStockText +="	    </tr>";
+				for(var i=0; i<nodeLength; i++){
+					TBL_DailyStockText +="	    <tr>";
+					TBL_DailyStockText +="		<td class='body_1' align='center'><font class='FONT_body_1'>"+ childNodes[i].getAttribute("day_Date")+"</font></td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'><font class='FONT_body_1'>"+childNodes[i].getAttribute("day_EndPrice")+"</font>&nbsp;&nbsp</td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'>";
+					TBL_DailyStockText +="		    <table cellspacing='0' cellpadding='0' width='100%'>";
+					TBL_DailyStockText +="		    <tr>";
+					TBL_DailyStockText +="			<td ALIGN='LEFT' WIDTH='20'>&nbsp;</td>";
+					TBL_DailyStockText +="			<td ALIGN='RIGHT'><font class='FONT_body_1'><font color='blue'>"+ markTypeset(childNodes[i].getAttribute("day_Dungrak"),childNodes[i].getAttribute("day_getDebi"))+"</font></font>&nbsp;&nbsp;</td>";
+					TBL_DailyStockText +="		    </tr>";
+					TBL_DailyStockText +="		    </table>";
+					TBL_DailyStockText +="		</td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'><font class='FONT_body_1'>"+childNodes[i].getAttribute("day_Start")+"</font>&nbsp;&nbsp</td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'><font class='FONT_body_1'>"+childNodes[i].getAttribute("day_High")+"</font>&nbsp;&nbsp</td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'><font class='FONT_body_1'>"+childNodes[i].getAttribute("day_Low")+"</font>&nbsp;&nbsp</td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'><font class='FONT_body_1'>"+childNodes[i].getAttribute("day_Volume")+"</font>&nbsp;&nbsp</td>";
+					TBL_DailyStockText +="		<td class='body_1' align='right'><font class='FONT_body_1'>"+childNodes[i].getAttribute("day_getAmount")+"</font>&nbsp;&nbsp</td>";
+					TBL_DailyStockText +="	    </tr>";
+				}
+				TBL_DailyStockText +="	    <tr>";
+				TBL_DailyStockText +="		<td colspan='8' height='1' bgcolor='D0D0D0'></td>";
+				TBL_DailyStockText +="	    </tr>";
+				TBL_DailyStockText +="	</table>";
+				TBL_DailyStockText +="	</td>";
+				TBL_DailyStockText +="    </tr>";
+				TBL_DailyStockText +="   <tr>";
+				TBL_DailyStockText +="	<td height='60' valign='center' align='center' background='http://asp1.krx.co.kr/reference/images/table_bg.gif'>";
+				TBL_DailyStockText +="	    <table width='90' height='20' border='0' cellspacing='0' cellpadding='0'>";
+				TBL_DailyStockText +="		<tr>";
+				TBL_DailyStockText +="		    <td align='center'><a href='http://www.krx.co.kr' target='_blank' class='kosdaq'>한국거래소 제공</a></td>";
+				TBL_DailyStockText +="		</tr>";
+				TBL_DailyStockText +="	    </table>";    
+				TBL_DailyStockText +="	</td>";
+				TBL_DailyStockText +="    </tr>";
+				TBL_DailyStockText +="</table>";
+
+    }
+
+var preSval = 1; //깜박임을 줄이기 위해
+function change_id(sval) {
+    if (preSval != sval) {
+        if (sval == 1) {            
+                a.innerHTML = "<IMG SRC='http://asp1.krx.co.kr/reference/images/tap_01_on.gif' BORDER='0' onClick='change_id(1);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_02_off.gif' BORDER='0' onClick='change_id(2);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_03_off.gif' BORDER='0' onClick='change_id(3);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_04_off.gif' BORDER='0' onClick='change_id(4);' style='cursor:hand;'>";
+                Disp_SetXmlPart.innerHTML = TBL_HogaText;
+				thisDispTitle = "TBL_HogaText";
+	    }else if (sval == 2){
+            a.innerHTML = "<IMG SRC='http://asp1.krx.co.kr/reference/images/tap_01_off.gif' BORDER='0' onClick='change_id(1);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_02_on.gif' BORDER='0' onClick='change_id(2);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_03_off.gif' BORDER='0' onClick='change_id(3);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_04_off.gif' BORDER='0' onClick='change_id(4);' style='cursor:hand;'>";
+            Disp_SetXmlPart.innerHTML = timeByConText;
+			thisDispTitle = "timeByConText";
+	    }else if (sval == 3){
+            a.innerHTML = "<IMG SRC='http://asp1.krx.co.kr/reference/images/tap_01_off.gif' BORDER='0' onClick='change_id(1);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_02_off.gif' BORDER='0' onClick='change_id(2);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_03_on.gif' BORDER='0' onClick='change_id(3);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_04_off.gif' BORDER='0' onClick='change_id(4);' style='cursor:hand;'>";
+            Disp_SetXmlPart.innerHTML = TBL_AskPriceText;
+			thisDispTitle = "TBL_AskPriceText";
+	    }else{
+            a.innerHTML = "<IMG SRC='http://asp1.krx.co.kr/reference/images/tap_01_off.gif' BORDER='0' onClick='change_id(1);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_02_off.gif' BORDER='0' onClick='change_id(2);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_03_off.gif' BORDER='0' onClick='change_id(3);' style='cursor:hand;'><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_04_on.gif' BORDER='0' onClick='change_id(4);' style='cursor:hand;'>";
+            Disp_SetXmlPart.innerHTML = TBL_DailyStockText;
+			thisDispTitle = "TBL_DailyStockText";
+	    }
+        preSval = sval;
+    }
+}
+
+
+
+
+
+
+-->
+</script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="SetFunction();SendRequest()">
+<!-- body onload처리를 반드시 해주십시요 onload="SetFunction();SendRequest()" 두펑션을 함께 호출해야 합니다.-->
+
+<!-- 여기부터 코스닥 작업내역입니다. (html)-------------------------------------------------------------------------------------------------------->
+                                                                                    <table width="620" border="0" cellspacing="0" cellpadding="0">
+                                                                                        <tr> 
+                                                                                            <td width="215" height= "252" align="center" id="gpDisp" background="http://asp1.krx.co.kr/reference/images/graph_bg.gif"> 
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td width="405" align ="right" id=juka valign="top">
+                                                                                                <table width=390 border=0 cellspacing=0 cellpadding=0 bgcolor="EEF9F9">
+                                                                                                    <tr>
+                                                                                                        <td height='2' bgColor='E4D3C9'></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height='2'></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td align="center" valign="center" height="210">
+                                                                                                            <table width=380 border=0 cellspacing=1 cellpadding=1 id=stockInfo>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">종목명</font></td>
+                                                                                                                    <td width='30%' height= 22 align=center class="body_a"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">현재가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">전일대비</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b">&nbsp;</td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">전일종가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b"></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">거래량</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">거래대금</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">시가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="body_b">&nbsp;</td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b">&nbsp;</td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">고가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">저가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">52주 최고</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">52주 최저</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b"></td></tr>
+                                                                                                                    <tr><td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">상한가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">하한가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">PER</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="body_b">&nbsp;</td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_b">&nbsp;</td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">상장주식수</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                    <td width='20%' height= 22 align=center class="title_defult"><font class="FONT_title_defult">액면가</font></td>
+                                                                                                                    <td width='30%' height= 22 align=right class="body_a"></td>
+                                                                                                                </tr>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td height='20' id=timezone align=right></td>
+                                                                                                    </tr>
+
+                                                                                                </table>                                                                                            
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr> 
+                                                                                            <td width="615" align="right" colspan="2">
+                                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                                    <tr> 
+                                                                                                        <td width="100%" align="right" id="a">
+                                                                                                            <IMG SRC='http://asp1.krx.co.kr/reference/images/tap_01_on.gif' BORDER='0' onClick='change_id(1);' style="cursor:hand;"><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_02_off.gif' BORDER='0' onClick='change_id(2);' style="cursor:hand;"><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_03_off.gif' BORDER='0' onClick='change_id(3);' style="cursor:hand;"><IMG SRC='http://asp1.krx.co.kr/reference/images/tap_04_off.gif' BORDER='0' onClick='change_id(4);' style="cursor:hand;">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr> 
+                                                                                                        <td width="100%" height="340" align="center" valign="top">
+                                                                                                            <table width="100%" height="100%" cellspacing="0" cellpadding="0" style="border-left:1px solid CCCCCC;border-right:1px solid CCCCCC;border-bottom:1px solid CCCCCC;">
+
+                                                                                                                <tr>
+                                                                                                                    <td height="60" valign="top">
+                                                                                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                                                            <tr>
+                                                                                                                                <td>
+                                                                                                                                    <table width="100%"cellspacing="0" cellpadding="0" style="border-top:1px solid CCCCCC;">
+                                                                                                                                        <tr>
+                                                                                                                                            <td id="Disp_SetXmlPart" valign=middle>&nbsp;</td>
+                                                                                                                                        </tr>
+                                                                                                                                    </table>
+
+                                                                                                                                </td>
+                                                                                                                                <td width="374"></td>
+                                                                                                                            </tr>
+                                                                                                                        </table>
+                                                                                                                    </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr> 
+                                                                                                                    <td width="100%" align="center"  valign=top>
+                                                                                                                   
+                                                                                                                        
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+<!-- 여기까지 코스닥 작업입니다.----------------------------------------------------------------------------------------------------------------------->
+</body>
+</html>
+
