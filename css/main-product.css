@@ -511,6 +511,20 @@ article .article .article-wrapper ul {
       article .article .article-wrapper ul .article-title-sub {
         font-size: 13px; } }
 
+article .article .article-wrapper .img-wrapper {
+  margin-top: 50px; }
+  article .article .article-wrapper .img-wrapper img {
+    width: 28%;
+    margin: 0 2%; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article .article-wrapper .img-wrapper img {
+        width: 45%;
+        margin: 0 2%; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      article .article .article-wrapper .img-wrapper img {
+        width: 45%;
+        margin: 0 2%; } }
+
 article .article .article-wrapper .solution-txt {
   margin-bottom: 0; }
 

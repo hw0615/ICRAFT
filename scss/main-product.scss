@@ -17,9 +17,6 @@ article {
         color: gray;
       }
     }
-    // .sol {
-    //   height: 25px;
-    // }
     .article-nav {
       width: 100%;
       max-width: 870px;
@@ -95,6 +92,21 @@ article {
           }
           @include respond-to($tablet) {
             font-size: 13px; 
+          }
+        }
+      }
+      .img-wrapper {
+        margin-top: 50px;
+        img {
+          width: 28%;
+          margin: 0 2%;
+          @include respond-to($phone) {
+            width: 45%;
+            margin: 0 2%;          
+          }
+          @include respond-to($tablet) {
+            width: 45%;
+            margin: 0 2%;
           }
         }
       }
