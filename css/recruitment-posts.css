@@ -1,0 +1,497 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+  vertical-align: baseline;
+  /* font-family: inherit; */
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 14px;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0; }
+
+html, body {
+  height: 100%; }
+
+body {
+  background: #eee;
+  line-height: 1.2;
+  /*- 한글 기준은 1.2 -*/
+  color: black; }
+
+ol, ul, a {
+  list-style: none;
+  text-decoration: none; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  font-weight: normal;
+  text-align: left; }
+
+/* remove possible quote marks (") from <q> & <blockquote> */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+legend, caption {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: -1; }
+
+* {
+  box-sizing: border-box; }
+
+.container-fluid {
+  padding: 0; }
+  .container-fluid header {
+    background: #fff;
+    height: 140px; }
+    .container-fluid header .logo-wrapper {
+      width: 100%;
+      height: 95px;
+      margin: 0 auto;
+      padding: 32px 0 32px 0; }
+      .container-fluid header .logo-wrapper h1 .icraft-logo {
+        height: 30px;
+        display: block;
+        margin: 0 auto; }
+    .container-fluid header .nav-container {
+      width: 100%;
+      background: #174A8E;
+      height: 45px; }
+      .container-fluid header .nav-container .nav-menu {
+        display: table;
+        margin: 0 auto; }
+        .container-fluid header .nav-container .nav-menu a {
+          font-size: 14px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid header .nav-container .nav-menu a {
+              font-size: 10px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid header .nav-container .nav-menu a {
+              font-size: 12px; } }
+        .container-fluid header .nav-container .nav-menu-list {
+          display: table-cell;
+          position: relative;
+          height: 100%;
+          float: left;
+          min-width: 12vw;
+          cursor: pointer; }
+          .container-fluid header .nav-container .nav-menu-list:hover .nav-menu-list-sub {
+            display: block;
+            visibility: visible; }
+          .container-fluid header .nav-container .nav-menu-list .nav-menu-list-name {
+            display: block;
+            height: 45px;
+            padding-top: 15px;
+            padding-left: 12px;
+            color: #fff;
+            text-decoration: none; }
+          .container-fluid header .nav-container .nav-menu-list-sub {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            min-width: 160px;
+            height: auto;
+            background: #fff;
+            display: none;
+            visibility: hidden; }
+            .container-fluid header .nav-container .nav-menu-list-sub .cantmove {
+              cursor: default;
+              position: relative; }
+            .container-fluid header .nav-container .nav-menu-list-sub li {
+              display: block;
+              border-bottom: 1px solid #d4d4d4;
+              transition: 0.3s all; }
+              .container-fluid header .nav-container .nav-menu-list-sub li:hover, .container-fluid header .nav-container .nav-menu-list-sub li:focus {
+                background: #999;
+                border-bottom: 1px solid #999; }
+              .container-fluid header .nav-container .nav-menu-list-sub li:hover li {
+                display: block; }
+              .container-fluid header .nav-container .nav-menu-list-sub li a {
+                padding: 13.6px 8px 13.6px 8px;
+                display: block;
+                color: #333;
+                text-decoration: none;
+                height: 100%; }
+              .container-fluid header .nav-container .nav-menu-list-sub li span {
+                float: right;
+                font-weight: 500;
+                margin-right: 12px;
+                line-height: 1; }
+            .container-fluid header .nav-container .nav-menu-list-sub-detail {
+              width: 160px;
+              background: #fff;
+              position: absolute;
+              left: 100%;
+              top: 0; }
+              .container-fluid header .nav-container .nav-menu-list-sub-detail li {
+                display: none; }
+            .container-fluid header .nav-container .nav-menu-list-sub .solution {
+              width: 100%; }
+            .container-fluid header .nav-container .nav-menu-list-sub .partner {
+              position: absolute;
+              top: 0;
+              width: 100%; }
+            .container-fluid header .nav-container .nav-menu-list-sub .ir-detail {
+              top: 89px;
+              position: absolute;
+              top: 0; }
+        .container-fluid header .nav-container .nav-menu .list-ir {
+          padding-left: 22px; }
+  .container-fluid section {
+    position: relative;
+    width: 100%;
+    margin: 0 auto; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid section {
+        background-position-y: 0; } }
+    .container-fluid section .img-wrapper {
+      width: 100%;
+      height: 450px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid section .img-wrapper {
+          height: 240px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid section .img-wrapper {
+          height: 350px; } }
+      .container-fluid section .img-wrapper .img-text-group {
+        width: 1050px;
+        margin: 0 auto;
+        color: #fff;
+        text-shadow: 4px 4px 5px #000; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid section .img-wrapper .img-text-group {
+            width: 100%;
+            padding: 0 15px 0 15px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid section .img-wrapper .img-text-group {
+            width: 100%;
+            padding: 0 25px 0 25px; } }
+        @media only screen and (min-width: 992px) and (max-width: 1250px) {
+          .container-fluid section .img-wrapper .img-text-group {
+            width: 100%;
+            padding: 0 55px 0 55px; } }
+        .container-fluid section .img-wrapper .img-text-group .img-text-title {
+          padding-top: 50px;
+          font-size: 38px;
+          font-weight: 600; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-title {
+              font-size: 20px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-title {
+              font-size: 24px; } }
+        .container-fluid section .img-wrapper .img-text-group .img-text-des {
+          padding: 8px 0;
+          font-size: 24px;
+          text-shadow: 3px 3px 4px #000; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-des {
+              font-size: 10px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid section .img-wrapper .img-text-group .img-text-des {
+              font-size: 14px; } }
+    .container-fluid section .small-menu {
+      display: table;
+      width: 100%;
+      text-align: center;
+      background: #333;
+      height: 35px; }
+      .container-fluid section .small-menu-list {
+        cursor: pointer;
+        display: table-cell;
+        margin: 0 auto; }
+        .container-fluid section .small-menu-list a {
+          height: 35px;
+          padding-top: 10px;
+          float: left;
+          width: 100%;
+          min-width: 100px;
+          font-size: 14px;
+          color: #fff;
+          text-decoration: none; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid section .small-menu-list a {
+              font-size: 10px;
+              padding-top: 12px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid section .small-menu-list a {
+              font-size: 12px; } }
+          .container-fluid section .small-menu-list a:hover, .container-fluid section .small-menu-list a:focus {
+            border-bottom: 5px solid #fff; }
+        .container-fluid section .small-menu-list .active-menu {
+          border-bottom: 5px solid #fff; }
+    .container-fluid section .fixed-sub {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 999; }
+  .container-fluid article {
+    width: 1050px;
+    margin: 0 auto; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid article {
+        width: 100%;
+        padding: 0 15px 0 15px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      .container-fluid article {
+        width: 100%;
+        padding: 0 25px 0 25px; } }
+    @media only screen and (min-width: 992px) and (max-width: 1250px) {
+      .container-fluid article {
+        width: 100%;
+        padding: 0 55px 0 55px; } }
+    .container-fluid article .location {
+      margin: 55px 0 10px 0;
+      color: #666;
+      font-size: 12px;
+      font-weight: 600; }
+      .container-fluid article .location a {
+        font-size: 12px;
+        color: #666;
+        text-decoration: none; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .location a {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .location a {
+            font-size: 10px; } }
+      .container-fluid article .location span {
+        display: inline-block;
+        width: 20px;
+        font-size: 12px;
+        text-align: center; }
+    .container-fluid article .article {
+      margin: 0px auto 60px auto;
+      background: #fff;
+      padding: 60px 90px;
+      color: #333; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article {
+          font-size: 12px;
+          width: 100%;
+          padding: 30px 25px 30px 25px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article {
+          font-size: 14px;
+          width: 100%;
+          padding: 30px 25px 30px 25px; } }
+      @media only screen and (min-width: 992px) and (max-width: 1250px) {
+        .container-fluid article .article {
+          width: 100%;
+          padding: 60px 75px 60px 75px; } }
+      .container-fluid article .article .article-title {
+        font-size: 40px;
+        font-weight: 600;
+        padding-bottom: 30px;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 40px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .article-title {
+            font-size: 20px;
+            padding-bottom: 15px;
+            margin-bottom: 20px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .article-title {
+            font-size: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 30px; } }
+      .container-fluid article .article .article-box {
+        width: 100%; }
+      .container-fluid article .article .article-text {
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        line-height: 1.5;
+        margin: 20px 0;
+        color: #333; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .article-text {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .article-text {
+            font-size: 14px; } }
+      .container-fluid article .article .emp {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.8;
+        color: #174A8E;
+        padding-bottom: 10px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .emp {
+            font-size: 14px;
+            width: 100%; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .emp {
+            font-size: 18px;
+            width: 100%; } }
+    .container-fluid article .article:after {
+      content: "";
+      display: block;
+      clear: both; }
+    .container-fluid article .hide {
+      display: none;
+      transition: all .5s; }
+  .container-fluid footer .footer-wrapper {
+    width: 100%;
+    height: 100px;
+    background: #333;
+    padding: 37px 0; }
+    .container-fluid footer .footer-wrapper .text-area {
+      line-height: 1.4;
+      width: 1050px;
+      margin: 0 auto; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid footer .footer-wrapper .text-area {
+          width: 100%;
+          padding: 0 15px 0 15px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid footer .footer-wrapper .text-area {
+          width: 100%;
+          padding: 0 25px 0 25px; } }
+      @media only screen and (min-width: 992px) and (max-width: 1250px) {
+        .container-fluid footer .footer-wrapper .text-area {
+          width: 100%;
+          padding: 0 55px 0 55px; } }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid footer .footer-wrapper .text-area .img-wrapper {
+          width: 100px;
+          margin: 0 auto; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid footer .footer-wrapper .text-area .img-wrapper {
+          width: 100px;
+          margin: 0 auto; } }
+      .container-fluid footer .footer-wrapper .text-area .img-wrapper a img {
+        float: left;
+        width: 150px;
+        margin-right: 25px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid footer .footer-wrapper .text-area .img-wrapper a img {
+            width: 100px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid footer .footer-wrapper .text-area .img-wrapper a img {
+            width: 120px; } }
+      .container-fluid footer .footer-wrapper .text-area p {
+        float: left;
+        font-size: 13px;
+        font-weight: 100;
+        color: #d4d4d4; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid footer .footer-wrapper .text-area p {
+            display: none; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid footer .footer-wrapper .text-area p {
+            display: none; } }
+  .container-fluid .move-top {
+    display: none;
+    position: fixed;
+    right: 2%;
+    bottom: 130px;
+    background: #999;
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    font-size: 32px;
+    padding-top: 5px; }
+
+section {
+  background-image: url("../img/recruitment-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+  section .recruitment-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    box-sizing: border-box; }
+
+article .article-img {
+  display: inline-block;
+  width: 100%; }
+
+article .article-wrapper {
+  max-width: 870px;
+  width: 100%;
+  margin: 0 auto; }
+  article .article-wrapper .article-title {
+    margin-top: 40px; }
+  article .article-wrapper table {
+    border-bottom: 1px solid #ddd; }
+    article .article-wrapper table .top-info {
+      border-bottom: 1px solid #ddd;
+      text-align: center; }
+    article .article-wrapper table .info-title {
+      background-color: #eee;
+      font-weight: 600;
+      text-align: center; }
+    article .article-wrapper table .recruit-content {
+      padding: 30px 0; }
+    article .article-wrapper table img {
+      display: inline-block;
+      width: 100%; }
+      article .article-wrapper table img.arrow {
+        margin-right: 10%;
+        width: 15%;
+        max-width: 15px;
+        vertical-align: middle; }
+  article .article-wrapper .board-btn {
+    background-color: #eee;
+    color: black;
+    float: right;
+    padding: 15px 30px;
+    font-weight: 600; }
+    article .article-wrapper .board-btn:hover {
+      background-color: #ddd; }
+  article .article-wrapper .more-wrap {
+    max-width: 870px; }
+    article .article-wrapper .more-wrap .more {
+      margin: 0 auto;
+      width: 14vw;
+      height: 5.8vh;
+      border: none;
+      border-radius: 25px; }
+      article .article-wrapper .more-wrap .more .show-more {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        line-height: 2;
+        color: #fff;
+        font-size: 18px;
+        background: #174A8E;
+        border: none;
+        border-radius: 50px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article-wrapper .more-wrap .more .show-more {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article-wrapper .more-wrap .more .show-more {
+            font-size: 14px; } }
+
+article .article-history:after {
+  content: "";
+  display: block;
+  clear: both; }
