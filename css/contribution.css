@@ -249,10 +249,10 @@ legend, caption {
           .container-fluid article .article .emp {
             font-size: 18px;
             width: 100%; } }
-    .container-fluid article .article:after {
-      content: "";
-      display: block;
-      clear: both; }
+      .container-fluid article .article:after {
+        content: "";
+        display: block;
+        clear: both; }
     .container-fluid article .hide {
       display: none;
       transition: all .5s; }
