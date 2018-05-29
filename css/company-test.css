@@ -261,7 +261,7 @@ legend, caption {
     position: fixed;
     right: 2%;
     bottom: 130px;
-    background: #999;
+    background-color: #999;
     color: #fff;
     border: none;
     width: 45px;

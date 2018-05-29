@@ -38,8 +38,8 @@ $(function () {
 
   $(document).ready(function() {
     // import header & footer
-    $('#header').load('header.html #header');
-    $('#footer').load('footer.html #footer');
+    $('#header').load('header.html #header-wrapper');
+    $('#footer').load('footer.html #footer-wrapper');
 
     // 더 보기 이벤트 함수
     $('.show-more').click(function (e) {

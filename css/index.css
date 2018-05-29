@@ -261,7 +261,7 @@ legend, caption {
     position: fixed;
     right: 2%;
     bottom: 130px;
-    background: #999;
+    background-color: #999;
     color: #fff;
     border: none;
     width: 45px;
@@ -367,68 +367,80 @@ header {
       header .nav-container .nav-menu .list-ir {
         padding-left: 22px; }
 
-footer .footer-wrapper {
+footer #footer-wrapper {
   width: 100%;
   height: 100px;
   background: #333;
   padding: 37px 0; }
-  footer .footer-wrapper .text-area {
+  footer #footer-wrapper .text-area {
     line-height: 1.4;
     width: 1050px;
     margin: 0 auto; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
-      footer .footer-wrapper .text-area {
+      footer #footer-wrapper .text-area {
         width: 100%;
         padding: 0 15px 0 15px; } }
     @media only screen and (min-width: 601px) and (max-width: 991px) {
-      footer .footer-wrapper .text-area {
+      footer #footer-wrapper .text-area {
         width: 100%;
         padding: 0 25px 0 25px; } }
     @media only screen and (min-width: 992px) and (max-width: 1250px) {
-      footer .footer-wrapper .text-area {
+      footer #footer-wrapper .text-area {
         width: 100%;
         padding: 0 55px 0 55px; } }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
-      footer .footer-wrapper .text-area .img-wrapper {
+      footer #footer-wrapper .text-area .img-wrapper {
         width: 100px;
         margin: 0 auto; } }
     @media only screen and (min-width: 601px) and (max-width: 991px) {
-      footer .footer-wrapper .text-area .img-wrapper {
+      footer #footer-wrapper .text-area .img-wrapper {
         width: 100px;
         margin: 0 auto; } }
-    footer .footer-wrapper .text-area .img-wrapper a img {
+    footer #footer-wrapper .text-area .img-wrapper a img {
       float: left;
       width: 150px;
       margin-right: 25px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        footer .footer-wrapper .text-area .img-wrapper a img {
+        footer #footer-wrapper .text-area .img-wrapper a img {
           width: 100px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        footer .footer-wrapper .text-area .img-wrapper a img {
+        footer #footer-wrapper .text-area .img-wrapper a img {
           width: 120px; } }
-    footer .footer-wrapper .text-area p {
+    footer #footer-wrapper .text-area p {
       float: left;
       font-size: 13px;
       font-weight: 100;
       color: #d4d4d4; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        footer .footer-wrapper .text-area p {
+        footer #footer-wrapper .text-area p {
           display: none; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        footer .footer-wrapper .text-area p {
+        footer #footer-wrapper .text-area p {
           display: none; } }
 
-section {
-  background-image: url("../img/company2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: -100px; }
-  @media only screen and (min-width: 601px) and (max-width: 991px) {
-    section {
-      background-position-y: -30px; } }
-  @media only screen and (min-width: 1751px) {
-    section {
-      background-position-y: -375px; } }
+.container-fluid section .img-wrapper {
+  height: 550px; }
+  .container-fluid section .img-wrapper .item1 {
+    background-image: url("../img/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .container-fluid section .img-wrapper .item2 {
+    background-image: url("../img/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .container-fluid section .img-wrapper .item3 {
+    background-image: url("../img/company2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
+    width: 100%;
+    height: 550px; }
+    .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
+      font-size: 40px;
+      text-align: center;
+      text-shadow: 3px 3px 4px #000;
+      color: #fff;
+      padding: 250px 0; }
 
 .container-fluid article .article {
   background: none;
@@ -436,85 +448,162 @@ section {
   .container-fluid article .article .article-1 {
     margin-bottom: 50px; }
     .container-fluid article .article .article-1 .article-left {
-      width: 45%;
+      width: 48.8%;
       float: left;
-      margin-right: 25px; }
-      .container-fluid article .article .article-1 .article-left .main-box {
-        color: #fff;
-        font-size: 30px;
-        padding: 35px 0 0 35px;
-        height: 405px;
-        background-image: url("../img/company2.jpg");
-        background-repeat: no-repeat;
-        background-size: cover; }
-        .container-fluid article .article .article-1 .article-left .main-box-bottom {
-          padding: 25px 25px;
-          height: 70px;
-          background: #fff; }
-          .container-fluid article .article .article-1 .article-left .main-box-bottom p {
-            font-size: 20px;
-            color: #333; }
-            .container-fluid article .article .article-1 .article-left .main-box-bottom p span {
-              float: right;
-              font-size: 20px; }
+      margin-right: 23px;
+      overflow: hidden; }
+      .container-fluid article .article .article-1 .article-left a {
+        text-decoration: none; }
+        .container-fluid article .article .article-1 .article-left a .main-box {
+          height: 405px;
+          transition: all .1s ease-in-out;
+          background-image: url("../img/mbg-company-info.jpg");
+          background-repeat: no-repeat;
+          background-size: cover; }
+          .container-fluid article .article .article-1 .article-left a .main-box .box-title {
+            display: inline-block;
+            color: #fff;
+            font-size: 30px;
+            margin: 30px; }
+            .container-fluid article .article .article-1 .article-left a .main-box .box-title:after {
+              display: block;
+              content: '';
+              padding-bottom: 10px;
+              border-bottom: solid 3px #fff;
+              transform: scaleX(0);
+              transition: transform 200ms ease-in-out; }
+          .container-fluid article .article .article-1 .article-left a .main-box:hover {
+            transform: scale(1.01); }
+          .container-fluid article .article .article-1 .article-left a .main-box:hover > .box-title:after {
+            transform: scaleX(1); }
+          .container-fluid article .article .article-1 .article-left a .main-box-bottom {
+            padding: 25px 25px;
+            height: 70px;
+            background: #fff; }
+            .container-fluid article .article .article-1 .article-left a .main-box-bottom p {
+              font-size: 20px;
+              color: #333; }
+              .container-fluid article .article .article-1 .article-left a .main-box-bottom p span {
+                float: right;
+                font-size: 20px; }
     .container-fluid article .article .article-1 .article-right {
-      width: 52%;
+      width: 49%;
       float: right; }
-      .container-fluid article .article .article-1 .article-right .main-box {
-        position: relative;
-        display: inline-block;
-        width: 47%;
-        height: 225px;
-        background: yellow;
-        color: #fff;
-        font-size: 25px;
-        font-weight: lighter;
-        padding: 25px 15px;
-        margin-bottom: 25px; }
-        .container-fluid article .article .article-1 .article-right .main-box-bottom {
+      .container-fluid article .article .article-1 .article-right a {
+        text-decoration: none; }
+        .container-fluid article .article .article-1 .article-right a .main-box {
+          position: relative;
           display: inline-block;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 55px;
-          background: #fff;
-          padding: 20px 15px; }
-          .container-fluid article .article .article-1 .article-right .main-box-bottom p {
-            color: #333; }
-            .container-fluid article .article .article-1 .article-right .main-box-bottom p span {
-              float: right; }
+          width: 47.5%;
+          height: 225px;
+          margin-bottom: 25px; }
+          .container-fluid article .article .article-1 .article-right a .main-box .box-title {
+            display: inline-block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: lighter;
+            margin: 25px; }
+            .container-fluid article .article .article-1 .article-right a .main-box .box-title:after {
+              display: block;
+              content: '';
+              padding-bottom: 10px;
+              border-bottom: solid 2px #fff;
+              transform: scaleX(0);
+              transition: transform 200ms ease-in-out; }
+          .container-fluid article .article .article-1 .article-right a .main-box-2 {
+            background-image: url("../img/mbg-solution-info.jpg");
+            background-repeat: no-repeat;
+            background-size: cover; }
+          .container-fluid article .article .article-1 .article-right a .main-box-3 {
+            background-image: url("../img/mbg-ir-info.jpg");
+            background-repeat: no-repeat;
+            background-size: cover; }
+          .container-fluid article .article .article-1 .article-right a .main-box-4 {
+            background-image: url("../img/mbg-rc-info.jpg");
+            background-repeat: no-repeat;
+            background-size: cover; }
+          .container-fluid article .article .article-1 .article-right a .main-box-5 {
+            background-image: url("../img/mbg-cus-info.jpg");
+            background-repeat: no-repeat;
+            background-size: cover; }
+          .container-fluid article .article .article-1 .article-right a .main-box:hover {
+            transform: scale(1.01); }
+          .container-fluid article .article .article-1 .article-right a .main-box:hover > .box-title:after {
+            transform: scaleX(1); }
+          .container-fluid article .article .article-1 .article-right a .main-box-bottom {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            background: #fff;
+            padding: 20px 15px; }
+            .container-fluid article .article .article-1 .article-right a .main-box-bottom p {
+              color: #333; }
+              .container-fluid article .article .article-1 .article-right a .main-box-bottom p span {
+                float: right; }
       .container-fluid article .article .article-1 .article-right .box-right {
-        margin-right: 25px; }
+        margin-right: 22px; }
       .container-fluid article .article .article-1 .article-right-left {
-        margin-right: 25px; }
+        margin-right: 23px; }
     .container-fluid article .article .article-1:after {
       content: "";
       display: block;
       clear: both; }
   .container-fluid article .article .article-2 .second-box {
-    width: 25%;
+    width: 23.2%;
     height: 420px;
-    background: #2f3238;
-    padding: 35px; }
-    .container-fluid article .article .article-2 .second-box p {
-      color: #fff;
-      font-size: 25px;
-      font-weight: lighter;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #fff;
-      margin-bottom: 35px; }
-    .container-fluid article .article .article-2 .second-box .box-img {
-      width: 100%;
-      height: 53%;
-      background: yellow;
-      margin-bottom: 35px;
-      border-radius: 50%; }
-    .container-fluid article .article .article-2 .second-box-detail {
-      display: inline-block;
-      width: 100%;
-      margin: 0 auto;
-      padding: 12px 20px;
-      background: #eee;
-      border: none;
-      border-radius: 25px; }
+    background: #fff;
+    margin-right: 25px;
+    padding: 35px;
+    float: left; }
+    .container-fluid article .article .article-2 .second-box a {
+      text-decoration: none;
+      color: #333; }
+      .container-fluid article .article .article-2 .second-box a .box-title {
+        color: #333;
+        font-size: 25px;
+        font-weight: lighter;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #333;
+        margin-bottom: 35px; }
+      .container-fluid article .article .article-2 .second-box a .box-img {
+        width: 100%;
+        height: 53%;
+        margin-bottom: 35px; }
+        .container-fluid article .article .article-2 .second-box a .box-img-1 {
+          background-image: url("../img/main-message-icon.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position-x: -16px; }
+        .container-fluid article .article .article-2 .second-box a .box-img-2 {
+          background-image: url("../img/main-overview-icon.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position-x: -16px; }
+        .container-fluid article .article .article-2 .second-box a .box-img-3 {
+          background-image: url("../img/main-history-icon.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position-x: -16px; }
+        .container-fluid article .article .article-2 .second-box a .box-img-4 {
+          background-image: url("../img/main-history-icon.png");
+          background-repeat: no-repeat;
+          background-size: cover; }
+      .container-fluid article .article .article-2 .second-box a .box-wrap {
+        max-width: 100%; }
+        .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap {
+          margin: 0 auto;
+          width: 150px; }
+          .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button {
+            width: 100%;
+            height: auto;
+            border: 1px solid #333;
+            border-radius: 25px;
+            padding: 10px 0; }
+            .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button:hover {
+              background: #333;
+              color: #fff; }
+    .container-fluid article .article .article-2 .second-box-last {
+      margin-right: 0; }
