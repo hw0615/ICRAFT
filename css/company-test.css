@@ -139,9 +139,11 @@ legend, caption {
             .container-fluid section .small-menu-list a {
               font-size: 12px; } }
           .container-fluid section .small-menu-list a:hover, .container-fluid section .small-menu-list a:focus {
-            border-bottom: 5px solid #fff; }
+            border-bottom: 3px solid #fff;
+            background: #174A8E; }
         .container-fluid section .small-menu-list .active-menu {
-          border-bottom: 5px solid #fff; }
+          border-bottom: 3px solid #fff;
+          background: #174A8E; }
     .container-fluid section .fixed-sub {
       position: fixed;
       left: 0;

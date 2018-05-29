@@ -42,8 +42,14 @@
           height: 100%;
           float: left;
           // width: 100%;
-          min-width: 12vw;
-          // min-width: 160px;
+          // min-width: 12vw;
+          min-width: 200px;
+          @include respond-to($phone) {
+            min-width: 12vw;
+          }
+          @include respond-to($tablet) {
+            min-width: 12vw;
+          }
           cursor: pointer;
           &:hover .nav-menu-list-sub {
             display: block;
@@ -79,6 +85,9 @@
               &:hover, &:focus {
                 background: #999;
                 border-bottom: 1px solid #999;
+              }
+              &:hover > a, &:focus > a{
+                color: #fff;
               }
               &:hover li {
                 display: block;

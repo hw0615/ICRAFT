@@ -93,11 +93,14 @@
           }
           &:hover, 
           &:focus {
-            border-bottom: 5px solid #fff;
+            border-bottom: 3px solid #fff;
+            background: $color-key;
+            
           }
         }
         .active-menu {
-          border-bottom: 5px solid #fff;
+          border-bottom: 3px solid #fff;
+          background: $color-key;          
         }
       }
     }

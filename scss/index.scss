@@ -242,9 +242,10 @@
               }
               &-4 {
                 background: {
-                  image: url('../img/main-history-icon.png');
+                  image: url('../img/main-major-icon.png');
                   repeat: no-repeat;
-                  size: cover; 
+                  size: cover;
+                  position-x: -16px;                  
                 }
               }
             }
@@ -260,7 +261,8 @@
                   border-radius: 25px;
                   padding: 10px 0;
                   &:hover {
-                    background: #333;
+                    background: $color-key;
+                    border: none;
                     color: #fff;
                   }
                 }
