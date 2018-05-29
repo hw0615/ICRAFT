@@ -438,29 +438,141 @@ footer .footer-wrapper {
         footer .footer-wrapper .text-area p {
           display: none; } }
 
+.location {
+  padding: 55px 0 10px 0;
+  margin: 0 !important; }
+
 section {
-  background-image: url("../img/company2.jpg");
+  background-image: url("../img/news-03.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -100px; }
-  @media only screen and (min-width: 601px) and (max-width: 991px) {
-    section {
-      background-position-y: -30px; } }
-  @media only screen and (min-width: 1751px) {
-    section {
-      background-position-y: -375px; } }
+  background-position: 0 20%; }
+  section .recruitment-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    box-sizing: border-box; }
 
-article .article .emp {
-  text-align: center;
-  margin: 50px 0; }
-
-article .article-text {
-  line-height: 1.5;
-  font-size: 1.5vw;
-  font-weight: 600;
-  color: #174A8E;
-  text-align: center;
-  margin: 50px 0; }
-
-article .article-img-org {
+article .article-img {
+  display: inline-block;
   width: 100%; }
+
+article .article-wrapper {
+  max-width: 870px;
+  width: 100%;
+  margin: 0 auto; }
+  article .article-wrapper .search-bar {
+    float: right;
+    font-size: 0; }
+    article .article-wrapper .search-bar input {
+      border-radius: 2px 0 0 2px;
+      padding: 5px;
+      font-size: 15px;
+      height: 35px;
+      vertical-align: bottom; }
+    article .article-wrapper .search-bar .get-btn {
+      background-color: #23527c;
+      color: white;
+      border-radius: 0 2px 2px 0;
+      display: inline-block;
+      margin: 0 auto;
+      padding: 6px;
+      width: 65px;
+      height: 35px;
+      text-align: center;
+      box-sizing: border-box; }
+      article .article-wrapper .search-bar .get-btn:hover {
+        background-color: #355f84; }
+  article .article-wrapper > ul {
+    padding: 10px 5px; }
+    article .article-wrapper > ul > li {
+      margin: 5px 10px 15px 10px; }
+      article .article-wrapper > ul > li h4 {
+        font-weight: bold;
+        font-size: 15px; }
+      article .article-wrapper > ul > li table {
+        margin-top: 15px; }
+      article .article-wrapper > ul > li li {
+        margin: 5px 10px; }
+  article .article-wrapper p {
+    font-size: 15px;
+    line-height: 20px; }
+  article .article-wrapper .more-wrap {
+    max-width: 870px; }
+    article .article-wrapper .more-wrap .more {
+      margin: 0 auto;
+      width: 14vw;
+      height: 5.8vh;
+      border: none;
+      border-radius: 25px; }
+      article .article-wrapper .more-wrap .more .show-more {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        line-height: 2;
+        color: #fff;
+        font-size: 18px;
+        background: #174A8E;
+        border: none;
+        border-radius: 50px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article-wrapper .more-wrap .more .show-more {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article-wrapper .more-wrap .more .show-more {
+            font-size: 14px; } }
+  article .article-wrapper table {
+    width: 100%; }
+    article .article-wrapper table tr + tr:hover {
+      background-color: #f9f9f9; }
+    article .article-wrapper table th {
+      border-top: none !important;
+      border-bottom: 1px solid #666;
+      padding: 20px 0 !important;
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px; }
+    article .article-wrapper table td {
+      padding: 20px 0 !important;
+      text-align: center; }
+  article .article-wrapper .pagination {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    font-size: 0; }
+    article .article-wrapper .pagination li {
+      display: inline-block; }
+      article .article-wrapper .pagination li a {
+        color: #666;
+        border: none;
+        font-size: 15px;
+        font-weight: 900; }
+        article .article-wrapper .pagination li a img {
+          display: inline-block;
+          width: 12px;
+          vertical-align: middle; }
+        article .article-wrapper .pagination li a:focus {
+          background-color: inherit; }
+        article .article-wrapper .pagination li a.page-num {
+          background-color: inherit;
+          margin: 0 10px; }
+          article .article-wrapper .pagination li a.page-num:hover {
+            color: #337ab7; }
+      article .article-wrapper .pagination li.page-arrow {
+        margin: 0 1px; }
+        article .article-wrapper .pagination li.page-arrow a {
+          border: 1px solid #eee;
+          border-radius: 0;
+          margin-left: 0; }
+
+article .article-history:after {
+  content: "";
+  display: block;
+  clear: both; }

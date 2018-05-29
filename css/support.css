@@ -438,29 +438,76 @@ footer .footer-wrapper {
         footer .footer-wrapper .text-area p {
           display: none; } }
 
+.location {
+  padding: 55px 0 10px 0;
+  margin: 0 !important; }
+
 section {
-  background-image: url("../img/company2.jpg");
+  background-image: url("../img/news-01.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -100px; }
-  @media only screen and (min-width: 601px) and (max-width: 991px) {
-    section {
-      background-position-y: -30px; } }
-  @media only screen and (min-width: 1751px) {
-    section {
-      background-position-y: -375px; } }
+  background-position: 0 0; }
+  section .recruitment-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    box-sizing: border-box; }
 
-article .article .emp {
-  text-align: center;
-  margin: 50px 0; }
-
-article .article-text {
-  line-height: 1.5;
-  font-size: 1.5vw;
-  font-weight: 600;
-  color: #174A8E;
-  text-align: center;
-  margin: 50px 0; }
-
-article .article-img-org {
+article .article-img {
+  display: inline-block;
   width: 100%; }
+
+article .article-wrapper {
+  max-width: 870px;
+  width: 100%;
+  margin: 0 auto; }
+  article .article-wrapper .search-bar {
+    float: right; }
+  article .article-wrapper > ul {
+    padding: 10px 5px; }
+    article .article-wrapper > ul > li {
+      margin: 5px 10px 15px 10px; }
+      article .article-wrapper > ul > li h4 {
+        font-weight: bold;
+        font-size: 15px; }
+      article .article-wrapper > ul > li table {
+        margin-top: 15px; }
+      article .article-wrapper > ul > li li {
+        margin: 5px 10px; }
+  article .article-wrapper p {
+    font-size: 15px;
+    line-height: 20px; }
+
+article .support-form label {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 10px;
+  clear: both; }
+
+article .support-form input {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px; }
+
+article .support-form textarea {
+  display: inline-block;
+  width: 100%;
+  padding: 10px; }
+
+article .support-form .col {
+  float: left;
+  width: 47%;
+  margin-bottom: 20px; }
+
+article .support-form .col + .col {
+  margin-left: 6%; }
+
+article .article-history:after {
+  content: "";
+  display: block;
+  clear: both; }

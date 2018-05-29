@@ -1,6 +1,8 @@
 @import './reset';  
 @import './common';
 @import './config';
+@import './header';
+@import './footer';
 
 section {
   background: {
@@ -34,6 +36,9 @@ article {
     }
     table {
       border-bottom: 1px solid #ddd;
+      td {
+        padding: 15px !important;
+      }
       .top-info {      
         border-bottom: 1px solid #ddd;
         text-align: center;

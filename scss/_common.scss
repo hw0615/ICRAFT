@@ -2,6 +2,24 @@
 
 .container-fluid {
   padding: 0;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  
+  .get-btn {
+    background-color: #23527c;
+    color: white;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;  
+    margin-top: 50px;
+    padding:10px; 
+    width: 150px;
+    text-align: center;
+    &:hover {
+      background-color: #355f84;
+    }
+  } 
+
   section {
     position: relative;
     width: 100%;

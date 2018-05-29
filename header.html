@@ -2,7 +2,7 @@
 <html lang="ko" xml:lang="ko">
 
 <body>
-  <header id="header">
+  
     <div class="logo-wrapper">
       <h1>
         <a href="#">
@@ -80,15 +80,14 @@
             <li><a href="recruitment-board.html">채용게시판</a></li>
           </ul>
         </li>
-        <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">고객지원</a>
+        <li class="nav-menu-list"><a href="news.html" class="nav-menu-list-name">고객지원</a>
           <ul class="nav-menu-list-sub info-customer">
-            <li><a href="#">News</a></li>
-            <li><a href="#">고객소리방</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="support.html">고객소리방</a></li>
           </ul>
         </li>
       </ul>
-    </div>
-  </header>
+    </div>  
   <script>
     $('.hover').hover(function() {
       $(this).children('.hover-a').mouseover(function(){
@@ -99,6 +98,18 @@
         $(this).css('color', '#333')
       })
     })
+
+    //대분류 카테고리 포커싱 
+    var focusKey = $(".location a")[1].innerHTML;    
+    var headerMenu= document.getElementsByClassName("nav-menu-list-name")    
+    
+    for(var i=0; i < headerMenu.length; i++){
+      var liText = headerMenu[i].innerHTML;      
+      if(focusKey == liText) {
+        $(headerMenu[i]).parent().addClass("active");        
+      }
+    }        
+
   </script>
 </body>
 

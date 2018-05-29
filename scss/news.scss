@@ -10,10 +10,10 @@
 }
 section {
   background: {
-    image: url('../img/recruitment-01.jpg');
+    image: url('../img/news-03.jpg');
     repeat: no-repeat;
     size: cover; 
-    position: 0 0;  
+    position: 0 20%;  
   }  
   .recruitment-btn {
     display: block;    
@@ -35,17 +35,33 @@ article {
     max-width: 870px;
     width: 100%;
     margin: 0 auto;  
-    .get-btn {
-      background-color: #23527c;
-      color: white;
-      border-radius: 2px;
-      display: block;
-      margin: 0 auto;  
-      margin-top: 50px;
-      padding:10px; 
-      width: 150px;
-      text-align: center;
-    }  
+    .search-bar {
+      float: right;
+      font-size: 0;
+      input {
+        border-radius: 2px 0 0 2px;
+        padding: 5px;
+        font-size: 15px;
+        height: 35px;
+        vertical-align: bottom;
+      }
+      .get-btn {
+        background-color: #23527c;
+        color: white;
+        border-radius: 0 2px 2px 0;
+        display: inline-block;
+        margin: 0 auto;          
+        padding:6px; 
+        width: 65px;
+        height: 35px;        
+        text-align: center;
+        box-sizing: border-box;
+        &:hover {
+          background-color: #355f84;
+        }
+      } 
+    }
+     
     > ul {      
       padding: 10px 5px;
       > li {
@@ -98,7 +114,7 @@ article {
       width:100%;
       tr + tr {
         &:hover {
-          background-color: #eee;
+          background-color: #f9f9f9;
         }
       }
       th {        
