@@ -311,9 +311,15 @@ header {
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           header .nav-container .nav-menu-list {
             min-width: 12vw; } }
-        header .nav-container .nav-menu-list:hover .nav-menu-list-sub {
+        header .nav-container .nav-menu-list:hover .nav-menu-list-sub,
+        header .nav-container .nav-menu-list:focus .nav-menu-list-sub,
+        header .nav-container .nav-menu-list:focus-within .nav-menu-list-sub {
           display: block;
-          visibility: visible; }
+          visibility: visible;
+          opacity: 1;
+          z-index: 1;
+          transform: translateY(0%);
+          transition-delay: 0s, 0s, 0.3s; }
         header .nav-container .nav-menu-list .nav-menu-list-name {
           display: block;
           height: 45px;
@@ -330,13 +336,15 @@ header {
           height: auto;
           background: #fff;
           display: none;
-          visibility: hidden; }
+          visibility: hidden;
+          transform: translateY(-2em);
+          transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
           header .nav-container .nav-menu-list-sub .cantmove {
             cursor: default;
             position: relative; }
           header .nav-container .nav-menu-list-sub li {
             display: block;
-            border-bottom: 1px solid #d4d4d4;
+            border-bottom: 1px solid #fafafa;
             transition: 0.3s all; }
             header .nav-container .nav-menu-list-sub li:hover, header .nav-container .nav-menu-list-sub li:focus {
               background: #999;
