@@ -303,14 +303,6 @@
                 background: $color-key;
                 font-size: 18px;
                 padding: 12px;
-                &:after {
-                  display: block;
-                  content: '';
-                  // padding-bottom: 10px;         
-                  // border-bottom: solid 3px #fff;
-                  transform: scaleX(0);  
-                  transition: transform 200ms ease-in-out;
-                }
               }
               &:hover{
                 transform: scale(1.01);
@@ -341,7 +333,7 @@
           a {
             text-decoration: none;  
             .main-box {
-              height: 455px;
+              height: 447px;
               transition: all .1s ease-in-out;
               background: {
                 image: url('../img/green.jpg');
@@ -353,15 +345,7 @@
                 color: #fff;
                 font-size: 30px;
                 margin: 30px;
-                text-shadow: 2px 2px 3px #333;                
-                // &:after {
-                //   display: block;
-                //   content: '';
-                //   padding-bottom: 10px;                  
-                //   border-bottom: solid 3px #fff;  
-                //   transform: scaleX(0);  
-                //   transition: transform 200ms ease-in-out;
-                // }
+                text-shadow: 2px 2px 3px #333;
               }
               &:hover{
                 transform: scale(1.005);
@@ -372,10 +356,11 @@
               &-bottom {
                 // padding: 15px 15px;
                 text-align: right;
-                height: 32px;
+                height: 40px;
                 background: #fff;
                 .bottom-title {
                   font-size: 18px;
+                  line-height: 1.6;
                   padding: 6px 15px 0 0;
                   color: #333;
                 }
