@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>ICRAFT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Awesome Description Here" />
+  <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="아이크래프트(주)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="http://www.icraft21.com/" />
+  <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="아이크래프트(주)" />  
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/recruitment.css" />  
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+  
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header"></header>    
+    <section>
+      <div class="img-wrapper">
+        <!-- <img src="img/company1.jpg" alt="회사소개 이미지"> -->
+        <div class="img-text-group">
+          <p class="img-text-title">채용</p>
+          <p class="img-text-des">아이크래프트는 참신한 인재의 지원을 항상 기다리고 있습니다.</p>         
+        </div>        
+      </div>
+      <ul class="small-menu">
+        <li class="small-menu-list">
+          <a href="recruitment.html" class="">채용안내</a>                    
+        </li>      
+        <li class="small-menu-list">
+          <a href="recruitment-board.html" class="">채용게시판</a>                    
+        </li>          
+      </ul>
+    </section>
+    <article>
+      <p class="location">
+        <a href="#">홈</a>
+        <span> < </span>
+        <a href="#">채용</a>
+        <span> < </span>
+        <a href="#">관리자</a>
+      </p>
+      <div class="article">   
+        <div class="article-wrapper"> 
+            <form method="post">
+              <textarea id="summernote" name="editordata"></textarea>
+            </form>      
+         </div> 
+         <script>
+            $(document).ready(function() {
+                $('#summernote').summernote({
+                  lang: 'ko-KR',
+                  height: 600,
+                  placeholder: '내용을 작성해주세요'
+                });
+            });
+          </script>
+      </div>
+    </article>
+    <footer id="footer"></footer>
+    <button class="move-top">&uarr;</button>
+  </div>
+ 
+  <script src="./js/common.js"></script>  
+</body>
+
+</html>

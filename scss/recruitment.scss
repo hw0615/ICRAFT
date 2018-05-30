@@ -32,7 +32,7 @@ article {
     width: 100%;
     margin: 0 auto;
     margin-bottom: 30px;
-    overflow: hidden;
+    display:inline-block;
     clear: both; 
     position: relative;
     .article-title {
@@ -54,7 +54,10 @@ article {
         size: cover; 
         position: top;  
       }  
-    }    
+    }  
+    p {
+      font-size: 17px;
+    }      
     strong {      
       margin: 30px 0;
       display: block;               
@@ -118,12 +121,13 @@ article {
       > li {
         margin: 5px 10px 15px 10px;
         h4 {
+          background: #dedede;
+          margin: 0;
+          padding: 10px;
           font-weight: bold;
-          font-size: 15px;
-        }
-        table {
-          margin-top: 15px;   
-        }
+          font-size: 15px;          
+          text-align: center; 
+        }      
         li {
           margin: 5px 10px;
         }
@@ -135,45 +139,133 @@ article {
       li {
         width: 50%;
         float: left;
-        margin: 0 ! important;
+        margin: 0 !important;
         padding: 10px;
         font-size: 17px;        
         box-sizing: border-box;
       }
     }
-    .more-wrap {
-      max-width: 870px;
-      .more {
-        margin: 0 auto;
-        width: 14vw;
-        height: 5.8vh;
-        border: none;
-        border-radius: 25px;
-        .show-more {
-          width: 100%;
-          height: auto;
-          padding: 10px 0;
-          line-height: 2;
-          color: #fff;
-          font-size: 18px;
-          // font-size: 1.5vw;
-          background: $color-key;
-          border: none;        
-          border-radius: 50px;
-          @include respond-to($phone) {
-            font-size: 10px;
+    &.benifit {      
+      > h4 {
+        position: relative;
+        display: inline-block;   
+        padding-left: 15px;             
+        &:after {
+          background: #4a5667;
+          display: block;
+          content:'';
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          position: absolute;
+          top: 5px;
+          left: 0;
+        }
+      }
+      .benifit-summary {
+        padding: 20px;
+        text-align: center;       
+        span {
+          border: 2px solid #4a5667;        
+          border-radius: 100%;
+          display: inline-block;
+          width: 180px;
+          height: 180px;
+          line-height: 180px;
+          text-align: center;   
+          position: relative;                             
+          img {
+            display: inline-block;
+            margin-top: -30px;
+            width: 120px;
+            line-height: 20px;          
           }
-          @include respond-to($tablet) {
-            font-size: 14px;
+          i {
+            color: #4a5667;
+            position: absolute;
+            bottom: 27px;
+            left: 50%; 
+            margin-left: -55px;
+            line-height: 20px;         
+            width: 110px;
+            height: 20px;
+            text-align: center;
+            font-style: unset;
+            font-weight:  600;
+            font-size: 16px;
+          }
+        }   
+        span + span {
+          margin-left: 20px;
+        }      
+        .plus{
+            position: relative;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin: 0 10px;
+            &:before,
+            &:after{
+                content: "";
+                position: absolute;
+                background-color:#4a5667;
+                transition: transform 0.25s ease-out;
+            }      
+            /* Vertical line */
+            &:before{
+                top: 0;
+                left: 55%;
+                width: 2px;
+                height: 100%;
+                margin-left: -2px;
+            }      
+            /* horizontal line */
+            &:after{
+                top: 48%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                margin-top: -2px;
+            }          
+            // &:hover{
+            //     cursor: pointer;
+                
+            //     &:before{ transform: rotate(90deg); }
+            //     &:after{ transform: rotate(180deg); }
+            // }
+        }
+        .dotdotdot {
+          display:inline-block;
+          width: 100px;
+          height: 20px;
+          background-image: radial-gradient(circle at center, #4a5667 2px, transparent 2px);
+          background-size: 100px 20px;
+        }
+      }
+      ul {
+        background: none;
+        width: 100%;
+        padding: 10px;
+        overflow: hidden;
+        li {
+          margin: 0;
+          li {
+            float: left;
+            margin: 0;
+            margin-bottom: 10px;
+            width: 50%;
           }
         }
       }
-    }
-}
+    }    
+  }
 
   .article-history:after {
     content: "";
     display: block;
     clear: both;
+  }
+  .get-btn {
+    margin-top: 0 !important;
   }
 }

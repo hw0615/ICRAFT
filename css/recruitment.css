@@ -462,7 +462,7 @@ article .article-wrapper {
   width: 100%;
   margin: 0 auto;
   margin-bottom: 30px;
-  overflow: hidden;
+  display: inline-block;
   clear: both;
   position: relative; }
   article .article-wrapper .article-title {
@@ -481,6 +481,8 @@ article .article-wrapper {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top; }
+  article .article-wrapper p {
+    font-size: 17px; }
   article .article-wrapper strong {
     margin: 30px 0;
     display: block;
@@ -534,10 +536,12 @@ article .article-wrapper {
     article .article-wrapper > ul > li {
       margin: 5px 10px 15px 10px; }
       article .article-wrapper > ul > li h4 {
+        background: #dedede;
+        margin: 0;
+        padding: 10px;
         font-weight: bold;
-        font-size: 15px; }
-      article .article-wrapper > ul > li table {
-        margin-top: 15px; }
+        font-size: 15px;
+        text-align: center; }
       article .article-wrapper > ul > li li {
         margin: 5px 10px; }
   article .article-wrapper .talent-role {
@@ -550,32 +554,100 @@ article .article-wrapper {
       padding: 10px;
       font-size: 17px;
       box-sizing: border-box; }
-  article .article-wrapper .more-wrap {
-    max-width: 870px; }
-    article .article-wrapper .more-wrap .more {
-      margin: 0 auto;
-      width: 14vw;
-      height: 5.8vh;
-      border: none;
-      border-radius: 25px; }
-      article .article-wrapper .more-wrap .more .show-more {
+  article .article-wrapper.benifit > h4 {
+    position: relative;
+    display: inline-block;
+    padding-left: 15px; }
+    article .article-wrapper.benifit > h4:after {
+      background: #4a5667;
+      display: block;
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 0; }
+  article .article-wrapper.benifit .benifit-summary {
+    padding: 20px;
+    text-align: center; }
+    article .article-wrapper.benifit .benifit-summary span {
+      border: 2px solid #4a5667;
+      border-radius: 100%;
+      display: inline-block;
+      width: 180px;
+      height: 180px;
+      line-height: 180px;
+      text-align: center;
+      position: relative; }
+      article .article-wrapper.benifit .benifit-summary span img {
+        display: inline-block;
+        margin-top: -30px;
+        width: 120px;
+        line-height: 20px; }
+      article .article-wrapper.benifit .benifit-summary span i {
+        color: #4a5667;
+        position: absolute;
+        bottom: 27px;
+        left: 50%;
+        margin-left: -55px;
+        line-height: 20px;
+        width: 110px;
+        height: 20px;
+        text-align: center;
+        font-style: unset;
+        font-weight: 600;
+        font-size: 16px; }
+    article .article-wrapper.benifit .benifit-summary span + span {
+      margin-left: 20px; }
+    article .article-wrapper.benifit .benifit-summary .plus {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin: 0 10px;
+      /* Vertical line */
+      /* horizontal line */ }
+      article .article-wrapper.benifit .benifit-summary .plus:before, article .article-wrapper.benifit .benifit-summary .plus:after {
+        content: "";
+        position: absolute;
+        background-color: #4a5667;
+        transition: transform 0.25s ease-out; }
+      article .article-wrapper.benifit .benifit-summary .plus:before {
+        top: 0;
+        left: 55%;
+        width: 2px;
+        height: 100%;
+        margin-left: -2px; }
+      article .article-wrapper.benifit .benifit-summary .plus:after {
+        top: 48%;
+        left: 0;
         width: 100%;
-        height: auto;
-        padding: 10px 0;
-        line-height: 2;
-        color: #fff;
-        font-size: 18px;
-        background: #174A8E;
-        border: none;
-        border-radius: 50px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article-wrapper .more-wrap .more .show-more {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article-wrapper .more-wrap .more .show-more {
-            font-size: 14px; } }
+        height: 2px;
+        margin-top: -2px; }
+    article .article-wrapper.benifit .benifit-summary .dotdotdot {
+      display: inline-block;
+      width: 100px;
+      height: 20px;
+      background-image: radial-gradient(circle at center, #4a5667 2px, transparent 2px);
+      background-size: 100px 20px; }
+  article .article-wrapper.benifit ul {
+    background: none;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden; }
+    article .article-wrapper.benifit ul li {
+      margin: 0; }
+      article .article-wrapper.benifit ul li li {
+        float: left;
+        margin: 0;
+        margin-bottom: 10px;
+        width: 50%; }
 
 article .article-history:after {
   content: "";
   display: block;
   clear: both; }
+
+article .get-btn {
+  margin-top: 0 !important; }
