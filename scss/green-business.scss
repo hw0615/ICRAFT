@@ -1,0 +1,47 @@
+@import './reset';  
+@import './common';
+@import './config';
+@import './header';
+@import './footer';
+
+section {
+  @include company-img;
+}
+article { 
+  .article {
+    &-text {
+      line-height: 1.5;
+      font-size: 1.5vw;
+      font-weight: 600;
+      color: $color-key;
+      text-align: center;
+      margin: 50px 0;
+      > ul {
+        background: #eee;
+        padding: 10px 5px;
+        li {
+          margin: 5px 10px 5px 10px;
+          @include respond-to($phone) {
+            font-size: 10px; 
+          }
+          @include respond-to($tablet) {
+            font-size: 12px; 
+          }
+          p {
+            margin-left: 10px;
+            font-weight: 500;
+            @include respond-to($phone) {
+              font-size: 10px; 
+            }
+            @include respond-to($tablet) {
+              font-size: 12px; 
+            }
+          }
+        }
+      }
+    }
+    &-img-org {
+      width: 100%;
+    }
+  }
+}

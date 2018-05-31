@@ -2,35 +2,34 @@
 <html lang="ko" xml:lang="ko">
 
 <body>
-  
+  <div id="header-wrapper">
     <div class="logo-wrapper">
       <h1>
-        <a href="#">
-            <img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고">
-        </a>
+        <a href="index.html"><img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고"></a>
       </h1>                
     </div>
     <div class="nav-container">
       <ul class="nav-menu">
         <li class="nav-menu-list"><a href="company.html" class="nav-menu-list-name">회사소개</a>
           <ul class="nav-menu-list-sub">
-            <li class="cantmove"><a>기업개요<span> > </span></a>
+            <li class="cantmove"><a class="nav-menu-list-sub-title">기업개요<span> > </span></a>
               <ul class="nav-menu-list-sub-detail">
                 <li><a href="overview.html">개요</a></li>
                 <li><a href="history.html">연혁</a></li>
                 <li><a href="organization.html">조직도</a></li>
                 <li><a href="major-projects.html">주요실적</a></li>
+                <li><a href="green-business.html">Green Business</a></li>
               </ul>
             </li>
-            <li><a href="ci.html">C.I</a></li>
-            <li><a href="culture.html">기업문화</a></li>
-            <li><a href="contribution.html">사회공헌</a></li>
-            <li><a href="location.html">찾아오시는 길</a></li>
+            <li><a class="nav-menu-list-sub-title" href="ci.html">C.I</a></li>
+            <li><a class="nav-menu-list-sub-title" href="culture.html">기업문화</a></li>
+            <li><a class="nav-menu-list-sub-title" href="contribution.html">사회공헌</a></li>
+            <li><a class="nav-menu-list-sub-title" href="location.html">찾아오시는 길</a></li>
           </ul>
         </li>
         <li class="nav-menu-list"><a href="solution-portfolio.html" class="nav-menu-list-name">사업소개</a>
           <ul class="nav-menu-list-sub info-busi">
-            <li class="cantmove"><a href="solution-portfolio.html">Solution Portfolio<span> > </span></a>
+            <li class="cantmove"><a class="nav-menu-list-sub-title" href="solution-portfolio.html">Solution Portfolio<span> > </span></a>
               <ul class="nav-menu-list-sub-detail solution">
                 <li><a href="solution-portfolio.html#sol1">인터넷 핵심망/접속망</a></li>
                 <li><a href="solution-portfolio.html#sol2">인터넷 INFRA부가 서비스</a></li>
@@ -46,14 +45,13 @@
                 <li><a href="solution-portfolio.html#sol12">인공지능 서비스</a></li>                  
               </ul>
             </li>
-            <!-- <li><a href="#">Product License</a></li> -->
-            <li><a href="brandsafer.html">브랜드세이퍼</a></li>
-            <li class="cantmove"><a href="main-product.html">주요 제품(파트너)<span> > </span></a>
+            <li><a class="nav-menu-list-sub-title" href="brandsafer.html">브랜드세이퍼</a></li>
+            <li class="cantmove"><a class="nav-menu-list-sub-title" href="main-product.html">주요 제품(파트너)<span> > </span></a>
               <ul class="nav-menu-list-sub-detail partner">
                 <li><a href="main-product.html#sol1">Juniper</a></li>
                 <li><a href="main-product.html#sol2">Genband</a></li>
                 <li><a href="main-product.html#sol3">Arbor</a></li>
-                <li><a href="main-product.html#sol4">Dartware(InterMapper)</a></li>
+                <!-- <li><a href="main-product.html#sol4">Dartware(InterMapper)</a></li> -->
                 <li><a href="main-product.html#sol5">Mellanox</a></li>
                 <li><a href="main-product.html#sol6">Gigamon</a></li>
                 <li><a href="main-product.html#sol7">기타 제품</a></li>
@@ -62,11 +60,11 @@
             </li>    
           </ul>
         </li>
-        <li class="nav-menu-list"><a href="#" class="nav-menu-list-name list-ir">I.R</a>
+        <li class="nav-menu-list"><a href="ir.html" class="nav-menu-list-name list-ir">I.R</a>
           <ul class="nav-menu-list-sub info-ir">
-            <li><a href="#">주가정보</a></li>
-            <li><a href="#">재무정보</a></li>
-            <li class="cantmove"><a>IR 자료실<span> > </span></a>
+            <li><a class="nav-menu-list-sub-title" href="#">주가정보</a></li>
+            <li><a class="nav-menu-list-sub-title" href="#">재무정보</a></li>
+            <li class="cantmove"><a class="nav-menu-list-sub-title">IR 자료실<span> > </span></a>
               <ul class="nav-menu-list-sub-detail ir-detail">
                 <li><a href="#">경영공시</a></li>
                 <li><a href="#">내부 정보 관리 규정</a></li>
@@ -88,19 +86,19 @@
         </li>
       </ul>
     </div>
-  </div>  
+  </div>
   <script>
     //대분류 카테고리 포커싱 
-    var focusKey = $(".location a")[1].innerHTML;    
+    
+    var focusKey = $(".location a")[1].innerHTML;
     var headerMenu= document.getElementsByClassName("nav-menu-list-name")    
     
     for(var i=0; i < headerMenu.length; i++){
       var liText = headerMenu[i].innerHTML;      
-      if(focusKey == liText) {
-        $(headerMenu[i]).parent().addClass("active");        
-      }
-    }        
-
+      if(focusKey === liText) {
+        $(headerMenu[i]).parent().addClass("active"); 
+     }
+    }
   </script>
 </body>
 

@@ -153,9 +153,11 @@ legend, caption {
             .container-fluid section .small-menu-list a {
               font-size: 12px; } }
           .container-fluid section .small-menu-list a:hover, .container-fluid section .small-menu-list a:focus {
-            border-bottom: 5px solid #fff; }
+            border-bottom: 3px solid #fff;
+            background: #174A8E; }
         .container-fluid section .small-menu-list .active-menu {
-          border-bottom: 5px solid #fff; }
+          border-bottom: 3px solid #fff;
+          background: #174A8E; }
     .container-fluid section .fixed-sub {
       position: fixed;
       left: 0;
@@ -224,6 +226,16 @@ legend, caption {
         padding-bottom: 30px;
         border-bottom: 2px solid #eee;
         margin-bottom: 40px; }
+        .container-fluid article .article .article-title p {
+          margin: 15px 0 0 0;
+          font-size: 20px;
+          color: gray; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-title p {
+              font-size: 12px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-title p {
+              font-size: 16px; } }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .article-title {
             font-size: 20px;
@@ -257,16 +269,16 @@ legend, caption {
         padding-bottom: 10px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .emp {
-            font-size: 14px;
+            font-size: 12px;
             width: 100%; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           .container-fluid article .article .emp {
-            font-size: 18px;
+            font-size: 16px;
             width: 100%; } }
-    .container-fluid article .article:after {
-      content: "";
-      display: block;
-      clear: both; }
+      .container-fluid article .article:after {
+        content: "";
+        display: block;
+        clear: both; }
     .container-fluid article .hide {
       display: none;
       transition: all .5s; }
@@ -275,7 +287,7 @@ legend, caption {
     position: fixed;
     right: 2%;
     bottom: 130px;
-    background: #999;
+    background-color: #999;
     color: #fff;
     border: none;
     width: 45px;

@@ -17,9 +17,6 @@ article {
         color: gray;
       }
     }
-    // .sol {
-    //   height: 25px;
-    // }
     .article-nav {
       width: 100%;
       max-width: 870px;
@@ -98,6 +95,9 @@ article {
           }
         }
       }
+      .customer-img {
+        width: 100%;
+      }
       .solution-txt {
         margin-bottom: 0;
       }
@@ -144,11 +144,83 @@ article {
           }
         }
       }
+      .article-left-img {
+        width: 35%;
+        height: 100%;
+        float: left;
+        > img {
+          width: 100%;
+          height: 100%;
+        }
+        @include respond-to($phone) {
+          width: 100%;          
+        }        
+      }
+      .article-right-img {
+        width: 65%;
+        height: 100%;
+        float: left;
+        > img {
+          width: 100%;
+          height: 100%;
+        }
+        @include respond-to($phone) {
+          width: 100%;          
+        }
+      }
+      .gigamon-txt {
+        display: inline-block;
+        margin-top: 50px;
+        padding: 10px;
+        font-size: 18px;
+        color: #fff;
+        background: $color-key;
+        @include respond-to($phone) {
+          font-size: 14px;
+        }
+        @include respond-to($tablet) {
+          font-size: 16px;
+        }
+      }
+      .gigamon-list {
+        background: none;
+        .icon {
+          background-image: url('../img/gigamon-icon.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: inline-block;
+          margin-right: 20px;
+          &-1 {
+            width: 50px;
+            height: 50px;
+            background-position: 3px 0px;
+          }        
+          &-2 {
+            width: 50px;
+            height: 50px;
+            background-position: -63px 0px;
+          }        
+          &-3 {
+            width: 50px;
+            height: 50px;
+            background-position: -130px 0px;
+          }        
+          &-4 {
+            width: 50px;
+            height: 50px;
+            background-position: -198px 0px;
+          }        
+        }
+      }
     }
     .article-wrapper:after {
       content: '';
       display: block;
       clear: both;
+    }
+    &-img {
+      width: 100%;
+      margin-bottom: 50px;
     }
   }
 }

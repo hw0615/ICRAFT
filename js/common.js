@@ -39,7 +39,7 @@ $(function () {
   $(document).ready(function() {
     // import header & footer
     $('#header').load('header.html');
-    $('#footer').load('footer.html');  
+    $('#footer').load('footer.html');
 
     // 더 보기 이벤트 함수
     $('.show-more').click(function (e) {
@@ -50,6 +50,7 @@ $(function () {
         $('.more-wrap').addClass('hide')
       }
     })
+        
   });
 
   // 소분류 카테고리 스크롤 이벤트

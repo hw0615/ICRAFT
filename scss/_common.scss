@@ -111,11 +111,14 @@
           }
           &:hover, 
           &:focus {
-            border-bottom: 5px solid #fff;
+            border-bottom: 3px solid #fff;
+            background: $color-key;
+            
           }
         }
         .active-menu {
-          border-bottom: 5px solid #fff;
+          border-bottom: 3px solid #fff;
+          background: $color-key;          
         }
       }
     }
@@ -196,6 +199,17 @@
         padding-bottom: 30px;
         border-bottom: 2px solid #eee;
         margin-bottom: 40px;
+        p {
+          margin: 15px 0 0 0;
+          font-size: 20px;
+          color: gray;
+          @include respond-to($phone) {
+            font-size: 12px;
+          }
+          @include respond-to($tablet) {
+            font-size: 16px;
+          }
+        }
         @include respond-to($phone) {
           font-size: 20px;
           padding-bottom: 15px;
@@ -231,19 +245,19 @@
         color: $color-key;
         padding-bottom: 10px;
         @include respond-to($phone) {
-          font-size: 14px;
+          font-size: 12px;
           width: 100%;
         }
         @include respond-to($tablet) {
-          font-size: 18px;        
+          font-size: 16px;        
           width: 100%;
         }
       }
-    }
-    .article:after {
-      content: "";
-      display: block;
-      clear: both;
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
     }
     .hide {
       display: none;
@@ -255,7 +269,13 @@
     position: fixed;
     right: 2%;
     bottom: 130px;
-    background: #999;
+    // background: {
+    //   image: url('../img/arrow-up.png');
+    //   repeat: no-repeat;
+    //   size: cover;
+    //   color: #999;
+    // }
+    background-color: #999;
     color: #fff;
     border: none;
     width: 45px;

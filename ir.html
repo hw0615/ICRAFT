@@ -16,6 +16,7 @@
   <meta property="og:url" content="http://www.icraft21.com/" />
   <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
   <meta property="og:description" content="아이크래프트(주)" />
+  <link rel="shortcut icon" href="img/favicon.ico">  
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/company.css" />
@@ -62,24 +63,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#stock').load('realtime_stock.html');
-    });
-    /* Javascript 샘플 코드 */
-    // var xhr = new XMLHttpRequest();
-    // var url = 'http://api.seibro.or.kr/openapi/service/StockSvc/getStkIsinByNmN1'; /*URL*/
-    // var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'서비스키'; /*Service Key*/
-    // queryParams += '&' + encodeURIComponent('secnNm') + '=' + encodeURIComponent('삼성'); /*번호별 회사명 관리*/
-    // xhr.open('GET', url + queryParams);
-    // xhr.onreadystatechange = function () {
-    //     if (this.readyState == 4) {
-    //         alert('Status: '+this.status+' Headers: '+JSON.stringify(this.getAllResponseHeaders())+' Body: '+this.responseText);
-    //     }
-    // };
-
-    // xhr.send('');
-  </script>
 </body>
 
 </html>
