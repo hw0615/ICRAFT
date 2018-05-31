@@ -212,6 +212,16 @@ legend, caption {
         padding-bottom: 30px;
         border-bottom: 2px solid #eee;
         margin-bottom: 40px; }
+        .container-fluid article .article .article-title p {
+          margin: 15px 0 0 0;
+          font-size: 20px;
+          color: gray; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-title p {
+              font-size: 12px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-title p {
+              font-size: 16px; } }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .article-title {
             font-size: 20px;
@@ -245,11 +255,11 @@ legend, caption {
         padding-bottom: 10px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .emp {
-            font-size: 14px;
+            font-size: 12px;
             width: 100%; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           .container-fluid article .article .emp {
-            font-size: 18px;
+            font-size: 16px;
             width: 100%; } }
       .container-fluid article .article:after {
         content: "";
@@ -679,9 +689,10 @@ footer #footer-wrapper {
         .container-fluid article .article .article-3 .article-right a .main-box {
           height: 447px;
           transition: all .1s ease-in-out;
-          background-image: url("../img/green.jpg");
+          background-image: url("../img/green-business-main.png");
           background-repeat: no-repeat;
-          background-size: cover; }
+          background-size: cover;
+          background-position-x: -60px; }
           .container-fluid article .article .article-3 .article-right a .main-box .box-title {
             display: inline-block;
             color: #fff;
@@ -695,12 +706,12 @@ footer #footer-wrapper {
           .container-fluid article .article .article-3 .article-right a .main-box-bottom {
             text-align: right;
             height: 40px;
-            background: #fff; }
+            background: #174A8E; }
             .container-fluid article .article .article-3 .article-right a .main-box-bottom .bottom-title {
               font-size: 18px;
               line-height: 1.6;
               padding: 6px 15px 0 0;
-              color: #333; }
+              color: #fff; }
     .container-fluid article .article .article-3:after {
       content: "";
       display: block;

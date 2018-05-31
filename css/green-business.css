@@ -460,80 +460,33 @@ section {
     section {
       background-position-y: -375px; } }
 
-.article-wrapper {
-  max-width: 870px;
-  width: 100%;
-  margin: 0 auto; }
-  .article-wrapper .article-history {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 40px;
-    margin-bottom: 40px; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      .article-wrapper .article-history {
-        padding-bottom: 20px;
-        margin-bottom: 20px; } }
-  .article-wrapper .history-years {
-    float: left;
-    color: #174A8E;
-    font-size: 34px;
-    font-weight: bold;
-    margin-right: 50px; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      .article-wrapper .history-years {
-        width: 100%;
-        font-size: 20px; } }
-    @media only screen and (min-width: 601px) and (max-width: 991px) {
-      .article-wrapper .history-years {
-        font-size: 28px; } }
-  .article-wrapper .history-content {
-    float: left; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      .article-wrapper .history-content {
-        margin-top: 20px; } }
-    .article-wrapper .history-content p {
-      line-height: 2;
-      font-size: 18px; }
-      .article-wrapper .history-content p .history-month {
-        margin-right: 20px;
-        font-size: 18px;
-        font-weight: 600; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          .article-wrapper .history-content p .history-month {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          .article-wrapper .history-content p .history-month {
-            font-size: 14px; } }
+article .article-text {
+  line-height: 1.5;
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: #174A8E;
+  text-align: center;
+  margin: 50px 0; }
+  article .article-text > ul {
+    background: #eee;
+    padding: 10px 5px; }
+    article .article-text > ul li {
+      margin: 5px 10px 5px 10px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        .article-wrapper .history-content p {
+        article .article-text > ul li {
           font-size: 10px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        .article-wrapper .history-content p {
-          font-size: 14px; } }
-  .article-wrapper .more-wrap {
-    max-width: 870px; }
-    .article-wrapper .more-wrap .more {
-      margin: 0 auto;
-      width: 14vw;
-      height: 5.8vh;
-      border: none;
-      border-radius: 25px; }
-      .article-wrapper .more-wrap .more .show-more {
-        width: 100%;
-        height: auto;
-        padding: 10px 0;
-        line-height: 2;
-        color: #fff;
-        font-size: 18px;
-        background: #174A8E;
-        border: none;
-        border-radius: 50px; }
+        article .article-text > ul li {
+          font-size: 12px; } }
+      article .article-text > ul li p {
+        margin-left: 10px;
+        font-weight: 500; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
-          .article-wrapper .more-wrap .more .show-more {
+          article .article-text > ul li p {
             font-size: 10px; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
-          .article-wrapper .more-wrap .more .show-more {
-            font-size: 14px; } }
-  .article-wrapper .article-history:after {
-    content: "";
-    display: block;
-    clear: both; }
+          article .article-text > ul li p {
+            font-size: 12px; } }
+
+article .article-img-org {
+  width: 100%; }
