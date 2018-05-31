@@ -87,18 +87,9 @@
           </ul>
         </li>
       </ul>
-    </div>  
+    </div>
+  </div>  
   <script>
-    $('.hover').hover(function() {
-      $(this).children('.hover-a').mouseover(function(){
-        $(this).css('color', '#fff')
-      })
-    }, function(){
-      $(this).children('.hover-a').mouseleave(function() {
-        $(this).css('color', '#333')
-      })
-    })
-
     //대분류 카테고리 포커싱 
     var focusKey = $(".location a")[1].innerHTML;    
     var headerMenu= document.getElementsByClassName("nav-menu-list-name")    
