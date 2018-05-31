@@ -9,12 +9,14 @@
   margin: 0 !important;
 }
 section {
-  background: {
-    image: url('../img/news-03.jpg');
+  
+  background: {    
+    image: url('../img/recruitment-posts-01.jpg');
     repeat: no-repeat;
     size: cover; 
-    position: 0 20%;  
+    position: center;      
   }  
+  
   .recruitment-btn {
     display: block;    
     margin: 0 auto;

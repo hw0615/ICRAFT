@@ -9,11 +9,11 @@
   margin: 0 !important;
 }
 section {
-  background: {
-    image: url('../img/news-01.jpg');
+  background: {    
+    image: url('../img/recruitment-posts-01.jpg');
     repeat: no-repeat;
     size: cover; 
-    position: 0 0;  
+    position: center;      
   }  
   .recruitment-btn {
     display: block;    
@@ -59,6 +59,11 @@ article {
       line-height: 20px;
     }   
   }
+  p {
+    margin: 0 0 20px 0; 
+    font-size: 15px;
+    letter-spacing: -1px; 
+  }
   .support-form {
     label{
       display: block; 
@@ -84,6 +89,16 @@ article {
     }
     .col + .col {
       margin-left: 6%;
+    }
+    .input-file {
+      background: url("../img/clip.png") no-repeat right 2px;
+      background-size: 25px;
+      display: inline-block;
+      padding:0;      
+      width: 205px;
+    }    
+    p {
+    
     }
   }
   .article-history:after {

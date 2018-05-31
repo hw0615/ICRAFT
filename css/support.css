@@ -389,12 +389,13 @@ header {
 
 footer .footer-wrapper {
   width: 100%;
-  height: 100px;
-  background: #333;
-  padding: 37px 0; }
+  background: #333; }
   footer .footer-wrapper .text-area {
+    overflow: hidden;
     line-height: 1.4;
     width: 1050px;
+    height: 100%;
+    padding: 37px 0;
     margin: 0 auto; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       footer .footer-wrapper .text-area {
@@ -408,6 +409,8 @@ footer .footer-wrapper {
       footer .footer-wrapper .text-area {
         width: 100%;
         padding: 0 55px 0 55px; } }
+    footer .footer-wrapper .text-area a {
+      color: white; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       footer .footer-wrapper .text-area .img-wrapper {
         width: 100px;
@@ -443,10 +446,10 @@ footer .footer-wrapper {
   margin: 0 !important; }
 
 section {
-  background-image: url("../img/news-01.jpg");
+  background-image: url("../img/recruitment-posts-01.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 0; }
+  background-position: center; }
   section .recruitment-btn {
     display: block;
     margin: 0 auto;
@@ -482,6 +485,11 @@ article .article-wrapper {
     font-size: 15px;
     line-height: 20px; }
 
+article p {
+  margin: 0 0 20px 0;
+  font-size: 15px;
+  letter-spacing: -1px; }
+
 article .support-form label {
   display: block;
   box-sizing: border-box;
@@ -506,6 +514,13 @@ article .support-form .col {
 
 article .support-form .col + .col {
   margin-left: 6%; }
+
+article .support-form .input-file {
+  background: url("../img/clip.png") no-repeat right 2px;
+  background-size: 25px;
+  display: inline-block;
+  padding: 0;
+  width: 205px; }
 
 article .article-history:after {
   content: "";
