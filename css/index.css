@@ -723,10 +723,9 @@ footer #footer-wrapper {
           background-position-x: -60px; }
           .container-fluid article .article .article-3 .article-right a .main-box .box-title {
             display: inline-block;
-            color: #fff;
-            font-size: 30px;
-            margin: 30px;
-            text-shadow: 2px 2px 3px #333; }
+            color: #333;
+            font-size: 24px;
+            margin: 30px; }
           .container-fluid article .article .article-3 .article-right a .main-box:hover {
             transform: scale(1.005); }
           .container-fluid article .article .article-3 .article-right a .main-box:hover > .box-title:after {
