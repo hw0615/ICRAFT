@@ -621,7 +621,7 @@ article .article-wrapper {
       position: relative; }
       article .article-wrapper.benifit .benifit-summary span img {
         display: inline-block;
-        margin-top: -30px;
+        margin-top: 20px;
         width: 120px;
         line-height: 20px; }
       article .article-wrapper.benifit .benifit-summary span i {
