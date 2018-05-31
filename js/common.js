@@ -38,8 +38,8 @@ $(function () {
 
   $(document).ready(function() {
     // import header & footer
-    $('#header').load('header.html #header-wrapper');
-    $('#footer').load('footer.html #footer-wrapper');
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
 
     // 더 보기 이벤트 함수
     $('.show-more').click(function (e) {
@@ -50,11 +50,11 @@ $(function () {
         $('.more-wrap').addClass('hide')
       }
     })
+        
   });
 
   // 소분류 카테고리 스크롤 이벤트
-  $(window).scroll(function () {
-    console.log('scrollTop: ', $(this).scrollTop())
+  $(window).scroll(function () {    
     // if ( $(this).scrollTop() >= 540 ) {
     if ( $(this).scrollTop() >= $('.location').offset().top - 90) {
       nav.addClass('fixed-sub');

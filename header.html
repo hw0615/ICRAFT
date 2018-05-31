@@ -5,9 +5,7 @@
   <div id="header-wrapper">
     <div class="logo-wrapper">
       <h1>
-        <a href="index.html">
-            <img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고">
-        </a>
+        <a href="index.html"><img class="icraft-logo" src="img/logo.png" alt="아이크래프트 로고"></a>
       </h1>                
     </div>
     <div class="nav-container">
@@ -74,21 +72,34 @@
             </li>
           </ul>
         </li>
-        <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">채용안내</a>
+        <li class="nav-menu-list"><a href="recruitment.html" class="nav-menu-list-name">채용</a>
           <ul class="nav-menu-list-sub info-recruit">
-            <li><a class="nav-menu-list-sub-title" href="#">입사지원</a></li>
-            <li><a class="nav-menu-list-sub-title" href="#">채용게시판</a></li>
+            <li><a href="recruitment.html">채용안내</a></li>
+            <li><a href="recruitment-board.html">채용게시판</a></li>
           </ul>
         </li>
-        <li class="nav-menu-list"><a href="#" class="nav-menu-list-name">고객지원</a>
+        <li class="nav-menu-list"><a href="news.html" class="nav-menu-list-name">고객지원</a>
           <ul class="nav-menu-list-sub info-customer">
-            <li><a class="nav-menu-list-sub-title" href="#">News</a></li>
-            <li><a class="nav-menu-list-sub-title" href="#">고객소리방</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="support.html">고객소리방</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
+  <script>
+    //대분류 카테고리 포커싱 
+    
+    var focusKey = $(".location a")[1].innerHTML;
+    var headerMenu= document.getElementsByClassName("nav-menu-list-name")    
+    
+    for(var i=0; i < headerMenu.length; i++){
+      var liText = headerMenu[i].innerHTML;      
+      if(focusKey === liText) {
+        $(headerMenu[i]).parent().addClass("active"); 
+    ------------------+-  }
+    }
+  </script>
 </body>
 
 </html>

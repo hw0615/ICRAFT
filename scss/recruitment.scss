@@ -1,0 +1,272 @@
+@import './reset';  
+@import './common';
+@import './config';
+@import './header';
+@import './footer';
+
+section {
+  background: {
+    image: url('../img/recruitment-01.jpg');
+    repeat: no-repeat;
+    size: cover; 
+    position: center;  
+  }  
+  .recruitment-btn {
+    display: block;    
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    box-sizing: border-box;    
+  }
+}
+article {
+  .article-img {
+    display: inline-block;
+    width: 100%;
+  }
+  .article-wrapper {
+    max-width: 870px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display:inline-block;
+    clear: both; 
+    position: relative;
+    .article-title {
+      margin-top: 0;
+      margin-bottom: 20px !important;
+      padding-bottom: 20px !important;
+    }
+    .talent {
+      color: white;      
+      padding: 50px;
+      height: 250px;
+      box-sizing: border-box;
+      font-weight: 600;
+      font-size: 18px;      
+      position: relative;      
+      background: {
+        image: url('../img/talent.jpg');
+        repeat: no-repeat;
+        size: cover; 
+        position: top;  
+      }  
+    }  
+    p {
+      font-size: 17px;
+    }      
+    strong {      
+      margin: 30px 0;
+      display: block;               
+      text-align: center;
+      font-size: 20px;      
+    }
+    .talent-content {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 190px;
+      .talent-lists {
+        background-color: unset;
+        padding: 0;
+        width: 100%;  
+        overflow: hidden;                   
+        li {
+          background: #eee;
+          // border: 5px solid #71c5f1;
+          // float: left;
+          width: 35%;
+          border-radius: 3px;
+          margin: 1% 0;
+          padding: 10px;
+          text-align: center;
+          font-weight: 600;
+          font-size: 17px;  
+          letter-spacing: -1px;
+          position: relative;
+          &:after {
+            background-color: rgb(255, 168, 55);
+            position: absolute;
+            top: 18px;
+            right: -15px;
+            border-radius: 10px;
+            content: '';            
+            display: block;
+            width: 5px;
+            height: 5px
+          }
+          &.right:after {
+            left:-15px;            
+          }
+        }
+      }
+      .logo-round {
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 200px;
+        margin-left: - 100px;
+        // float:left;
+        z-index: 100;
+      }
+    }
+    > ul {      
+      background-color: #eee;
+      padding: 10px 5px;
+      > li {
+        margin: 5px 10px 15px 10px;
+        h4 {
+          background: #dedede;
+          margin: 0;
+          padding: 10px;
+          font-weight: bold;
+          font-size: 15px;          
+          text-align: center; 
+        }      
+        li {
+          margin: 5px 10px;
+        }
+      }
+    }
+    .talent-role {
+      font-weight: 600;      
+      overflow: hidden;
+      li {
+        width: 50%;
+        float: left;
+        margin: 0 !important;
+        padding: 10px;
+        font-size: 17px;        
+        box-sizing: border-box;
+      }
+    }
+    &.benifit {      
+      > h4 {
+        position: relative;
+        display: inline-block;   
+        padding-left: 15px;   
+        font-weight: 600;          
+        &:after {
+          background: #4a5667;
+          display: block;
+          content:'';
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          position: absolute;
+          top: 5px;
+          left: 0;
+        }
+      }
+      .benifit-summary {
+        padding: 20px;
+        text-align: center;       
+        span {
+          border: 2px solid #4a5667;        
+          border-radius: 100%;
+          display: inline-block;
+          width: 180px;
+          height: 180px;
+          line-height: 180px;
+          text-align: center;   
+          position: relative;                             
+          img {
+            display: inline-block;
+            margin-top: -30px;
+            width: 120px;
+            line-height: 20px;          
+          }
+          i {
+            color: #4a5667;
+            position: absolute;
+            bottom: 27px;
+            left: 50%; 
+            margin-left: -55px;
+            line-height: 20px;         
+            width: 110px;
+            height: 20px;
+            text-align: center;
+            font-style: unset;
+            font-weight:  600;
+            font-size: 16px;
+          }
+        }   
+        span + span {
+          margin-left: 20px;
+        }      
+        .plus{
+            position: relative;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin: 0 10px;
+            &:before,
+            &:after{
+                content: "";
+                position: absolute;
+                background-color:#4a5667;
+                transition: transform 0.25s ease-out;
+            }      
+            /* Vertical line */
+            &:before{
+                top: 0;
+                left: 55%;
+                width: 2px;
+                height: 100%;
+                margin-left: -2px;
+            }      
+            /* horizontal line */
+            &:after{
+                top: 48%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                margin-top: -2px;
+            }          
+            // &:hover{
+            //     cursor: pointer;
+                
+            //     &:before{ transform: rotate(90deg); }
+            //     &:after{ transform: rotate(180deg); }
+            // }
+        }
+        .dotdotdot {
+          display:inline-block;
+          width: 100px;
+          height: 20px;
+          background-image: radial-gradient(circle at center, #4a5667 2px, transparent 2px);
+          background-size: 100px 20px;
+        }
+      }
+      ul {
+        background: none;
+        width: 100%;
+        padding: 10px;
+        overflow: hidden;
+        li {
+          margin: 0;
+          li {
+            float: left;
+            margin: 0;
+            margin-bottom: 10px;
+            width: 50%;
+          }
+        }
+      }
+    }    
+  }
+
+  .article-history:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .get-btn {
+    margin-top: 0 !important;
+  }
+}

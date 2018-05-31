@@ -1,0 +1,109 @@
+@import './reset';  
+@import './common';
+@import './config';
+@import './header';
+@import './footer';
+
+.location {
+  padding: 55px 0 10px 0;
+  margin: 0 !important;
+}
+section {
+  background: {    
+    image: url('../img/recruitment-posts-01.jpg');
+    repeat: no-repeat;
+    size: cover; 
+    position: center;      
+  }  
+  .recruitment-btn {
+    display: block;    
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    box-sizing: border-box;    
+  }
+}
+article {
+  .article-img {
+    display: inline-block;
+    width: 100%;
+  }
+  .article-wrapper {
+    max-width: 870px;
+    width: 100%;
+    margin: 0 auto;  
+    .search-bar {
+      float: right;
+    }     
+    > ul {      
+      padding: 10px 5px;
+      > li {
+        margin: 5px 10px 15px 10px;
+        h4 {
+          font-weight: bold;
+          font-size: 15px;
+        }
+        table {
+          margin-top: 15px;          
+        }
+        li {
+          margin: 5px 10px;
+        }
+      }
+    }  
+    p {
+      font-size: 15px;
+      line-height: 20px;
+    }   
+  }
+  p {
+    margin: 0 0 20px 0; 
+    font-size: 15px;
+    letter-spacing: -1px; 
+  }
+  .support-form {
+    label{
+      display: block; 
+      box-sizing: border-box; 
+      margin-top: 10px;   
+      clear: both;        
+    }
+    input {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;   
+      padding: 10px;   
+    } 
+    textarea {
+      display: inline-block;
+      width: 100%;
+      padding: 10px;
+    }
+    .col {      
+      float: left;
+      width: 47%;  
+      margin-bottom: 20px;    
+    }
+    .col + .col {
+      margin-left: 6%;
+    }
+    .input-file {
+      background: url("../img/clip.png") no-repeat right 2px;
+      background-size: 25px;
+      display: inline-block;
+      padding:0;      
+      width: 205px;
+    }    
+    p {
+    
+    }
+  }
+  .article-history:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

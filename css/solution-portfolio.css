@@ -23,7 +23,7 @@ html, body {
   height: 100%; }
 
 body {
-  background: #eee;
+  background-color: #eee !important;
   line-height: 1.2;
   /*- 한글 기준은 1.2 -*/
   color: black; }
@@ -58,7 +58,21 @@ legend, caption {
   box-sizing: border-box; }
 
 .container-fluid {
-  padding: 0; }
+  padding: 0;
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+  .container-fluid .get-btn {
+    background-color: #23527c;
+    color: white;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+    width: 150px;
+    text-align: center; }
+    .container-fluid .get-btn:hover {
+      background-color: #355f84; }
   .container-fluid section {
     position: relative;
     width: 100%;
@@ -289,10 +303,12 @@ header {
     height: 95px;
     margin: 0 auto;
     padding: 32px 0 32px 0; }
-    header .logo-wrapper h1 .icraft-logo {
-      height: 30px;
-      display: block;
-      margin: 0 auto; }
+    header .logo-wrapper h1 {
+      margin: 0; }
+      header .logo-wrapper h1 .icraft-logo {
+        height: 30px;
+        display: block;
+        margin: 0 auto; }
   header .nav-container {
     width: 100%;
     background: #174A8E;
@@ -333,11 +349,14 @@ header {
           max-height: 50px;
           visibility: visible;
           transition: all 0.25s ease-in-out 0s, visibility 0s linear 0.15s, z-index 0s linear 0.01s; }
+        header .nav-container .nav-menu-list.active {
+          background: #103b73;
+          box-shadow: inset 1px 2px 10px rgba(0, 0, 0, 0.3); }
         header .nav-container .nav-menu-list .nav-menu-list-name {
           display: block;
           height: 45px;
-          padding-top: 15px;
-          padding-left: 12px;
+          line-height: 45px;
+          text-align: center;
           color: #fff;
           text-decoration: none; }
         header .nav-container .nav-menu-list-sub {
@@ -400,11 +419,13 @@ header {
 footer #footer-wrapper {
   width: 100%;
   height: 100px;
-  background: #333;
-  padding: 37px 0; }
+  background: #333; }
   footer #footer-wrapper .text-area {
+    overflow: hidden;
     line-height: 1.4;
     width: 1050px;
+    height: 100%;
+    padding: 37px 0;
     margin: 0 auto; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       footer #footer-wrapper .text-area {
@@ -418,6 +439,8 @@ footer #footer-wrapper {
       footer #footer-wrapper .text-area {
         width: 100%;
         padding: 0 55px 0 55px; } }
+    footer #footer-wrapper .text-area a {
+      color: white; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       footer #footer-wrapper .text-area .img-wrapper {
         width: 100px;
@@ -447,6 +470,11 @@ footer #footer-wrapper {
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         footer #footer-wrapper .text-area p {
           display: none; } }
+    footer #footer-wrapper .text-area .footer-menu > li > a {
+      font-size: 13px;
+      font-weight: 100;
+      color: #d4d4d4;
+      text-decoration: none; }
 
 section {
   background-image: url("../img/cover3.jpg");
