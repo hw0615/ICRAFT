@@ -519,8 +519,15 @@ article .article-wrapper {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top; }
+    article .article-wrapper .talent img {
+      display: inline-block;
+      width: 100px;
+      position: absolute;
+      top: 20px;
+      right: 20px; }
   article .article-wrapper p {
-    font-size: 17px; }
+    font-size: 17px;
+    margin: 10px; }
   article .article-wrapper strong {
     margin: 30px 0;
     display: block;
@@ -547,6 +554,10 @@ article .article-wrapper {
         font-size: 17px;
         letter-spacing: -1px;
         position: relative; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article-wrapper .talent-content .talent-lists li {
+            font-size: 15px;
+            width: 45%; } }
         article .article-wrapper .talent-content .talent-lists li:after {
           background-color: #ffa837;
           position: absolute;
@@ -557,6 +568,9 @@ article .article-wrapper {
           display: block;
           width: 5px;
           height: 5px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            article .article-wrapper .talent-content .talent-lists li:after {
+              left: -15px; } }
         article .article-wrapper .talent-content .talent-lists li.right:after {
           left: -15px; }
     article .article-wrapper .talent-content .logo-round {
@@ -568,6 +582,9 @@ article .article-wrapper {
       width: 200px;
       margin-left: -100px;
       z-index: 100; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper .talent-content .logo-round {
+          position: relative; } }
   article .article-wrapper > ul {
     background-color: #eee;
     padding: 10px 5px; }
@@ -592,11 +609,15 @@ article .article-wrapper {
       padding: 10px;
       font-size: 17px;
       box-sizing: border-box; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper .talent-role li {
+          float: unset !important; } }
   article .article-wrapper.benifit > h4 {
     position: relative;
     display: inline-block;
     padding-left: 15px;
-    font-weight: 600; }
+    font-weight: 600;
+    font-size: 17px; }
     article .article-wrapper.benifit > h4:after {
       background: #4a5667;
       display: block;
@@ -610,6 +631,9 @@ article .article-wrapper {
   article .article-wrapper.benifit .benifit-summary {
     padding: 20px;
     text-align: center; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper.benifit .benifit-summary {
+        padding: 0; } }
     article .article-wrapper.benifit .benifit-summary span {
       border: 2px solid #4a5667;
       border-radius: 100%;
@@ -619,11 +643,19 @@ article .article-wrapper {
       line-height: 180px;
       text-align: center;
       position: relative; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper.benifit .benifit-summary span {
+          width: 100px;
+          height: 100px; } }
       article .article-wrapper.benifit .benifit-summary span img {
         display: inline-block;
         margin-top: 20px;
         width: 120px;
         line-height: 20px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article-wrapper.benifit .benifit-summary span img {
+            margin: 0;
+            width: 100px; } }
       article .article-wrapper.benifit .benifit-summary span i {
         color: #4a5667;
         position: absolute;
@@ -669,7 +701,13 @@ article .article-wrapper {
       width: 100px;
       height: 20px;
       background-image: radial-gradient(circle at center, #4a5667 2px, transparent 2px);
-      background-size: 100px 20px; }
+      background-size: 100px 20px;
+      position: relative;
+      top: -30px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper.benifit .benifit-summary .dotdotdot {
+          width: 50px;
+          background-size: 50px 20px; } }
   article .article-wrapper.benifit ul {
     background: none;
     width: 100%;
