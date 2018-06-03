@@ -630,24 +630,9 @@ footer #footer-wrapper {
         .container-fluid article .article .article-2 .second-box a .box-img {
           width: 100%;
           height: 41%;
-          margin: 50px 0; }
-          .container-fluid article .article .article-2 .second-box a .box-img-1 {
-            background-image: url("../img/main-message-icon.png");
-            background-repeat: no-repeat;
-            background-size: cover; }
-          .container-fluid article .article .article-2 .second-box a .box-img-2 {
-            background-image: url("../img/main-overview-icon.png");
-            background-repeat: no-repeat;
-            background-size: cover; }
-          .container-fluid article .article .article-2 .second-box a .box-img-3 {
-            background-image: url("../img/main-history-icon.png");
-            background-repeat: no-repeat;
-            background-size: cover; }
-          .container-fluid article .article .article-2 .second-box a .box-img-4 {
-            background-image: url("../img/main-major-icon.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position-x: -5px; }
+          margin: 30px 0 70px 0; }
+          .container-fluid article .article .article-2 .second-box a .box-img > img {
+            width: 100%; }
         .container-fluid article .article .article-2 .second-box a .box-wrap {
           max-width: 100%; }
           .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap {
@@ -707,18 +692,18 @@ footer #footer-wrapper {
             .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
               font-size: 18px; }
     .container-fluid article .article .article-3 .article-right {
+      position: relative;
       width: 48.8%;
+      background: #fff;
       float: left;
       overflow: hidden; }
       .container-fluid article .article .article-3 .article-right a {
         text-decoration: none; }
         .container-fluid article .article .article-3 .article-right a .main-box {
-          height: 447px;
-          transition: all .1s ease-in-out;
-          background-image: url("../img/green-business-main.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position-x: -60px; }
+          height: 485px;
+          transition: all .1s ease-in-out; }
+          .container-fluid article .article .article-3 .article-right a .main-box > img {
+            width: 100%; }
           .container-fluid article .article .article-3 .article-right a .main-box .box-title {
             display: inline-block;
             color: #333;
@@ -729,9 +714,12 @@ footer #footer-wrapper {
           .container-fluid article .article .article-3 .article-right a .main-box:hover > .box-title:after {
             transform: scaleX(1); }
           .container-fluid article .article .article-3 .article-right a .main-box-bottom {
+            position: absolute;
+            bottom: 0;
             text-align: right;
             height: 40px;
-            background: #174A8E; }
+            background: #174A8E;
+            width: 100%; }
             .container-fluid article .article .article-3 .article-right a .main-box-bottom .bottom-title {
               font-size: 18px;
               line-height: 1.6;

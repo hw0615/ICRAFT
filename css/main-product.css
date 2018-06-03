@@ -554,13 +554,14 @@ article .article .article-wrapper .triple-last {
 
 article .article .article-wrapper .emp-prod-title {
   font-size: 30px;
+  text-align: center;
   color: #fff;
   font-weight: 700;
   background: #333;
   padding: 15px; }
 
 article .article .article-wrapper .article-prod {
-  margin-bottom: 50px; }
+  margin-bottom: 100px; }
   article .article .article-wrapper .article-prod .emp-prod {
     font-size: 22px;
     color: #fff;
@@ -570,6 +571,7 @@ article .article .article-wrapper .article-prod {
     padding: 10px;
     margin: 50px 0 25px 0; }
   article .article .article-wrapper .article-prod img {
+    width: 100%;
     margin-top: 30px; }
   article .article .article-wrapper .article-prod .article-left-text {
     width: 48%;
@@ -581,11 +583,17 @@ article .article .article-wrapper .article-prod {
   article .article .article-wrapper .article-prod .article-left {
     width: 50%; }
   article .article .article-wrapper .article-prod .article-right {
-    width: 40%; }
+    float: right;
+    width: 45%;
+    margin-bottom: 0; }
     article .article .article-wrapper .article-prod .article-right .article-text {
-      margin: 150px 0; }
+      margin: 130px 0; }
     article .article .article-wrapper .article-prod .article-right .text-right {
       margin: 25px 0 25px 0; }
+  article .article .article-wrapper .article-prod .text-center {
+    float: left;
+    width: 100%;
+    margin: 50px 0; }
   article .article .article-wrapper .article-prod:after {
     display: block;
     content: '';

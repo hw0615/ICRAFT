@@ -217,36 +217,39 @@
             .box-img {
               width: 100%;
               height: 41%;
-              margin: 50px 0;
-              &-1 {
-                background: {
-                  image: url('../img/main-message-icon.png');
-                  repeat: no-repeat;
-                  size: cover; 
-                }
+              margin: 30px 0 70px 0;
+              > img {
+                width: 100%;
               }
-              &-2 {
-                background: {
-                  image: url('../img/main-overview-icon.png');
-                  repeat: no-repeat;
-                  size: cover; 
-                }
-              }
-              &-3 {
-                background: {
-                  image: url('../img/main-history-icon.png');
-                  repeat: no-repeat;
-                  size: cover;
-                }
-              }
-              &-4 {
-                background: {
-                  image: url('../img/main-major-icon.png');
-                  repeat: no-repeat;
-                  size: cover;
-                  position-x: -5px;                  
-                }
-              }
+              // &-1 {
+              //   background: {
+              //     image: url('../img/main-message-icon.png');
+              //     repeat: no-repeat;
+              //     size: cover; 
+              //   }
+              // }
+              // &-2 {
+              //   background: {
+              //     image: url('../img/main-overview-icon.png');
+              //     repeat: no-repeat;
+              //     size: cover; 
+              //   }
+              // }
+              // &-3 {
+              //   background: {
+              //     image: url('../img/main-history-icon.png');
+              //     repeat: no-repeat;
+              //     size: cover;
+              //   }
+              // }
+              // &-4 {
+              //   background: {
+              //     image: url('../img/main-major-icon.png');
+              //     repeat: no-repeat;
+              //     size: cover;
+              //     position-x: -5px;                  
+              //   }
+              // }
             }
             .box-wrap {
               max-width: 100%;
@@ -327,19 +330,25 @@
           }
         }
         .article-right {
+          position: relative;
           width: 48.8%;
+          background: #fff;
           float: left;
           overflow: hidden;          
           a {
             text-decoration: none;  
             .main-box {
-              height: 447px;
+              // height: 447px;
+              height: 485px;
               transition: all .1s ease-in-out;
-              background: {
-                image: url('../img/green-business-main.png');
-                repeat: no-repeat;
-                size: cover;
-                position-x: -60px;
+              // background: {
+              //   image: url('../img/green-business-main.png');
+              //   repeat: no-repeat;
+              //   size: cover;
+              //   position-x: -60px;
+              // }
+              > img {
+                width: 100%;
               }
               .box-title {
                 display: inline-block;
@@ -354,10 +363,12 @@
                 transform: scaleX(1);
               }  
               &-bottom {
-                // padding: 15px 15px;
+                position: absolute;
+                bottom: 0;
                 text-align: right;
                 height: 40px;
                 background: $color-key;
+                width: 100%;
                 .bottom-title {
                   font-size: 18px;
                   line-height: 1.6;
