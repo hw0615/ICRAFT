@@ -3,6 +3,14 @@
 header {
   background: #fff;
   height: 140px;
+  @include respond-to($phone) {
+    height: auto;
+  }
+  #header-wrapper {
+    @include respond-to($phone) {
+      display: none;
+    }
+  } 
   .logo-wrapper {
     // width: 1050px;
     width: 100%;
@@ -21,7 +29,7 @@ header {
   .nav-container {
     width: 100%;      
     background: $color-key;
-    height: 45px;
+    height: 45px;    
     .nav-menu {
       display: table;
       margin: 0 auto;
@@ -29,7 +37,7 @@ header {
         font-size: 14px;
         // font-size: 1.05vw;
         @include respond-to($phone) {
-          font-size: 10px;
+          font-size: 12px;
         }
         @include respond-to($tablet) {
           font-size: 12px;
@@ -76,6 +84,9 @@ header {
           text-align: center;
           color: #fff;
           text-decoration: none;
+          @include respond-to($phone) {
+            padding: 0 5px;
+          }
         }
         &-sub {
           // display: none;
@@ -158,5 +169,149 @@ header {
         }
       }
     }
+  }  
+}
+
+.header-mobile {
+  display: none;
+  @include respond-to($phone) {
+    display: block;
+  } 
+  .nav-btn {
+    display: inline-block;
+    width: 60px;
+    height: 45px;
+    position: absolute;    
+    top: 25px;
+    left: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+    z-index: 200;
+    span {
+      display: block;
+      position: absolute;
+      height: 9px;
+      width: 100%;
+      background: #e83128;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+    }
+    span:nth-child(1) {
+      top: 0px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+    
+    span:nth-child(2) {
+      top: 18px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+    
+    span:nth-child(3) {
+      top: 36px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+    
+    &.open span:nth-child(1) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      top: -3px;
+      left: 8px;
+    }
+    
+    &.open span:nth-child(2) {
+      width: 0%;
+      opacity: 0;
+    }
+    
+    &.open span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      top: 39px;
+      left: 8px;
+    }
+  }
+  .nav-container {
+    display: block;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 100px 0;
+    .nav-menu {
+      width: 100%;
+    }
+    .nav-menu-list {
+      width: 100%;
+      display: inline-block;
+      &.active .nav-menu-list-sub {
+        display: block;
+        // visibility: visible;
+        max-height: 650px;
+        opacity: 1;
+        z-index: 1;
+        transform: translateY(0%);
+        // transition-delay: 0s, 0s, 0.1s;
+        transition: max-height 0.6s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;          
+      }
+      &.active .nav-menu-list-sub > li {
+        max-height: 50px;
+        visibility: visible;
+        transition: all 0.25s ease-in-out 0s, visibility 0s linear 0.15s, z-index 0s linear 0.01s;
+        &.active {
+          .nav-menu-list-sub-detail li {
+            display: block;
+          }
+        }
+      }
+      .nav-menu-list-name {
+        color: black;
+        font-size: 20px;
+      }
+    }
+    .nav-menu-list-sub {
+      position: unset;
+      top: unset;
+      left: unset;
+      width: 100%;
+      .nav-menu-list-sub-title {
+        width: 50%;
+        display: inline-block;
+      }
+      .nav-menu-list-sub-detail {
+        width: 50%;
+        position: unset;
+        top: unset;
+        left: unset;        
+        display: inline-block;
+      }
+    }
+    
   }
 }

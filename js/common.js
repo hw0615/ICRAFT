@@ -117,4 +117,5 @@ $(function () {
     $( 'html, body' ).animate( { scrollTop : sol12.offset().top }, 200);
     return false;
   })
+
 });
