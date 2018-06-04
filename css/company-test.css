@@ -57,10 +57,26 @@ legend, caption {
 * {
   box-sizing: border-box; }
 
+@media only screen and (min-width: 280px) and (max-width: 600px) {
+  html {
+    overflow-x: hidden;
+    width: 100%; }
+    html::before {
+      display: none; } }
+
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
-  padding-left: 0 !important; }
+  padding-left: 0 !important;
+  width: 100%; }
+  .container-fluid::before {
+    display: none; }
+  .container-fluid::after {
+    display: none; }
+  .container-fluid button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none; }
   .container-fluid .get-btn {
     background-color: #23527c;
     color: white;
@@ -112,7 +128,7 @@ legend, caption {
           font-weight: 600; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
-              font-size: 20px; } }
+              font-size: 22px; } }
           @media only screen and (min-width: 601px) and (max-width: 991px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-title {
               font-size: 24px; } }
@@ -122,7 +138,7 @@ legend, caption {
           text-shadow: 3px 3px 4px #000; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-des {
-              font-size: 10px; } }
+              font-size: 12px; } }
           @media only screen and (min-width: 601px) and (max-width: 991px) {
             .container-fluid section .img-wrapper .img-text-group .img-text-des {
               font-size: 14px; } }
@@ -132,6 +148,9 @@ legend, caption {
       text-align: center;
       background: #333;
       height: 35px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid section .small-menu {
+          display: none; } }
       .container-fluid section .small-menu-list {
         cursor: pointer;
         display: table-cell;
@@ -148,7 +167,8 @@ legend, caption {
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid section .small-menu-list a {
               font-size: 10px;
-              padding-top: 12px; } }
+              padding-top: 12px;
+              display: none; } }
           @media only screen and (min-width: 601px) and (max-width: 991px) {
             .container-fluid section .small-menu-list a {
               font-size: 12px; } }
@@ -182,18 +202,21 @@ legend, caption {
     .container-fluid article .location {
       margin: 55px 0 10px 0;
       color: #666;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .location {
+          margin: 14px 0 10px 0; } }
       .container-fluid article .location a {
         font-size: 12px;
         color: #666;
         text-decoration: none; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .location a {
-            font-size: 10px; } }
+            font-size: 12px; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           .container-fluid article .location a {
-            font-size: 10px; } }
+            font-size: 12px; } }
       .container-fluid article .location span {
         display: inline-block;
         width: 20px;
@@ -208,7 +231,7 @@ legend, caption {
         .container-fluid article .article {
           font-size: 12px;
           width: 100%;
-          padding: 30px 25px 30px 25px; } }
+          padding: 30px 15px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid article .article {
           font-size: 14px;
@@ -283,7 +306,6 @@ legend, caption {
       display: none;
       transition: all .5s; }
   .container-fluid .move-top {
-    display: none;
     position: fixed;
     right: 2%;
     bottom: 130px;
@@ -291,8 +313,10 @@ legend, caption {
     color: #fff;
     border: none;
     width: 45px;
+    max-width: 45px;
     height: 45px;
     font-size: 32px;
+    padding: 0;
     padding-top: 5px; }
 
 section {

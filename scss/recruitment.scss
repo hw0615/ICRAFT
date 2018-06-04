@@ -47,22 +47,41 @@ article {
       box-sizing: border-box;
       font-weight: 600;
       font-size: 18px;      
-      position: relative;      
+      position: relative;   
+      @include respond-to($phone) {
+              margin: 0; 
+      }    
       background: {
         image: url('../img/talent.jpg');
         repeat: no-repeat;
         size: cover; 
         position: top;  
       }  
+      img {
+        display: inline-block;
+        width: 100px;
+        position: absolute;
+        top: 20px; 
+        right: 20px; 
+      }
     }  
     p {
       font-size: 17px;
+      margin: 10px;  
+      line-height: 1.5;
+      @include respond-to($phone) {
+        font-size: 15px;       
+      }    
     }      
     strong {      
       margin: 30px 0;
       display: block;               
       text-align: center;
+      line-height: 1.5;
       font-size: 20px;      
+      @include respond-to($phone) {
+        font-size: 15px;       
+      }    
     }
     .talent-content {
       position: relative;
@@ -87,6 +106,13 @@ article {
           font-size: 17px;  
           letter-spacing: -1px;
           position: relative;
+          @include respond-to($phone) {
+            font-size: 15px;  
+            width: 47%;
+            float: none !important;
+            display: inline-block;
+            margin: 1% 1%;
+          } 
           &:after {
             background-color: rgb(255, 168, 55);
             position: absolute;
@@ -96,7 +122,11 @@ article {
             content: '';            
             display: block;
             width: 5px;
-            height: 5px
+            height: 5px;            
+            @include respond-to($phone) {
+              left: -15px;              
+              display: none;
+            }  
           }
           &.right:after {
             left:-15px;            
@@ -113,6 +143,9 @@ article {
         margin-left: - 100px;
         // float:left;
         z-index: 100;
+        @include respond-to($phone) {
+          position: relative;
+        }  
       }
     }
     > ul {      
@@ -143,6 +176,14 @@ article {
         padding: 10px;
         font-size: 17px;        
         box-sizing: border-box;
+        @include respond-to($phone) {
+          float: unset !important;
+          display: inline-block;
+          width: 48%;
+          font-size: 15px;
+          vertical-align: top;
+          height: 56px;
+         }
       }
     }
     &.benifit {      
@@ -151,6 +192,7 @@ article {
         display: inline-block;   
         padding-left: 15px;   
         font-weight: 600;          
+        font-size: 17px;
         &:after {
           background: #4a5667;
           display: block;
@@ -165,7 +207,11 @@ article {
       }
       .benifit-summary {
         padding: 20px;
-        text-align: center;       
+        text-align: center;      
+        @include respond-to($phone) {
+          padding: 0;
+          margin-bottom: 40px;
+        }
         span {
           border: 2px solid #4a5667;        
           border-radius: 100%;
@@ -174,12 +220,22 @@ article {
           height: 180px;
           line-height: 180px;
           text-align: center;   
-          position: relative;                             
+          position: relative;      
+          @include respond-to($phone) {
+            width: 100px;
+            height:100px;
+          }                          
           img {
             display: inline-block;
-            margin-top: -30px;
+            margin-top: 20px;
             width: 120px;
-            line-height: 20px;          
+            line-height: 20px;    
+            position: relative;  
+            @include respond-to($phone) {
+              top: -10px;
+              margin: 0;
+              width: 80px;  
+            }   
           }
           i {
             color: #4a5667;
@@ -194,6 +250,9 @@ article {
             font-style: unset;
             font-weight:  600;
             font-size: 16px;
+            @include respond-to($phone) {
+              bottom: -25px;
+            }   
           }
         }   
         span + span {
@@ -241,6 +300,11 @@ article {
           height: 20px;
           background-image: radial-gradient(circle at center, #4a5667 2px, transparent 2px);
           background-size: 100px 20px;
+          position: relative;
+          top: -30px;     
+          @include respond-to($phone) {              
+            display: none;
+          }       
         }
       }
       ul {

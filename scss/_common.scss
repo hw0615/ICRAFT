@@ -1,10 +1,32 @@
 @import './config';
 
+html {
+  @include respond-to($phone) {    
+    overflow-x: hidden;   
+    width: 100%; 
+    &::before {
+      display: none;
+    }
+  }
+}
+
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
   padding-left: 0 !important;
-  
+  width: 100%;
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    display: none;
+  }
+  button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
   .get-btn {
     background-color: #23527c;
     color: white;
@@ -60,7 +82,7 @@
           font-size: 55px;
           font-weight: 600;
           @include respond-to($phone) {
-            font-size: 20px;
+            font-size: 22px;
           }
           @include respond-to($tablet) {
             font-size: 24px;
@@ -72,7 +94,7 @@
           font-size: 24px;
           text-shadow: 3px 3px 4px #000;          
           @include respond-to($phone) {
-            font-size: 10px;
+            font-size: 12px;
           }
           @include respond-to($tablet) {
             font-size: 14px;
@@ -86,7 +108,10 @@
       text-align: center;
       background: #333;
       height: 35px;
-      // padding: 0 205px;
+      // padding: 0 205px;      
+      @include respond-to($phone) {         
+        display: none;           
+      }
       &-list {
         cursor: pointer;
         display: table-cell;
@@ -104,11 +129,12 @@
           text-decoration: none;
           @include respond-to($phone) {
             font-size: 10px;
-            padding-top: 12px;             
+            padding-top: 12px;  
+            display: none;           
           }
           @include respond-to($tablet) {
-            font-size: 12px;
-          }
+            font-size: 12px;            
+          }          
           &:hover, 
           &:focus {
             border-bottom: 3px solid #fff;
@@ -150,17 +176,20 @@
     .location {
       margin: 55px 0 10px 0;
       color: #666;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
+      @include respond-to($phone) {
+        margin: 14px 0 10px 0;
+      }
       a {
         font-size: 12px;   
         color: #666;
         text-decoration: none;
         @include respond-to($phone) {
-          font-size: 10px;
+          font-size: 12px;
         }
         @include respond-to($tablet) {
-          font-size: 10px;
+          font-size: 12px;
         }
       }
       span {
@@ -178,7 +207,7 @@
       @include respond-to($phone) {
         font-size: 12px;        
         width: 100%;
-        padding: 30px 25px 30px 25px;
+        padding: 30px 15px;
       }
       @include respond-to($tablet) {
         font-size: 14px;
@@ -265,7 +294,7 @@
     }
   }
   .move-top {
-    display: none;
+    // display: none !important;
     position: fixed;
     right: 2%;
     bottom: 130px;
@@ -279,8 +308,10 @@
     color: #fff;
     border: none;
     width: 45px;
+    max-width: 45px;
     height: 45px;
     font-size: 32px;
+    padding:0;
     padding-top: 5px;
   }
 }

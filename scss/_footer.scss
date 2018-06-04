@@ -16,17 +16,18 @@
         padding: 37px 0;           
         margin: 0 auto;
         // padding: 0 90px;
+        box-sizing: border-box;
         @include respond-to($phone) {
           width: 100%;
-          padding: 0 15px 0 15px;
+          padding: 37px 15px;
         }
         @include respond-to($tablet) {
           width: 100%;
-          padding: 0 25px 0 25px;
+          padding: 37px 25px;
         }
         @include respond-to($desktop) {
           width: 100%;
-          padding: 0 55px 0 55px;
+          padding: 37px 55px;
         }
         a {
           color: white;
@@ -64,6 +65,7 @@
           font-size: 13px;
           font-weight: 100;
           color: #d4d4d4;
+          margin: 0;
           @include respond-to($phone) {
             display: none;
           }
@@ -79,6 +81,14 @@
             font-weight: 100;
             color: #d4d4d4;
             text-decoration: none;
+          }
+          @include respond-to($phone) {
+            display: none;
+          }
+          @include respond-to($tablet) {
+            // float: left;
+            // font-size: 11px;
+            display: none;
           }
         }
       }
