@@ -187,13 +187,22 @@
           }
           a {
             text-decoration: none;
+            display: block;
+            float: left;
+            width: 244px;
+            @include respond-to($phone) { 
+              width: 100%;
+            }
+            @include respond-to($tablet) {
+              width: 100%;
+            }
             .main-box {
               position: relative;
               display: inline-block;
-              width: 47.5%;
+              width: 100%;
+              // width: 47.5%;
               height: 225px;
               @include respond-to($phone) { 
-                width: 100%; 
                 height: 160px;
               }
               @include respond-to($tablet) {
@@ -211,7 +220,7 @@
                 }
                 @include respond-to($tablet) {
                   font-size: 18px;
-                    margin: 25px;
+                  margin: 25px;
                 }
                 &:after {
                   display: block;
@@ -292,7 +301,7 @@
             }
           }
           .box-right {
-            margin-right: 22px;
+            margin-right: 25px;
             &-tb {
               float: right;
             }
@@ -320,7 +329,7 @@
           @include respond-to($phone) {  
             width: 45.5%;
             padding: 25px;
-            height: 200px;            
+            height: 180px;            
             margin-bottom: 25px;          
           }
           @include respond-to($tablet) {
@@ -357,7 +366,7 @@
               height: 41%;
               margin: 30px 0 70px 0;
               @include respond-to($phone) {  
-                margin: 30px 0 0 0;  
+                margin: 15px 0 0 0;  
               }
               @include respond-to($tablet) {
                 margin: 25px 0;
@@ -424,11 +433,13 @@
                   background: none;
                   @include respond-to($phone) {  
                     font-size: 8px;
-                    padding: 5px 0;  
+                    padding: 5px 0;
+                    margin-top: 10px;
                   }
                   @include respond-to($tablet) {
                     font-size: 10px;
                     padding: 5px 0;
+                    margin-top: 15px;                    
                   }
                   &:hover {
                     background: $color-key;

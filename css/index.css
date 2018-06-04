@@ -784,15 +784,23 @@ footer #footer-wrapper {
           margin-right: 0;
           margin-top: 25px; } }
       .container-fluid article .article .article-1 .article-right a {
-        text-decoration: none; }
+        text-decoration: none;
+        display: block;
+        float: left;
+        width: 244px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          .container-fluid article .article .article-1 .article-right a {
+            width: 100%; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          .container-fluid article .article .article-1 .article-right a {
+            width: 100%; } }
         .container-fluid article .article .article-1 .article-right a .main-box {
           position: relative;
           display: inline-block;
-          width: 47.5%;
+          width: 100%;
           height: 225px; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid article .article .article-1 .article-right a .main-box {
-              width: 100%;
               height: 160px; } }
           @media only screen and (min-width: 601px) and (max-width: 991px) {
             .container-fluid article .article .article-1 .article-right a .main-box {
@@ -869,7 +877,7 @@ footer #footer-wrapper {
               .container-fluid article .article .article-1 .article-right a .main-box-bottom p span {
                 float: right; }
       .container-fluid article .article .article-1 .article-right .box-right {
-        margin-right: 22px; }
+        margin-right: 25px; }
         .container-fluid article .article .article-1 .article-right .box-right-tb {
           float: right; }
       .container-fluid article .article .article-1 .article-right-left {
@@ -891,7 +899,7 @@ footer #footer-wrapper {
         .container-fluid article .article .article-2 .second-box {
           width: 45.5%;
           padding: 25px;
-          height: 200px;
+          height: 180px;
           margin-bottom: 25px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         .container-fluid article .article .article-2 .second-box {
@@ -927,7 +935,7 @@ footer #footer-wrapper {
           margin: 30px 0 70px 0; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid article .article .article-2 .second-box a .box-img {
-              margin: 30px 0 0 0; } }
+              margin: 15px 0 0 0; } }
           @media only screen and (min-width: 601px) and (max-width: 991px) {
             .container-fluid article .article .article-2 .second-box a .box-img {
               margin: 25px 0; } }
@@ -963,11 +971,13 @@ footer #footer-wrapper {
               @media only screen and (min-width: 280px) and (max-width: 600px) {
                 .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button {
                   font-size: 8px;
-                  padding: 5px 0; } }
+                  padding: 5px 0;
+                  margin-top: 10px; } }
               @media only screen and (min-width: 601px) and (max-width: 991px) {
                 .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button {
                   font-size: 10px;
-                  padding: 5px 0; } }
+                  padding: 5px 0;
+                  margin-top: 15px; } }
               .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button:hover {
                 background: #174A8E;
                 border: none;
