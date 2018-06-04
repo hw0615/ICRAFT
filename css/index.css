@@ -476,6 +476,15 @@ footer #footer-wrapper {
 
 .container-fluid section .img-wrapper {
   height: 580px; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    .container-fluid section .img-wrapper {
+      height: 400px; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    .container-fluid section .img-wrapper {
+      height: 450px; } }
+  @media only screen and (min-width: 1751px) {
+    .container-fluid section .img-wrapper {
+      height: 700px; } }
   .container-fluid section .img-wrapper .item1 {
     background-image: url("../img/bg1.jpg");
     background-repeat: no-repeat;
@@ -491,16 +500,44 @@ footer #footer-wrapper {
   .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
     width: 100%;
     height: 580px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
+        height: 400px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
+        height: 450px; } }
+    @media only screen and (min-width: 1751px) {
+      .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
+        height: 700px; } }
     .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
       font-size: 40px;
       text-align: center;
       text-shadow: 3px 3px 4px #000;
       color: #fff;
       padding: 250px 0; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
+          font-size: 20px;
+          padding: 180px 35px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
+          font-size: 24px;
+          padding: 200px 0; } }
+      @media only screen and (min-width: 1751px) {
+        .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
+          padding: 330px 0; } }
 
 .container-fluid article .article {
   background: none;
   padding: 90px 0px; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    .container-fluid article .article {
+      margin: 0;
+      padding: 50px 0px; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    .container-fluid article .article {
+      margin: 0;
+      padding: 50px 0px; } }
   .container-fluid article .article .article-1 {
     margin-bottom: 50px; }
     .container-fluid article .article .article-1 .article-left {
@@ -508,6 +545,14 @@ footer #footer-wrapper {
       float: left;
       margin-right: 23px;
       overflow: hidden; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article .article-1 .article-left {
+          width: 100%;
+          margin-right: 0; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article .article-1 .article-left {
+          width: 100%;
+          margin-right: 0; } }
       .container-fluid article .article .article-1 .article-left a {
         text-decoration: none; }
         .container-fluid article .article .article-1 .article-left a .main-box {
@@ -516,11 +561,25 @@ footer #footer-wrapper {
           background-image: url("../img/mbg-company-info.jpg");
           background-repeat: no-repeat;
           background-size: cover; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-1 .article-left a .main-box {
+              height: 150px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-1 .article-left a .main-box {
+              height: 200px; } }
           .container-fluid article .article .article-1 .article-left a .main-box .box-title {
             display: inline-block;
             color: #fff;
             font-size: 30px;
             margin: 30px; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-1 .article-left a .main-box .box-title {
+                font-size: 14px;
+                margin: 20px; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-1 .article-left a .main-box .box-title {
+                font-size: 18px;
+                margin: 25px; } }
             .container-fluid article .article .article-1 .article-left a .main-box .box-title:after {
               display: block;
               content: '';
@@ -533,18 +592,41 @@ footer #footer-wrapper {
           .container-fluid article .article .article-1 .article-left a .main-box:hover > .box-title:after {
             transform: scaleX(1); }
           .container-fluid article .article .article-1 .article-left a .main-box-bottom {
-            padding: 25px 25px;
+            padding: 25px;
             height: 70px;
             background: #fff; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-1 .article-left a .main-box-bottom {
+                height: 35px;
+                padding: 10px 20px; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-1 .article-left a .main-box-bottom {
+                height: 40px;
+                padding: 13px 20px; } }
             .container-fluid article .article .article-1 .article-left a .main-box-bottom p {
               font-size: 20px;
               color: #333; }
+              @media only screen and (min-width: 280px) and (max-width: 600px) {
+                .container-fluid article .article .article-1 .article-left a .main-box-bottom p {
+                  font-size: 12px; } }
+              @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .container-fluid article .article .article-1 .article-left a .main-box-bottom p {
+                  font-size: 14px; } }
               .container-fluid article .article .article-1 .article-left a .main-box-bottom p span {
-                float: right;
-                font-size: 20px; }
+                float: right; }
     .container-fluid article .article .article-1 .article-right {
       width: 49%;
       float: right; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article .article-1 .article-right {
+          width: 100%;
+          margin-right: 0;
+          margin-top: 25px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article .article-1 .article-right {
+          width: 100%;
+          margin-right: 0;
+          margin-top: 25px; } }
       .container-fluid article .article .article-1 .article-right a {
         text-decoration: none; }
         .container-fluid article .article .article-1 .article-right a .main-box {
@@ -552,12 +634,27 @@ footer #footer-wrapper {
           display: inline-block;
           width: 47.5%;
           height: 225px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-1 .article-right a .main-box {
+              width: 100%;
+              height: 160px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-1 .article-right a .main-box {
+              height: 200px; } }
           .container-fluid article .article .article-1 .article-right a .main-box .box-title {
             display: inline-block;
             color: #fff;
             font-size: 22px;
             font-weight: lighter;
             margin: 25px; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-1 .article-right a .main-box .box-title {
+                font-size: 14px;
+                margin: 20px; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-1 .article-right a .main-box .box-title {
+                font-size: 18px;
+                margin: 25px; } }
             .container-fluid article .article .article-1 .article-right a .main-box .box-title:after {
               display: block;
               content: '';
@@ -596,12 +693,29 @@ footer #footer-wrapper {
             height: 55px;
             background: #fff;
             padding: 20px 15px; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-1 .article-right a .main-box-bottom {
+                height: 35px;
+                padding: 10px 20px; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-1 .article-right a .main-box-bottom {
+                height: 40px;
+                padding: 13px 20px; } }
             .container-fluid article .article .article-1 .article-right a .main-box-bottom p {
+              font-size: 16px;
               color: #333; }
+              @media only screen and (min-width: 280px) and (max-width: 600px) {
+                .container-fluid article .article .article-1 .article-right a .main-box-bottom p {
+                  font-size: 12px; } }
+              @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .container-fluid article .article .article-1 .article-right a .main-box-bottom p {
+                  font-size: 14px; } }
               .container-fluid article .article .article-1 .article-right a .main-box-bottom p span {
                 float: right; }
       .container-fluid article .article .article-1 .article-right .box-right {
         margin-right: 22px; }
+        .container-fluid article .article .article-1 .article-right .box-right-tb {
+          float: right; }
       .container-fluid article .article .article-1 .article-right-left {
         margin-right: 23px; }
     .container-fluid article .article .article-1:after {
@@ -617,6 +731,18 @@ footer #footer-wrapper {
       margin-right: 25px;
       padding: 35px;
       float: left; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article .article-2 .second-box {
+          width: 45.5%;
+          padding: 25px;
+          height: 200px;
+          margin-bottom: 25px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article .article-2 .second-box {
+          width: 47.5%;
+          padding: 25px;
+          height: 250px;
+          margin-bottom: 25px; } }
       .container-fluid article .article .article-2 .second-box a {
         text-decoration: none;
         color: #333; }
@@ -627,17 +753,49 @@ footer #footer-wrapper {
           padding-bottom: 20px;
           border-bottom: 1px solid #333;
           margin-bottom: 35px; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-2 .second-box a .box-title {
+              font-size: 14px;
+              text-align: center;
+              padding-bottom: 10px;
+              margin-bottom: 0; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-2 .second-box a .box-title {
+              font-size: 18px;
+              text-align: center;
+              padding-bottom: 10px;
+              margin-bottom: 0; } }
         .container-fluid article .article .article-2 .second-box a .box-img {
           width: 100%;
           height: 41%;
           margin: 30px 0 70px 0; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-2 .second-box a .box-img {
+              margin: 30px 0 0 0; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-2 .second-box a .box-img {
+              margin: 25px 0; } }
           .container-fluid article .article .article-2 .second-box a .box-img > img {
             width: 100%; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-2 .second-box a .box-img > img {
+                width: 50%;
+                margin: 0 25%; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-2 .second-box a .box-img > img {
+                width: 50%;
+                margin: 0 25%; } }
         .container-fluid article .article .article-2 .second-box a .box-wrap {
           max-width: 100%; }
           .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap {
             margin: 0 auto;
             width: 150px; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap {
+                width: 100%; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap {
+                width: 100%; } }
             .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button {
               width: 100%;
               height: auto;
@@ -646,23 +804,53 @@ footer #footer-wrapper {
               font-size: 18px;
               padding: 10px 0;
               background: none; }
+              @media only screen and (min-width: 280px) and (max-width: 600px) {
+                .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button {
+                  font-size: 8px;
+                  padding: 5px 0; } }
+              @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button {
+                  font-size: 10px;
+                  padding: 5px 0; } }
               .container-fluid article .article .article-2 .second-box a .box-wrap .detail-wrap button:hover {
                 background: #174A8E;
                 border: none;
                 color: #fff; }
       .container-fluid article .article .article-2 .second-box-last {
         margin-right: 0; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article .article-2 .second-box-right {
+          margin-right: 0;
+          float: right; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article .article-2 .second-box-right {
+          margin-right: 0;
+          float: right; } }
     .container-fluid article .article .article-2:after {
       display: block;
       content: "";
       clear: both; }
   .container-fluid article .article .article-3 {
     margin-bottom: 50px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid article .article .article-3 {
+        margin-bottom: 0px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      .container-fluid article .article .article-3 {
+        margin-bottom: 0px; } }
     .container-fluid article .article .article-3 .article-left {
       width: 48.8%;
       float: left;
       margin-right: 23px;
       overflow: hidden; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article .article-3 .article-left {
+          width: 100%;
+          margin-bottom: 50px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article .article-3 .article-left {
+          width: 100%;
+          margin-bottom: 50px; } }
       .container-fluid article .article .article-3 .article-left a {
         text-decoration: none; }
         .container-fluid article .article .article-3 .article-left a .main-box {
@@ -671,12 +859,24 @@ footer #footer-wrapper {
           background-image: url("../img/img-test.png");
           background-repeat: no-repeat;
           background-size: cover; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-3 .article-left a .main-box {
+              height: 200px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-3 .article-left a .main-box {
+              height: 250px; } }
           .container-fluid article .article .article-3 .article-left a .main-box .box-title {
             display: inline-block;
             color: #fff;
             background: #174A8E;
             font-size: 18px;
             padding: 12px; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-3 .article-left a .main-box .box-title {
+                font-size: 14px; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-3 .article-left a .main-box .box-title {
+                font-size: 16px; } }
           .container-fluid article .article .article-3 .article-left a .main-box:hover {
             transform: scale(1.01); }
           .container-fluid article .article .article-3 .article-left a .main-box:hover > .box-title:after {
@@ -689,19 +889,43 @@ footer #footer-wrapper {
               font-size: 22px;
               margin-bottom: 15px;
               color: #333; }
+              @media only screen and (min-width: 280px) and (max-width: 600px) {
+                .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-title {
+                  font-size: 14px; } }
+              @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-title {
+                  font-size: 16px; } }
             .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
               font-size: 18px; }
+              @media only screen and (min-width: 280px) and (max-width: 600px) {
+                .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
+                  font-size: 12px; } }
+              @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
+                  font-size: 14px; } }
     .container-fluid article .article .article-3 .article-right {
       position: relative;
       width: 48.8%;
       background: #fff;
       float: left;
       overflow: hidden; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        .container-fluid article .article .article-3 .article-right {
+          width: 100%; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        .container-fluid article .article .article-3 .article-right {
+          width: 100%; } }
       .container-fluid article .article .article-3 .article-right a {
         text-decoration: none; }
         .container-fluid article .article .article-3 .article-right a .main-box {
           height: 485px;
           transition: all .1s ease-in-out; }
+          @media only screen and (min-width: 280px) and (max-width: 600px) {
+            .container-fluid article .article .article-3 .article-right a .main-box {
+              height: 280px; } }
+          @media only screen and (min-width: 601px) and (max-width: 991px) {
+            .container-fluid article .article .article-3 .article-right a .main-box {
+              height: 400px; } }
           .container-fluid article .article .article-3 .article-right a .main-box > img {
             width: 100%; }
           .container-fluid article .article .article-3 .article-right a .main-box .box-title {
@@ -709,6 +933,14 @@ footer #footer-wrapper {
             color: #333;
             font-size: 24px;
             margin: 30px; }
+            @media only screen and (min-width: 280px) and (max-width: 600px) {
+              .container-fluid article .article .article-3 .article-right a .main-box .box-title {
+                font-size: 14px;
+                margin: 30px 0 0 30px; } }
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+              .container-fluid article .article .article-3 .article-right a .main-box .box-title {
+                font-size: 18px;
+                margin: 30px 0 0 30px; } }
           .container-fluid article .article .article-3 .article-right a .main-box:hover {
             transform: scale(1.005); }
           .container-fluid article .article .article-3 .article-right a .main-box:hover > .box-title:after {
@@ -725,6 +957,14 @@ footer #footer-wrapper {
               line-height: 1.6;
               padding: 6px 15px 0 0;
               color: #fff; }
+              @media only screen and (min-width: 280px) and (max-width: 600px) {
+                .container-fluid article .article .article-3 .article-right a .main-box-bottom .bottom-title {
+                  font-size: 12px;
+                  padding: 10px 15px 0 0; } }
+              @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .container-fluid article .article .article-3 .article-right a .main-box-bottom .bottom-title {
+                  font-size: 14px;
+                  padding: 10px 15px 0 0; } }
     .container-fluid article .article .article-3:after {
       content: "";
       display: block;

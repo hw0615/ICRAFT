@@ -8,6 +8,15 @@
   section {
     .img-wrapper {
       height: 580px;
+      @include respond-to($phone) {  
+        height: 400px;
+      }
+      @include respond-to($tablet) {
+        height: 450px;
+      }
+      @include respond-to($large-desktop2) {
+        height: 700px;
+      }
       .item1 {
         background: {
           image: url('../img/bg1.jpg');
@@ -33,12 +42,32 @@
       .item1, .item2, .item3 {
         width: 100%;
         height: 580px;
+        @include respond-to($phone) {  
+          height: 400px;
+        }
+        @include respond-to($tablet) {
+          height: 450px;
+        }
+        @include respond-to($large-desktop2) {
+          height: 700px;
+        }
         .item-text {
           font-size: 40px;
           text-align: center;
           text-shadow: 3px 3px 4px #000;
           color: #fff;
           padding: 250px 0;
+          @include respond-to($phone) {  
+            font-size: 20px;
+            padding: 180px 35px;            
+          }
+          @include respond-to($tablet) {
+            font-size: 24px;
+            padding: 200px 0;            
+          }
+          @include respond-to($large-desktop2) {
+            padding: 330px 0;
+          }
         }
       }
     }
@@ -47,13 +76,29 @@
     .article {
       background: none;
       padding: 90px 0px;
+      @include respond-to($phone) {  
+        margin: 0;
+        padding: 50px 0px;        
+      }
+      @include respond-to($tablet) {
+        margin: 0;
+        padding: 50px 0px;        
+      }
       .article-1 {
         margin-bottom: 50px;
         .article-left {
           width: 48.8%;
           float: left;
           margin-right: 23px;
-          overflow: hidden;          
+          overflow: hidden;
+          @include respond-to($phone) {  
+            width: 100%;
+            margin-right: 0;
+          }
+          @include respond-to($tablet) {
+            width: 100%;
+            margin-right: 0;       
+          }
           a {
             text-decoration: none;  
             .main-box {
@@ -64,11 +109,25 @@
                 repeat: no-repeat;
                 size: cover; 
               }
+              @include respond-to($phone) {  
+                height: 150px;
+              }
+              @include respond-to($tablet) {
+                height: 200px;
+              }
               .box-title {
                 display: inline-block;
                 color: #fff;
                 font-size: 30px;
                 margin: 30px;
+                @include respond-to($phone) {  
+                  font-size: 14px;
+                  margin: 20px;
+                }
+                @include respond-to($tablet) {
+                  font-size: 18px;
+                  margin: 25px;
+                }
                 &:after {
                   display: block;
                   content: '';
@@ -85,15 +144,28 @@
                 transform: scaleX(1);
               }  
               &-bottom {
-                padding: 25px 25px;
+                padding: 25px;
                 height: 70px;
                 background: #fff;
+                @include respond-to($phone) {  
+                  height: 35px;
+                  padding: 10px 20px;
+                }
+                @include respond-to($tablet) {
+                  height: 40px;
+                  padding: 13px 20px;                  
+                }
                 p {
                   font-size: 20px;
                   color: #333;
+                  @include respond-to($phone) {  
+                    font-size: 12px;
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 14px;
+                  }
                   span {
-                    float: right;
-                    font-size: 20px;              
+                    float: right;        
                   }
                 }
               }
@@ -103,6 +175,16 @@
         .article-right {
           width: 49%;
           float: right;
+          @include respond-to($phone) {  
+            width: 100%;
+            margin-right: 0;
+            margin-top: 25px;
+          }
+          @include respond-to($tablet) {
+            width: 100%;
+            margin-right: 0;
+            margin-top: 25px;
+          }
           a {
             text-decoration: none;
             .main-box {
@@ -110,13 +192,27 @@
               display: inline-block;
               width: 47.5%;
               height: 225px;
-              // margin-bottom: 25px;
+              @include respond-to($phone) { 
+                width: 100%; 
+                height: 160px;
+              }
+              @include respond-to($tablet) {
+                height: 200px;
+              }
               .box-title {
                 display: inline-block;
                 color: #fff;
                 font-size: 22px;
                 font-weight: lighter;              
                 margin: 25px;
+                @include respond-to($phone) {  
+                  font-size: 14px;
+                  margin: 20px;
+                }
+                @include respond-to($tablet) {
+                  font-size: 18px;
+                    margin: 25px;
+                }
                 &:after {
                   display: block;
                   content: '';
@@ -171,8 +267,23 @@
                 height: 55px;
                 background: #fff;
                 padding: 20px 15px;
+                @include respond-to($phone) {  
+                  height: 35px;
+                  padding: 10px 20px;
+                }
+                @include respond-to($tablet) {
+                  height: 40px;
+                  padding: 13px 20px;                  
+                }
                 p {
+                  font-size: 16px;
                   color: #333;
+                  @include respond-to($phone) {  
+                    font-size: 12px;
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 14px;
+                  }
                   span {
                     float: right;
                   }
@@ -182,6 +293,9 @@
           }
           .box-right {
             margin-right: 22px;
+            &-tb {
+              float: right;
+            }
           }
           &-left {
             margin-right: 23px;
@@ -203,6 +317,18 @@
           margin-right: 25px;
           padding: 35px;
           float: left;
+          @include respond-to($phone) {  
+            width: 45.5%;
+            padding: 25px;
+            height: 200px;            
+            margin-bottom: 25px;          
+          }
+          @include respond-to($tablet) {
+            width: 47.5%;
+            padding: 25px;
+            height: 250px;            
+            margin-bottom: 25px;          
+          }
           a {
             text-decoration: none;
             color: #333;
@@ -213,13 +339,39 @@
               padding-bottom: 20px;
               border-bottom: 1px solid #333;
               margin-bottom: 35px;
+              @include respond-to($phone) {  
+                font-size: 14px;
+                text-align: center;
+                padding-bottom: 10px;
+                margin-bottom: 0;   
+              }
+              @include respond-to($tablet) {
+                font-size: 18px;
+                text-align: center;
+                padding-bottom: 10px;
+                margin-bottom: 0;
+              }
             }
             .box-img {
               width: 100%;
               height: 41%;
               margin: 30px 0 70px 0;
+              @include respond-to($phone) {  
+                margin: 30px 0 0 0;  
+              }
+              @include respond-to($tablet) {
+                margin: 25px 0;
+              }
               > img {
                 width: 100%;
+                @include respond-to($phone) {
+                  width: 50%;                  
+                  margin: 0 25%;
+                }
+                @include respond-to($tablet) {
+                  width: 50%;                  
+                  margin: 0 25%;
+                }
               }
               // &-1 {
               //   background: {
@@ -256,6 +408,12 @@
               .detail-wrap {
                 margin: 0 auto;
                 width: 150px;
+                @include respond-to($phone) {  
+                  width: 100%;
+                }
+                @include respond-to($tablet) {
+                  width: 100%;
+                }
                 button {
                   width: 100%;
                   height: auto;
@@ -264,6 +422,14 @@
                   font-size: 18px;
                   padding: 10px 0;
                   background: none;
+                  @include respond-to($phone) {  
+                    font-size: 8px;
+                    padding: 5px 0;  
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 10px;
+                    padding: 5px 0;
+                  }
                   &:hover {
                     background: $color-key;
                     border: none;
@@ -276,6 +442,16 @@
           &-last {
             margin-right: 0;
           }
+          &-right {
+            @include respond-to($phone) {  
+              margin-right: 0;
+              float: right;
+            }
+            @include respond-to($tablet) {
+              margin-right: 0;
+              float: right;
+            }
+          }
         }
         &:after {
           display: block;
@@ -285,11 +461,25 @@
       }
       .article-3 {
         margin-bottom: 50px;
+        @include respond-to($phone) {  
+          margin-bottom: 0px;
+        }
+        @include respond-to($tablet) {
+          margin-bottom: 0px;
+        } 
         .article-left {
           width: 48.8%;
           float: left;
           margin-right: 23px;
-          overflow: hidden;          
+          overflow: hidden;
+          @include respond-to($phone) {  
+            width: 100%;
+            margin-bottom: 50px;
+          }
+          @include respond-to($tablet) {
+            width: 100%;
+            margin-bottom: 50px;
+          } 
           a {
             text-decoration: none;  
             .main-box {
@@ -300,12 +490,24 @@
                 repeat: no-repeat;
                 size: cover; 
               }
+              @include respond-to($phone) {  
+                height: 200px;
+              }
+              @include respond-to($tablet) {
+                height: 250px;
+              }
               .box-title {
                 display: inline-block;
                 color: #fff;
                 background: $color-key;
                 font-size: 18px;
                 padding: 12px;
+                @include respond-to($phone) {  
+                  font-size: 14px;
+                }
+                @include respond-to($tablet) {
+                  font-size: 16px;
+                }
               }
               &:hover{
                 transform: scale(1.01);
@@ -321,9 +523,21 @@
                   font-size: 22px;
                   margin-bottom: 15px;
                   color: #333;
+                  @include respond-to($phone) {  
+                    font-size: 14px;
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 16px;
+                  }
                 }
                 .bottom-txt {
                   font-size: 18px;
+                  @include respond-to($phone) {  
+                    font-size: 12px;
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 14px;
+                  }
                 }
               }
             }
@@ -334,11 +548,16 @@
           width: 48.8%;
           background: #fff;
           float: left;
-          overflow: hidden;          
+          overflow: hidden;
+          @include respond-to($phone) {  
+            width: 100%;
+          }
+          @include respond-to($tablet) {
+            width: 100%;
+          }          
           a {
             text-decoration: none;  
             .main-box {
-              // height: 447px;
               height: 485px;
               transition: all .1s ease-in-out;
               // background: {
@@ -347,6 +566,12 @@
               //   size: cover;
               //   position-x: -60px;
               // }
+              @include respond-to($phone) {  
+                height: 280px;
+              }
+              @include respond-to($tablet) {
+                height: 400px;
+              }
               > img {
                 width: 100%;
               }
@@ -355,6 +580,14 @@
                 color: #333;
                 font-size: 24px;
                 margin: 30px;
+                @include respond-to($phone) {  
+                  font-size: 14px;
+                  margin: 30px 0 0 30px;
+                }
+                @include respond-to($tablet) {
+                  font-size: 18px;
+                  margin: 30px 0 0 30px;                  
+                }
               }
               &:hover{
                 transform: scale(1.005);
@@ -374,6 +607,14 @@
                   line-height: 1.6;
                   padding: 6px 15px 0 0;
                   color: #fff;
+                  @include respond-to($phone) {  
+                    font-size: 12px;
+                    padding: 10px 15px 0 0;                    
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 14px;
+                    padding: 10px 15px 0 0;                    
+                  }
                 }
               }
             }
