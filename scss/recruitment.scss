@@ -31,7 +31,7 @@ article {
     max-width: 870px;
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     display:inline-block;
     clear: both; 
     position: relative;
@@ -67,14 +67,14 @@ article {
     }  
     p {
       font-size: 17px;
-      margin: 10px;  
+      margin: 10px 0 30px 0;  
       line-height: 1.5;
       @include respond-to($phone) {
         font-size: 15px;       
       }    
     }      
     strong {      
-      margin: 30px 0;
+      margin: 80px 0;
       display: block;               
       text-align: center;
       line-height: 1.5;

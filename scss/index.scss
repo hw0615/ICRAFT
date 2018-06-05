@@ -593,11 +593,11 @@
                 margin: 30px;
                 @include respond-to($phone) {  
                   font-size: 14px;
-                  margin: 30px 0 0 30px;
+                  margin: 30px 30px;
                 }
                 @include respond-to($tablet) {
                   font-size: 18px;
-                  margin: 30px 0 0 30px;                  
+                  margin: 30px 30px;                  
                 }
               }
               &:hover{

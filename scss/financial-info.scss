@@ -5,19 +5,12 @@
 @import './footer';
 
 section {
-  // @include company-img;
-  background: {
-    image: url('../img/recruitment-01.jpg');
-    repeat: no-repeat;
-    size: cover; 
-    position: center;  
-  }
+  @include ir-img;
 }
 article {
   .article {
     table {
       width: 100%;
-      margin-top: 70px;
       .tr-header {
         background: #F5F5F5;
       }

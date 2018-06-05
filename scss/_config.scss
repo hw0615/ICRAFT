@@ -34,6 +34,23 @@ $color-key: #174A8E;
   }
 }
 
+@mixin ir-img {
+  background: {
+    image: url('../img/ir.jpg');
+    repeat: no-repeat;
+    size: cover; 
+  }
+  @include respond-to($tablet) {
+    background-position-y: -35px;    
+  }
+  @include respond-to($large-desktop) {
+    background-position-y: -180px;
+  }
+  @include respond-to($large-desktop2) {
+    background-position-y: -220px;
+  }
+}
+
 // Media Query
 $phone : '(min-width: 280px) and (max-width: 600px)';
 $tablet: '(min-width: 601px) and (max-width: 991px)';

@@ -5,12 +5,7 @@
 @import './footer';
 
 section {
-  background: {
-    image: url('../img/recruitment-01.jpg');
-    repeat: no-repeat;
-    size: cover; 
-    position: center;
-  }  
+  @include ir-img;
 }
 article { 
   .article {    
@@ -27,7 +22,7 @@ article {
       text-align: center;
       margin: 80px 0;
       @include respond-to($phone) {
-        font-size: 14px;          
+        font-size: 14px;
       }
       @include respond-to($tablet) {
         font-size: 18px;
