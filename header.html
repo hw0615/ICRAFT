@@ -99,8 +99,8 @@
       <span></span>
     </div>
     <div class="nav-container">
-        <ul class="nav-menu">
-          <li class="nav-menu-list"><h2 class="nav-menu-list-name">회사소개</h2>
+        <ul class="nav-menu-moblie">
+          <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name">회사소개<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub">
               <li class="cantmove"><h3 class="nav-menu-list-sub-title">기업개요<span> > </span></h3>
                 <ul class="nav-menu-list-sub-detail">
@@ -117,9 +117,9 @@
               <li><a class="nav-menu-list-sub-title" href="location.html">찾아오시는 길</a></li>
             </ul>
           </li>
-          <li class="nav-menu-list"><h2 class="nav-menu-list-name">사업소개</h2>
+          <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name">사업소개<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub info-busi">
-              <li class="cantmove"><a class="nav-menu-list-sub-title" href="solution-portfolio.html">Solution Portfolio<span> > </span></a>
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">Solution Portfolio<span> > </span></h3>
                 <ul class="nav-menu-list-sub-detail solution">
                   <li><a href="solution-portfolio.html#sol1">인터넷 핵심망/접속망</a></li>
                   <li><a href="solution-portfolio.html#sol2">인터넷 INFRA부가 서비스</a></li>
@@ -136,7 +136,7 @@
                 </ul>
               </li>
               <li><a class="nav-menu-list-sub-title" href="brandsafer.html">브랜드세이퍼</a></li>
-              <li class="cantmove"><a class="nav-menu-list-sub-title" href="main-product.html">주요 제품(파트너)<span> > </span></a>
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">주요 제품(파트너)<span> > </span></h3>
                 <ul class="nav-menu-list-sub-detail partner">
                   <li><a href="main-product.html#sol1">Juniper</a></li>
                   <li><a href="main-product.html#sol2">Genband</a></li>
@@ -150,25 +150,26 @@
               </li>    
             </ul>
           </li>
-          <li class="nav-menu-list"><h2 class="nav-menu-list-name list-ir">IR</h2>
+          <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name list-ir">IR<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub info-ir">
-              <li><a class="nav-menu-list-sub-title" href="#">주가정보</a></li>
-              <li><a class="nav-menu-list-sub-title" href="#">재무정보</a></li>
-              <li class="cantmove"><a class="nav-menu-list-sub-title">IR 자료실<span> > </span></a>
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">IR 자료실<span> > </span></h3>
                 <ul class="nav-menu-list-sub-detail ir-detail">
                   <li><a href="#">경영공시</a></li>
                   <li><a href="#">내부 정보 관리 규정</a></li>
+                  <li><a href="#"></a></li>                      
                 </ul>
               </li>
+              <li><a class="nav-menu-list-sub-title" href="#">주가정보</a></li>
+              <li><a class="nav-menu-list-sub-title" href="#">재무정보</a></li>
             </ul>
           </li>
-          <li class="nav-menu-list"><h2 class="nav-menu-list-name">채용</h2>
+          <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name">채용<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub info-recruit">
               <li><a href="recruitment.html">채용안내</a></li>
               <li><a href="recruitment-board.html">채용게시판</a></li>
             </ul>
           </li>
-          <li class="nav-menu-list"><h2 class="nav-menu-list-name">고객지원</h2>
+          <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name">고객지원<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub info-customer">
               <li><a href="news.html">News</a></li>
               <li><a href="support.html">고객소리방</a></li>
@@ -184,12 +185,12 @@
       $(this).toggleClass('open');
     });
     var windowW = window.innerWidth;
-    var windowU = window.location.href;
-    console.log('windowU :', windowU);
-    if(windowW > 600){
+    var windowU = window.location.href.split('/');
+    var mainKey = windowU[windowU.length-1];
+    
+    if(windowW > 600 && mainKey !== "index.html"){
       var focusKey = $(".location a")[1].innerHTML;
-      var headerMenu= document.getElementsByClassName("nav-menu-list-name")    
-      
+      var headerMenu= document.getElementsByClassName("nav-menu-list-name")          
       for(var i=0; i < headerMenu.length; i++){
         var liText = headerMenu[i].innerHTML;      
         if(focusKey === liText) {
@@ -197,20 +198,30 @@
         }
       }      
     }
-    
     //HEADER-MOBILE ACTIVE 
-    var navMenuList = $(".nav-menu-list").attr("class");
-    var navMenuListSub = $(".nav-menu-list-sub > li").attr("class");
-    if(navMenuList !== "active" && navMenuListSub !== "active"){
-      $(".nav-menu-list").click(function(){      
-        $(this).toggleClass("active");   
-        navMenuList = $(".nav-menu-list").attr("class");  
-        console.log('navMenuList :', navMenuList);   
-      })
-    }
-    $(".nav-menu-list-sub > li").click(function(){      
-      $(this).toggleClass("sub-active");        
+    var navMenuList = $(".nav-menu-list-moblie").hasClass("active");    
+    var navMenuListSub = $(".cantmove").hasClass("active");        
+
+      // 대카테고리 클릭 이벤트
+    $(".nav-menu-list-moblie > h2").click(function(){  
+      if(navMenuList === true){
+        $(".nav-menu-moblie .active").removeClass("active");
+        $(this).parent().toggleClass("active");    
+      }
+      if(navMenuList === false && navMenuListSub === false){
+        $(".nav-menu-moblie .active").removeClass("active");
+        $(this).parent().toggleClass("active");   
+        navMenuList = $(".nav-menu-list-moblie").hasClass("active");
+        navMenuListSub = $(".cantmove").hasClass("active");   
+      }         
     })
+      //소카테고리 클릭 이벤트
+    $(".cantmove").click(function(){     
+      $(this).parent().find(".active").removeClass("active")
+      $(this).toggleClass("active");      
+      var navMenuListSubDetail = $(this).find(".nav-menu-list-sub-detail").height();
+      $(this).parent().height(navMenuListSubDetail);      
+    })   
 
   </script>
 </body>

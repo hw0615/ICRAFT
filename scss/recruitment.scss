@@ -222,6 +222,7 @@ article {
           text-align: center;   
           position: relative;      
           @include respond-to($phone) {
+            border: none;        
             width: 100px;
             height:100px;
           }                          
@@ -251,7 +252,7 @@ article {
             font-weight:  600;
             font-size: 16px;
             @include respond-to($phone) {
-              bottom: -25px;
+              bottom: -12px;
             }   
           }
         }   
