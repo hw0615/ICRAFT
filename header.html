@@ -179,8 +179,14 @@
       </div>
   </div>
   <script>
-    //대분류 카테고리 포커싱         
-    $(".nav-container").css('display', 'none')
+    var windowW = window.innerWidth;
+    var windowU = window.location.href.split('/');
+    var mainKey = windowU[windowU.length-1];
+    
+    //대분류 카테고리 포커싱   
+    if(windowW < 600){
+      $(".nav-container").css('display', 'none')
+    }          
     $('.nav-btn').click(function(){
         var navConValue = $(".nav-container").css('display')
         console.log('navConValue :', navConValue);
@@ -191,10 +197,7 @@
          $(".nav-container").css('display', 'none');  
         }      
     });
-    var windowW = window.innerWidth;
-    var windowU = window.location.href.split('/');
-    var mainKey = windowU[windowU.length-1];
-    
+   
     if(windowW > 600 && mainKey !== "index.html"){
       var focusKey = $(".location a")[1].innerHTML;
       var headerMenu= document.getElementsByClassName("nav-menu-list-name")          
