@@ -179,7 +179,8 @@ html {
       font-size: 14px;
       font-weight: 600;
       @include respond-to($phone) {
-        margin: 14px 0 10px 0;
+        
+        padding: 10px 0;
       }
       a {
         font-size: 12px;   
@@ -190,6 +191,9 @@ html {
         }
         @include respond-to($tablet) {
           font-size: 12px;
+        }
+        &:last-child  {
+          font-weight: 800;
         }
       }
       span {
