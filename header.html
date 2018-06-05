@@ -186,17 +186,21 @@
     //대분류 카테고리 포커싱   
     if(windowW < 600){
       $(".nav-container").css('display', 'none')
+      $('.nav-btn').click(function(){
+          var navConValue = $(".nav-container").css('display')
+          console.log('navConValue :', navConValue);
+          $(this).toggleClass('open');      
+          if(navConValue == 'none'){
+            $(".nav-container").css('display', 'block')
+          } else if($(".nav-container").css('display') == "block"){
+           $(".nav-container").css('display', 'none');  
+          }      
+          $(".container-fluid").css({
+            "overflow-y":"hidden",
+            "height":"100vh"
+          })
+      });      
     }          
-    $('.nav-btn').click(function(){
-        var navConValue = $(".nav-container").css('display')
-        console.log('navConValue :', navConValue);
-        $(this).toggleClass('open');      
-        if(navConValue == 'none'){
-          $(".nav-container").css('display', 'block')
-        } else if($(".nav-container").css('display') == "block"){
-         $(".nav-container").css('display', 'none');  
-        }      
-    });
    
     if(windowW > 600 && mainKey !== "index.html"){
       var focusKey = $(".location a")[1].innerHTML;

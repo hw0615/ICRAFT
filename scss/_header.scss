@@ -18,11 +18,15 @@ header {
     margin: 0 auto;
     padding: 32px 0 32px 0;
     h1 {
+      text-align: center;
       margin: 0;
-      .icraft-logo {
-        height: 30px;
-        display: block;
-        margin: 0 auto;
+      a {
+        display: inline-block;
+        .icraft-logo {
+          height: 30px;
+          display: block;
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -56,9 +60,7 @@ header {
           min-width: 12vw;
         }
         cursor: pointer;
-        &:hover .nav-menu-list-sub,
-        &:focus .nav-menu-list-sub,
-        &:focus-within .nav-menu-list-sub, {
+        &:hover .nav-menu-list-sub {
           // display: block;
           // visibility: visible;
           max-height: 650px;

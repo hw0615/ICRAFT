@@ -334,11 +334,14 @@ header {
     margin: 0 auto;
     padding: 32px 0 32px 0; }
     header .logo-wrapper h1 {
+      text-align: center;
       margin: 0; }
-      header .logo-wrapper h1 .icraft-logo {
-        height: 30px;
-        display: block;
-        margin: 0 auto; }
+      header .logo-wrapper h1 a {
+        display: inline-block; }
+        header .logo-wrapper h1 a .icraft-logo {
+          height: 30px;
+          display: block;
+          margin: 0 auto; }
   header .nav-container {
     width: 100%;
     background: #174A8E;
@@ -367,9 +370,7 @@ header {
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           header .nav-container .nav-menu-list {
             min-width: 12vw; } }
-        header .nav-container .nav-menu-list:hover .nav-menu-list-sub,
-        header .nav-container .nav-menu-list:focus .nav-menu-list-sub,
-        header .nav-container .nav-menu-list:focus-within .nav-menu-list-sub {
+        header .nav-container .nav-menu-list:hover .nav-menu-list-sub {
           max-height: 650px;
           opacity: 1;
           z-index: 1;
