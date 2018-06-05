@@ -185,21 +185,57 @@
     
     //대분류 카테고리 포커싱   
     if(windowW < 600){
-      $(".nav-container").css('display', 'none')
+      var navCon =  $(".nav-container");
+      var conFluid = $(".container-fluid")
+      $(navCon).css('display', 'none')
       $('.nav-btn').click(function(){
-          var navConValue = $(".nav-container").css('display')
+          var navConValue = $(navCon).css('display')
           console.log('navConValue :', navConValue);
           $(this).toggleClass('open');      
           if(navConValue == 'none'){
-            $(".nav-container").css('display', 'block')
-          } else if($(".nav-container").css('display') == "block"){
-           $(".nav-container").css('display', 'none');  
+            $(navCon).css('display', 'block')
+          } else if($(navCon).css('display') == "block"){
+           $(navCon).css('display', 'none');  
           }      
-          $(".container-fluid").css({
-            "overflow-y":"hidden",
-            "height":"100vh"
-          })
-      });      
+          var test = $(conFluid).css("overflow-y");
+          console.log('test :', test);
+          if($(conFluid).css("overflow-y") == "visible"){
+            $(conFluid).css({
+              "overflow-y":"hidden",
+              "height":"100vh"
+            });
+          } else if($(conFluid).css("overflow-y") == "hidden"){
+            $(conFluid).css({
+              "overflow-y":"visible",
+              "height":"auto"
+            });
+          }
+      });   
+        //HEADER-MOBILE ACTIVE 
+      var navMenuList = $(".nav-menu-list-moblie").hasClass("active");    
+      var navMenuListSub = $(".cantmove").hasClass("active");        
+
+        // 대카테고리 클릭 이벤트
+      $(".nav-menu-list-moblie > h2").click(function(){  
+        if(navMenuList === true){
+          $(".nav-menu-moblie .active").removeClass("active");
+          $(this).parent().toggleClass("active");    
+        }
+        if(navMenuList === false && navMenuListSub === false){
+          $(".nav-menu-moblie .active").removeClass("active");
+          $(this).parent().toggleClass("active");   
+          navMenuList = $(".nav-menu-list-moblie").hasClass("active");
+          navMenuListSub = $(".cantmove").hasClass("active");   
+        }         
+      })
+        //소카테고리 클릭 이벤트
+      $(".cantmove").click(function(){     
+        $(this).parent().find(".active").removeClass("active")
+        $(this).toggleClass("active");      
+        var navMenuListSubDetail = $(this).find(".nav-menu-list-sub-detail").height();
+        $(this).parent().height(navMenuListSubDetail);      
+      })   
+   
     }          
    
     if(windowW > 600 && mainKey !== "index.html"){
@@ -212,31 +248,7 @@
         }
       }      
     }
-    //HEADER-MOBILE ACTIVE 
-    var navMenuList = $(".nav-menu-list-moblie").hasClass("active");    
-    var navMenuListSub = $(".cantmove").hasClass("active");        
-
-      // 대카테고리 클릭 이벤트
-    $(".nav-menu-list-moblie > h2").click(function(){  
-      if(navMenuList === true){
-        $(".nav-menu-moblie .active").removeClass("active");
-        $(this).parent().toggleClass("active");    
-      }
-      if(navMenuList === false && navMenuListSub === false){
-        $(".nav-menu-moblie .active").removeClass("active");
-        $(this).parent().toggleClass("active");   
-        navMenuList = $(".nav-menu-list-moblie").hasClass("active");
-        navMenuListSub = $(".cantmove").hasClass("active");   
-      }         
-    })
-      //소카테고리 클릭 이벤트
-    $(".cantmove").click(function(){     
-      $(this).parent().find(".active").removeClass("active")
-      $(this).toggleClass("active");      
-      var navMenuListSubDetail = $(this).find(".nav-menu-list-sub-detail").height();
-      $(this).parent().height(navMenuListSubDetail);      
-    })   
-
+  
   </script>
 </body>
 

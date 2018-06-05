@@ -206,7 +206,7 @@ legend, caption {
       font-weight: 600; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid article .location {
-          margin: 14px 0 10px 0; } }
+          padding: 10px 0; } }
       .container-fluid article .location a {
         font-size: 12px;
         color: #666;
@@ -217,6 +217,8 @@ legend, caption {
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           .container-fluid article .location a {
             font-size: 12px; } }
+        .container-fluid article .location a:last-child {
+          font-weight: 800; }
       .container-fluid article .location span {
         display: inline-block;
         width: 20px;
@@ -551,7 +553,8 @@ header {
             border-bottom: 1px solid #103b73;
             border-left: 1px solid #103b73;
             display: block;
-            float: right; }
+            float: right;
+            opacity: 1; }
             .header-mobile .nav-container .nav-menu-list-moblie.active .nav-menu-list-sub > li.active .nav-menu-list-sub-detail li {
               display: block; }
       .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-name {
@@ -612,7 +615,9 @@ header {
           left: unset;
           right: 0;
           display: inline-block;
-          z-index: 200; }
+          z-index: 200;
+          opacity: 0;
+          transition: opacity 0.3s ease; }
           .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub .nav-menu-list-sub-detail li {
             border-bottom: 1px solid #dedede;
             position: relative;

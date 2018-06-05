@@ -296,6 +296,7 @@ header {
                 border-left:1px solid #103b73;
                 display: block;
                 float: right;
+                opacity: 1;
                 li {
                   display: block;
                 }
@@ -372,6 +373,8 @@ header {
           right: 0;       
           display: inline-block;
           z-index: 200;
+          opacity: 0;
+          transition: opacity 0.3s ease;
           li {          
             border-bottom: 1px solid #dedede;
             position: relative;
