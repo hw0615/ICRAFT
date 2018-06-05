@@ -212,7 +212,7 @@
                 display: inline-block;
                 color: #fff;
                 font-size: 22px;
-                font-weight: lighter;              
+                font-weight: normal;              
                 margin: 25px;
                 @include respond-to($phone) {  
                   font-size: 14px;
@@ -344,7 +344,7 @@
             .box-title {
               color: #333;
               font-size: 25px;
-              font-weight: lighter;
+              font-weight: normal;
               padding-bottom: 20px;
               border-bottom: 1px solid #333;
               margin-bottom: 35px;

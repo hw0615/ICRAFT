@@ -6,7 +6,7 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
   vertical-align: baseline;
   /* font-family: inherit; */
   /* font-family: 'Roboto', sans-serif; */
-  font-family: 'NanumSquare', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: inherit;
   font-style: inherit;
   font-size: 14px;
@@ -273,7 +273,7 @@ legend, caption {
         width: 100%; }
       .container-fluid article .article .article-text {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         text-align: left;
         line-height: 1.5;
         margin: 20px 0;
@@ -809,7 +809,7 @@ footer #footer-wrapper {
             display: inline-block;
             color: #fff;
             font-size: 22px;
-            font-weight: lighter;
+            font-weight: normal;
             margin: 25px; }
             @media only screen and (min-width: 280px) and (max-width: 600px) {
               .container-fluid article .article .article-1 .article-right a .main-box .box-title {
@@ -913,7 +913,7 @@ footer #footer-wrapper {
         .container-fluid article .article .article-2 .second-box a .box-title {
           color: #333;
           font-size: 25px;
-          font-weight: lighter;
+          font-weight: normal;
           padding-bottom: 20px;
           border-bottom: 1px solid #333;
           margin-bottom: 35px; }

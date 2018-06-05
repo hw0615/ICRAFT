@@ -6,6 +6,46 @@
 
 section {
   @include business-img;
+  .small-menu {
+    position: relative;
+    &-list:hover .article-nav-hover{
+      display: block;
+    }
+    .article-nav-hover {
+      display: none;
+      width: 100%;
+      background: #fff;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      padding: 50px 5%;
+      ul {
+        li {
+          cursor: pointer;
+          text-align: center;
+          float: left;
+          width: 205px;
+          padding: 10px;
+          margin: 3px 3px;
+          border: 1px solid #ddd;
+          &:hover {
+            background-color: $color-key;
+            color: #fff;
+          }
+          @include respond-to($phone) {
+            width: 100%; 
+            height: 100%;
+            font-size: 10px;          
+          }
+          @include respond-to($tablet) {
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+          }
+        }
+      }
+    }    
+  }
 }
 article { 
   .article {

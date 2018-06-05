@@ -6,7 +6,7 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
   vertical-align: baseline;
   /* font-family: inherit; */
   /* font-family: 'Roboto', sans-serif; */
-  font-family: 'NanumSquare', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: inherit;
   font-style: inherit;
   font-size: 14px;
@@ -273,7 +273,7 @@ legend, caption {
         width: 100%; }
       .container-fluid article .article .article-text {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         text-align: left;
         line-height: 1.5;
         margin: 20px 0;
