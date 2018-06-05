@@ -442,10 +442,6 @@ header {
             position: absolute;
             top: 0;
             width: 100%; }
-          header .nav-container .nav-menu-list-sub .ir-detail {
-            top: 89px;
-            position: absolute;
-            top: 0; }
 
 .header-mobile {
   display: none; }
