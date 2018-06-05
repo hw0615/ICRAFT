@@ -179,10 +179,17 @@
       </div>
   </div>
   <script>
-    //대분류 카테고리 포커싱 
-    
+    //대분류 카테고리 포커싱         
+    $(".nav-container").css('display', 'none')
     $('.nav-btn').click(function(){
-      $(this).toggleClass('open');
+        var navConValue = $(".nav-container").css('display')
+        console.log('navConValue :', navConValue);
+        $(this).toggleClass('open');      
+        if(navConValue == 'none'){
+          $(".nav-container").css('display', 'block')
+        } else if($(".nav-container").css('display') == "block"){
+         $(".nav-container").css('display', 'none');  
+        }      
     });
     var windowW = window.innerWidth;
     var windowU = window.location.href.split('/');
