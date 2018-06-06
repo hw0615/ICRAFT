@@ -33,7 +33,7 @@
             <div class="img-wrapper">
                 <div class="img-text-group">
                     <p class="img-text-title">관리</p>
-                    <p class="img-text-des">아이크래프트 관리 모드</p>
+                    <p class="img-text-des">아이크래프트 홈페이지 관리 모드</p>
                 </div>
             </div>
             <ul class="small-menu">
@@ -64,6 +64,8 @@
 
                     <input type="submit" value="Let's ICRAFT">
                 </form>
+                <br/>
+                <p>경고: 사용자 등록이 허용되지 않으며, 본 페이지 관리자에게 문의시 임시 활성화되는 페이지 입니다.</p>
             </div>
         </article>
         <footer id="footer"></footer>
@@ -73,6 +75,8 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/vendor/aws-cognito-sdk.min.js"></script>
     <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
     <script>
         $(document).ready(function () {
             // import header & footer

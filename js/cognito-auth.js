@@ -3,7 +3,7 @@
 var Cognito = window.Cognito || {};
 
 (function scopeWrapper($) {
-    var signinUrl = '/auth/signin.html';
+    var signinUrl = 'signin.html';
 
     var poolData = {
         UserPoolId: _config.cognito.userPoolId,
@@ -110,7 +110,7 @@ var Cognito = window.Cognito || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                window.location.href = 'ride.html';
+                window.location.href = 'circuit.html';
             },
             function signinError(err) {
                 alert(err);
@@ -128,7 +128,7 @@ var Cognito = window.Cognito || {};
             console.log('user name is ' + cognitoUser.getUsername());
             var confirmation = ('Registration successful. Please check your verification.');
             if (confirmation) {
-                window.location.href = 'auth/signin.html';
+                window.location.href = 'signin.html';
             }
         };
         var onFailure = function registerFailure(err) {

@@ -18,6 +18,7 @@
     <link rel="shortcut icon" href="img/favicon.ico">
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/company.css" />
     <link rel="stylesheet" type="text/css" href="css/auth.css" />
 </head>
 
@@ -31,22 +32,19 @@
         <section>
             <div class="img-wrapper">
                 <div class="img-text-group">
-                    <p class="img-text-title">I.R</p>
-                    <p class="img-text-des">유비쿼터스 네트워크 세상을 열어가는 전문 IT기업 아이크래프트</p>
+                    <p class="img-text-title">관리</p>
+                    <p class="img-text-des">아이크래프트 홈페이지 관리 모드</p>
                 </div>
             </div>
             <ul class="small-menu">
                 <li class="small-menu-list">
-                    <a href=".html" class="">주가정보</a>
+                    <a href="register.html" class="">등록</a>
                 </li>
                 <li class="small-menu-list">
-                    <a href=".html" class="">재무정보</a>
+                    <a href="signin.html" class="">로그인</a>
                 </li>
                 <li class="small-menu-list">
-                    <a href=".html" class="">경영공시</a>
-                </li>
-                <li class="small-menu-list">
-                    <a href=".html" class="">내부 정보 관리 규정</a>
+                    <a href="ride.html" class="">관리 모드</a>
                 </li>
             </ul>
         </section>
@@ -55,22 +53,22 @@
                 <a href="#">홈</a>
                 <span>
                     < </span>
-                        <a href="#">로그인</a>
+                        <a href="#">등록</a>
             </p>
             <div class="article">
-                <h1>Register</h1>
-                <form id="signinForm">
-                    <input type="email" id="emailInputSignin" placeholder="Email" required>
-                    <input type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
+                <h2 class="article-title">Sign In</h1>
+                    <form id="signinForm">
+                        <input type="email" id="emailInputSignin" placeholder="Email" required>
+                        <input type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
 
-                    <input type="submit" value="Sign in">
-                </form>
+                        <input type="submit" value="Sign in">
+                    </form>
+                    <br/>
+                <p><strong style="color:red">경고:</strong></p>
+                <p>아이크래프트 담당자용 페이지 입니다.</p>
+                <p>담당자 외에 로그인을 하거나 관리모드로 접속하여 불이익을 받게 되어도 당사는 일체 책임을 지지 않습니다.</p>
             </div>
-
         </article>
-        <section class="form-wrap">
-
-        </section>
         <footer id="footer"></footer>
         <button class="move-top">&uarr;</button>
     </div>
@@ -78,6 +76,15 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/vendor/aws-cognito-sdk.min.js"></script>
     <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+    <script>
+        $(document).ready(function () {
+            // import header & footer
+            $('#header').load('header.html');
+            $('#footer').load('footer.html');
+        });
+    </script>
 </body>
 
 </html>
