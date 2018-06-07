@@ -264,10 +264,16 @@
                 var diff = el.diff
                 var sell = el.sell
                 var buy = el.buy
+                var amountDiff = el.amount_diff
                 console.log('el.datetime :', el.datetime);
 
-                var newTr = tbodySt.append(makeTr)
-                newTr.append("<td>", dateTime, "</td>")
+                var newTr = tbodySt.append("<tr></tr>")
+                newTr.append("<td>" +  dateTime+ "</td>")
+                newTr.append("<td>"+ nego+ "</td>")
+                newTr.append("<td>"+ diff+ "</td>")
+                newTr.append("<td>"+ sell+ "</td>")
+                newTr.append("<td>"+ amountDiff+ "</td>")
+                newTr.append("<td>"+ buy+ "</td>")
               }
 
               // console.log('element :', element);
