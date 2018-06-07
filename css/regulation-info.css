@@ -710,6 +710,12 @@ article .article .date {
   color: #666;
   line-height: 18px;
   padding-right: 10px; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .date {
+      font-size: 9px; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    article .article .date {
+      font-size: 11px; } }
 
 article .article .article-text-title {
   font-size: 28px;

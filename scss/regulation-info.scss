@@ -15,6 +15,12 @@ article {
       color: #666;
       line-height: 18px;
       padding-right: 10px;
+      @include respond-to($phone) {
+        font-size: 9px;
+      }
+      @include respond-to($tablet) {
+        font-size: 11px;
+      }
     }
     .article-text-title {
       font-size: 28px;
