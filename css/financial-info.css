@@ -708,6 +708,8 @@ article .article table {
   width: 100%; }
   article .article table .tr-header {
     background: #F5F5F5; }
+    article .article table .tr-header > td {
+      border-top: 2px solid #aaa; }
   article .article table .subject {
     text-align: center;
     vertical-align: middle;

@@ -13,6 +13,9 @@ article {
       width: 100%;
       .tr-header {
         background: #F5F5F5;
+        > td {
+          border-top: 2px solid #aaa;
+        }
       }
       .subject {
         text-align: center;
