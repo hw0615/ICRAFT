@@ -17,14 +17,13 @@ var Cognito = window.Cognito || {};
     });
 
     // get all article list
-    function getAllArticles() {
+    function getAllArticles(page) {
         $.ajax({
-            method: 'POST',
-            url: _config.api.invokeUrl + '/circuit',
+            method: 'GET',
+            url: _config.api.invokeUrl + '/circuit?page='+page,
             headers: {
                 Authorization: authToken
             },
-            data: JSON.stringify({}),
             contentType: 'application/json',
             success: completeAllArticlesRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
@@ -36,22 +35,19 @@ var Cognito = window.Cognito || {};
     }
     function completeAllArticlesRequest(result) {
         console.log('Response received from API: ', result);
-        for (i = 0; i < result.length; i++) {
-            displayUpdate(result[i])
+        for (i = 0; i < result['result'].length; i++) {
+            displayUpdate(result['result'][i])
         }
     }
 
     // get single article
     function getArticle(article_id) {
         $.ajax({
-            method: 'POST',
-            url: _config.api.invokeUrl + '/circuit',
+            method: 'GET',
+            url: _config.api.invokeUrl + '/circuit?article='+article_id,
             headers: {
                 Authorization: authToken
             },
-            data: JSON.stringify({
-                'article_id': article_id
-            }),
             contentType: 'application/json',
             success: completeArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
@@ -63,8 +59,8 @@ var Cognito = window.Cognito || {};
     }
     function completeArticleRequest(result) {
         console.log('Response received from API: ', result);
-        $('#article-title').val(result.title);
-        $('#summernote').summernote('code', result.body);
+        $('#article-title').val(result['result'].title);
+        $('#summernote').summernote('code', result['result'].body);
     }
 
     // post article
@@ -83,11 +79,9 @@ var Cognito = window.Cognito || {};
             contentType: 'application/json',
             success: completePostArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                // TODO: Error 나는 부분 그냥 넘어감. 왜 일어나는지는 알아야함.
-                window.location.href = 'circuit.html';
-                // console.error('Error posting news: ', textStatus, ', Details: ', errorThrown);
-                // console.error('Response: ', jqXHR.responseText);
-                // alert('An error occured when posting your news:\n' + jqXHR.responseText);
+                console.error('Error posting news: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when posting your news:\n' + jqXHR.responseText);
             }
         });
     }
@@ -105,10 +99,20 @@ var Cognito = window.Cognito || {};
         // load datas
         var article_id = getUrlParam('article');
         if (article_id == undefined) { // circuit.html
-            getAllArticles();
+            console.log('enter get all articles');
+            var page = getUrlParam('page');
+            if (page == undefined){
+                getAllArticles(1);
+            }
+            else{
+                getAllArticles(page);
+            }
         } else { // pit-in.html
+            // create new article, if article_id == -1
             $('#article_id').val(article_id);
-            article = getArticle(article_id);
+            if (article_id > 0) {
+                article = getArticle(article_id);
+            }
         }
 
         // set click methods
@@ -117,22 +121,25 @@ var Cognito = window.Cognito || {};
             alert("You have been signed out.");
             window.location = "signin.html";
         });
-        // set method in circuit.html
+        $('#create-post').click(function () {
+            // create new article, if article_id == -1
+            window.location = '/pit-in.html?article=-1';
+        });
         $('.get-article').click(function () {
             window.location = $(this).data('href');
         });
+
+        // set method in circuit.html
         $('#postForm').submit(handlePostArticle);
     });
 
     function displayUpdate(text) {
         $('#updates').append($(
             '<tr>' +
-            '<td>' + text['id'] + '</td>' +
             '<td>' + '<a href="/pit-in.html?article=' + text['id'] + '">' +
             text['title'] + '</a></td>' +
             '<td>' + text['date'] + '</td>' +
             '<td>' + text['count'] + '</td>' +
-            '<td>' + 'Not Yet' + '</td>' +
             '</tr>'
         ));
     }
@@ -159,7 +166,7 @@ var Cognito = window.Cognito || {};
         }
     }
 
-    function handlePostArticle(event){
+    function handlePostArticle(event) {
         var article_id = $('#article_id').val();
         var title = $('#article-title').val();
         var body = $('#summernote').summernote('code');
@@ -167,10 +174,6 @@ var Cognito = window.Cognito || {};
 
         console.log(article_id);
 
-        if (article_id == undefined) {
-            postArticle(-1, title, body)
-        } else {
-            postArticle(article_id, title, body);
-        }
+        postArticle(article_id, title, body);
     }
 }(jQuery));
