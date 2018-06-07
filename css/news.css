@@ -95,7 +95,8 @@ legend, caption {
     margin: 0 auto; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       .container-fluid section {
-        background-position-y: 0; } }
+        background-position-y: 0;
+        padding-top: 60px; } }
     .container-fluid section .img-wrapper {
       width: 100%;
       height: 450px; }
@@ -206,6 +207,7 @@ legend, caption {
       font-weight: 600; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid article .location {
+          margin: 10px 0;
           padding: 10px 0; } }
       .container-fluid article .location a {
         font-size: 12px;
@@ -321,6 +323,34 @@ legend, caption {
     padding: 0;
     padding-top: 5px; }
 
+.arrow-down {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -7px;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out; }
+
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -5px;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(-45deg);
+  transition: border-width 150ms ease-in-out; }
+
 header {
   background: #fff;
   height: 140px; }
@@ -333,21 +363,29 @@ header {
   header .logo-wrapper {
     width: 100%;
     height: 95px;
+    max-height: 95px;
     margin: 0 auto;
-    padding: 32px 0 32px 0; }
+    padding: 0;
+    transition: max-height 0.3s ease; }
     header .logo-wrapper h1 {
       text-align: center;
+      line-height: 95px;
+      transition: line-height 0.3s ease;
       margin: 0; }
       header .logo-wrapper h1 a {
-        display: inline-block; }
+        display: inline-block;
+        vertical-align: middle; }
         header .logo-wrapper h1 a .icraft-logo {
           height: 30px;
+          max-height: 30px;
           display: block;
-          margin: 0 auto; }
+          margin: 0 auto;
+          transition: max-height 0.3s ease; }
   header .nav-container {
     width: 100%;
     background: #174A8E;
-    height: 45px; }
+    height: 45px;
+    transition: opacity 0.3s ease; }
     header .nav-container .nav-menu {
       display: table;
       margin: 0 auto; }
@@ -451,10 +489,25 @@ header {
             top: 0; }
 
 .header-mobile {
-  display: none; }
+  display: none;
+  background: #fff;
+  width: 100%;
+  z-index: 400; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
     .header-mobile {
       display: block; } }
+  .header-mobile.fixed {
+    position: fixed;
+    top: 0;
+    left: 0; }
+    .header-mobile.fixed .logo-wrapper {
+      max-height: 60px; }
+      .header-mobile.fixed .logo-wrapper h1 {
+        line-height: 60px; }
+        .header-mobile.fixed .logo-wrapper h1 a img {
+          max-height: 25px; }
+    .header-mobile.fixed .nav-btn {
+      top: 10px; }
   .header-mobile .nav-btn {
     display: inline-block;
     width: 60px;
@@ -466,6 +519,7 @@ header {
     -moz-transform: scale(0.5);
     -o-transform: scale(0.5);
     transform: scale(0.5);
+    transition: top 0.3s ease;
     z-index: 200; }
     .header-mobile .nav-btn span {
       display: block;
@@ -523,12 +577,14 @@ header {
     display: none;
     background: #fff;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
-    padding: 100px 0; }
+    padding: 100px 0;
+    opacity: 0;
+    overflow-y: scroll; }
     .header-mobile .nav-container .nav-menu-moblie {
       width: 100%; }
     .header-mobile .nav-container .nav-menu-list-moblie {
@@ -544,7 +600,7 @@ header {
         transform: translateY(0%);
         transition: max-height 0.6s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
         .header-mobile .nav-container .nav-menu-list-moblie.active .nav-menu-list-sub > li {
-          max-height: unset;
+          max-height: none;
           visibility: visible;
           transition: all 0.25s ease-in-out 0s, visibility 0s linear 0.15s, z-index 0s linear 0.01s; }
           .header-mobile .nav-container .nav-menu-list-moblie.active .nav-menu-list-sub > li.active .nav-menu-list-sub-title {
@@ -554,7 +610,8 @@ header {
             border-left: 1px solid #103b73;
             display: block;
             float: right;
-            opacity: 1; }
+            opacity: 1;
+            display: block; }
             .header-mobile .nav-container .nav-menu-list-moblie.active .nav-menu-list-sub > li.active .nav-menu-list-sub-detail li {
               display: block; }
       .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-name {
@@ -564,23 +621,10 @@ header {
         font-size: 20px;
         text-align: center;
         position: relative; }
-        .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-name .arrow-down {
-          position: absolute;
-          top: 50%;
-          right: 15px;
-          margin-top: -7px;
-          box-sizing: border-box;
-          height: 10px;
-          width: 10px;
-          border-style: solid;
-          border-color: black;
-          border-width: 0px 1px 1px 0px;
-          transform: rotate(45deg);
-          transition: border-width 150ms ease-in-out; }
       .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub {
         position: relative;
-        top: unset;
-        left: unset;
+        top: auto;
+        left: auto;
         width: 100%;
         display: none; }
         .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub:after {
@@ -594,7 +638,7 @@ header {
           top: 0;
           left: 50%; }
         .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub li {
-          position: unset; }
+          position: static; }
           .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub li:last-child .nav-menu-list-sub-title {
             border-bottom: none; }
           .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub li a {
@@ -607,14 +651,15 @@ header {
           width: 50%;
           display: inline-block;
           padding: 15px 8px;
-          height: 45px; }
+          height: 45px;
+          position: relative; }
         .header-mobile .nav-container .nav-menu-list-moblie .nav-menu-list-sub .nav-menu-list-sub-detail {
           width: 50%;
           position: absolute;
           top: 0;
-          left: unset;
+          left: auto;
           right: 0;
-          display: inline-block;
+          display: none;
           z-index: 200;
           opacity: 0;
           transition: opacity 0.3s ease; }

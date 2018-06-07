@@ -95,7 +95,8 @@ legend, caption {
     margin: 0 auto; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       .container-fluid section {
-        background-position-y: 0; } }
+        background-position-y: 0;
+        padding-top: 60px; } }
     .container-fluid section .img-wrapper {
       width: 100%;
       height: 450px; }
@@ -206,6 +207,7 @@ legend, caption {
       font-weight: 600; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid article .location {
+          margin: 10px 0;
           padding: 10px 0; } }
       .container-fluid article .location a {
         font-size: 12px;

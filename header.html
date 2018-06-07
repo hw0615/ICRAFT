@@ -102,8 +102,8 @@
         <ul class="nav-menu-moblie">
           <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name">회사소개<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub">
-              <li class="cantmove"><h3 class="nav-menu-list-sub-title">기업개요<span> > </span></h3>
-                <ul class="nav-menu-list-sub-detail">
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">기업개요<span class="arrow-right"></span></h3>
+                <ul class="nav-menu-list-sub-detail" style="height: 224px;">
                   <li><a href="overview.html">개요</a></li>
                   <li><a href="history.html">연혁</a></li>
                   <li><a href="organization.html">조직도</a></li>
@@ -119,8 +119,8 @@
           </li>
           <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name">사업소개<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub info-busi">
-              <li class="cantmove"><h3 class="nav-menu-list-sub-title">Solution Portfolio<span> > </span></h3>
-                <ul class="nav-menu-list-sub-detail solution">
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">Solution Portfolio<span class="arrow-right"></span></h3>
+                <ul class="nav-menu-list-sub-detail solution" style="height: 541px">
                   <li><a href="solution-portfolio.html#sol1">인터넷 핵심망/접속망</a></li>
                   <li><a href="solution-portfolio.html#sol2">인터넷 INFRA부가 서비스</a></li>
                   <li><a href="solution-portfolio.html#sol3">무선 인터넷 서비스</a></li>
@@ -136,8 +136,8 @@
                 </ul>
               </li>
               <li><a class="nav-menu-list-sub-title" href="brandsafer.html">브랜드세이퍼</a></li>
-              <li class="cantmove"><h3 class="nav-menu-list-sub-title">주요 제품(파트너)<span> > </span></h3>
-                <ul class="nav-menu-list-sub-detail partner">
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">주요 제품(파트너)<span class="arrow-right"></span></h3>
+                <ul class="nav-menu-list-sub-detail partner" style="height:314px">
                   <li><a href="main-product.html#sol1">Juniper</a></li>
                   <li><a href="main-product.html#sol2">Genband</a></li>
                   <li><a href="main-product.html#sol3">Arbor</a></li>
@@ -152,8 +152,8 @@
           </li>
           <li class="nav-menu-list-moblie"><h2 class="nav-menu-list-name list-ir">IR<span class="arrow-down"></span></h2>
             <ul class="nav-menu-list-sub info-ir">
-              <li class="cantmove"><h3 class="nav-menu-list-sub-title">IR 자료실<span> > </span></h3>
-                <ul class="nav-menu-list-sub-detail ir-detail">
+              <li class="cantmove"><h3 class="nav-menu-list-sub-title">IR 자료실<span class="arrow-right"></span></h3>
+                <ul class="nav-menu-list-sub-detail ir-detail" style="height: 138px;">
                   <li><a href="#">경영공시</a></li>
                   <li><a href="#">내부 정보 관리 규정</a></li>
                   <li><a href="#"></a></li>                      
@@ -181,40 +181,67 @@
   <script>
     var windowW = window.innerWidth;
     var windowU = window.location.href.split('/');
-    var mainKey = windowU[windowU.length-1];
-    
-    //대분류 카테고리 포커싱   
-    if(windowW < 600){
+    var mainKey = windowU[windowU.length-1];    
+       
+    if(windowW < 600 ){
+
+      if($(".header-mobile").hasClass("fixed") == false){
+        $(window).on("scroll", function(){
+          $(".header-mobile").addClass("fixed")
+        })
+      }
+       
       var navCon =  $(".nav-container");
       var conFluid = $(".container-fluid")
-      $(navCon).css('display', 'none')
+      $(navCon).css('display', 'none');
+      
+        // 네브버튼 클릭 이벤트
       $('.nav-btn').click(function(){
           var navConValue = $(navCon).css('display')
-          console.log('navConValue :', navConValue);
+          
           $(this).toggleClass('open');      
           if(navConValue == 'none'){
-            $(navCon).css('display', 'block')
-          } else if($(navCon).css('display') == "block"){
-           $(navCon).css('display', 'none');  
-          }      
-          var test = $(conFluid).css("overflow-y");
-          console.log('test :', test);
-          if($(conFluid).css("overflow-y") == "visible"){
+            $(navCon).css({
+              "display":"block",
+              "opacity":"1"
+            });
             $(conFluid).css({
               "overflow-y":"hidden",
               "height":"100vh"
             });
-          } else if($(conFluid).css("overflow-y") == "hidden"){
-            $(conFluid).css({
+          } else if($(navCon).css('display') == "block"){
+            $(navCon).css({
+              "opacity":"0",
+              "display":"none"
+            }); 
+           $(conFluid).css({
               "overflow-y":"visible",
               "height":"auto"
             });
-          }
+          }      
+            
+          // if($(conFluid).css("overflow-y") == "visible"){
+            
+          // } else if($(conFluid).css("overflow-y") == "hidden"){
+           
+          // }
       });   
         //HEADER-MOBILE ACTIVE 
       var navMenuList = $(".nav-menu-list-moblie").hasClass("active");    
-      var navMenuListSub = $(".cantmove").hasClass("active");        
-
+      var navMenuListSub = $(".cantmove").hasClass("active"); 
+      var headerMenu= $(".header-mobile .nav-menu-list-name");
+      var focusLocation = document.getElementsByClassName("location");
+             
+      
+      if( focusLocation.length !== 0){
+        var focusKey = focusLocation[1].innerHTML;
+        for(var i=0; i < headerMenu.length; i++){
+          var liText = headerMenu[i].innerText;      
+          if(focusKey === liText) {
+            $(headerMenu[i]).parent().addClass("active");          
+          }
+        }  
+      }
         // 대카테고리 클릭 이벤트
       $(".nav-menu-list-moblie > h2").click(function(){  
         if(navMenuList === true){
@@ -228,16 +255,41 @@
           navMenuListSub = $(".cantmove").hasClass("active");   
         }         
       })
-        //소카테고리 클릭 이벤트
+        //중카테고리 클릭 이벤트
       $(".cantmove").click(function(){     
         $(this).parent().find(".active").removeClass("active")
         $(this).toggleClass("active");      
-        var navMenuListSubDetail = $(this).find(".nav-menu-list-sub-detail").height();
+        var navMenuListSubDetail = $(this).find(".nav-menu-list-sub-detail").height(); 
+        
         $(this).parent().height(navMenuListSubDetail);      
       })   
-   
+
+      var navDetailMenu = $(".nav-menu-list-moblie.active .nav-menu-list-sub-title");      
+      
+      if(mainKey !== "index.html"){
+        if(focusLocation.length >= 3){
+          var secKey = focusLocation[2].innerHTML;        
+          for(var i=0; i < navDetailMenu.length; i++){
+            var liText = navDetailMenu[i].innerText;            
+            if(secKey === liText) {
+              $(navDetailMenu[i]).parent().addClass("active");            
+              $(navDetailMenu[i]).parent().click();            
+            }
+          }  
+        }
+      }
+      
+        //하카테고리 클릭 이벤트
+      $(".cantmove li").click(function(){
+        conFluid.css({
+          "overflow-y":"unset",
+          "height":"auto"
+        });
+        $('.nav-btn').click();
+      })
+
     }          
-   
+      //header 카테고리 포커싱 이벤트
     if(windowW > 600 && mainKey !== "index.html"){
       var focusKey = $(".location a")[1].innerHTML;
       var headerMenu= document.getElementsByClassName("nav-menu-list-name")          
