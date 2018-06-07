@@ -62,7 +62,7 @@
             <div class="article-text">시간별시세
               <table class="table">
                 <caption>아이크래프트 주가 시간별시세 차트입니다.</caption>
-                <tbody>
+                <tbody class="stock-time">
                   <tr class="tr-header">
                     <td width="15%" class="subject" scope="row">체결시각</td>
                     <td width="15%" class="subject" scope="row">체결가</td>
@@ -70,22 +70,19 @@
                     <td width="15%" class="subject" scope="row">매도</td>
                     <td width="15%" class="subject" scope="row">매수</td>
                     <td width="15%" class="subject" scope="row">거래량</td>
-                    <td width="15%" class="subject" scope="row">변동량</td>
                   </tr>
                   <tr>
-                    <td width="15%" scope="row">매출액</td>
-                    <td width="15%" scope="row">92,532</td>
-                    <td width="15%" scope="row">79,856</td>
-                    <td width="15%" scope="row">68,367</td>
-                    <td width="15%" scope="row">68,367</td>
-                    <td width="15%" scope="row">68,367</td>
-                    <td width="15%" scope="row">68,367</td>
+                    <td width="15%" class="time" scope="row">매출액</td>
+                    <td width="15%" class="nego" scope="row">92,532</td>
+                    <td width="15%" class="diff" scope="row">79,856</td>
+                    <td width="15%" class="sell" scope="row">68,367</td>
+                    <td width="15%" class="buy" scope="row">68,367</td>
+                    <td width="15%" class="" scope="row">68,367</td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td width="15%" scope="row">영업이익</td>
                     <td width="15%" scope="row">2,120</td>
                     <td width="15%" scope="row">4,515</td>
-                    <td width="15%" scope="row">3,509</td>
                     <td width="15%" scope="row">3,509</td>
                     <td width="15%" scope="row">3,509</td>
                     <td width="15%" scope="row">3,509</td>
@@ -97,13 +94,11 @@
                     <td width="15%" scope="row">2,742</td>
                     <td width="15%" scope="row">2,742</td>
                     <td width="15%" scope="row">2,742</td>
-                    <td width="15%" scope="row">2,742</td>
                   </tr>
                   <tr>
                     <td width="15%" scope="row">부채총계</td>
                     <td width="15%" scope="row">26,972</td>
                     <td width="15%" scope="row">18,799</td>
-                    <td width="15%" scope="row">19,198</td>
                     <td width="15%" scope="row">19,198</td>
                     <td width="15%" scope="row">19,198</td>
                     <td width="15%" scope="row">19,198</td>
@@ -115,8 +110,7 @@
                     <td width="15%" scope="row">34,666</td>
                     <td width="15%" scope="row">34,666</td>
                     <td width="15%" scope="row">34,666</td>
-                    <td width="15%" scope="row">34,666</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -244,32 +238,54 @@
     
     function getJson() {
       $.ajax({
-        url: "https://9uhmz5gckc.execute-api.ap-northeast-2.amazonaws.com/test-stock/realtime",
+        url: "https://13h8y48qei.execute-api.ap-northeast-2.amazonaws.com/test-stock/realtime",
         async: true,
-        type: "POST",
+        type: "GET",
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          alert("sccess!");
+          var par = JSON.parse(data.body)
+          console.log('par.each_stock :', par.each_stock);
+
+          var stock = par.each_stock;
+
+          var tbodySt = $(".stock-time")
+          var trHeader = $(".tr-header")          
+          var makeTr = document.createElement("tr")
+          var makeTd = document.createElement("td")
+
+          // for (var key in stock) {
+          //   if (stock.hasOwnProperty(key)) {
+          //     var element = stock[key];
+              for (let i = 0; i < stock.length; i++) {
+                var el = stock[i];
+                var dateTime = el.datetime
+                var nego = el.nego
+                var diff = el.diff
+                var sell = el.sell
+                var buy = el.buy
+                console.log('el.datetime :', el.datetime);
+
+                var newTr = tbodySt.append(makeTr)
+                newTr.append("<td>", dateTime, "</td>")
+              }
+
+              // console.log('element :', element);
+              // console.log('element[0] :', element[0]);
+              
+          //   }
+          // }
+
+          console.log('tbodySt :', tbodySt);
         }, 
         error: function() {
           alert("failed");
         }
       }).responseText;
-
-      // $.get( "https://9uhmz5gckc.execute-api.ap-northeast-2.amazonaws.com/test-stock/realtime", function(jqXHR) {
-      //   alert( "success" );
-      // }, 'json' /* xml, text, script, html */)
-      // .done(function(jqXHR) {
-      //   alert( "second success" );
-      // })
-      // .fail(function(jqXHR) {
-      //   alert( "error" );
-      // })
-      // .always(function(jqXHR) {
-      //   alert( "finished" );
-      // });
     }
+
+
+    
 
   </script>
 </body>
