@@ -63,6 +63,30 @@ var Cognito = window.Cognito || {};
         $('#summernote').summernote('code', result['result'].body);
     }
 
+    // get search article
+    function searchArticle(article_title) {
+        $.ajax({
+            method: 'GET',
+            url: _config.api.invokeUrl + '/circuit?search='+article_id,
+            headers: {
+                Authorization: authToken
+            },
+            contentType: 'application/json',
+            success: completeArticleRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error searching news: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when searching your news:\n' + jqXHR.responseText);
+            }
+        });
+    }
+    function completeArticleRequest(result) {
+        console.log('Response received from API: ', result);
+        for (i = 0; i < result['result'].length; i++) {
+            displayUpdate(result['result'][i])
+        }
+    }
+
     // post article
     function postArticle(article_id, title, body) {
         $.ajax({
@@ -125,11 +149,12 @@ var Cognito = window.Cognito || {};
             // create new article, if article_id == -1
             window.location = '/pit-in.html?article=-1';
         });
+        $('').click(function (){
+            searchArticle('search_word');
+        });
         $('.get-article').click(function () {
             window.location = $(this).data('href');
         });
-
-        // set method in circuit.html
         $('#postForm').submit(handlePostArticle);
     });
 
