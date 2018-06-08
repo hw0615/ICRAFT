@@ -10,12 +10,47 @@ section {
 article {
   .article {
     .article-wrapper {
-      .article-text {
+      .emp {
+        padding-bottom: 0;
+        margin-left: 5px;
+      }
+      .table-wrap {
         margin-bottom: 85px;
         table {
-          margin-top: 15px;
           margin-bottom: 0;
-          tr {
+          .volume {
+              border-left: 1px solid #ddd;
+              border-right: 1px solid #ddd;
+          }
+          .stock-header-tr1 {
+            .top_price {
+              color: red;
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+          }
+          .stock-header-tr2 {
+            .subject-icraft {
+              background: none;
+              border-top: none;
+            }
+            .low_price {
+              color: blue;
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+          }
+          .tr-hover {
             &:hover {
               background-color: #f5f5f5;
             }
@@ -38,6 +73,40 @@ article {
               font-size: 14px;
             }
           }
+          .subject-icraft {
+            // border: 1px solid #ddd;
+            border-top: 2px solid #aaa;
+            border-bottom: 1px solid #ddd;
+            background: #F5F5F5;
+            + .subject-icraft {
+              background: none;
+            }
+          }
+          .subject-icraft-main {
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            // padding: 8px 8px 5px 0;
+            .now_price {
+              font-size: 26px;
+              @include respond-to($phone) {
+                font-size: 14px;
+              }
+              @include respond-to($tablet) {
+                font-size: 18px;
+              }
+              color: red;
+            }
+            .diff {
+              color: red;              
+            }
+            + td {
+              margin-right: 1px solid #ddd;
+            }
+          }
+          .subject-sub {
+            border-bottom: 1px solid #ddd;
+          }
+          
           td {
             font-size: 16px;
             text-align: center;

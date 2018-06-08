@@ -749,39 +749,90 @@ section {
     section {
       background-position-y: -220px; } }
 
-article .article .article-wrapper .article-text {
+article .article .article-wrapper .emp {
+  padding-bottom: 0;
+  margin-left: 5px; }
+
+article .article .article-wrapper .table-wrap {
   margin-bottom: 85px; }
-  article .article .article-wrapper .article-text table {
-    margin-top: 15px;
+  article .article .article-wrapper .table-wrap table {
     margin-bottom: 0; }
-    article .article .article-wrapper .article-text table tr:hover {
+    article .article .article-wrapper .table-wrap table .volume {
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd; }
+    article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+      color: red;
+      font-size: 16px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+          font-size: 10px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+          font-size: 14px; } }
+    article .article .article-wrapper .table-wrap table .stock-header-tr2 .subject-icraft {
+      background: none;
+      border-top: none; }
+    article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
+      color: blue;
+      font-size: 16px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
+          font-size: 10px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
+          font-size: 14px; } }
+    article .article .article-wrapper .table-wrap table .tr-hover:hover {
       background-color: #f5f5f5; }
-    article .article .article-wrapper .article-text table .tr-header {
+    article .article .article-wrapper .table-wrap table .tr-header {
       background: #F5F5F5; }
-      article .article .article-wrapper .article-text table .tr-header > td {
+      article .article .article-wrapper .table-wrap table .tr-header > td {
         border-top: 2px solid #aaa; }
-    article .article .article-wrapper .article-text table .subject {
+    article .article .article-wrapper .table-wrap table .subject {
       text-align: center;
       vertical-align: middle;
       font-size: 16px;
       font-weight: 700; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .article-text table .subject {
+        article .article .article-wrapper .table-wrap table .subject {
           font-size: 10px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .article-text table .subject {
+        article .article .article-wrapper .table-wrap table .subject {
           font-size: 14px; } }
-    article .article .article-wrapper .article-text table td {
+    article .article .article-wrapper .table-wrap table .subject-icraft {
+      border-top: 2px solid #aaa;
+      border-bottom: 1px solid #ddd;
+      background: #F5F5F5; }
+      article .article .article-wrapper .table-wrap table .subject-icraft + .subject-icraft {
+        background: none; }
+    article .article .article-wrapper .table-wrap table .subject-icraft-main {
+      border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd; }
+      article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
+        font-size: 26px;
+        color: red; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
+            font-size: 14px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
+            font-size: 18px; } }
+      article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
+        color: red; }
+      article .article .article-wrapper .table-wrap table .subject-icraft-main + td {
+        margin-right: 1px solid #ddd; }
+    article .article .article-wrapper .table-wrap table .subject-sub {
+      border-bottom: 1px solid #ddd; }
+    article .article .article-wrapper .table-wrap table td {
       font-size: 16px;
       text-align: center;
       padding-left: 15px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .article-text table td {
+        article .article .article-wrapper .table-wrap table td {
           font-size: 10px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .article-text table td {
+        article .article .article-wrapper .table-wrap table td {
           font-size: 14px; } }
-  article .article .article-wrapper .article-text .pagination {
+  article .article .article-wrapper .table-wrap .pagination {
     display: block;
     margin: 0 auto;
     margin-top: 30px;
@@ -789,27 +840,27 @@ article .article .article-wrapper .article-text {
     height: auto;
     text-align: center;
     font-size: 0; }
-    article .article .article-wrapper .article-text .pagination li {
+    article .article .article-wrapper .table-wrap .pagination li {
       display: inline-block; }
-      article .article .article-wrapper .article-text .pagination li a {
+      article .article .article-wrapper .table-wrap .pagination li a {
         color: #666;
         border: none;
         font-size: 15px;
         font-weight: 900; }
-        article .article .article-wrapper .article-text .pagination li a img {
+        article .article .article-wrapper .table-wrap .pagination li a img {
           display: inline-block;
           width: 12px;
           vertical-align: middle; }
-        article .article .article-wrapper .article-text .pagination li a:focus {
+        article .article .article-wrapper .table-wrap .pagination li a:focus {
           background-color: inherit; }
-        article .article .article-wrapper .article-text .pagination li a.page-num {
+        article .article .article-wrapper .table-wrap .pagination li a.page-num {
           background-color: inherit;
           margin: 0 10px; }
-          article .article .article-wrapper .article-text .pagination li a.page-num:hover {
+          article .article .article-wrapper .table-wrap .pagination li a.page-num:hover {
             color: #337ab7; }
-      article .article .article-wrapper .article-text .pagination li.page-arrow {
+      article .article .article-wrapper .table-wrap .pagination li.page-arrow {
         margin: 0 1px; }
-        article .article .article-wrapper .article-text .pagination li.page-arrow a {
+        article .article .article-wrapper .table-wrap .pagination li.page-arrow a {
           border: 1px solid #eee;
           border-radius: 0;
           margin-left: 0; }
