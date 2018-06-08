@@ -84,10 +84,11 @@ legend, caption {
   .container-fluid .get-btn {
     background-color: #23527c;
     color: white;
+    border: none;
     border-radius: 2px;
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 10px;
     width: 150px;
     text-align: center; }

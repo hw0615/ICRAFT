@@ -32,6 +32,7 @@ var Cognito = window.Cognito || {};
                 alert('An error occured when requesting your news:\n' + jqXHR.responseText);
             }
         });
+        console.log('page :', page);
     }
     function completeAllArticlesRequest(result) {
         console.log('Response received from API: ', result);

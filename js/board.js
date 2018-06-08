@@ -1,7 +1,7 @@
 $(function () {
 
   var box;  
-
+  
   $.ajax({    
     type: "GET",
     url:"https://13h8y48qei.execute-api.ap-northeast-2.amazonaws.com/test-stock/realtime",
@@ -10,7 +10,7 @@ $(function () {
       console.log('실패');
     },
     success: function(data){ 
-                       
+
       var box = data.data
       console.log('box :', box);  
 

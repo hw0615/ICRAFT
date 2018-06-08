@@ -4,19 +4,19 @@
 @import './header';
 @import './footer';
 
+.location {
+  padding: 55px 0 10px 0;
+  margin: 0 !important;
+}
 section {
-  background: {
-    image: url('../img/recruitment-01.jpg');
+  background: {    
+    image: url('../img/recruitment-posts-01.jpg');
     repeat: no-repeat;
     size: cover; 
-    position: center;  
+    position: center;      
   }  
 }
 article {
-  .article-img {
-    display: inline-block;
-    width: 100%;
-  }
   .article-wrapper {
     max-width: 870px;
     width: 100%;
@@ -30,8 +30,9 @@ article {
       margin-bottom: 20px !important;
       padding-bottom: 20px !important;
     }  
+    .note-editor {      
+      margin-top: 10px;
+    }
   }
-  .get-btn {   
-    margin-top: 0 !important;    
-  }
+ 
 }
