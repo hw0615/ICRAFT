@@ -20,7 +20,7 @@ var Cognito = window.Cognito || {};
     function getAllArticles(page) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?page='+page,
+            url: _config.api.invokeUrl + '/news?page='+page,
             headers: {
                 Authorization: authToken
             },
@@ -44,7 +44,7 @@ var Cognito = window.Cognito || {};
     function getArticle(article_id) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?article='+article_id,
+            url: _config.api.invokeUrl + '/news?article='+article_id,
             headers: {
                 Authorization: authToken
             },
@@ -67,7 +67,7 @@ var Cognito = window.Cognito || {};
     function searchArticle(article_title) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?search='+article_id,
+            url: _config.api.invokeUrl + '/news?search='+article_id,
             headers: {
                 Authorization: authToken
             },
@@ -91,7 +91,7 @@ var Cognito = window.Cognito || {};
     function postArticle(article_id, title, body) {
         $.ajax({
             type: 'POST',
-            url: _config.api.invokeUrl + '/pit-in',
+            url: _config.api.invokeUrl + '/news',
             headers: {
                 Authorization: authToken
             },
