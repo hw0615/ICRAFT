@@ -17,7 +17,7 @@
   <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
   <meta property="og:description" content="아이크래프트(주)" />
   <link rel="shortcut icon" href="img/favicon.ico">    
-  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <!-- <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/recruitment-board.css" />
 </head>
@@ -26,8 +26,7 @@
   <div class="container-fluid">
     <header id="header"></header>
     <section>
-      <div class="img-wrapper">
-        <!-- <img src="img/company1.jpg" alt="회사소개 이미지"> -->
+      <div class="img-wrapper">        
         <div class="img-text-group">
           <p class="img-text-title">채용안내</p>
           <p class="img-text-des">아이크래프트는 참신한 인재의 지원을 항상 기다리고 있습니다.</p>         
@@ -62,31 +61,17 @@
       <div id="board" class="article">
         <div class="article-wrapper">        
           <h3 class="article-title">채용공고</h3>
-          <table class="table">
-            <colgroup>
-              <col style="width:50%;"/>
-              <col style="width:15%;"/>
-              <col style="width:20%;"/>
-              <col style="width:15%;"/>
-            </colgroup>
-            <tr class="sub-title">
-              <th>공고제목</th>
-              <th>접수기한</th>
-              <th>지원구분</th>
-              <th>지원가능여부</th>
-            </tr>
-            <tr>
-              <td><a href="recruitment-posts.html">아이크래프트 2017년도 신입/경력사원 모집공고</a></td>
-              <td>2018.10.27</td>
-              <td>신입</td>
-              <td>불가</td>
-            </tr>
-            <tr>
-              <td>아이크래프트 2017년도 신입/경력사원 모집공고</td>
-              <td>2018.10.27</td>
-              <td>신입</td>
-              <td>불가</td>
-            </tr>    
+          <table class="table">           
+            <tbody>
+              <tr>
+                <th>공고제목</th>
+                <th>접수기한</th>
+                <th>지원구분</th>
+                <th>지원가능여부</th>
+                <th>공고</th>
+                <th>공고</th>
+              </tr>
+            </tbody>    
           </table>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -106,7 +91,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./js/board-ajax.js"></script>
+  <script src="./js/board.js"></script>
 </body>
 
 </html>
