@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ICRAFT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Awesome Description Here" />
+    <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta property="og:title" content="아이크래프트(주)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="http://www.icraft21.com/" />
+    <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
+    <meta property="og:description" content="아이크래프트(주)" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/pit-in.css" />
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header id="header"></header>
+        <section>
+            <div class="img-wrapper">
+                <div class="img-text-group">
+                    <p class="img-text-title">관리</p>
+                    <p class="img-text-des">아이크래프트 홈페이지 관리 모드</p>
+                </div>
+            </div>
+            <ul class="small-menu">
+                <li class="small-menu-list">
+                    <a id="signOut" href="#" class="">로그 아웃</a>
+                </li>
+                <li class="small-menu-list">
+                    <a href="circuit.html" class="">관리 모드</a>
+                </li>
+            </ul>
+        </section>
+        <article>
+            <p class="location">
+                <a href="#">홈</a>
+                <span>
+                    < </span>
+                        <a href="circuit.html">관리 모드</a>
+                        <span>
+                            < </span>
+                                <a href="#">내용 입력 및 수정</a>
+            </p>
+            <div class="article">
+                <div class="article-wrapper">
+                    <form id="postForm">
+                        <input type="hidden" id="article_id">
+                        <label for="subject">제목: </label>
+                        <input id="article-title" type="text" name="subject">
+                        <textarea id="summernote" name="editordata"></textarea>
+                        <input class="get-btn" type="submit" value="등록하기">
+                    </form>
+                </div>
+            </div>
+        </article>
+        <footer id="footer"></footer>
+        <button class="move-top">&uarr;</button>
+    </div>
+    <script src="./js/common.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+    <script>
+        $(function onDocReady() {
+            $('#summernote').summernote({
+                lang: 'ko-KR',
+                height: 600,
+                placeholder: '내용을 작성해주세요'
+            });
+        });
+    </script>
+    <script src="js/circuit.js"></script>
+</body>
+
+</html>

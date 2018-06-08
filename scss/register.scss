@@ -1,0 +1,42 @@
+@import './reset';  
+@import './common';
+@import './config';
+@import './header';
+@import './footer';
+
+.location {
+  padding: 55px 0 10px 0;
+  margin: 0 !important;
+}
+section {
+  background: {    
+    image: url('../img/recruitment-posts-01.jpg');
+    repeat: no-repeat;
+    size: cover; 
+    position: center;      
+  }  
+}
+article {
+ form {
+   width: 310px;
+   margin:0 auto;
+   * {     
+     display:inline-block;
+     width: 150px;
+     margin: 10px auto;
+   }
+   label {
+     width: 80px;     
+   }
+   input {
+    padding: 10px;
+   }
+   .get-btn {
+      border: none;
+      margin-top: 10px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none; 
+   }
+ }
+}

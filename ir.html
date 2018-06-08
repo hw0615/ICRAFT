@@ -17,7 +17,7 @@
   <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
   <meta property="og:description" content="아이크래프트(주)" />
   <link rel="shortcut icon" href="img/favicon.ico">  
-  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <!-- <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/ir.css" />
 </head>
@@ -179,23 +179,7 @@
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    getJson()
-    
     function drawChart() {
-      // var jsonData = $.ajax({
-      //   type: "GET",
-      //   url: "https://9uhmz5gckc.execute-api.ap-northeast-2.amazonaws.com/test-stock/realtime",
-      //   dataType: "json",
-      //   crossDomain: true,
-      //   async: true,
-      //   success: function(data) {
-      //     alert("sccess!");
-      //   }, 
-      //   error: function() {
-      //     alert("failed");
-      //   }
-      // }).responseText;
-
       var data = google.visualization.arrayToDataTable([
         ['Year', 'Sales', 'Expenses'],
         ['2004',  1000,      400],
@@ -203,8 +187,6 @@
         ['2006',  660,       1120],
         ['2007',  1030,      540]
       ]);
-
-      // var data = new google.visualization.DataTable(jsonData);
 
       var options = {
         title: 'Company Performance',
@@ -215,7 +197,7 @@
         lineWith: '100%',
       };
 
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      var chart = new google.visualization.LineChart(document.getElementById('chart'));
 
       chart.draw(data, options);
     }
