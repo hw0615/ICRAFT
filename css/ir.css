@@ -324,9 +324,8 @@ legend, caption {
     width: 45px;
     max-width: 45px;
     height: 45px;
-    font-size: 32px;
-    padding: 0;
-    padding-top: 5px; }
+    font-size: 25px;
+    padding: 0; }
 
 .arrow-down {
   position: absolute;
@@ -762,21 +761,71 @@ article .article .article-wrapper .table-wrap {
   margin-bottom: 85px; }
   article .article .article-wrapper .table-wrap table {
     margin-bottom: 0; }
+    article .article .article-wrapper .table-wrap table .arrow-u {
+      position: relative;
+      bottom: 15px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 8px solid red;
+      margin-right: 5px; }
+    article .article .article-wrapper .table-wrap table .arrow-d {
+      position: relative;
+      top: 15px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid blue;
+      margin-right: 5px; }
     article .article .article-wrapper .table-wrap table .volume {
       border-left: 1px solid #ddd;
       border-right: 1px solid #ddd; }
-    article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
-      color: red;
+    article .article .article-wrapper .table-wrap table .stock-header-tr1 {
       font-size: 16px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+        article .article .article-wrapper .table-wrap table .stock-header-tr1 {
           font-size: 10px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+        article .article .article-wrapper .table-wrap table .stock-header-tr1 {
           font-size: 14px; } }
+      article .article .article-wrapper .table-wrap table .stock-header-tr1 .lastDay {
+        font-size: 16px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article .article-wrapper .table-wrap table .stock-header-tr1 .lastDay {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article .article-wrapper .table-wrap table .stock-header-tr1 .lastDay {
+            font-size: 14px; } }
+      article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+        color: red;
+        font-size: 16px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
+            font-size: 14px; } }
+      article .article .article-wrapper .table-wrap table .stock-header-tr1 .volume-text {
+        font-size: 16px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article .article-wrapper .table-wrap table .stock-header-tr1 .volume-text {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article .article-wrapper .table-wrap table .stock-header-tr1 .volume-text {
+            font-size: 14px; } }
     article .article .article-wrapper .table-wrap table .stock-header-tr2 .subject-icraft {
       background: none;
       border-top: none; }
+    article .article .article-wrapper .table-wrap table .stock-header-tr2 .start_price {
+      font-size: 16px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article .article-wrapper .table-wrap table .stock-header-tr2 .start_price {
+          font-size: 10px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article .article-wrapper .table-wrap table .stock-header-tr2 .start_price {
+          font-size: 14px; } }
     article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
       color: blue;
       font-size: 16px; }
@@ -822,13 +871,19 @@ article .article .article-wrapper .table-wrap {
           article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
             font-size: 18px; } }
       article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
-        color: red; }
+        color: red;
+        font-size: 16px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
+            font-size: 14px; } }
       article .article .article-wrapper .table-wrap table .subject-icraft-main + td {
         margin-right: 1px solid #ddd; }
     article .article .article-wrapper .table-wrap table .subject-sub {
       border-bottom: 1px solid #ddd; }
     article .article .article-wrapper .table-wrap table td {
-      font-size: 16px;
       text-align: center;
       padding-left: 15px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {

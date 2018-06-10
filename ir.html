@@ -175,56 +175,50 @@
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="js/jquery.number.min.js"></script>
   <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    // google.charts.load('current', {'packages':['corechart']});
+    // google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
-      ]);
+    // function drawChart() {
+    //   var data = google.visualization.arrayToDataTable([
+    //     ['Year', 'Sales', 'Expenses'],
+    //     ['2004',  1000,      400],
+    //     ['2005',  1170,      460],
+    //     ['2006',  660,       1120],
+    //     ['2007',  1030,      540]
+    //   ]);
 
-      var options = {
-        title: 'Company Performance',
-        curveType: 'function',
-        legend: { position: 'bottom' },
-        chartArea: { width: '100%' },
-        width: '100%',
-        lineWith: '100%',
-      };
+    //   var options = {
+    //     title: 'Company Performance',
+    //     curveType: 'function',
+    //     legend: { position: 'bottom' },
+    //     chartArea: { width: '100%' },
+    //     width: '100%',
+    //     lineWith: '100%',
+    //   };
 
-      var chart = new google.visualization.LineChart(document.getElementById('chart'));
+    //   var chart = new google.visualization.LineChart(document.getElementById('chart'));
 
-      chart.draw(data, options);
-    }
+    //   chart.draw(data, options);
+    // }
+    
+    getJson()
     
     function getJson() {
       $.ajax({
-        url: "https://13h8y48qei.execute-api.ap-northeast-2.amazonaws.com/test-stock/realtime",
+        url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime",
         async: true,
         type: "GET",
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          var stock = data.data.each_stock
           var stockMain = data.data
-          console.log('stock :', stock);
+          var stock = data.data.each_stock
           console.log('stockMain :', stockMain);
 
           var tbodySt = $(".stock-time")
           var trHeader = $(".tr-header")
-
-          // var tdLastDay = $('.lastday')
-          // var tdLowPrice = $('.low_price')
-          // var tdNowPrice = $('.now_price')
-          // var tdStartPrice = $('.start_price')
-          // var tdTopPrice = $('.top_price')
-          // var tdVolume = $('.volume')
-          // var tdDiff = $('.diff')
 
           var lastDay = stockMain.lastday
           var low_price = stockMain.low_price
@@ -234,16 +228,22 @@
           var volume = stockMain.volume
           var diff = stockMain.diff
 
-          $('.subject-icraft-main').append("<span class='now_price'>" + now_price + "</span>" +
-            "<br>" + "전일대비 " + "<span class='diff'>" + diff + "</span>" 
+          $('.subject-icraft-main').append("<span class='now_price number'>" + now_price + "</span>" +
+            "<br>" + "전일대비 " + "<span class='arrow-u'>" + "</span>" + "<span class='diff'>" + diff + "</span>" 
           )
-          $('.stock-header-tr1').append("<td width='15%' class='subject subject-icraft' scope='row'>" + "전일 " + lastDay + "</td>" +
-          "<td width='15%' class='subject subject-icraft' scope='top'>" + "고가 " + "<span class='top_price'>" + top_price + "</span>" + "</td>" +
-          "<td width='15%' rowspan='2' class='subject subject-icraft volume' scope='row'>" + "거래량 " + volume + "</td>"
+          $('.stock-header-tr1').append("<td width='15%' class='subject subject-icraft' scope='row'>" + "전일 " + "<span class='lastDay number'>" + lastDay + "</span>" + "</td>" +
+          "<td width='15%' class='subject subject-icraft' scope='top'>" + "고가 " + "<span class='top_price number'>" + top_price + "</span>" + "</td>" +
+          "<td width='15%' rowspan='2' class='subject subject-icraft volume' scope='row'>" + "거래량 " + "<span class='volume-text number'>" + volume + "</td>"
           )
-          $('.stock-header-tr2').append("<td width='15%' class='subject subject-icraft' scope='row'>" + "시가 " + start_price + "</td>" +
-          "<td width='15%' class='subject subject-icraft' scope='row'>" + "저가 " + "<span class='low_price'>" + low_price + "</span>" + "</td>"
+          $('.stock-header-tr2').append("<td width='15%' class='subject subject-icraft' scope='row'>" + "시가 " + "<span class='start_price number'>" + start_price + "</span>" + "</td>" +
+          "<td width='15%' class='subject subject-icraft' scope='row'>" + "저가 " + "<span class='low_price number'>" + low_price + "</span>" + "</td>"
           )
+
+          if ( $(".lastday") > $(".now_price") ) {
+            $(".now_price").css('color', 'blue')
+          }
+          
+          $('.number').number(true)
 
           var makeTr = document.createElement("tr")
           var makeTd = document.createElement("td")
@@ -252,68 +252,55 @@
           for (let i = 0; i < stock.length; i++) {
             var el = stock[i];
             var dateTime = el.datetime.substr(el.datetime.length - 8)
+            var dateTimeS = dateTime.substr(0,5)
             var nego = el.nego
             var diff = el.diff
             var sell = el.sell
             var buy = el.buy
             var amountDiff = el.amount_diff
 
-            // if ( diff.match("-") ) {
-            //   diff.css('color', 'blue')
-            // }
+            var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
+              "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
+              "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+              "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
+              "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
+              "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + "</tr>"
+              )
+              
+            $('.number').number(true)  
 
-            var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + dateTime + "</td>" + 
-              "<td>"+ nego+ "</td>" + 
-              "<td>"+ diff+ "</td>" +
-              "<td>"+ sell+ "</td>" +
-              "<td>"+ buy+ "</td>" + 
-              "<td>"+ amountDiff+ "</td>" + "</tr>")
+            if ( diff.toString().indexOf('-') !== -1 ) {
+              $('.diff-t').attr('class', 'arrow-d')
+            } else {
+              $('.diff-t').attr('class', 'arrow-u')
+            }
+
           }
         }, 
         error: function() {
           alert("failed");
         }
       }).responseText;
+
       $.ajax({
-        url: "https://13h8y48qei.execute-api.ap-northeast-2.amazonaws.com/test-stock/2weeks",
+        url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/1",
         async: true,
         type: "GET",
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          console.log('data_2weeks :', data);
-
-          // var tbodySt = $(".stock-time")
-          // var trHeader = $(".tr-header")          
-          // var makeTr = document.createElement("tr")
-          // var makeTd = document.createElement("td")
-
-          // for (let i = 0; i < stock.length; i++) {
-          //   var el = stock[i];
-          //   var dateTime = el.datetime.substr(el.datetime.length - 8)
-          //   var nego = el.nego
-          //   var diff = el.diff
-          //   var sell = el.sell
-          //   var buy = el.buy
-          //   var amountDiff = el.amount_diff
-          //   // console.log('el.datetime :', el.datetime);
-
-          //   var newTr = tbodySt.append("<tr>" + "<td>" + dateTime + "</td>" + 
-          //     "<td>"+ nego+ "</td>" + 
-          //     "<td>"+ diff+ "</td>" +
-          //     "<td>"+ sell+ "</td>" +
-          //     "<td>"+ buy+ "</td>" + 
-          //     "<td>"+ amountDiff+ "</td>" + "</tr>")
-          // }
+          console.log('2weeks :', data);
         }, 
         error: function() {
           alert("failed");
         }
       }).responseText;
     }
-    $(window).resize(function() {
-      drawChart()
-    })
+
+
+    // $(window).resize(function() {
+    //   drawChart()
+    // })
     
 
   </script>

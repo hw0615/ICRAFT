@@ -18,13 +18,58 @@ article {
         margin-bottom: 85px;
         table {
           margin-bottom: 0;
+          .arrow-u{
+            position: relative;
+            bottom: 15px;
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 8px solid red;
+            margin-right: 5px;            
+          }
+          .arrow-d{
+            position: relative;
+            top: 15px;
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid blue;
+            margin-right: 5px;
+          }
           .volume {
-              border-left: 1px solid #ddd;
-              border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
           }
           .stock-header-tr1 {
+            font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            .lastDay {
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
             .top_price {
               color: red;
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+            .volume-text {
               font-size: 16px;
               @include respond-to($phone) {
                 font-size: 10px;
@@ -38,6 +83,15 @@ article {
             .subject-icraft {
               background: none;
               border-top: none;
+            }
+            .start_price {
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
             }
             .low_price {
               color: blue;
@@ -88,16 +142,23 @@ article {
             // padding: 8px 8px 5px 0;
             .now_price {
               font-size: 26px;
+              color: red;              
               @include respond-to($phone) {
                 font-size: 14px;
               }
               @include respond-to($tablet) {
                 font-size: 18px;
               }
-              color: red;
             }
             .diff {
-              color: red;              
+              color: red;     
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }     
             }
             + td {
               margin-right: 1px solid #ddd;
@@ -108,7 +169,6 @@ article {
           }
           
           td {
-            font-size: 16px;
             text-align: center;
             padding-left: 15px;
             @include respond-to($phone) {
