@@ -94,6 +94,11 @@ legend, caption {
     text-align: center; }
     .container-fluid .get-btn:hover {
       background-color: #355f84; }
+  .container-fluid .pagination {
+    width: auto; }
+    .container-fluid .pagination li.active .page-link {
+      background-color: #ddd;
+      color: #666; }
   .container-fluid section {
     position: relative;
     width: 100%;

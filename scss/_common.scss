@@ -42,7 +42,17 @@ html {
       background-color: #355f84;
     }
   } 
-
+  .pagination {
+    width: auto;
+    li {
+      &.active {
+        .page-link {
+          background-color: #ddd;
+          color: #666;
+        }
+      }
+    }
+  }
   section {
     position: relative;
     width: 100%;

@@ -94,6 +94,11 @@ legend, caption {
     text-align: center; }
     .container-fluid .get-btn:hover {
       background-color: #355f84; }
+  .container-fluid .pagination {
+    width: auto; }
+    .container-fluid .pagination li.active .page-link {
+      background-color: #ddd;
+      color: #666; }
   .container-fluid section {
     position: relative;
     width: 100%;
@@ -759,6 +764,9 @@ section {
     font-size: 20px;
     box-sizing: border-box; }
 
+article#board {
+  min-height: 673px; }
+
 article .article-img {
   display: inline-block;
   width: 100%; }
@@ -816,7 +824,8 @@ article .article-wrapper {
           article .article-wrapper .more-wrap .more .show-more {
             font-size: 14px; } }
   article .article-wrapper table {
-    width: 100%; }
+    width: 100%;
+    height: 673px; }
     article .article-wrapper table tr + tr:hover {
       background-color: #eee; }
     article .article-wrapper table th {
@@ -833,7 +842,7 @@ article .article-wrapper {
     display: block;
     margin: 0 auto;
     margin-top: 30px;
-    width: 300px;
+    width: auto;
     height: auto;
     text-align: center;
     font-size: 0; }

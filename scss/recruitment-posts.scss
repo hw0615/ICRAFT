@@ -36,6 +36,7 @@ article {
     }
     table {
       border-bottom: 1px solid #ddd;
+      width: 100%;    
       td {
         padding: 15px !important;
       }
@@ -62,44 +63,17 @@ article {
         }  
       }
     }  
-    .board-btn {
-      background-color: #eee;
-      color: black;
-      float: right;
-      padding: 15px 30px;
-      font-weight: 600;
-      &:hover {
-        background-color: #ddd;
-      }
-    }  
-    .more-wrap {
-      max-width: 870px;
-      .more {
-        margin: 0 auto;
-        width: 14vw;
-        height: 5.8vh;
-        border: none;
-        border-radius: 25px;
-        .show-more {
-          width: 100%;
-          height: auto;
-          padding: 10px 0;
-          line-height: 2;
-          color: #fff;
-          font-size: 18px;
-          // font-size: 1.5vw;
-          background: $color-key;
-          border: none;        
-          border-radius: 50px;
-          @include respond-to($phone) {
-            font-size: 10px;
-          }
-          @include respond-to($tablet) {
-            font-size: 14px;
-          }
-        }
-      }
+  .board-btn {
+    background-color: #eee;
+    color: black;
+    float: right;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-weight: 600;
+    &:hover {
+      background-color: #ddd;
     }
+  }     
 }
 
   .article-history:after {
