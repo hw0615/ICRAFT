@@ -19,7 +19,7 @@
   <link rel="shortcut icon" href="img/favicon.ico">    
   <!-- <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/news.css" />
+  <link rel="stylesheet" type="text/css" href="css/news-post.css" />
 </head>
 
 <body>
@@ -43,44 +43,17 @@
         <a href="#">고객지원</a>
         <span> < </span>
         <a href="#">News</a>
+        <span> < </span>        
       </p>
       <div class="article">
           <div id="board" >
               <div class="article-wrapper">        
-                <h3 class="article-title">News</h3>
+                <h3 class="article-title"></h3>
                 <form class="search-bar" action="">
-                  <input type="text" name="" id="" />
-                  <button>검색</button>
+                  <input type="text" name="search" />
+                  <a class="get-btn btn-primary">검색</a>
                 </form>
-                <table class="table">
-                  <colgroup>
-                    <col style="width:15%;"/>
-                    <col style="width:50%;"/>
-                    <col style="width:20%;"/>
-                    <col style="width:15%;"/>
-                  </colgroup>
-                  <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>날짜</th>
-                    <th>조회 수</th>
-                  </tr> 
-                  <tr>
-                    <th>1</th>
-                    <th>새 위변조 방지 솔루션 `브랜드 세이퍼2` 출시</th>
-                    <th>18.05.28</th>
-                    <th>11</th>
-                  </tr>                 
-                </table>
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item page-arrow"><a class="page-link" href="#"><img src="img/icon-left-arrow.png" alt=""></a></li>
-                    <li class="page-item"><a class="page-link page-num" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link page-num" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link page-num" href="#">3</a></li>
-                    <li class="page-item page-arrow"><a class="page-link" href="#"><img src="img/icon-right-arrow.png" alt=""></a></li>
-                  </ul>
-                </nav>
+                <div class="tableArea"></div>               
               </div>
             </div>   
       </div>>  
@@ -90,7 +63,9 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="./js/common.js"></script>
+  <script src="./js/common.js"></script>  
+  <script src="./js/news-item.js"></script>
+  <script src="./js/news-search.js"></script>
 </body>
 
 </html>

@@ -1,21 +1,21 @@
 $(function () {
 
   var box;    
-  var pageUrl = window.location.href.split("?");    
-  console.log('pageUrl :', pageUrl[1]);
-  var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, ""); 
+  var pageUrl = window.location.href.split("?");
+  // console.log('pageUrl :', pageUrl[0]);
+  var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, "");      
+  // console.log('pageNum :', pageNum);
     
-  console.log('pageNum :', pageNum);
   $.ajax({    
     type: "GET",
-    url: 'https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/news?page=' + pageNum,
+    url: 'https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/news?' + pageUrl,
     dataType: "JSON",
     error: function(){
       console.log('실패');
     },
     success: function(data){ 
 
-      var box = data
+      var box = data;
       // console.log('box :', box);  
 
       var board = $("#board .table tbody");
@@ -28,6 +28,7 @@ $(function () {
         boardTitle.push(key)
       }              
       // console.log('boardTitle :', boardTitle);
+
       // MAKE AND APPEND TR TD
       for(var j=0; j < box.result.length; j++){        
         var trT = document.createElement("tr");         

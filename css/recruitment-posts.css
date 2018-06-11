@@ -38,7 +38,6 @@ ol, ul, a {
 
 /* tables still need cellspacing="0" in the markup */
 table {
-  border-collapse: separate;
   border-spacing: 0; }
 
 caption, th, td {
@@ -94,6 +93,11 @@ legend, caption {
     text-align: center; }
     .container-fluid .get-btn:hover {
       background-color: #355f84; }
+  .container-fluid .pagination {
+    width: auto; }
+    .container-fluid .pagination li.active .page-link {
+      background-color: #ddd;
+      color: #666; }
   .container-fluid section {
     position: relative;
     width: 100%;
@@ -765,7 +769,10 @@ article .article-wrapper {
   article .article-wrapper .article-title {
     margin-top: 40px; }
   article .article-wrapper table {
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 1px solid #ddd;
+    width: 100%; }
+    article .article-wrapper table tr {
+      border-top: 1px solid #ddd; }
     article .article-wrapper table td {
       padding: 15px !important; }
     article .article-wrapper table .top-info {
@@ -789,34 +796,11 @@ article .article-wrapper {
     background-color: #eee;
     color: black;
     float: right;
+    margin-top: 30px;
     padding: 15px 30px;
     font-weight: 600; }
     article .article-wrapper .board-btn:hover {
       background-color: #ddd; }
-  article .article-wrapper .more-wrap {
-    max-width: 870px; }
-    article .article-wrapper .more-wrap .more {
-      margin: 0 auto;
-      width: 14vw;
-      height: 5.8vh;
-      border: none;
-      border-radius: 25px; }
-      article .article-wrapper .more-wrap .more .show-more {
-        width: 100%;
-        height: auto;
-        padding: 10px 0;
-        line-height: 2;
-        color: #fff;
-        font-size: 18px;
-        background: #174A8E;
-        border: none;
-        border-radius: 50px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article-wrapper .more-wrap .more .show-more {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article-wrapper .more-wrap .more .show-more {
-            font-size: 14px; } }
 
 article .article-history:after {
   content: "";

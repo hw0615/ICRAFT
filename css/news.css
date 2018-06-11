@@ -38,7 +38,6 @@ ol, ul, a {
 
 /* tables still need cellspacing="0" in the markup */
 table {
-  border-collapse: separate;
   border-spacing: 0; }
 
 caption, th, td {
@@ -94,6 +93,11 @@ legend, caption {
     text-align: center; }
     .container-fluid .get-btn:hover {
       background-color: #355f84; }
+  .container-fluid .pagination {
+    width: auto; }
+    .container-fluid .pagination li.active .page-link {
+      background-color: #ddd;
+      color: #666; }
   .container-fluid section {
     position: relative;
     width: 100%;
@@ -758,6 +762,9 @@ section {
     font-size: 20px;
     box-sizing: border-box; }
 
+article #board {
+  min-height: 673px; }
+
 article .article-img {
   display: inline-block;
   width: 100%; }
@@ -799,46 +806,28 @@ article .article-wrapper {
         margin-top: 15px; }
       article .article-wrapper > ul > li li {
         margin: 5px 10px; }
-  article .article-wrapper p {
-    font-size: 15px;
-    line-height: 20px; }
-  article .article-wrapper .more-wrap {
-    max-width: 870px; }
-    article .article-wrapper .more-wrap .more {
-      margin: 0 auto;
-      width: 14vw;
-      height: 5.8vh;
-      border: none;
-      border-radius: 25px; }
-      article .article-wrapper .more-wrap .more .show-more {
-        width: 100%;
-        height: auto;
-        padding: 10px 0;
-        line-height: 2;
-        color: #fff;
-        font-size: 18px;
-        background: #174A8E;
-        border: none;
-        border-radius: 50px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article-wrapper .more-wrap .more .show-more {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article-wrapper .more-wrap .more .show-more {
-            font-size: 14px; } }
+  article .article-wrapper .search-bar {
+    margin-bottom: 20px;
+    height: 35px; }
+  article .article-wrapper .tableArea {
+    clear: both; }
   article .article-wrapper table {
     width: 100%; }
     article .article-wrapper table tr + tr:hover {
       background-color: #f9f9f9; }
     article .article-wrapper table th {
-      border-top: none !important;
-      border-bottom: 1px solid #666;
+      background: #f5f5f5;
+      border-top: 2px solid #aaa;
       padding: 20px 0 !important;
       text-align: center;
       font-weight: 600;
       font-size: 16px; }
     article .article-wrapper table td {
       padding: 20px 0 !important;
+      text-align: center; }
+    article .article-wrapper table .info-title {
+      background-color: #eee;
+      font-weight: 600;
       text-align: center; }
   article .article-wrapper .pagination {
     display: block;
@@ -872,6 +861,15 @@ article .article-wrapper {
           border: 1px solid #eee;
           border-radius: 0;
           margin-left: 0; }
+  article .article-wrapper .board-btn {
+    background-color: #eee;
+    color: black;
+    float: right;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-weight: 600; }
+    article .article-wrapper .board-btn:hover {
+      background-color: #ddd; }
 
 article .article-history:after {
   content: "";
