@@ -37,6 +37,9 @@ article {
     table {
       border-bottom: 1px solid #ddd;
       width: 100%;    
+      tr {
+        border-top: 1px solid #ddd;
+      }
       td {
         padding: 15px !important;
       }

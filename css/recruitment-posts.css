@@ -38,7 +38,6 @@ ol, ul, a {
 
 /* tables still need cellspacing="0" in the markup */
 table {
-  border-collapse: separate;
   border-spacing: 0; }
 
 caption, th, td {
@@ -773,6 +772,8 @@ article .article-wrapper {
   article .article-wrapper table {
     border-bottom: 1px solid #ddd;
     width: 100%; }
+    article .article-wrapper table tr {
+      border-top: 1px solid #ddd; }
     article .article-wrapper table td {
       padding: 15px !important; }
     article .article-wrapper table .top-info {
