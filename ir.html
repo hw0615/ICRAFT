@@ -65,19 +65,12 @@
                   <p class="emp">아이크래프트</p>
                   <tr class="stock-header-tr1">
                     <td width="15%" rowspan="2" class="subject subject-icraft subject-icraft-main" scope="row"></td>
-                    <!-- <td width="15%" class="subject subject-icraft lastday" scope="row">전일</td>
-                    <td width="15%" class="subject subject-icraft top_price" scope="row">고가</td>
-                    <td width="15%" class="subject subject-icraft volume" scope="row">거래량</td>  -->
                   </tr>
-                  <tr class="stock-header-tr2">
-                    <!-- <td width="20%" class="subject subject-sub start_price" scope="row">시가</td>
-                    <td width="20%" class="subject subject-sub low_price" scope="row">저가</td>
-                    <td width="20%" class="subject subject-sub" scope="row">79,856</td> -->
-                  </tr>
+                  <tr class="stock-header-tr2"></tr>
                 </tbody>
               </table>
             </div>
-            <div id="curve_chart" style="width: 100%; height: 450px"></div>
+            <canvas id="myChart"></canvas>
             <div class="table-wrap">
               <table class="table">
                 <caption>아이크래프트 주가 시간별시세 차트입니다.</caption>
@@ -97,61 +90,16 @@
             <div class="table-wrap">
               <table class="table">
                 <caption>아이크래프트 주가 일별시세 차트입니다.</caption>
-                <tbody>
+                <tbody class="stock-time2">
                   <p class="article-text">일별시세</p>                  
                   <tr class="tr-header">
-                    <td width="15%" class="subject" scope="row">날짜</td>
-                    <td width="15%" class="subject" scope="row">종가</td>
-                    <td width="15%" class="subject" scope="row">전일비</td>
-                    <td width="15%" class="subject" scope="row">시가</td>
-                    <td width="15%" class="subject" scope="row">고가</td>
-                    <td width="15%" class="subject" scope="row">저가</td>
-                    <td width="15%" class="subject" scope="row">변동량</td>
-                  </tr>
-                  <tr>
-                    <td width="15%" scope="row">매출액</td>
-                    <td width="15%" scope="row">92,532</td>
-                    <td width="15%" scope="row">79,856</td>
-                    <td width="15%" scope="row">68,367</td>
-                    <td width="15%" scope="row">68,367</td>
-                    <td width="15%" scope="row">68,367</td>
-                    <td width="15%" scope="row">68,367</td>
-                  </tr>
-                  <tr>
-                    <td width="15%" scope="row">영업이익</td>
-                    <td width="15%" scope="row">2,120</td>
-                    <td width="15%" scope="row">4,515</td>
-                    <td width="15%" scope="row">3,509</td>
-                    <td width="15%" scope="row">3,509</td>
-                    <td width="15%" scope="row">3,509</td>
-                    <td width="15%" scope="row">3,509</td>
-                  </tr>
-                  <tr>
-                    <td width="15%" scope="row">당기순이익</td>
-                    <td width="15%" scope="row">2,193</td>
-                    <td width="15%" scope="row">2,175</td>
-                    <td width="15%" scope="row">2,742</td>
-                    <td width="15%" scope="row">2,742</td>
-                    <td width="15%" scope="row">2,742</td>
-                    <td width="15%" scope="row">2,742</td>
-                  </tr>
-                  <tr>
-                    <td width="15%" scope="row">부채총계</td>
-                    <td width="15%" scope="row">26,972</td>
-                    <td width="15%" scope="row">18,799</td>
-                    <td width="15%" scope="row">19,198</td>
-                    <td width="15%" scope="row">19,198</td>
-                    <td width="15%" scope="row">19,198</td>
-                    <td width="15%" scope="row">19,198</td>
-                  </tr>
-                  <tr>
-                    <td width="15%" scope="row">자본총계</td>
-                    <td width="15%" scope="row">34,839</td>
-                    <td width="15%" scope="row">36,043</td>
-                    <td width="15%" scope="row">34,666</td>
-                    <td width="15%" scope="row">34,666</td>
-                    <td width="15%" scope="row">34,666</td>
-                    <td width="15%" scope="row">34,666</td>
+                    <td width="10%" class="subject" scope="row">날짜</td>
+                    <td width="10%" class="subject" scope="row">종가</td>
+                    <td width="10%" class="subject" scope="row">전일비</td>
+                    <td width="10%" class="subject" scope="row">시가</td>
+                    <td width="10%" class="subject" scope="row">고가</td>
+                    <td width="10%" class="subject" scope="row">저가</td>
+                    <td width="10%" class="subject" scope="row">거래량</td>
                   </tr>
                 </tbody>
               </table>
@@ -174,35 +122,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script type="text/javascript" src="js/jquery.number.min.js"></script>
   <script type="text/javascript">
-    // google.charts.load('current', {'packages':['corechart']});
-    // google.charts.setOnLoadCallback(drawChart);
-
-    // function drawChart() {
-    //   var data = google.visualization.arrayToDataTable([
-    //     ['Year', 'Sales', 'Expenses'],
-    //     ['2004',  1000,      400],
-    //     ['2005',  1170,      460],
-    //     ['2006',  660,       1120],
-    //     ['2007',  1030,      540]
-    //   ]);
-
-    //   var options = {
-    //     title: 'Company Performance',
-    //     curveType: 'function',
-    //     legend: { position: 'bottom' },
-    //     chartArea: { width: '100%' },
-    //     width: '100%',
-    //     lineWith: '100%',
-    //   };
-
-    //   var chart = new google.visualization.LineChart(document.getElementById('chart'));
-
-    //   chart.draw(data, options);
-    // }
-    
     getJson()
     
     function getJson() {
@@ -227,6 +149,9 @@
           var volume = stockMain.volume
           var diff = stockMain.diff
 
+          var labelBox = [];
+          var dataBox = [];
+          
           $('.subject-icraft-main').append("<span class='now_price number'>" + now_price + "</span>" +
             "<br>" + "전일대비 " + "<span class='arrow-u'>" + "</span>" + "<span class='diff'>" + diff + "</span>" 
           )
@@ -243,20 +168,19 @@
           }
           
           $('.number').number(true)
-
-          var makeTr = document.createElement("tr")
-          var makeTd = document.createElement("td")
-          var makeSpan = document.createElement("span")
-
+          
           for (let i = 0; i < stock.length; i++) {
             var el = stock[i];
             var dateTime = el.datetime.substr(el.datetime.length - 8)
-            var dateTimeS = dateTime.substr(0,5)
+            var dateTimeS = dateTime.substr(0,5) 
             var nego = el.nego
             var diff = el.diff
             var sell = el.sell
             var buy = el.buy
             var amountDiff = el.amount_diff
+
+            labelBox.push(dateTimeS);
+            dataBox.push(nego)
 
             var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
               "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
@@ -264,22 +188,105 @@
               "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
               "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
               "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + "</tr>"
-              )
+            )
               
-            $('.number').number(true)  
+            $('.number').number(true)
 
             if ( diff.toString().indexOf('-') !== -1 ) {
               $('.diff-t').attr('class', 'arrow-d')
             } else {
               $('.diff-t').attr('class', 'arrow-u')
             }
-
           }
+          var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: labelBox,
+                  datasets: [{
+                      label: "실시간 시세",
+                      backgroundColor: 'rgb(228, 240, 255)',
+                      borderColor: 'rgb(23, 74, 142)',
+                      data: dataBox,
+                  }]
+              },
+              options: {}
+          });
         }, 
         error: function() {
           alert("failed");
         }
       }).responseText;
+
+      // $.ajax({
+      //   url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime",
+      //   async: true,
+      //   type: "GET",
+      //   dataType: "json",
+      //   crossDomain: true,
+      //   success: function(data) {
+      //     var stockMain = data.data
+      //     var stock = data.data.each_stock
+      //     console.log('stockMain :', stockMain);
+
+      //     var tbodySt = $(".stock-time")
+
+      //     var lastDay = stockMain.lastday
+      //     var low_price = stockMain.low_price
+      //     var now_price = stockMain.now_price
+      //     var start_price = stockMain.start_price
+      //     var top_price = stockMain.top_price
+      //     var volume = stockMain.volume
+      //     var diff = stockMain.diff
+
+      //     $('.subject-icraft-main').append("<span class='now_price number'>" + now_price + "</span>" +
+      //       "<br>" + "전일대비 " + "<span class='arrow-u'>" + "</span>" + "<span class='diff'>" + diff + "</span>" 
+      //     )
+      //     $('.stock-header-tr1').append("<td width='15%' class='subject subject-icraft' scope='row'>" + "전일 " + "<span class='lastDay number'>" + lastDay + "</span>" + "</td>" +
+      //     "<td width='15%' class='subject subject-icraft' scope='top'>" + "고가 " + "<span class='top_price number'>" + top_price + "</span>" + "</td>" +
+      //     "<td width='15%' rowspan='2' class='subject subject-icraft volume' scope='row'>" + "거래량 " + "<span class='volume-text number'>" + volume + "</td>"
+      //     )
+      //     $('.stock-header-tr2').append("<td width='15%' class='subject subject-icraft' scope='row'>" + "시가 " + "<span class='start_price number'>" + start_price + "</span>" + "</td>" +
+      //     "<td width='15%' class='subject subject-icraft' scope='row'>" + "저가 " + "<span class='low_price number'>" + low_price + "</span>" + "</td>"
+      //     )
+
+      //     if ( $(".lastday") > $(".now_price") ) {
+      //       $(".now_price").css('color', 'blue')
+      //     }
+          
+      //     $('.number').number(true)
+
+      //     for (let i = 0; i < stock.length; i++) {
+      //       var el = stock[i];
+      //       var dateTime = el.datetime.substr(el.datetime.length - 8)
+      //       var dateTimeS = dateTime.substr(0,5)
+      //       var nego = el.nego
+      //       var diff = el.diff
+      //       var sell = el.sell
+      //       var buy = el.buy
+      //       var amountDiff = el.amount_diff
+
+      //       var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
+      //         "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
+      //         "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+      //         "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
+      //         "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
+      //         "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + "</tr>"
+      //         )
+              
+      //       $('.number').number(true)
+
+      //       if ( diff.toString().indexOf('-') !== -1 ) {
+      //         $('.diff-t').attr('class', 'arrow-d')
+      //       } else {
+      //         $('.diff-t').attr('class', 'arrow-u')
+      //       }
+      //     }
+      //   }, 
+      //   error: function() {
+      //     alert("failed");
+      //   }
+      // }).responseText;
 
       $.ajax({
         url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/1",
@@ -288,14 +295,53 @@
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          console.log('2weeks :', data);
+          var twoWeeks = data.data
+          console.log('twoWeeks :', twoWeeks);
+          for (let i = 0; i < twoWeeks.length; i++) {
+            var el = twoWeeks[i];
+
+            var date = el.date
+            var diff = el.diff
+            var low_price = el.low_price
+            var price = el.price
+            var start_price = el.start_price
+            var top_price = el.top_price
+            var volume = el.volume
+
+            var tbodySt = $(".stock-time2")
+            
+            var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + date + "</td>" +  
+              "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
+              "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+              "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
+              "<td>"+ "<span class='number'>" + top_price + "</span>" + "</td>" + 
+              "<td>"+ "<span class='number'>" + low_price + "</span>" + "</td>" +
+              "<td>"+ "<span class='number'>" + volume + "</span>" + "</td>" + "</tr>"
+            )
+
+            $('.number').number(true)
+
+            if ( diff.toString().indexOf('-') !== -1 ) {
+              $('.diff-t').attr('class', 'arrow-d')
+            } else {
+              $('.diff-t').attr('class', 'arrow-u')
+            }
+            
+            // console.log('diff.toString().length :', diff.toString().length);
+            // if ( diff.toString().length === 1) {
+            //   $('.arrow-u').removeClass()
+            // }
+
+          }
         }, 
         error: function() {
           alert("failed");
+          // console.log("failed");
         }
       }).responseText;
     }
 
+    
 
     // $(window).resize(function() {
     //   drawChart()
