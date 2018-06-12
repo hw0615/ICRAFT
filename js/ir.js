@@ -3,8 +3,12 @@ $(function() {
   getJson()
   getChart()
     
+  // var pageUrl = window.location.href.split('?');
+
+  
   function getJson() {
     $.ajax({
+      // url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
       async: true,
       type: "GET",
@@ -12,8 +16,9 @@ $(function() {
       crossDomain: true,
       success: function(data) {
         var stockMain = data.data
-        var stock = data.data.each_stock
-        console.log('stockMain :', stockMain);
+        var stock = stockMain.each_stock
+        var total = stock.length
+        console.log('stock :', stock);
 
         // 최상단 현재 아이크래프트 주가 정보
         var lastDay = stockMain.lastday
@@ -49,7 +54,6 @@ $(function() {
         if ( diff.toString().indexOf('-') !== -1 ) {
           $('.arrow').attr('class', 'arrow-d')
           $('.now_price').css('color', 'blue')
-          // $('.diff').css('color', 'blue')
         } else {
           $('.arrow').attr('class', 'arrow-u')
         }
@@ -57,8 +61,8 @@ $(function() {
         $('.number').number(true)
         
         for (var i = 0; i < stock.length; i++) {
+          
           var el = stock[i];
-          console.log('el :', el);
           var dateTime = el.datetime.substr(el.datetime.length - 8)
           var dateTimeS = dateTime.substr(0,5) 
           var nego = el.nego
@@ -67,9 +71,6 @@ $(function() {
           var buy = el.buy
           var amountDiff = el.amount_diff
 
-          // labelBox.push(dateTimeS);
-          // dataBox.push(nego)
-
           var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
@@ -77,28 +78,22 @@ $(function() {
             "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
             "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + "</tr>"
           )
-            
+
           if ( diff.toString().indexOf('-') !== -1 ) {
             $('.diff-t').attr('class', 'arrow-d')
           } else {
             $('.diff-t').attr('class', 'arrow-u')
           }
-        }
-        // var ctx = document.getElementById('myChart').getContext('2d');
-        // var chart = new Chart(ctx, {
-        //   type: 'line',
-        //   data: {
-        //       labels: labelBox,
-        //       datasets: [{
-        //           label: "1일",
-        //           backgroundColor: 'rgba(244, 249, 255)',
-        //           borderColor: 'rgba(23, 74, 142)',
-        //           data: dataBox,
-        //       }],
-        //   },
-        //   options: {}
-        // });
-        // $('.number').number(true);        
+
+          var pageLength = Math.ceil( total / 10 );
+          console.log('total :', total);
+          console.log('pageLength :', pageLength);
+
+          for (var j = 1; j < pageLength; j++) {
+            var li = document.createElement('li');
+            $(li).attr("class","page-item");
+          }
+        }   
       }, 
       error: function() {
         alert("failed");
@@ -143,12 +138,6 @@ $(function() {
           } else {
             $('.diff-t').attr('class', 'arrow-u')
           }
-          
-          // console.log('diff.toString().length :', diff.toString().length);
-          // if ( diff.toString().length === 1) {
-          //   $('.arrow-u').removeClass()
-          // }
-
         }
       }, 
       error: function() {
@@ -209,11 +198,11 @@ $(function() {
 
     $('.number').number(true);
 
-    if ( $('#myChart').hasClass('active') === true) {
+    // if ( $('#myChart').hasClass('active') === true) {
       // $('#myChart-m').css('display', 'none')
       // $('#myChart-3m').css('display', 'none')   
       // $('#myChart-y').css('display', 'none')   
-    } 
+    // } 
     $('#chart1').click(function() {
       $('#myChart').css('display', 'block')
       $('#myChart-m').css('display', 'none')
@@ -366,6 +355,9 @@ $(function() {
         }
       }).responseText;
     })
+  }
+  function pageNation() {
+
   }
 });
 
