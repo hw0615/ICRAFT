@@ -13,6 +13,7 @@ $(function () {
     success: function(data){ 
 
       var box = data;      
+      console.log('box :', box);
       // MAKE TITLE 
       var title =  box.result.title;          
       $(".article-title").append(title);

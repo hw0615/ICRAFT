@@ -20,11 +20,11 @@ var Cognito = window.Cognito || {};
     function getAllArticles(page) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?page='+page,
+            url: _config.api.invokeUrl + '/news?page='+page,
             headers: {
                 Authorization: authToken
             },
-            contentType: 'application/json',
+            contentType: 'application/json; charset=utf-8',
             success: completeAllArticlesRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
@@ -35,21 +35,81 @@ var Cognito = window.Cognito || {};
         console.log('page :', page);
     }
     function completeAllArticlesRequest(result) {
-        console.log('Response received from API: ', result);
+        // console.log('Response received from API: ', result);
         for (i = 0; i < result['result'].length; i++) {
-            displayUpdate(result['result'][i])
+            displayUpdate(i,result['result'][i])
         }
+        var url = window.location.href;
+        var checkUrlKey = url.split("/").slice(-1)[0];
+
+        if(checkUrlKey !== 'pit-in.html'){
+            var pageUrl = window.location.href.split("?");
+            // console.log('pageUrl :', pageUrl[0]);
+            var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, "");      
+            // console.log('pageNum :', pageNum);        
+            // MAKE PAGENATION
+            var pageLength = Math.ceil((result.total)/10);      
+            var pagination = document.getElementsByClassName("pagination")[0];
+            // console.log('pagenation :', pagination);
+            // console.log('pageLength :', pageLength);
+            for(var i=1; i <= pageLength; i++){
+            var pageLi = document.createElement("li");
+            var pageAT = document.createElement("a");        
+            $(pageLi).attr("class","page-item");   
+            $(pageAT).attr("class","page-link");      
+            $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+            $(pageAT).append(i);   
+            if(i == pageNum){
+                $(pageLi).addClass("active"); 
+            }
+            $(pageLi).append(pageAT);     
+            $(pagination).append(pageLi);
+            }      
+            
+            function makePageArrow(direction, pageNum,pageLength){
+            switch(direction) {
+                case "left":          
+                if( 0 < pageNum && pageNum < pageLength){              
+                    var pageNum = Number(pageNum) -1;               
+                    var pageLi = document.createElement("li");        
+                    var pageLeftArrow = document.createElement("a");
+                    $(pageLeftArrow).attr("href", pageUrl[0] + pageNum + "#board")
+                    var pageLeftArrowImg = document.createElement("img");
+                    $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
+                    $(pageLeftArrow).prepend(pageLeftArrowImg);
+                    $(pageLi).append(pageLeftArrow);
+                    $(pagination).prepend(pageLi);                 
+                }                             
+                break;          
+                case "right":          
+                if( pageNum < pageLength ){
+                    var pageNum = Number(pageNum) +1;                                         
+                    var pageLi = document.createElement("li");                  
+                    var pageRightArrow = document.createElement("a");
+                    $(pageRightArrow).attr("href", pageUrl[0] + "?page=" + pageNum + "#board")
+                    var pageRightArrowImg = document.createElement("img");
+                    $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
+                    $(pageRightArrow).append(pageRightArrowImg);
+                    $(pageLi).append(pageRightArrow);          
+                    $(pagination).append(pageLi); 
+                }
+                break;                          
+            }
+            }
+            makePageArrow("left", pageNum, pageLength);
+            makePageArrow("right", pageNum, pageLength);
+        }        
     }
 
     // get single article
     function getArticle(article_id) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?article='+article_id,
+            url: _config.api.invokeUrl + '/news?article='+ article_id,
             headers: {
                 Authorization: authToken
             },
-            contentType: 'application/json',
+            contentType: 'application/json; charset= utf-8',
             success: completeArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
@@ -59,25 +119,21 @@ var Cognito = window.Cognito || {};
         });
     }
     function completeArticleRequest(result) {
-        console.log('Response received from API: ', result);
+        // console.log('Response received from API: ', result);
         $('#article-title').val(result['result'].title);
         $('#summernote').summernote('code', result['result'].body);
     }
 
     // post article
-    function postArticle(article_id, title, body) {
+    function postArticle( category, box) {
         $.ajax({
             type: 'POST',
-            url: _config.api.invokeUrl + '/pit-in',
+            url: _config.api.invokeUrl + '/' + category,
             headers: {
                 Authorization: authToken
             },
-            data: JSON.stringify({
-                'article_id': article_id,
-                'title': title,
-                'body': body
-            }),
-            contentType: 'application/json',
+            data: JSON.stringify(box),          
+            contentType: 'application/json; charset= utf-8',
             success: completePostArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error posting news: ', textStatus, ', Details: ', errorThrown);
@@ -88,7 +144,7 @@ var Cognito = window.Cognito || {};
     }
     function completePostArticleRequest(result) {
         console.log('Successfully posting, ' + result);
-        window.location.href = 'circuit.html';
+        window.location.href = 'circuit.html?page=1';
     }
 
     // Initialize
@@ -134,10 +190,10 @@ var Cognito = window.Cognito || {};
         $('#postForm').submit(handlePostArticle);
     });
 
-    function displayUpdate(text) {
+    function displayUpdate(i, text) {
         $('#updates').append($(
             '<tr>' +
-            '<td>' + '<a href="/pit-in.html?article=' + text['id'] + '">' +
+            '<td>' + '<a href="news-post.html?page='+ i +'&news_id=' + text['id'] + '">' +
             text['title'] + '</a></td>' +
             '<td>' + text['date'] + '</td>' +
             '<td>' + text['count'] + '</td>' +
@@ -168,13 +224,40 @@ var Cognito = window.Cognito || {};
     }
 
     function handlePostArticle(event) {
-        var article_id = $('#article_id').val();
-        var title = $('#article-title').val();
-        var body = $('#summernote').summernote('code');
-        event.preventDefault();
+        var box = {};
+        var category = $('#category').val();
+        var article_id = $('#article_id').val();        
+        var title = $('#article-title').val();        
+        var body = $('#summernote').summernote('code');        
+        
+        if(category == "recruit"){
+            var date = $('#due-to').val(); 
+            var kinds = $('#type').val();
+            var available = $('#available').val();
+            box = {
+                'id' : article_id,
+                'title' : title,
+                'date' : date,
+                'kinds' : kinds,
+                'available' : available,
+                'body' : body,
+                'count': 0
+            }         
+        } else if(category == "news"){
+            box = {
+                'id' : article_id,
+                'title' : title,
+                'date' : $('#date').val(),
+                'body' : body,
+                'count': 0
+            }
+        }
+        console.log('box :', box);
+        
+        debugger;
 
-        console.log(article_id);
+        postArticle( category ,box);
+        event.preventDefault();        
+    }    
 
-        postArticle(article_id, title, body);
-    }
 }(jQuery));

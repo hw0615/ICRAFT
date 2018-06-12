@@ -2,7 +2,7 @@ $(function () {
 
   var box;    
   var pageUrl = window.location.href.split("?");  
-  // console.log('object :', pageUrl[1]);  
+  console.log('object :', pageUrl[1]);  
   var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, "");    
   
   $.ajax({    
@@ -15,7 +15,7 @@ $(function () {
     success: function(data){ 
 
       var box = data;      
-      // console.log('box :', box);
+      console.log('box :', box);
       // MAKE TITLE 
       var title =  box.result.title;          
       $(".article-title").append(title);
