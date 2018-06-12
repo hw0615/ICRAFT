@@ -10,9 +10,17 @@ section {
 article {
   .article {
     .article-wrapper {
+      canvas {
+        margin: 80px 0;
+      }
       .emp {
         padding-bottom: 0;
         margin-left: 5px;
+      }
+      .nav-tabs {
+        a {
+          color: #666;
+        }
       }
       .table-wrap {
         margin-bottom: 85px;
@@ -151,7 +159,7 @@ article {
               }
             }
             .diff {
-              color: red;     
+              // color: red;     
               font-size: 16px;
               @include respond-to($phone) {
                 font-size: 10px;

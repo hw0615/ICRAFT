@@ -757,9 +757,15 @@ section {
     section {
       background-position-y: -220px; } }
 
+article .article .article-wrapper canvas {
+  margin: 80px 0; }
+
 article .article .article-wrapper .emp {
   padding-bottom: 0;
   margin-left: 5px; }
+
+article .article .article-wrapper .nav-tabs a {
+  color: #666; }
 
 article .article .article-wrapper .table-wrap {
   margin-bottom: 85px; }
@@ -875,7 +881,6 @@ article .article .article-wrapper .table-wrap {
           article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
             font-size: 18px; } }
       article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
-        color: red;
         font-size: 16px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
