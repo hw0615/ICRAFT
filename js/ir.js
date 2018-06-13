@@ -1,24 +1,23 @@
 $(function() {
 
-  getJson()
+  getFirstRealtime()
+  getSecondRealtime()
+  getTwoWeeks()
   getChart()
-    
-  // var pageUrl = window.location.href.split('?');
-
+  // pagination()
   
-  function getJson() {
+  function getFirstRealtime(num) {
     $.ajax({
-      // url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
-      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
+      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime",
       async: true,
       type: "GET",
       dataType: "json",
       crossDomain: true,
       success: function(data) {
+        var data = data
         var stockMain = data.data
         var stock = stockMain.each_stock
-        var total = stock.length
-        console.log('stock :', stock);
+        // console.log('data :', data);
 
         // 최상단 현재 아이크래프트 주가 정보
         var lastDay = stockMain.lastday
@@ -28,13 +27,6 @@ $(function() {
         var top_price = stockMain.top_price
         var volume = stockMain.volume
         var diff = stockMain.diff
-
-        // 실시간 그래프 데이터 수집 배열
-        var labelBox = [];
-        var dataBox = [];
-
-        // 시간별 시세 테이블 바디
-        var tbodySt = $(".stock-time")
         
         $('.subject-icraft-main').append("<span class='now_price number'>" + now_price + "</span>" +
           "<br>" + "전일대비 " + "<span class='arrow'>" + "</span>" + "<span class='diff'>" + diff + "</span>" 
@@ -60,8 +52,88 @@ $(function() {
 
         $('.number').number(true)
         
-        for (var i = 0; i < stock.length; i++) {
+      }, 
+      error: function() {
+        alert("failed");
+      }
+    }).responseText;
+  }
+
+  function getSecondRealtime(num) {
+    // var num = '1'
+    $.ajax({
+      // url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
+      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + num,
+      async: true,
+      type: "GET",
+      dataType: "json",
+      crossDomain: true,
+      success: function(data) {
+        var data = data
+        var stockMain = data.data
+        var stock = stockMain.each_stock
+        var total = stock.length
+        console.log('json_total :', total);
+
+        // 페이지네이션
+        var pageLength = Math.ceil( total / 10 );
+        var pagination = document.getElementsByClassName("pagination-1")[0];
+        
+        for( var i = 1; i <= pageLength; i++ ){
+          var pageLi = document.createElement("li");
+          var pageAT = document.createElement("a");        
+          $(pageLi).attr("class","page-item");   
+          $(pageAT).attr("class","page-link");      
+          // $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+          $(pageAT).append(i);   
+          if(i == num){
+            $(pageLi).addClass("active"); 
+          }
+          $(pageLi).append(pageAT);     
+          $(pagination).append(pageLi);
           
+          function makePageArrow(direction, num,pageLength){
+            switch(direction) {
+              case "left":          
+                if( 0 < num && num < pageLength){              
+                  var num = Number(num) -1;               
+                  var pageLi = document.createElement("li");        
+                  var pageLeftArrow = document.createElement("a");
+                  $(pageLeftArrow).attr("href", pageUrl[0] + num + "#board")
+                  var pageLeftArrowImg = document.createElement("img");
+                  $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
+                  $(pageLeftArrow).prepend(pageLeftArrowImg);
+                  $(pageLi).append(pageLeftArrow);
+                  $(pagination).prepend(pageLi);                 
+                }                             
+                break;          
+              case "right":          
+                if( num < pageLength ){
+                  var num = Number(num) +1;                                         
+                  var pageLi = document.createElement("li");                  
+                  var pageRightArrow = document.createElement("a");
+                  $(pageRightArrow).attr("href", pageUrl[0] + "?page=" + num + "#board")
+                  var pageRightArrowImg = document.createElement("img");
+                  $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
+                  $(pageRightArrow).append(pageRightArrowImg);
+                  $(pageLi).append(pageRightArrow);          
+                  $(pagination).append(pageLi); 
+                }
+                break;                          
+            }
+          }
+          makePageArrow("left", num, pageLength);
+          makePageArrow("right", num, pageLength);
+        }
+
+        console.log('pageLength :', pageLength);
+        console.log('pagination :', pagination);
+
+        for (var i = 0; i < stock.length; i++) {
+
+          // 시간별 시세 테이블 바디
+          var realtimeTbody = $(".stock-time")
+
           var el = stock[i];
           var dateTime = el.datetime.substr(el.datetime.length - 8)
           var dateTimeS = dateTime.substr(0,5) 
@@ -71,7 +143,7 @@ $(function() {
           var buy = el.buy
           var amountDiff = el.amount_diff
 
-          var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
+          var newTr = realtimeTbody.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
@@ -84,22 +156,18 @@ $(function() {
           } else {
             $('.diff-t').attr('class', 'arrow-u')
           }
+        }
 
-          var pageLength = Math.ceil( total / 10 );
-          console.log('total :', total);
-          console.log('pageLength :', pageLength);
+        $('.number').number(true)        
 
-          for (var j = 1; j < pageLength; j++) {
-            var li = document.createElement('li');
-            $(li).attr("class","page-item");
-          }
-        }   
       }, 
       error: function() {
         alert("failed");
       }
     }).responseText;
-
+  }
+  function getTwoWeeks() {
+    // 2weeks
     $.ajax({
       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/1",
       async: true,
@@ -109,6 +177,7 @@ $(function() {
       success: function(data) {
         var twoWeeks = data.data
         console.log('twoWeeks :', twoWeeks);
+
         for (var i = 0; i < twoWeeks.length; i++) {
           var el = twoWeeks[i];
 
@@ -120,9 +189,9 @@ $(function() {
           var top_price = el.top_price
           var volume = el.volume
 
-          var tbodySt = $(".stock-time2")
+          var realtimeTbody = $(".stock-time2")
           
-          var newTr = tbodySt.append("<tr class='tr-hover'>" + "<td>" + date + "</td>" +  
+          var newTr = realtimeTbody.append("<tr class='tr-hover'>" + "<td>" + date + "</td>" +  
             "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
@@ -198,11 +267,6 @@ $(function() {
 
     $('.number').number(true);
 
-    // if ( $('#myChart').hasClass('active') === true) {
-      // $('#myChart-m').css('display', 'none')
-      // $('#myChart-3m').css('display', 'none')   
-      // $('#myChart-y').css('display', 'none')   
-    // } 
     $('#chart1').click(function() {
       $('#myChart').css('display', 'block')
       $('#myChart-m').css('display', 'none')
@@ -221,7 +285,7 @@ $(function() {
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          console.log('data-m :', data.data);
+          // console.log('data-m :', data.data);
           var data = data.data;
     
           var dateArray = []
@@ -269,7 +333,7 @@ $(function() {
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          console.log('data-3m :', data.data);
+          // console.log('data-3m :', data.data);
           var data = data.data
     
           var dateArray = []
@@ -317,7 +381,7 @@ $(function() {
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          console.log('data-y :', data.data);
+          // console.log('data-y :', data.data);
           var data = data.data
     
           var dateArray = []
@@ -356,8 +420,12 @@ $(function() {
       }).responseText;
     })
   }
-  function pageNation() {
-
+  function pagination() {
+    // $('.page-item').each(function(index) {
+    //   $(this).click(function(){
+    //     getSecondRealtime(index);
+    //   });
+    // });
   }
 });
 
