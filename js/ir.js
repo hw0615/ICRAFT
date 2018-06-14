@@ -4,9 +4,8 @@ $(function() {
   getSecondRealtime()
   getTwoWeeks()
   getChart()
-  // pagination()
   
-  function getFirstRealtime(num) {
+  function getFirstRealtime() {
     $.ajax({
       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime",
       async: true,
@@ -50,8 +49,31 @@ $(function() {
           $('.arrow').attr('class', 'arrow-u')
         }
 
-        $('.number').number(true)
         
+        // 페이지네이션 목록 출력
+        var total = stock.length
+        console.log('json_total :', total);
+        var pageLength = Math.ceil( total / 10 );
+        var pagination = document.getElementsByClassName("pagination")[0];
+        console.log('pageLength :', pageLength);
+        
+        for( var i = 1; i <= pageLength; i++ ){
+          var pageLi = document.createElement("li");
+          var pageAT = document.createElement("a");        
+          $(pageLi).attr("class","page-item");   
+          $(pageAT).attr("class","page-link page-num");      
+          // $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+          $(pageAT).append(i);   
+          // $(pageLi).append(i);   
+          // if(i == index){
+          //   $(pageLi).addClass("active"); 
+          // }
+          $(pageLi).append(pageAT);     
+          $(pagination).append(pageLi);
+        }
+
+        $('.number').number(true)
+
       }, 
       error: function() {
         alert("failed");
@@ -59,82 +81,28 @@ $(function() {
     }).responseText;
   }
 
-  function getSecondRealtime(num) {
-    // var num = '1'
+  function getSecondRealtime(index) {
+    // var index = Number(1)
+    // 실시간 표 
     $.ajax({
-      // url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
-      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + num,
+      // url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
+      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + '1',
       async: true,
       type: "GET",
       dataType: "json",
       crossDomain: true,
       success: function(data) {
+      
         var data = data
         var stockMain = data.data
         var stock = stockMain.each_stock
-        var total = stock.length
-        console.log('json_total :', total);
-
-        // 페이지네이션
-        var pageLength = Math.ceil( total / 10 );
-        var pagination = document.getElementsByClassName("pagination-1")[0];
-        
-        for( var i = 1; i <= pageLength; i++ ){
-          var pageLi = document.createElement("li");
-          var pageAT = document.createElement("a");        
-          $(pageLi).attr("class","page-item");   
-          $(pageAT).attr("class","page-link");      
-          // $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
-          $(pageAT).append(i);   
-          if(i == num){
-            $(pageLi).addClass("active"); 
-          }
-          $(pageLi).append(pageAT);     
-          $(pagination).append(pageLi);
-          
-          function makePageArrow(direction, num,pageLength){
-            switch(direction) {
-              case "left":          
-                if( 0 < num && num < pageLength){              
-                  var num = Number(num) -1;               
-                  var pageLi = document.createElement("li");        
-                  var pageLeftArrow = document.createElement("a");
-                  $(pageLeftArrow).attr("href", pageUrl[0] + num + "#board")
-                  var pageLeftArrowImg = document.createElement("img");
-                  $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
-                  $(pageLeftArrow).prepend(pageLeftArrowImg);
-                  $(pageLi).append(pageLeftArrow);
-                  $(pagination).prepend(pageLi);                 
-                }                             
-                break;          
-              case "right":          
-                if( num < pageLength ){
-                  var num = Number(num) +1;                                         
-                  var pageLi = document.createElement("li");                  
-                  var pageRightArrow = document.createElement("a");
-                  $(pageRightArrow).attr("href", pageUrl[0] + "?page=" + num + "#board")
-                  var pageRightArrowImg = document.createElement("img");
-                  $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
-                  $(pageRightArrow).append(pageRightArrowImg);
-                  $(pageLi).append(pageRightArrow);          
-                  $(pagination).append(pageLi); 
-                }
-                break;                          
-            }
-          }
-          makePageArrow("left", num, pageLength);
-          makePageArrow("right", num, pageLength);
-        }
-
-        console.log('pageLength :', pageLength);
-        console.log('pagination :', pagination);
-
-        for (var i = 0; i < stock.length; i++) {
+        // var total = stock.length
+        for (var j = 0; j < stock.length; j++) {
 
           // 시간별 시세 테이블 바디
           var realtimeTbody = $(".stock-time")
-
-          var el = stock[i];
+            
+          var el = stock[j];
           var dateTime = el.datetime.substr(el.datetime.length - 8)
           var dateTimeS = dateTime.substr(0,5) 
           var nego = el.nego
@@ -143,12 +111,15 @@ $(function() {
           var buy = el.buy
           var amountDiff = el.amount_diff
 
-          var newTr = realtimeTbody.append("<tr class='tr-hover'>" + "<td>" + dateTimeS + "</td>" + 
+          var newTr = realtimeTbody.append(
+            "<tr class='tr-hover realtime-1'>" + 
+            "<td>"+ dateTimeS + "</td>" + 
             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
             "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
-            "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + "</tr>"
+            "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + 
+            "</tr>"
           )
 
           if ( diff.toString().indexOf('-') !== -1 ) {
@@ -157,9 +128,74 @@ $(function() {
             $('.diff-t').attr('class', 'arrow-u')
           }
         }
+        function pagination() {
+          $('.page-num').each(function() {
+            $(this).click(function(){
+              $('.realtime-1 td').empty()
+              // getSecondRealtime(index);
+              var index = Number(1)
+              index = parseInt($(this).text())
 
-        $('.number').number(true)        
+              $.ajax({
+                url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
+                async: true,
+                type: "GET",
+                dataType: "json",
+                crossDomain: true,
+                success: function(data) {
+                  
+                  var data = data
+                  var stockMain = data.data
+                  var stock = stockMain.each_stock
+                  // var total = stock.length
+                  
+                  for (var j = 0; j < stock.length; j++) {
 
+                    // 시간별 시세 테이블 바디
+                    var realtimeTbody = $(".stock-time")
+                    // var realtimeTr = $(".realtime-1")
+                      
+                    var el = stock[j];
+                    var dateTime = el.datetime.substr(el.datetime.length - 8)
+                    var dateTimeS = dateTime.substr(0,5) 
+                    var nego = el.nego
+                    var diff = el.diff
+                    var sell = el.sell
+                    var buy = el.buy
+                    var amountDiff = el.amount_diff
+
+                    $('.realtime-1').eq(0).html("<td>" + dateTimeS + "</td>") 
+                    // $('.realtime-1:nth-child(1)').html("<td>" + dateTimeS + "</td>")
+
+                    // realtimeTbody.append(
+                    // var newTr = realtimeTbody.append(
+                      // "<tr class='tr-hover realtime-1'>" + 
+                      // "<td>" + dateTimeS + "</td>" + 
+                      // "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
+                      // "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+                      // "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
+                      // "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
+                      // "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" 
+                      // "</tr>"
+                    // )
+
+                    // $('.rt1 span').append(dateTimeS)
+
+                    if ( diff.toString().indexOf('-') !== -1 ) {
+                      $('.diff-t').attr('class', 'arrow-d')
+                    } else {
+                      $('.diff-t').attr('class', 'arrow-u')
+                    }
+                  }
+                }, 
+                error: function() {
+                  alert("failed");
+                }
+              }).responseText;
+            });
+          });
+        }
+        pagination()
       }, 
       error: function() {
         alert("failed");
@@ -419,13 +455,6 @@ $(function() {
         }
       }).responseText;
     })
-  }
-  function pagination() {
-    // $('.page-item').each(function(index) {
-    //   $(this).click(function(){
-    //     getSecondRealtime(index);
-    //   });
-    // });
   }
 });
 
