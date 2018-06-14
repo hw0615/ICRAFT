@@ -188,17 +188,42 @@ var Cognito = window.Cognito || {};
 
         // set method in circuit.html
         $('#postForm').submit(handlePostArticle);
-    });
+    });   
 
     function displayUpdate(i, text) {
         $('#updates').append($(
-            '<tr>' +
+            '<tr>' + 
             '<td>' + '<a href="news-post.html?page='+ i +'&news_id=' + text['id'] + '">' +
             text['title'] + '</a></td>' +
             '<td>' + text['date'] + '</td>' +
             '<td>' + text['count'] + '</td>' +
+            // '<td>' + '<button class="get-btn" onclick="'+ deleteArticle(text['id'])+'" style="margin-top:0; width: 50px">삭제</button>' +
+            '<td>' + text['count'] + '</td>' +
+
             '</tr>'
         ));
+    }
+
+    function deleteArticle(id) {
+        console.log('11 :', 11);
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/delete',            
+            contentType: 'application/json; charset= utf-8',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                "object_id": id,
+                "object_name": "news"
+            }),
+            success: completeArticleRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+            }
+        });
     }
 
     function getUrlParam(param) {
@@ -252,12 +277,11 @@ var Cognito = window.Cognito || {};
                 'count': 0
             }
         }
-        console.log('box :', box);
-        
-        debugger;
-
+        console.log('box :', box);                
         postArticle( category ,box);
         event.preventDefault();        
     }    
+    
+    
 
 }(jQuery));
