@@ -757,6 +757,9 @@ section {
     section {
       background-position-y: -220px; } }
 
+article .article .article-wrapper .display-none {
+  display: none; }
+
 article .article .article-wrapper canvas {
   margin: 80px 0; }
 
@@ -767,12 +770,24 @@ article .article .article-wrapper .emp {
 article .article .article-wrapper .nav-tabs a {
   color: #666; }
 
+article .article .article-wrapper .tab-content {
+  position: relative; }
+  article .article .article-wrapper .tab-content .loading-chart {
+    height: 265px; }
+    article .article .article-wrapper .tab-content .loading-chart img {
+      width: 30%;
+      position: absolute;
+      left: 35%;
+      top: 15%; }
+
 article .article .article-wrapper .table-wrap {
   margin-bottom: 85px; }
   article .article .article-wrapper .table-wrap table {
     margin-bottom: 0; }
     article .article .article-wrapper .table-wrap table .stock-time {
       position: relative; }
+    article .article .article-wrapper .table-wrap table .loading-chart {
+      height: 435px; }
     article .article .article-wrapper .table-wrap table .loading {
       height: 370px; }
       article .article .article-wrapper .table-wrap table .loading img {
@@ -780,8 +795,6 @@ article .article .article-wrapper .table-wrap {
         position: absolute;
         left: 35%;
         top: 25%; }
-    article .article .article-wrapper .table-wrap table .display-none {
-      display: none; }
     article .article .article-wrapper .table-wrap table .arrow-u {
       position: relative;
       bottom: 15px;

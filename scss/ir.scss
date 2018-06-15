@@ -10,6 +10,9 @@ section {
 article {
   .article {
     .article-wrapper {
+      .display-none {
+        display: none;
+      }
       canvas {
         margin: 80px 0;
       }
@@ -22,12 +25,27 @@ article {
           color: #666;
         }
       }
+      .tab-content {
+        position: relative;
+        .loading-chart {
+          height: 265px;
+          img {
+            width: 30%;
+            position: absolute;
+            left: 35%;
+            top: 15%;
+          }
+        }
+      }
       .table-wrap {
         margin-bottom: 85px;
         table {
           margin-bottom: 0;
           .stock-time {
             position: relative;
+          }
+          .loading-chart {
+            height: 435px;
           }
           .loading {
             height: 370px;
@@ -37,9 +55,6 @@ article {
               left: 35%;
               top: 25%;
             }
-          }
-          .display-none {
-            display: none;
           }
           .arrow-u{
             position: relative;

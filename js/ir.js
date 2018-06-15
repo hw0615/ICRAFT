@@ -2,7 +2,8 @@ $(function() {
 
   getFirstRealtime()
   getSecondRealtime()
-  getTwoWeeks()
+  // getTwoWeeks()
+  getTwoWeeksPages()
   getChart()
   
   function getFirstRealtime() {
@@ -16,7 +17,7 @@ $(function() {
         var data = data
         var stockMain = data.data
         var stock = stockMain.each_stock
-        // console.log('data :', data);
+        console.log('data :', data);
 
         // 최상단 현재 아이크래프트 주가 정보
         var lastDay = stockMain.lastday
@@ -38,8 +39,20 @@ $(function() {
         "<td width='15%' class='subject subject-icraft' scope='row'>" + "저가 " + "<span class='low_price number'>" + low_price + "</span>" + "</td>"
         )
 
-        if ( $(".lastday") > $(".now_price") ) {
+        // if ( $(".lastday") > $(".now_price") ) {
+        //   $(".now_price").css('color', 'blue')
+        // } else if ( $(".lastday") === $(".now_price") ) {
+        //   $(".now_price").css('color', '#333')
+        //   $('.arrow').removeClass('arrow-u')
+        // }
+        
+        if ( lastDay > now_price ) {
           $(".now_price").css('color', 'blue')
+          console.log('haha > :');
+        } else if ( lastDay === now_price ) {
+          $(".now_price").css('color', '#333')
+          console.log('haha ===:');
+          $('.arrow').removeClass('arrow-u')
         }
         
         if ( diff.toString().indexOf('-') !== -1 ) {
@@ -48,7 +61,6 @@ $(function() {
         } else {
           $('.arrow').attr('class', 'arrow-u')
         }
-
         
         // 페이지네이션 목록 출력
         var total = stock.length
@@ -70,8 +82,11 @@ $(function() {
           // }
           $(pageLi).append(pageAT);     
           $(pagination).append(pageLi);
-        }
 
+          if ( i > 10 ) {
+            
+          }
+        }
         $('.number').number(true)
       }, 
       error: function() {
@@ -122,29 +137,6 @@ $(function() {
             "</tr>"
           )
 
-          // var makeTr = document.createElement('tr')
-          // var newTr = $(makeTr).attr('class','tr-hover realtime-1')
-
-          // // 시간별 시세 테이블 바디
-          // var realtimeTbody = $(".stock-time")
-          // var realtimeTr = $(".realtime-1")
-
-          // var makeTd = document.createElement('td')
-          // var numberTd = $(makeTd).append(numberSpan)
-          // var diffTd = $(makeTd).append(diffSpan)
-          
-          // var makeSpan = document.createElement('span')
-          // var diffSpan = $(makeSpan).attr('class', 'diff')
-          // var numberSpan = $(makeSpan).attr('class', 'number')
-
-          // realtimeTbody.append(newTr)
-          // var firstTd = realtimeTr.append($(makeTd).append(dateTimeS))
-          // var secondTd = realtimeTr.append($(numberTd).append(nego))
-          // var thirdTd = realtimeTr.append($(diffTd).append(diff))
-          // var fourthTd = realtimeTr.append($(numberTd).append(sell))
-          // var fifthTd = realtimeTr.append($(numberTd).append(buy))
-          // var sixthTd = realtimeTr.append($(numberTd).append(amountDiff))
-
           if ( diff.toString().indexOf('-') !== -1 ) {
             $('.diff-t').attr('class', 'arrow-d')
           } else {
@@ -158,10 +150,6 @@ $(function() {
               // getSecondRealtime(index);
               var index = Number(1)
               index = parseInt($(this).text())
-
-              // if (index === parseInt( $(this.text()) ) ) {
-              //   $(this).css('background', '#ddd')
-              // }
 
               $.ajax({
                 url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
@@ -191,15 +179,6 @@ $(function() {
                     var buy = el.buy
                     var amountDiff = el.amount_diff
 
-                    // $('.realtime-1 td:nth-child(1)').append(dateTimeS) 
-                    // $('.realtime-1 td:nth-child(1)').append(dateTimeS) 
-                    // $('.realtime-1').eq(1).html("<td>" + nego + "</td>") 
-                    // $('.realtime-1').eq(2).html("<td>" + diff + "</td>") 
-                    // $('.realtime-1').eq(3).html("<td>" + sell + "</td>") 
-                    // $('.realtime-1').eq(4).html("<td>" + buy + "</td>") 
-                    // $('.realtime-1').eq(5).html("<td>" + amountDiff + "</td>") 
-                    // $('.realtime-1:nth-child(0)').html("<td>" + dateTimeS + "</td>")
-
                     // var newTr = realtimeTbody.append(
                     realtimeTbody.append(
                       "<tr class='tr-hover realtime-1'>" + 
@@ -211,8 +190,6 @@ $(function() {
                       "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>"  +
                       "</tr>"
                     )
-
-                    // $('.rt1 span').append(dateTimeS)
 
                     if ( diff.toString().indexOf('-') !== -1 ) {
                       $('.diff-t').attr('class', 'arrow-d')
@@ -247,7 +224,7 @@ $(function() {
       }
     }).responseText;
   }
-  function getTwoWeeks() {
+  function getTwoWeeksPages() {
     // 2weeks
     $.ajax({
       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/1",
@@ -272,22 +249,46 @@ $(function() {
 
           var realtimeTbody = $(".stock-time2")
           
-          var newTr = realtimeTbody.append("<tr class='tr-hover'>" + "<td>" + date + "</td>" +  
+          var newTr = realtimeTbody.append(
+            "<tr class='tr-hover'>" + "<td>" + date + "</td>" +  
             "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
             "<td>"+ "<span class='number'>" + top_price + "</span>" + "</td>" + 
             "<td>"+ "<span class='number'>" + low_price + "</span>" + "</td>" +
-            "<td>"+ "<span class='number'>" + volume + "</span>" + "</td>" + "</tr>"
+            "<td>"+ "<span class='number'>" + volume + "</span>" + "</td>" + 
+            "</tr>"
           )
 
-          $('.number').number(true)
+          // // 페이지네이션 목록 출력
+          // var total = twoWeeks.length
+          // console.log('json_total :', total);
+          // var pageLength = Math.ceil( total / 10 );
+          // var pagination = document.getElementsByClassName("pagination")[0];
+          // console.log('pageLength :', pageLength);
+          
+          // for( var i = 1; i <= pageLength; i++ ){
+          //   var pageLi = document.createElement("li");
+          //   var pageAT = document.createElement("a");        
+          //   $(pageLi).attr("class","page-item");   
+          //   $(pageAT).attr("class","page-link page-num");      
+          //   // $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+          //   $(pageAT).append(i);   
+          //   // $(pageLi).append(i);   
+          //   // if(i == index){
+          //   //   $(pageLi).addClass("active"); 
+          //   // }
+          //   $(pageLi).append(pageAT);     
+          //   $(pagination).append(pageLi);
+          // }
 
-          if ( diff.toString().indexOf('-') !== -1 ) {
-            $('.diff-t').attr('class', 'arrow-d')
-          } else {
-            $('.diff-t').attr('class', 'arrow-u')
-          }
+          // $('.number').number(true)
+
+          // if ( diff.toString().indexOf('-') !== -1 ) {
+          //   $('.diff-t').attr('class', 'arrow-d')
+          // } else {
+          //   $('.diff-t').attr('class', 'arrow-u')
+          // }
         }
       }, 
       error: function() {
@@ -341,6 +342,12 @@ $(function() {
         }
         $('.number').number(true);        
       }, 
+      beforeSend:function(){
+        $('.loading-chart').removeClass('display-none');
+      },
+      complete:function(){
+        $('.loading-chart').addClass('display-none');
+      },
       error: function() {
         alert("failed");
       }
@@ -397,6 +404,12 @@ $(function() {
           }
           
         }, 
+        beforeSend:function(){
+          $('.loading-chart').removeClass('display-none');
+        },
+        complete:function(){
+          $('.loading-chart').addClass('display-none');
+        },
         error: function() {
           alert("failed");
         }
@@ -445,6 +458,12 @@ $(function() {
           }
     
         }, 
+        beforeSend:function(){
+          $('.loading-chart').removeClass('display-none');
+        },
+        complete:function(){
+          $('.loading-chart').addClass('display-none');
+        },
         error: function() {
           alert("failed");
         }
@@ -495,6 +514,12 @@ $(function() {
             });
           }
         }, 
+        beforeSend:function(){
+          $('.loading-chart').removeClass('display-none');
+        },
+        complete:function(){
+          $('.loading-chart').addClass('display-none');
+        },
         error: function() {
           alert("failed");
         }
