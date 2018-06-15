@@ -10,15 +10,124 @@ section {
 article {
   .article {
     .article-wrapper {
-      svg {
-        // width: 100%;
+      canvas {
+        margin: 80px 0;
       }
-      .article-text {
+      .emp {
+        padding-bottom: 0;
+        margin-left: 5px;
+      }
+      .nav-tabs {
+        a {
+          color: #666;
+        }
+      }
+      .table-wrap {
         margin-bottom: 85px;
         table {
-          margin-top: 15px;
           margin-bottom: 0;
-          tr {
+          .stock-time {
+            position: relative;
+          }
+          .loading {
+            height: 370px;
+            img {
+              width: 30%;
+              position: absolute;
+              left: 35%;
+              top: 25%;
+            }
+          }
+          .display-none {
+            display: none;
+          }
+          .arrow-u{
+            position: relative;
+            bottom: 15px;
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 8px solid red;
+            margin-right: 5px;            
+          }
+          .arrow-d{
+            position: relative;
+            top: 15px;
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid blue;
+            margin-right: 5px;
+          }
+          .volume {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+          }
+          .stock-header-tr1 {
+            font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            .lastDay {
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+            .top_price {
+              color: red;
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+            .volume-text {
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+          }
+          .stock-header-tr2 {
+            .subject-icraft {
+              background: none;
+              border-top: none;
+            }
+            .start_price {
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+            .low_price {
+              color: blue;
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
+          }
+          .tr-hover {
             &:hover {
               background-color: #f5f5f5;
             }
@@ -41,10 +150,51 @@ article {
               font-size: 14px;
             }
           }
+          .subject-icraft {
+            // border: 1px solid #ddd;
+            border-top: 2px solid #aaa;
+            border-bottom: 1px solid #ddd;
+            background: #F5F5F5;
+            + .subject-icraft {
+              background: none;
+            }
+          }
+          .subject-icraft-main {
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            // padding: 8px 8px 5px 0;
+            .now_price {
+              font-size: 26px;
+              color: red;              
+              @include respond-to($phone) {
+                font-size: 14px;
+              }
+              @include respond-to($tablet) {
+                font-size: 18px;
+              }
+            }
+            .diff {
+              // color: red;     
+              font-size: 16px;
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }     
+            }
+            + td {
+              margin-right: 1px solid #ddd;
+            }
+          }
+          .subject-sub {
+            border-bottom: 1px solid #ddd;
+          }
+          
           td {
-            font-size: 16px;
             text-align: center;
             padding-left: 15px;
+            height: 37px;
             @include respond-to($phone) {
               font-size: 10px;
             }
@@ -57,13 +207,14 @@ article {
           display: block;
           margin: 0 auto;
           margin-top: 30px;
-          width: 300px;
+          width: 100%;
           height: auto;
           text-align: center;
           font-size: 0;      
           li {
             display:inline-block;
             a {
+              cursor: pointer;
               color: #666;  
               border:none;        
               font-size: 15px;
@@ -80,7 +231,8 @@ article {
                 background-color:  inherit;           
                 margin: 0 10px;
                 &:hover {
-                  color: #337ab7;
+                  // color: #337ab7;
+                  background: #ddd;
                 }
               }
             }

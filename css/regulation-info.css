@@ -328,9 +328,8 @@ legend, caption {
     width: 45px;
     max-width: 45px;
     height: 45px;
-    font-size: 32px;
-    padding: 0;
-    padding-top: 5px; }
+    font-size: 25px;
+    padding: 0; }
 
 .arrow-down {
   position: absolute;
@@ -793,3 +792,23 @@ article .article .article-text-title {
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         article .article .article-text-title .article-text > p {
           font-size: 15px; } }
+    article .article .article-text-title .article-text ul {
+      font-size: 16px; }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article .article-text-title .article-text ul {
+          font-size: 10px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article .article-text-title .article-text ul {
+          font-size: 14px; } }
+      article .article .article-text-title .article-text ul li {
+        font-size: 16px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article .article-text-title .article-text ul li {
+            font-size: 10px; } }
+        @media only screen and (min-width: 601px) and (max-width: 991px) {
+          article .article .article-text-title .article-text ul li {
+            font-size: 14px; } }
+      article .article .article-text-title .article-text ul .left {
+        padding-left: 15px; }
+      article .article .article-text-title .article-text ul .left-2 {
+        padding-left: 35px; }

@@ -45,6 +45,30 @@ article {
             font-size: 15px;
           }
         }
+        ul {
+          font-size: 16px;
+          @include respond-to($phone) {
+            font-size: 10px;          
+          }
+          @include respond-to($tablet) {
+            font-size: 14px;
+          }
+          li {
+          font-size: 16px;
+          @include respond-to($phone) {
+            font-size: 10px;          
+          }
+          @include respond-to($tablet) {
+            font-size: 14px;
+          }
+          }
+          .left {
+            padding-left: 15px;
+          }
+          .left-2 {
+            padding-left: 35px;
+          }
+        }
       }
     }
   }

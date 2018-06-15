@@ -328,9 +328,8 @@ legend, caption {
     width: 45px;
     max-width: 45px;
     height: 45px;
-    font-size: 32px;
-    padding: 0;
-    padding-top: 5px; }
+    font-size: 25px;
+    padding: 0; }
 
 .arrow-down {
   position: absolute;
