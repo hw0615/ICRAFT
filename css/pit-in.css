@@ -767,3 +767,6 @@ article .article-wrapper {
     padding-bottom: 20px !important; }
   article .article-wrapper .note-editor {
     margin-top: 10px; }
+  article .article-wrapper input, article .article-wrapper select {
+    display: inline-block;
+    margin-right: 10px; }

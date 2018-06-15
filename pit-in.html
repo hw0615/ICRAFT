@@ -59,13 +59,20 @@
             </p>
             <div class="article">
                 <div class="article-wrapper">
-                    <form id="postForm">
-                        <input type="hidden" id="article_id">
+                    <form id="postForm">                        
+                        <label for="category">카테고리:</label>
+                        <select name="category" id="category">
+                            <option value="news">뉴스</option>                            
+                            <option value="recruit">채용게시판</option>
+                        </select>                        
+                        <input type="text" id="article_id">
                         <label for="subject">제목: </label>
                         <input id="article-title" type="text" name="subject">
+                        <div class="cate-form"></div>
                         <textarea id="summernote" name="editordata"></textarea>
                         <input class="get-btn" type="submit" value="등록하기">
                     </form>
+                    <script src="./js/pit-in-form.js"></script>                
                 </div>
             </div>
         </article>

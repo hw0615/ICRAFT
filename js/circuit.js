@@ -16,16 +16,52 @@ var Cognito = window.Cognito || {};
         window.location.href = '/signin.html';
     });
 
-    // get all article list
-    function getAllArticles(page) {
+    // default param
+    var page = getUrlParam('page');        
+
+    // tab btn
+    var tabBtn = $(".tab-btn a");    
+    var tableLi = $(".table-tab li");    
+
+    // get tab(recruit, news) data
+    $(tabBtn[0]).click(function(event){
+        event.preventDefault();
+        $(tableLi).removeClass("active")
+        $(tableLi[0]).addClass("active")
+        var cate = 'recruit';
+        console.log('page :', page);
+        var dataLength = $(".active .table tr").length;
+        console.log('dataLength :', dataLength);
+        if(dataLength < 3) {
+            getTabArticles(cate,page)
+        }
+    })
+    $(tabBtn[0]).click();
+    $(tabBtn[1]).click(function(event){
+        event.preventDefault();
+        $(tableLi).removeClass("active")
+        $(tableLi[1]).addClass("active")
+        var cate = 'news';
+        console.log('page :', page);
+        var dataLength = $(".active .table tr").length;
+        console.log('dataLength :', dataLength);
+
+        if(dataLength < 3) {
+            getTabArticles(cate,page)
+        }        
+    })
+   
+    function getTabArticles(cate,page) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?page='+page,
+            url: _config.api.invokeUrl + '/' + cate + '?page=' + page,
             headers: {
                 Authorization: authToken
             },
-            contentType: 'application/json',
-            success: completeAllArticlesRequest,
+            contentType: 'application/json; charset=utf-8',
+            success: function(data){
+                getTabAllData(cate, data);
+            },
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
                 console.error('Response: ', jqXHR.responseText);
@@ -34,22 +70,145 @@ var Cognito = window.Cognito || {};
         });
         console.log('page :', page);
     }
-    function completeAllArticlesRequest(result) {
-        console.log('Response received from API: ', result);
+    function getTabAllData(cate, result){     
         for (i = 0; i < result['result'].length; i++) {
-            displayUpdate(result['result'][i])
+            tabUpdate(cate,i,result['result'][i])
+        }          
+    }
+
+    function tabUpdate(cate, i, text) {
+        switch(cate){
+            case "recruit":
+                $('#recruit').append($(
+                    '<tr>' + 
+                    '<td>' + text['id'] + '</td>' +                
+                    '<td>' + '<a href="recruitment-posts.html?page='+ i +'&id=' + text['id'] + '">' +
+                    text['title'] + '</a></td>' +
+                    '<td>' + text['date'] + '</td>' +
+                    '<td>' + text['kinds'] + '</td>' +
+                    '<td>' + text['available'] + '</td>' +
+                    '<td>' + text['count'] + '</td>' +
+                    // '<td>' + '<button class="get-btn" onclick="'+ deleteArticle(text['id'])+'" style="margin-top:0; width: 50px">삭제</button>' +
+                    '</tr>'
+                ));
+            break;
+            case "news":
+                $('#news').append($(
+                    // '<tr>' + 
+                    // '<td>' + text['id'] + '</td>' +                
+                    // '<td>' + '<a href="news-post.html?page='+ i +'&id=' + text['id'] + '">' +
+                    // text['title'] + '</a></td>' +
+                    // '<td>' + text['date'] + '</td>' +
+                    // '<td>' + text['count'] + '</td>' +
+                    // '<td>' + '<button class="get-btn" onclick="'+ deleteArticle(text['id'])+'" style="margin-top:0; width: 50px">삭제</button>' +                    
+                    // '</tr>'
+                    `<tr>
+                        <td>${text['id']}</td>
+                        <td><a href="news-post.html?page=${i}&id=${text['id']}">${text['title']}</a></td>
+                        <td>${text['date']}</td>
+                        <td>${text['count']}</td>
+                        <td><button class="get-btn" onclick="deleteArticle(${text['id']})" style="margin-top:0; width: 50px">삭제</button></td>                        
+                    </tr>`
+                    
+                ));
+            break;
         }
     }
+
+    // get all article list
+    // function getAllArticles(page) {
+    //     $.ajax({
+    //         method: 'GET',
+    //         url: _config.api.invokeUrl + '/news?page='+page,
+    //         headers: {
+    //             Authorization: authToken
+    //         },
+    //         contentType: 'application/json; charset=utf-8',
+    //         success: completeAllArticlesRequest,
+    //         error: function ajaxError(jqXHR, textStatus, errorThrown) {
+    //             console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+    //             console.error('Response: ', jqXHR.responseText);
+    //             alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+    //         }
+    //     });
+    //     console.log('page :', page);
+    // }
+    // function completeAllArticlesRequest(result) {
+    //     console.log('Response received from API: ', result);
+    //     for (i = 0; i < result['result'].length; i++) {
+    //         displayUpdate(i,result['result'][i])
+    //     }
+    //     var url = window.location.href;
+    //     var checkUrlKey = url.split("/").slice(-1)[0];
+
+    //     if(checkUrlKey !== 'pit-in.html'){
+    //         var pageUrl = window.location.href.split("?");
+    //         // console.log('pageUrl :', pageUrl[0]);
+    //         var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, "");      
+    //         // console.log('pageNum :', pageNum);        
+    //         // MAKE PAGENATION
+    //         var pageLength = Math.ceil((result.total)/10);      
+    //         var pagination = document.getElementsByClassName("pagination")[0];
+    //         // console.log('pagenation :', pagination);
+    //         // console.log('pageLength :', pageLength);
+    //         for(var i=1; i <= pageLength; i++){
+    //         var pageLi = document.createElement("li");
+    //         var pageAT = document.createElement("a");        
+    //         $(pageLi).attr("class","page-item");   
+    //         $(pageAT).attr("class","page-link");      
+    //         $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+    //         $(pageAT).append(i);   
+    //         if(i == pageNum){
+    //             $(pageLi).addClass("active"); 
+    //         }
+    //         $(pageLi).append(pageAT);     
+    //         $(pagination).append(pageLi);
+    //         }      
+            
+    //         function makePageArrow(direction, pageNum,pageLength){
+    //             switch(direction) {
+    //                 case "left":          
+    //                 if( 0 < pageNum && pageNum < pageLength){              
+    //                     var pageNum = Number(pageNum) -1;               
+    //                     var pageLi = document.createElement("li");        
+    //                     var pageLeftArrow = document.createElement("a");
+    //                     $(pageLeftArrow).attr("href", pageUrl[0] + pageNum + "#board")
+    //                     var pageLeftArrowImg = document.createElement("img");
+    //                     $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
+    //                     $(pageLeftArrow).prepend(pageLeftArrowImg);
+    //                     $(pageLi).append(pageLeftArrow);
+    //                     $(pagination).prepend(pageLi);                 
+    //                 }                             
+    //                 break;          
+    //                 case "right":          
+    //                 if( pageNum < pageLength ){
+    //                     var pageNum = Number(pageNum) +1;                                         
+    //                     var pageLi = document.createElement("li");                  
+    //                     var pageRightArrow = document.createElement("a");
+    //                     $(pageRightArrow).attr("href", pageUrl[0] + "?page=" + pageNum + "#board")
+    //                     var pageRightArrowImg = document.createElement("img");
+    //                     $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
+    //                     $(pageRightArrow).append(pageRightArrowImg);
+    //                     $(pageLi).append(pageRightArrow);          
+    //                     $(pagination).append(pageLi); 
+    //                 }
+    //                 break;                          
+    //             }
+    //         }
+    //         makePageArrow("left", pageNum, pageLength);
+    //         makePageArrow("right", pageNum, pageLength);
+    //     }        
+    // }
 
     // get single article
     function getArticle(article_id) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/circuit?article='+article_id,
+            url: _config.api.invokeUrl + '/news?article='+ article_id,
             headers: {
                 Authorization: authToken
             },
-            contentType: 'application/json',
+            contentType: 'application/json; charset= utf-8',
             success: completeArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
@@ -59,25 +218,21 @@ var Cognito = window.Cognito || {};
         });
     }
     function completeArticleRequest(result) {
-        console.log('Response received from API: ', result);
+        // console.log('Response received from API: ', result);
         $('#article-title').val(result['result'].title);
         $('#summernote').summernote('code', result['result'].body);
     }
 
     // post article
-    function postArticle(article_id, title, body) {
+    function postArticle( category, box) {
         $.ajax({
             type: 'POST',
-            url: _config.api.invokeUrl + '/pit-in',
+            url: _config.api.invokeUrl + '/' + category,
             headers: {
                 Authorization: authToken
             },
-            data: JSON.stringify({
-                'article_id': article_id,
-                'title': title,
-                'body': body
-            }),
-            contentType: 'application/json',
+            data: JSON.stringify(box),          
+            contentType: 'application/json; charset= utf-8',
             success: completePostArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error posting news: ', textStatus, ', Details: ', errorThrown);
@@ -88,7 +243,7 @@ var Cognito = window.Cognito || {};
     }
     function completePostArticleRequest(result) {
         console.log('Successfully posting, ' + result);
-        window.location.href = 'circuit.html';
+        window.location.href = 'circuit.html?page=1';
     }
 
     // Initialize
@@ -98,16 +253,16 @@ var Cognito = window.Cognito || {};
         }
 
         // load datas
-        var article_id = getUrlParam('article');
+        var article_id = getUrlParam('article');        
         if (article_id == undefined) { // circuit.html
             console.log('enter get all articles');
             var page = getUrlParam('page');
-            if (page == undefined){
-                getAllArticles(1);
-            }
-            else{
-                getAllArticles(page);
-            }
+            // if (page == undefined){
+            //     getAllArticles(1);
+            // }
+            // else{
+            //     getAllArticles(page);
+            // }
         } else { // pit-in.html
             // create new article, if article_id == -1
             $('#article_id').val(article_id);
@@ -132,17 +287,44 @@ var Cognito = window.Cognito || {};
 
         // set method in circuit.html
         $('#postForm').submit(handlePostArticle);
-    });
+    });   
 
-    function displayUpdate(text) {
-        $('#updates').append($(
-            '<tr>' +
-            '<td>' + '<a href="/pit-in.html?article=' + text['id'] + '">' +
-            text['title'] + '</a></td>' +
-            '<td>' + text['date'] + '</td>' +
-            '<td>' + text['count'] + '</td>' +
-            '</tr>'
-        ));
+
+    // function displayUpdate(i, text) {
+    //     $('#recruit').append($(
+    //         '<tr>' + 
+    //         '<td>' + '<a href="news-post.html?page='+ i +'&news_id=' + text['id'] + '">' +
+    //         text['title'] + '</a></td>' +
+    //         '<td>' + text['date'] + '</td>' +
+    //         '<td>' + text['count'] + '</td>' +
+    //         // '<td>' + '<button class="get-btn" onclick="'+ deleteArticle(text['id'])+'" style="margin-top:0; width: 50px">삭제</button>' +
+    //         '<td>' + text['count'] + '</td>' +
+    //         '</tr>'
+    //     ));
+    // }
+
+    deleteArticle = function deleteArticle(id) {
+        
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/delete',            
+            contentType: 'application/json; charset= utf-8',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                "object_id": id,
+                "object_name": "news"
+            }),
+            success: function(){
+                window.location.href = 'circuit.html?page=1';
+            },
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+            }
+        });
     }
 
     function getUrlParam(param) {
@@ -168,13 +350,39 @@ var Cognito = window.Cognito || {};
     }
 
     function handlePostArticle(event) {
-        var article_id = $('#article_id').val();
-        var title = $('#article-title').val();
-        var body = $('#summernote').summernote('code');
-        event.preventDefault();
+        var box = {};
+        var category = $('#category').val();
+        var article_id = $('#article_id').val();        
+        var title = $('#article-title').val();        
+        var body = $('#summernote').summernote('code');        
+        
+        if(category == "recruit"){
+            var date = $('#due-to').val(); 
+            var kinds = $('#type').val();
+            var available = $('#available').val();
+            box = {
+                'id' : article_id,
+                'title' : title,
+                'date' : date,
+                'kinds' : kinds,
+                'available' : available,
+                'body' : body,
+                'count': 0
+            }         
+        } else if(category == "news"){
+            box = {
+                'id' : article_id,
+                'title' : title,
+                'date' : $('#date').val(),
+                'body' : body,
+                'count': 0
+            }
+        }
+        console.log('box :', box);                
+        postArticle( category ,box);
+        event.preventDefault();        
+    }    
+    
+    
 
-        console.log(article_id);
-
-        postArticle(article_id, title, body);
-    }
 }(jQuery));

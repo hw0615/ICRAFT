@@ -57,20 +57,20 @@
             보내주신 의견에 대해 빠른 답변을 드리겠습니다.            
         </p> 
         <form class="support-form" action="">                    
-          <label for="">제목</label>
-          <input type="text" placeholder="Subject"/>
+          <label for="title">제목</label>
+          <input id="title" name="title" type="text" placeholder="Subject"/>
           <div class="col">
-              <label for="">이름</label>
-              <input type="text" placeholder="Name"/>              
+              <label for="name">이름</label>
+              <input id="name" name="name" type="text" placeholder="Name"/>              
           </div>
           <div class="col">
-              <label for="">이메일</label>
-              <input type="text" placeholder="E-mail"/>   
+              <label for="eMail">이메일</label>
+              <input id="eMail" name="eMail" type="text" placeholder="E-mail"/>   
           </div>             
           <label for="">문의사항</label>
-          <textarea name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>          
-          <input class="input-file" type="file" name="profile">                    
-          <a class="get-btn" href="submit">문의하기</a>
+          <textarea id="content" name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>          
+          <input id="file" class="input-file" type="file" name="file">                    
+          <a class="get-btn" href="#">문의하기</a>
         </form>
       </div>
     </article>
@@ -80,6 +80,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/support.js"></script>
 </body>
 
 </html>

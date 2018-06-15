@@ -2,10 +2,9 @@ $(function () {
 
   var box;    
   var pageUrl = window.location.href.split("?");    
-  console.log('pageUrl :', pageUrl[1]);
-  var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, ""); 
-    
-  console.log('pageNum :', pageNum);
+  // console.log('pageUrl :', pageUrl[1]);
+  var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, "");     
+  // console.log('pageNum :', pageNum);
   $.ajax({    
     type: "GET",
     url: 'https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/news?page=' + pageNum,
@@ -16,7 +15,7 @@ $(function () {
     success: function(data){ 
 
       var box = data
-      // console.log('box :', box);  
+      console.log('box :', box);  
 
       var board = $("#board .table tbody");
       var boardTitle = [];
@@ -27,23 +26,25 @@ $(function () {
       for(var key in box.result[0]){
         boardTitle.push(key)
       }              
-      // console.log('boardTitle :', boardTitle);
+      console.log('boardTitle :', boardTitle);
       // MAKE AND APPEND TR TD
       for(var j=0; j < box.result.length; j++){        
         var trT = document.createElement("tr");         
         for(var i=0; i < boardTitle.length; i++){
-          if(i==1){  
-            var aT = document.createElement("a");   
-            $(aT).attr("href", "news-post.html?page=" + i  + "&news_id=" + box.result[j][boardTitle[0]]);
-            var tdT = document.createElement("td");                             
-            $(aT).append(box.result[j][boardTitle[i]]);        
-            $(tdT).append(aT);  
-            $(trT).append(tdT);                                
-          } else if(i==0 || i > 1){
-            var tdT = document.createElement("td");     
-            $(tdT).append(box.result[j][boardTitle[i]]);       
-            $(trT).append(tdT);             
-          } 
+          if(i!==2){ //body 제외
+            if(i==1){  
+              var aT = document.createElement("a");   
+              $(aT).attr("href", "news-post.html?page=" + pageNum  + "&news_id=" + box.result[j][boardTitle[0]]);
+              var tdT = document.createElement("td");                             
+              $(aT).append(box.result[j][boardTitle[i]]);        
+              $(tdT).append(aT);  
+              $(trT).append(tdT);                                
+            } else if(i==0 || i > 1){
+              var tdT = document.createElement("td");     
+              $(tdT).append(box.result[j][boardTitle[i]]);       
+              $(trT).append(tdT);             
+            } 
+          }
         }      
         $(board).append(trT);
       }
@@ -58,7 +59,7 @@ $(function () {
         var pageAT = document.createElement("a");        
         $(pageLi).attr("class","page-item");   
         $(pageAT).attr("class","page-link");      
-        $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+        $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");        
         $(pageAT).append(i);   
         if(i == pageNum){
           $(pageLi).addClass("active"); 
