@@ -42,6 +42,8 @@ article {
     margin: 0 auto;  
     .search-bar {
       float: right;
+      margin-bottom: 20px;
+      height: 35px;  
       font-size: 0;
       input {
         border-radius: 2px 0 0 2px;
@@ -83,13 +85,34 @@ article {
         }
       }
     }   
-    .search-bar {
-      margin-bottom: 20px;
-      height: 35px;      
+
+    .tab-btn {
+      display: inline-block; 
+      width: 100%; 
+        a {
+        background: #337ab7;
+        color: white;
+        float: left; 
+        padding: 20px 0;
+        width: 50%;
+        text-align: center;
+      }  
     }
+
+    .table-tab {
+      li {
+        display: none; 
+        margin: 0;
+        &.active {
+          display: block;
+        }
+      }
+    }  
+
     .tableArea {
       clear: both;      
     }   
+    
     table {
       width:100%;      
       tr + tr {

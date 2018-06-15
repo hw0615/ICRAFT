@@ -776,6 +776,8 @@ article .article-wrapper {
   margin: 0 auto; }
   article .article-wrapper .search-bar {
     float: right;
+    margin-bottom: 20px;
+    height: 35px;
     font-size: 0; }
     article .article-wrapper .search-bar input {
       border-radius: 2px 0 0 2px;
@@ -807,9 +809,21 @@ article .article-wrapper {
         margin-top: 15px; }
       article .article-wrapper > ul > li li {
         margin: 5px 10px; }
-  article .article-wrapper .search-bar {
-    margin-bottom: 20px;
-    height: 35px; }
+  article .article-wrapper .tab-btn {
+    display: inline-block;
+    width: 100%; }
+    article .article-wrapper .tab-btn a {
+      background: #337ab7;
+      color: white;
+      float: left;
+      padding: 20px 0;
+      width: 50%;
+      text-align: center; }
+  article .article-wrapper .table-tab li {
+    display: none;
+    margin: 0; }
+    article .article-wrapper .table-tab li.active {
+      display: block; }
   article .article-wrapper .tableArea {
     clear: both; }
   article .article-wrapper table {
