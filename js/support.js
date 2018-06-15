@@ -14,21 +14,28 @@ function getData(){
 }
 
 function getPost(){
-    // console.log('box :', box);
+    console.log('box :', box);
+    
     var supportTitle = document.getElementById("title");
     var supportName = document.getElementById("name");
     var supportEmail = document.getElementById("eMail");
     var supportContent = document.getElementById("content");
-    
+    var supportFile = document.getElementById("file");
+    var box = new FormData();
+    console.log('box :', box);
+    box.append( "title", $(supportTitle).val());
+    box.append( "name", $(supportName).val());
+    box.append("email", $(supportEmail).val());
+    box.append("message", $(supportContent).val());
+    box.append("filename" ,$(supportFile).files);
+    console.log('box :', box);
+
     $.ajax({
         method: 'POST',
         url: _config.api.invokeUrl + '/contact',   
-        data: JSON.stringify({
-            "title" : $(supportTitle).val(),
-            "name" : $(supportName).val(),
-            "email" : $(supportEmail).val(),
-            "message" : $(supportContent).val(),  
-        }),
+        data: JSON.stringify(
+           box
+        ),
         contentType: 'application/json; charset=utf-8',
         success: completePost,
         error: function ajaxError(jqXHR, textStatus, errorThrown) {

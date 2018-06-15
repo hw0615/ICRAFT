@@ -14,6 +14,7 @@ $(function () {
 
       var box = data;      
       console.log('box :', box);
+      console.log('box.result.date :', box.result);
       // MAKE TITLE 
       var title =  box.result.title;          
       $(".article-title").append(title);
