@@ -818,10 +818,10 @@ article .article-wrapper {
       padding: 20px 0;
       width: 50%;
       text-align: center; }
-  article .article-wrapper .table-tab li {
+  article .article-wrapper .table-tab > li {
     display: none;
     margin: 0; }
-    article .article-wrapper .table-tab li.active {
+    article .article-wrapper .table-tab > li.active {
       display: block; }
   article .article-wrapper .tableArea {
     clear: both; }

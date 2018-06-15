@@ -100,7 +100,7 @@ article {
     }
 
     .table-tab {
-      li {
+      > li {
         display: none; 
         margin: 0;
         &.active {

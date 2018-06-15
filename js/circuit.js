@@ -52,7 +52,7 @@ var Cognito = window.Cognito || {};
             getTabArticles(cate,page)
         }        
     })
-   
+      
     function getTabArticles(cate,page) {
         $.ajax({
             method: 'GET',
@@ -62,8 +62,7 @@ var Cognito = window.Cognito || {};
             },
             contentType: 'application/json; charset=utf-8',
             success: function(data){
-                 console.log('Response received from API: ', data);
-
+                console.log('Response received from API: ', data);
                 getTabAllData(cate, data);
             },
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
@@ -93,6 +92,100 @@ var Cognito = window.Cognito || {};
                 ));                
             break;
         }
+    }
+    // pagenation 
+    var pagenationkey = "recruit";
+    switch(pagenationkey){
+        case "recruit":
+            $.ajax({
+                method: 'GET',
+                url: _config.api.invokeUrl + '/' + pagenationkey,           
+                contentType: 'application/json; charset=utf-8',
+                success: function(data){
+                    console.log('Response received from API: recruitpage ', data);
+                    makePagenation(data, )
+                },
+                error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                    console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                    console.error('Response: ', jqXHR.responseText);
+                    alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+                }
+            });
+           pagenationkey = "news";        
+        case "news":
+        $.ajax({
+            method: 'GET',
+            url: _config.api.invokeUrl + '/' + pagenationkey,           
+            contentType: 'application/json; charset=utf-8',
+            success: function(data){
+                console.log('Response received from API: newspage ', data);
+                makePagenation(data)
+            },
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+            }
+        });
+        break;
+    }
+    
+    function makePagenation(data){
+        var url = window.location.href;
+        var checkUrlKey = url.split("/").slice(-1)[0];
+
+        if(checkUrlKey !== 'pit-in.html'){                
+            var pagination = document.getElementsByClassName("pagination")[0];                
+            var pageLength = Math.ceil((data.total)/10);      
+            var pageNum = url.split("=")[1].replace(/[a-z,#,&,_]/g, ""); 
+            $(pagination).empty();
+            
+            for(var i=1; i <= pageLength; i++){
+            var pageLi = document.createElement("li");
+            var pageAT = document.createElement("a");        
+            $(pageLi).attr("class","page-item");   
+            $(pageAT).attr("class","page-link");      
+            $(pageAT).attr("href", "circuit.html?page=" + i );
+            $(pageAT).append(i);   
+            if(i == pageNum){
+                $(pageLi).addClass("active"); 
+            }
+            $(pageLi).append(pageAT);     
+            $(pagination).append(pageLi);
+            }              
+            function makePageArrow(direction, pageNum,pageLength){
+                switch(direction) {
+                    case "left":          
+                    if( 0 < pageNum && pageNum < pageLength){              
+                        var pageNum = Number(pageNum) -1;               
+                        var pageLi = document.createElement("li");        
+                        var pageLeftArrow = document.createElement("a");
+                        $(pageLeftArrow).attr("href", "circuit.html?page=" + pageNum + "#board")
+                        var pageLeftArrowImg = document.createElement("img");
+                        $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
+                        $(pageLeftArrow).prepend(pageLeftArrowImg);
+                        $(pageLi).append(pageLeftArrow);
+                        $(pagination).prepend(pageLi);                 
+                    }                             
+                    break;          
+                    case "right":          
+                    if( pageNum < pageLength ){
+                        var pageNum = Number(pageNum) +1;                                         
+                        var pageLi = document.createElement("li");                  
+                        var pageRightArrow = document.createElement("a");
+                        $(pageRightArrow).attr("href", "circuit.html?page=" + pageNum + "#board")
+                        var pageRightArrowImg = document.createElement("img");
+                        $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
+                        $(pageRightArrow).append(pageRightArrowImg);
+                        $(pageLi).append(pageRightArrow);          
+                        $(pagination).append(pageLi); 
+                    }
+                    break;                          
+                }
+            }
+            makePageArrow("left", pageNum, pageLength);
+            makePageArrow("right", pageNum, pageLength);
+        }     
     }
 
     // get all article list

@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
 
   var box;    
   var pageUrl = window.location.href.split("?");
