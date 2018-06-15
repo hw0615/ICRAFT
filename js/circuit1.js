@@ -1,3 +1,5 @@
+'use strict';
+
 /*global Cognito _config AmazonCognitoIdentity AWSCognito*/
 
 var Cognito = window.Cognito || {};
@@ -17,43 +19,41 @@ var Cognito = window.Cognito || {};
     });
 
     // default param
-    
+    var page = getUrlParam('page');
+
     // tab btn
-    var tabBtn = $(".tab-btn a");    
-    var tableLi = $(".table-tab li");    
+    var tabBtn = $(".tab-btn a");
+    var tableLi = $(".table-tab li");
 
     // get tab(recruit, news) data
-    $(tabBtn[0]).click(function(event){
-        
+    $(tabBtn[0]).click(function (event) {
         event.preventDefault();
-        $(tableLi).removeClass("active")
-        $(tableLi[0]).addClass("active")
-        var page = getUrlParam('page');        
+        $(tableLi).removeClass("active");
+        $(tableLi[0]).addClass("active");
         var cate = 'recruit';
         console.log('page :', page);
         var dataLength = $(".active .table tr").length;
         console.log('dataLength :', dataLength);
-        if(dataLength < 3) {
-            getTabArticles(cate,page)
+        if (dataLength < 3) {
+            getTabArticles(cate, page);
         }
-    })
+    });
     $(tabBtn[0]).click();
-    $(tabBtn[1]).click(function(event){
+    $(tabBtn[1]).click(function (event) {
         event.preventDefault();
-        $(tableLi).removeClass("active")
-        $(tableLi[1]).addClass("active")
-        var page = getUrlParam('page');        
+        $(tableLi).removeClass("active");
+        $(tableLi[1]).addClass("active");
         var cate = 'news';
         console.log('page :', page);
         var dataLength = $(".active .table tr").length;
         console.log('dataLength :', dataLength);
 
-        if(dataLength < 3) {
-            getTabArticles(cate,page)
-        }        
-    })
-   
-    function getTabArticles(cate,page) {
+        if (dataLength < 3) {
+            getTabArticles(cate, page);
+        }
+    });
+    var deleteArticle;
+    function getTabArticles(cate, page) {
         $.ajax({
             method: 'GET',
             url: _config.api.invokeUrl + '/' + cate + '?page=' + page,
@@ -61,9 +61,7 @@ var Cognito = window.Cognito || {};
                 Authorization: authToken
             },
             contentType: 'application/json; charset=utf-8',
-            success: function(data){
-                 console.log('Response received from API: ', data);
-
+            success: function(data) {
                 getTabAllData(cate, data);
             },
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
@@ -74,27 +72,65 @@ var Cognito = window.Cognito || {};
         });
         console.log('page :', page);
     }
-    function getTabAllData(cate, result){     
+    function getTabAllData(cate, result) {
         for (i = 0; i < result['result'].length; i++) {
-            tabUpdate(cate,i,result['result'][i])
-        }          
-    }
+            tabUpdate(cate, i, result['result'][i]);
+        }
+    }   
+    
+    deleteArticle = function deleteArticle(id) {
 
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/delete',
+            contentType: 'application/json; charset= utf-8',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                "object_id": id,
+                "object_name": "news"
+            }),
+            success: function success() {
+                window.location.href = 'circuit.html?page=1';
+            },
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+            }
+        });
+    };
     function tabUpdate(cate, i, text) {
-        switch(cate){
+        switch (cate) {
             case "recruit":
-                $('#recruit').append($(                    
-                    '<tr>\n <td>' + text['id'] + '</td>\n <td><a href="recruitment-board.html?page=' + i + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n <td>' + text['date'] + '</td>\n <td>' + text['kinds'] + '</td>\n <td>' + text['available'] + '</td>\n <td>' + text['count'] + '</td>\n <td><button class="get-btn" onclick="deleteArticle(\'recruit\',' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>\n </tr>'
-                ));
-            break;
+                $('#recruit').append($('<tr>' + '<td>' + text['id'] + '</td>' + '<td>' + '<a href="recruitment-posts.html?page=' + i + '&id=' + text['id'] + '">' + text['title'] + '</a></td>' + '<td>' + text['date'] + '</td>' + '<td>' + text['kinds'] + '</td>' + '<td>' + text['available'] + '</td>' + '<td>' + text['count'] + '</td>' +
+                // '<td>' + '<button class="get-btn" type="button" onclick="'+ deleteArticle(text['id'])+'" style="margin-top:0; width: 50px">삭제</button>' +
+                '</tr>'));
+                break;
             case "news":
-                $('#news').append($(        
-                    '<tr>\n <td>' + text['id'] + '</td>\n <td><a href="news-post.html?page=' + i + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n <td>' + text['date'] + '</td>\n <td>' + text['count'] + '</td>\n <td><button class="get-btn" type="button" onclick="deleteArticle(\'news\',' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>\n </tr>'
-                ));                
-            break;
+            console.log('text :', text);
+                // var tableTr = document.createElement('tr');
+                // var tableTd = document.createElement('td'); 
+                // var tableBtn = document.createElement('button');
+                // $(tableBtn).attr('onclick', deleteArticle(text['id']) ) 
+                // $(tableBtn).append("삭제")
+                // $(tableTd).append(tableBtn)
+                // $(tableTd).append(text['id'])
+                // $(tableTr).append(tableTd)
+                $('#news').append($(
+                // '<tr>' + 
+                // '<td>' + text['id'] + '</td>' +                
+                // '<td>' + '<a href="news-post.html?page='+ i +'&id=' + text['id'] + '">' +
+                // text['title'] + '</a></td>' +
+                // '<td>' + text['date'] + '</td>' +
+                // '<td>' + text['count'] + '</td>' +
+                // '<td>' + '<button class="get-btn" type="button" onclick="'+ deleteArticle(text['id'])+'" style="margin-top:0; width: 50px">삭제</button>' +                    
+                // '</tr>' +
+                '<tr>\n <td>' + text['id'] + '</td>\n                        <td><a href="news-post.html?page=' + i + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n                        <td>' + text['date'] + '</td>\n                        <td>' + text['count'] + '</td>\n                        <td><button class="get-btn" type="button" onclick="deleteArticle(' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>                        \n                    </tr>'));                break;
         }
     }
-
+    
     // get all article list
     // function getAllArticles(page) {
     //     $.ajax({
@@ -144,7 +180,7 @@ var Cognito = window.Cognito || {};
     //         $(pageLi).append(pageAT);     
     //         $(pagination).append(pageLi);
     //         }      
-            
+
     //         function makePageArrow(direction, pageNum,pageLength){
     //             switch(direction) {
     //                 case "left":          
@@ -184,7 +220,7 @@ var Cognito = window.Cognito || {};
     function getArticle(article_id) {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/news?article='+ article_id,
+            url: _config.api.invokeUrl + '/news?article=' + article_id,
             headers: {
                 Authorization: authToken
             },
@@ -198,20 +234,20 @@ var Cognito = window.Cognito || {};
         });
     }
     function completeArticleRequest(result) {
-        console.log('Response received from API: ', result);
+        // console.log('Response received from API: ', result);
         $('#article-title').val(result['result'].title);
         $('#summernote').summernote('code', result['result'].body);
     }
 
     // post article
-    function postArticle( category, box) {
+    function postArticle(category, box) {
         $.ajax({
             type: 'POST',
             url: _config.api.invokeUrl + '/' + category,
             headers: {
                 Authorization: authToken
             },
-            data: JSON.stringify(box),          
+            data: JSON.stringify(box),
             contentType: 'application/json; charset= utf-8',
             success: completePostArticleRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
@@ -233,17 +269,19 @@ var Cognito = window.Cognito || {};
         }
 
         // load datas
-        var article_id = getUrlParam('article');        
-        if (article_id == undefined) { // circuit.html
+        var article_id = getUrlParam('article');
+        if (article_id == undefined) {
+            // circuit.html
             console.log('enter get all articles');
             var page = getUrlParam('page');
-            // if (page == undefined){
-            //     getAllArticles(1);
-            // }
-            // else{
-            //     getAllArticles(page);
-            // }
-        } else { // pit-in.html
+            if (page == undefined){
+                getAllArticles(1);
+            }
+            else{
+                getAllArticles(page);
+            }
+        } else {
+            // pit-in.html
             // create new article, if article_id == -1
             $('#article_id').val(article_id);
             if (article_id > 0) {
@@ -267,8 +305,7 @@ var Cognito = window.Cognito || {};
 
         // set method in circuit.html
         $('#postForm').submit(handlePostArticle);
-    });   
-
+    });
 
     // function displayUpdate(i, text) {
     //     $('#recruit').append($(
@@ -283,30 +320,6 @@ var Cognito = window.Cognito || {};
     //     ));
     // }
 
-    deleteArticle = function deleteArticle(category, id) {
-             console.log('object :', category);
-        $.ajax({
-            method: 'POST',
-            url: _config.api.invokeUrl + '/delete',            
-            contentType: 'application/json; charset= utf-8',
-            headers: {
-                Authorization: authToken
-            },
-            data: JSON.stringify({
-                "object_id": id,
-                "object_name": category
-            }),
-            success: function(){
-                // window.location.href = 'circuit.html?page=1';            
-            },
-            error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
-                console.error('Response: ', jqXHR.responseText);
-                alert('An error occured when requesting your news:\n' + jqXHR.responseText);
-            }
-        });
-    }
-
     function getUrlParam(param) {
         var queryString = window.location.search.slice(1);
         var result;
@@ -319,12 +332,11 @@ var Cognito = window.Cognito || {};
                 var a = arr[i].split('=');
 
                 if (a[0] == param) {
-                    return a[1]
+                    return a[1];
                 }
             }
             return result;
-        }
-        else {
+        } else {
             return result;
         }
     }
@@ -332,40 +344,34 @@ var Cognito = window.Cognito || {};
     function handlePostArticle(event) {
         var box = {};
         var category = $('#category').val();
-        var article_id = $('#article_id').val();        
-        if(article_id == ""){
-            article_id = -1;
-        }
-        var title = $('#article-title').val();        
-        var body = $('#summernote').summernote('code');        
-        
-        if(category == "recruit"){
-            var date = $('#due-to').val(); 
+        var article_id = $('#article_id').val();
+        var title = $('#article-title').val();
+        var body = $('#summernote').summernote('code');
+
+        if (category == "recruit") {
+            var date = $('#due-to').val();
             var kinds = $('#type').val();
             var available = $('#available').val();
             box = {
-                'article_id' : article_id,
-                'title' : title,
-                'date' : date,
-                'kinds' : kinds,
-                'available' : available,
-                'body' : body,
+                'id': article_id,
+                'title': title,
+                'date': date,
+                'kinds': kinds,
+                'available': available,
+                'body': body,
                 'count': 0
-            }         
-        } else if(category == "news"){
+            };
+        } else if (category == "news") {
             box = {
-                'id' : article_id,
-                'title' : title,
-                'date' : $('#date').val(),
-                'body' : body,
+                'id': article_id,
+                'title': title,
+                'date': $('#date').val(),
+                'body': body,
                 'count': 0
-            }
+            };
         }
-        console.log('box :', box);                
-        postArticle( category ,box);
-        event.preventDefault();        
-    }    
-    
-    
-
-}(jQuery));
+        console.log('box :', box);
+        postArticle(category, box);
+        event.preventDefault();
+    }
+})(jQuery);

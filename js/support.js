@@ -27,7 +27,8 @@ function getPost(){
             "title" : $(supportTitle).val(),
             "name" : $(supportName).val(),
             "email" : $(supportEmail).val(),
-            "message" : $(supportContent).val(),  
+            "message" : $(supportContent).val(), 
+            "msg" : $("#file").val()
         }),
         contentType: 'application/json; charset=utf-8',
         success: completePost,
