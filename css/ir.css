@@ -771,6 +771,17 @@ article .article .article-wrapper .table-wrap {
   margin-bottom: 85px; }
   article .article .article-wrapper .table-wrap table {
     margin-bottom: 0; }
+    article .article .article-wrapper .table-wrap table .stock-time {
+      position: relative; }
+    article .article .article-wrapper .table-wrap table .loading {
+      height: 370px; }
+      article .article .article-wrapper .table-wrap table .loading img {
+        width: 30%;
+        position: absolute;
+        left: 35%;
+        top: 25%; }
+    article .article .article-wrapper .table-wrap table .display-none {
+      display: none; }
     article .article .article-wrapper .table-wrap table .arrow-u {
       position: relative;
       bottom: 15px;
@@ -894,7 +905,8 @@ article .article .article-wrapper .table-wrap {
       border-bottom: 1px solid #ddd; }
     article .article .article-wrapper .table-wrap table td {
       text-align: center;
-      padding-left: 15px; }
+      padding-left: 15px;
+      height: 37px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         article .article .article-wrapper .table-wrap table td {
           font-size: 10px; } }
@@ -912,6 +924,7 @@ article .article .article-wrapper .table-wrap {
     article .article .article-wrapper .table-wrap .pagination li {
       display: inline-block; }
       article .article .article-wrapper .table-wrap .pagination li a {
+        cursor: pointer;
         color: #666;
         border: none;
         font-size: 15px;
@@ -926,7 +939,7 @@ article .article .article-wrapper .table-wrap {
           background-color: inherit;
           margin: 0 10px; }
           article .article .article-wrapper .table-wrap .pagination li a.page-num:hover {
-            color: #337ab7; }
+            background: #ddd; }
       article .article .article-wrapper .table-wrap .pagination li.page-arrow {
         margin: 0 1px; }
         article .article .article-wrapper .table-wrap .pagination li.page-arrow a {
