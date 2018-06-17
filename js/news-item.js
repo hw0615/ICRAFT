@@ -2,12 +2,12 @@ $(function () {
 
   var box;    
   var pageUrl = window.location.href.split("?");  
-  console.log('object :', pageUrl[1]);  
+  // console.log('pageUrl :', pageUrl);
   var pageNum = pageUrl[1].split("=")[1].replace(/[a-z,#,&,_]/g, "");    
-  
+  // console.log('oageNum :', pageNum);
   $.ajax({    
     type: "GET",
-    url: 'https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/news?' + pageUrl[1],
+    url: _config.api.invokeUrl+ '/' + 'news?' + pageUrl[1],
     dataType: "JSON",
     error: function(){
       console.log('실패');
@@ -16,6 +16,7 @@ $(function () {
 
       var box = data;      
       console.log('box :', box);
+      console.log('box.result :', box.result[0]);
       // MAKE TITLE 
       var title =  box.result.title;          
       $(".article-title").append(title);

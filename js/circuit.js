@@ -21,36 +21,38 @@ var Cognito = window.Cognito || {};
     // tab btn
     var tabBtn = $(".tab-btn a");    
     var tableLi = $(".table-tab li");    
-
+console.log('tabBtn[0] :', tabBtn[0]);
     // get tab(recruit, news) data
-    $(tabBtn[0]).click(function(event){
-        
+    
+    $(tabBtn[0]).on('click',function(event){        
         event.preventDefault();
         $(tableLi).removeClass("active")
         $(tableLi[0]).addClass("active")
         var page = getUrlParam('page');        
         var cate = 'recruit';
-        console.log('page :', page);
+        // console.log('page :', page);
         var dataLength = $(".active .table tr").length;
-        console.log('dataLength :', dataLength);
+        // console.log('dataLength :', dataLength);
         if(dataLength < 3) {
             getTabArticles(cate,page)
         }
+        printPagination();
     })
     $(tabBtn[0]).click();
-    $(tabBtn[1]).click(function(event){
+    $(tabBtn[1]).on('click',function(event){
         event.preventDefault();
         $(tableLi).removeClass("active")
         $(tableLi[1]).addClass("active")
         var page = getUrlParam('page');        
         var cate = 'news';
-        console.log('page :', page);
-        var dataLength = $(".active .table tr").length;
-        console.log('dataLength :', dataLength);
+        // console.log('page :', page);
+        // console.log('cate :', cate);
+        var dataLength = $(".active .table tr").length;        
 
         if(dataLength < 3) {
             getTabArticles(cate,page)
-        }        
+        }       
+        printPagination(); 
     })
       
     function getTabArticles(cate,page) {
@@ -62,7 +64,7 @@ var Cognito = window.Cognito || {};
             },
             contentType: 'application/json; charset=utf-8',
             success: function(data){
-                console.log('Response received from API: ', data);
+                // console.log('Response received from API: ', data);
                 getTabAllData(cate, data);
             },
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
@@ -70,8 +72,7 @@ var Cognito = window.Cognito || {};
                 console.error('Response: ', jqXHR.responseText);
                 alert('An error occured when requesting your news:\n' + jqXHR.responseText);
             }
-        });
-        console.log('page :', page);
+        });        
     }
     function getTabAllData(cate, result){     
         for (i = 0; i < result['result'].length; i++) {
@@ -80,11 +81,18 @@ var Cognito = window.Cognito || {};
     }
 
     function tabUpdate(cate, i, text) {
-        switch(cate){
+        switch(cate){            
             case "recruit":
+                var available;
+                if(text['available']==true){
+                    available = "가능"
+                } else {
+                    available = "불가능"
+                }
                 $('#recruit').append($(                    
-                    '<tr>\n <td>' + text['id'] + '</td>\n <td><a href="recruitment-board.html?page=' + i + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n <td>' + text['date'] + '</td>\n <td>' + text['kinds'] + '</td>\n <td>' + text['available'] + '</td>\n <td>' + text['count'] + '</td>\n <td><button class="get-btn" onclick="deleteArticle(\'recruit\',' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>\n </tr>'
+                    '<tr>\n <td>' + text['id'] + '</td>\n <td><a href="recruitment-board.html?page=' + i + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n <td>' + text['date'] + '</td>\n <td>' + text['kinds'] + '</td>\n <td>' + available + '</td>\n <td>' + text['count'] + '</td>\n <td><button class="get-btn" onclick="deleteArticle(\'recruit\',' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>\n </tr>'
                 ));
+                
             break;
             case "news":
                 $('#news').append($(        
@@ -94,69 +102,77 @@ var Cognito = window.Cognito || {};
         }
     }
     // pagenation 
-    var pagenationkey = "recruit";
-    switch(pagenationkey){
-        case "recruit":
-            $.ajax({
-                method: 'GET',
-                url: _config.api.invokeUrl + '/' + pagenationkey,           
-                contentType: 'application/json; charset=utf-8',
-                success: function(data){
-                    console.log('Response received from API: recruitpage ', data);
-                    makePagenation(data, )
-                },
-                error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                    console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
-                    console.error('Response: ', jqXHR.responseText);
-                    alert('An error occured when requesting your news:\n' + jqXHR.responseText);
-                }
-            });
-           pagenationkey = "news";        
-        case "news":
-        $.ajax({
-            method: 'GET',
-            url: _config.api.invokeUrl + '/' + pagenationkey,           
-            contentType: 'application/json; charset=utf-8',
-            success: function(data){
-                console.log('Response received from API: newspage ', data);
-                makePagenation(data)
-            },
-            error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
-                console.error('Response: ', jqXHR.responseText);
-                alert('An error occured when requesting your news:\n' + jqXHR.responseText);
-            }
-        });
-        break;
+    function printPagination(){
+        var pagenationkey = "recruit";
+        switch(pagenationkey){
+            case "recruit":
+                $.ajax({
+                    method: 'GET',
+                    url: _config.api.invokeUrl + '/' + pagenationkey,           
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(data){
+                        // console.log('Response received from API: recruitpage ', data);
+                        makePagenation(data)
+                    },
+                    error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                        console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                        console.error('Response: ', jqXHR.responseText);
+                        alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+                    }
+                });
+            pagenationkey = "news";        
+            case "news":
+                $.ajax({
+                    method: 'GET',
+                    url: _config.api.invokeUrl + '/' + pagenationkey,           
+                    contentType: 'application/json; charset=utf-8',
+                    success: function(data){
+                        // console.log('Response received from API: newspage ', data);
+                        makePagenation(data)
+                    },
+                    error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                        console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
+                        console.error('Response: ', jqXHR.responseText);
+                        alert('An error occured when requesting your news:\n' + jqXHR.responseText);
+                    }
+                });
+            break;
+        }
     }
+    
     
     function makePagenation(data){
         var url = window.location.href;
         var checkUrlKey = url.split("/").slice(-1)[0];
-
-        if(checkUrlKey !== 'pit-in.html'){                
-            var pagination = document.getElementsByClassName("pagination")[0];                
-            var pageLength = Math.ceil((data.total)/10);      
+        var tagetPage = 0;               
+        
+        if(checkUrlKey !== 'pit-in.html'){      
+            var paginationTab = document.getElementsByClassName("pagination-tab")[0]
+            var pagination = paginationTab.getElementsByClassName("pagination")[tagetPage];    
+            console.log('data.total :', data.total);            
+            var pageLength = Math.ceil((data.total)/10); 
+            console.log('pageLength :', pageLength);     
             var pageNum = url.split("=")[1].replace(/[a-z,#,&,_]/g, ""); 
             $(pagination).empty();
             
             for(var i=1; i <= pageLength; i++){
-            var pageLi = document.createElement("li");
-            var pageAT = document.createElement("a");        
-            $(pageLi).attr("class","page-item");   
-            $(pageAT).attr("class","page-link");      
-            $(pageAT).attr("href", "circuit.html?page=" + i );
-            $(pageAT).append(i);   
-            if(i == pageNum){
-                $(pageLi).addClass("active"); 
-            }
-            $(pageLi).append(pageAT);     
-            $(pagination).append(pageLi);
-            }              
+                var pageLi = document.createElement("li");
+                var pageAT = document.createElement("a");        
+                $(pageLi).attr("class","page-item");   
+                $(pageAT).attr("class","page-link");      
+                $(pageAT).attr("href", "circuit.html?page=" + i );
+                $(pageAT).append(i);   
+                if(i == pageNum){
+                    $(pageLi).addClass("active"); 
+                }
+                $(pageLi).append(pageAT);     
+                $(pagination).append(pageLi);
+            }                 
+            console.log('tagetPage :', tagetPage);
             function makePageArrow(direction, pageNum,pageLength){
                 switch(direction) {
                     case "left":          
-                    if( 0 < pageNum && pageNum < pageLength){              
+                    if( 1 < pageNum && pageNum < pageLength){              
                         var pageNum = Number(pageNum) -1;               
                         var pageLi = document.createElement("li");        
                         var pageLeftArrow = document.createElement("a");
@@ -170,6 +186,8 @@ var Cognito = window.Cognito || {};
                     break;          
                     case "right":          
                     if( pageNum < pageLength ){
+                        console.log('pageNum :', pageNum);
+                        console.log('pageLength :', pageLength);
                         var pageNum = Number(pageNum) +1;                                         
                         var pageLi = document.createElement("li");                  
                         var pageRightArrow = document.createElement("a");
@@ -187,6 +205,8 @@ var Cognito = window.Cognito || {};
             makePageArrow("right", pageNum, pageLength);
         }     
     }
+
+
 
     // get all article list
     // function getAllArticles(page) {
@@ -315,7 +335,7 @@ var Cognito = window.Cognito || {};
         });
     }
     function completePostArticleRequest(result) {
-        console.log('Successfully posting, ' + result);
+        // console.log('Successfully posting, ' + result);
         window.location.href = 'circuit.html?page=1';
     }
 
@@ -377,7 +397,7 @@ var Cognito = window.Cognito || {};
     // }
 
     deleteArticle = function deleteArticle(category, id) {
-             console.log('object :', category);
+            //  console.log('object :', category);
         $.ajax({
             method: 'POST',
             url: _config.api.invokeUrl + '/delete',            
@@ -454,7 +474,7 @@ var Cognito = window.Cognito || {};
                 'count': 0
             }
         }
-        console.log('box :', box);                
+        // console.log('box :', box);                
         postArticle( category ,box);
         event.preventDefault();        
     }    

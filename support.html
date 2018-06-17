@@ -56,7 +56,7 @@
             문의할 내용을 작성하신 후 하단 확인 버튼을 눌러주세요.
             보내주신 의견에 대해 빠른 답변을 드리겠습니다.            
         </p> 
-        <form id="supportForm" class="support-form" action="" enctype="multipart/form-data">                    
+        <form id="supportForm" class="support-form" method="post" enctype="multipart/form-data">                    
           <label for="title">제목</label>
           <input id="title" name="title" type="text" placeholder="Subject"/>
           <div class="col">
@@ -70,14 +70,23 @@
           <label for="">문의사항</label>
           <textarea id="content" name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>          
           <input id="file" class="input-file" type="file" name="file">                    
-          <a class="get-btn" href="#">문의하기</a>
+          <!-- <a class="get-btn" href="#">문의하기</a> -->
+          <input class="get-btn" type="submit" value="문의하기">
         </form>
+        <!-- <form id="ajaxform" action="/saveFileTest.do" method="post" enctype="multipart/form-data">
+          <input type="text" name="test2"/><br/> 
+          <textarea rows="10" cols="10" name="test3">            
+          </textarea><br/> 
+          <input type="file" name="test4" /> 
+          <input type="submit" value="Submit" /> 
+        </form> -->
       </div>
     </article>
     <footer id="footer"></footer>
     <button class="move-top">&uarr;</button>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.2.2/dist/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/config.js"></script>
