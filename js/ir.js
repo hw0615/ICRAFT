@@ -337,7 +337,15 @@ $(function() {
                   data: dataBox,
               }],
             },
-            options: {}
+            options: {
+              animation: {
+                duration: 0, // general animation time
+              },
+              hover: {
+                animationDuration: 0, // duration of animations when hovering an item
+              },
+              responsiveAnimationDuration: 0, // animation duration after a resize
+            }
           });
         }
         $('.number').number(true);        
@@ -399,7 +407,15 @@ $(function() {
                     data: priceArray,
                 }]
               },
-              options: {}
+              options: {
+                animation: {
+                  duration: 0, // general animation time
+                },
+                hover: {
+                  animationDuration: 0, // duration of animations when hovering an item
+                },
+                responsiveAnimationDuration: 0, // animation duration after a resize
+              }
             });
           }
           
@@ -453,7 +469,15 @@ $(function() {
                     data: priceArray,
                 }]
               },
-              options: {}
+              options: {
+                animation: {
+                  duration: 0, // general animation time
+                },
+                hover: {
+                  animationDuration: 0, // duration of animations when hovering an item
+                },
+                responsiveAnimationDuration: 0, // animation duration after a resize
+              }
             });
           }
     
@@ -510,7 +534,15 @@ $(function() {
                 pointDotRadius : 8,
                 borderWidth: 1
               },
-              options: {}
+              options: {
+                animation: {
+                  duration: 0, // general animation time
+                },
+                hover: {
+                  animationDuration: 0, // duration of animations when hovering an item
+                },
+                responsiveAnimationDuration: 0, // animation duration after a resize
+              }
             });
           }
         }, 
