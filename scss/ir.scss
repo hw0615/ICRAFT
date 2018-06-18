@@ -50,10 +50,11 @@ article {
           .loading {
             height: 370px;
             img {
-              width: 30%;
+              width: 17%;
               position: absolute;
-              left: 35%;
-              top: 25%;
+              left: 42%;
+              // top: 25%;
+              top: 136%;
             }
           }
           .arrow-u{
@@ -218,7 +219,50 @@ article {
             }
           }
         }
-        .pagination {    
+        .pagination {  
+          display: block;
+          margin: 0 auto;
+          margin-top: 30px;
+          width: 100%;
+          height: auto;
+          text-align: center;
+          font-size: 0;      
+          li {
+            display:inline-block;
+            a {
+              cursor: pointer;
+              color: #666;  
+              border:none;        
+              font-size: 15px;
+              font-weight: 900;
+              img {
+                display: inline-block;
+                width: 12px;
+                vertical-align: middle;
+              }
+              &:focus {
+                background-color: inherit;
+              }
+              &.page-num {
+                background-color:  inherit;           
+                margin: 0 10px;
+                &:hover {
+                  // color: #337ab7;
+                  background: #ddd;
+                }
+              }
+            }
+            &.page-arrow {
+              margin: 0 1px;
+              a {
+                border: 1px solid #eee;
+                border-radius: 0;
+                margin-left: 0;
+              }          
+            }
+          }        
+        }
+        .pagination-2 {  
           display: block;
           margin: 0 auto;
           margin-top: 30px;

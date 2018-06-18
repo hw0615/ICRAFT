@@ -2,7 +2,6 @@ $(function() {
 
   getFirstRealtime()
   getSecondRealtime()
-  // getTwoWeeks()
   getTwoWeeksPages()
   getChart()
   
@@ -48,10 +47,8 @@ $(function() {
         
         if ( lastDay > now_price ) {
           $(".now_price").css('color', 'blue')
-          console.log('haha > :');
         } else if ( lastDay === now_price ) {
           $(".now_price").css('color', '#333')
-          console.log('haha ===:');
           $('.arrow').removeClass('arrow-u')
         }
         
@@ -90,7 +87,7 @@ $(function() {
         $('.number').number(true)
       }, 
       error: function() {
-        alert("failed");
+        console.log("failed");
       }
     }).responseText;
   }
@@ -100,7 +97,7 @@ $(function() {
     // 실시간 표 
     $.ajax({
       // url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
-      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + '1',
+      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
       async: true,
       type: "GET",
       dataType: "json",
@@ -111,6 +108,7 @@ $(function() {
         var stockMain = data.data
         var stock = stockMain.each_stock
         // var total = stock.length
+        console.log('reaktimedata :', data);
 
         // 시간별 시세 테이블 바디
         var realtimeTbody = $(".stock-time")
@@ -143,7 +141,7 @@ $(function() {
             $('.diff-t').attr('class', 'arrow-u')
           }
         }
-        function pagination() {
+        // function pagination() {
           $('.page-item').each(function() {
             $(this).click(function(){
               $('.realtime-1').remove()
@@ -205,13 +203,13 @@ $(function() {
                   $('.loading').addClass('display-none');
                 },
                   error: function() {
-                  alert("failed");
+                  console.log("failed");
                 }
               }).responseText;
             });
           });
-        }
-        pagination()
+        // }
+        // pagination()
       }, 
       beforeSend:function(){
         $('.loading').removeClass('display-none');
@@ -220,21 +218,46 @@ $(function() {
         $('.loading').addClass('display-none');
       },
       error: function() {
-        alert("failed");
+        console.log("failed");
       }
     }).responseText;
   }
   function getTwoWeeksPages() {
     // 2weeks
+    // var index = Number(1)
     $.ajax({
-      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/1",
+      url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/" + '1',
       async: true,
       type: "GET",
       dataType: "json",
       crossDomain: true,
       success: function(data) {
+        var twoWeeksData = data
         var twoWeeks = data.data
-        console.log('twoWeeks :', twoWeeks);
+        console.log('twoWeeksData :', twoWeeksData);
+        
+        var total = data.total
+        var pageLength = Math.ceil( total / 10 );
+        var pagination = document.getElementsByClassName("pagination-2")[0];
+        
+        for( var i = 1; i <= pageLength; i++ ){
+          var pageLi = document.createElement("li");
+          var pageAT = document.createElement("a");        
+          $(pageLi).attr("class","page-item-2");   
+          $(pageAT).attr("class","page-link page-num");      
+          // $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
+          $(pageAT).append(i);   
+          // $(pageLi).append(i);   
+          // if(i == index){
+          //   $(pageLi).addClass("active"); 
+          // }
+          $(pageLi).append(pageAT);     
+          $(pagination).append(pageLi);
+
+          if ( i > 10 ) {
+            
+          }
+        }
 
         for (var i = 0; i < twoWeeks.length; i++) {
           var el = twoWeeks[i];
@@ -248,9 +271,10 @@ $(function() {
           var volume = el.volume
 
           var realtimeTbody = $(".stock-time2")
+          var realtimeTr = $(".realtime-2")
           
           var newTr = realtimeTbody.append(
-            "<tr class='tr-hover'>" + "<td>" + date + "</td>" +  
+            "<tr class='tr-hover realtime-2'>" + "<td>" + date + "</td>" +  
             "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
@@ -259,40 +283,69 @@ $(function() {
             "<td>"+ "<span class='number'>" + volume + "</span>" + "</td>" + 
             "</tr>"
           )
-
-          // // 페이지네이션 목록 출력
-          // var total = twoWeeks.length
-          // console.log('json_total :', total);
-          // var pageLength = Math.ceil( total / 10 );
-          // var pagination = document.getElementsByClassName("pagination")[0];
-          // console.log('pageLength :', pageLength);
-          
-          // for( var i = 1; i <= pageLength; i++ ){
-          //   var pageLi = document.createElement("li");
-          //   var pageAT = document.createElement("a");        
-          //   $(pageLi).attr("class","page-item");   
-          //   $(pageAT).attr("class","page-link page-num");      
-          //   // $(pageAT).attr("href", pageUrl[0] + "?page=" + i  + "#board");
-          //   $(pageAT).append(i);   
-          //   // $(pageLi).append(i);   
-          //   // if(i == index){
-          //   //   $(pageLi).addClass("active"); 
-          //   // }
-          //   $(pageLi).append(pageAT);     
-          //   $(pagination).append(pageLi);
-          // }
-
-          // $('.number').number(true)
-
-          // if ( diff.toString().indexOf('-') !== -1 ) {
-          //   $('.diff-t').attr('class', 'arrow-d')
-          // } else {
-          //   $('.diff-t').attr('class', 'arrow-u')
-          // }
         }
+        // function pagination() {
+          $('.page-item-2').each(function() {
+            $(this).click(function(){
+              $('.stock-time2').remove()
+              // getSecondRealtime(index);
+              var index = Number(1)
+              index = parseInt($(this).text())
+              console.log('index :', index);
+              
+              $.ajax({
+                url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/" + index,
+                async: true,
+                type: "GET",
+                dataType: "json",
+                crossDomain: true,
+                success: function(data) {
+                  var twoWeeksData = data
+                  var twoWeeks = data.data
+                  console.log('twoWeeksData :', twoWeeksData);
+                  
+                  var total = data.total
+                  var pageLength = Math.ceil( total / 10 );
+                  var pagination = document.getElementsByClassName("pagination-2")[0];
+          
+                  for (var i = 0; i < twoWeeks.length; i++) {
+                    var el = twoWeeks[i];
+          
+                    var date = el.date
+                    var diff = el.diff
+                    var low_price = el.low_price
+                    var price = el.price
+                    var start_price = el.start_price
+                    var top_price = el.top_price
+                    var volume = el.volume
+          
+                    var realtimeTbody = $(".stock-time2")
+                    var realtimeTr = $(".realtime-2")
+
+                    
+                    var newTr = realtimeTbody.append(
+                      "<tr class='tr-hover realtime-2'>" + "<td>" + date + "</td>" +  
+                      "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
+                      "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+                      "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
+                      "<td>"+ "<span class='number'>" + top_price + "</span>" + "</td>" + 
+                      "<td>"+ "<span class='number'>" + low_price + "</span>" + "</td>" +
+                      "<td>"+ "<span class='number'>" + volume + "</span>" + "</td>" + 
+                      "</tr>"
+                    )
+                  }
+                }, 
+                error: function() {
+                  console.log("failed");
+                }
+              }).responseText;
+            });
+          });
+        // }
+        // pagination()
       }, 
       error: function() {
-        alert("failed");
+        console.log("failed");
       }
     }).responseText;
   }
@@ -357,7 +410,7 @@ $(function() {
         $('.loading-chart').addClass('display-none');
       },
       error: function() {
-        alert("failed");
+        console.log("failed");
       }
     }).responseText;
 
@@ -381,7 +434,6 @@ $(function() {
         dataType: "json",
         crossDomain: true,
         success: function(data) {
-          // console.log('data-m :', data.data);
           var data = data.data;
     
           var dateArray = []
@@ -427,7 +479,7 @@ $(function() {
           $('.loading-chart').addClass('display-none');
         },
         error: function() {
-          alert("failed");
+          console.log("failed");
         }
       }).responseText;
     })
@@ -489,7 +541,7 @@ $(function() {
           $('.loading-chart').addClass('display-none');
         },
         error: function() {
-          alert("failed");
+          console.log("failed");
         }
       }).responseText;
     })
@@ -553,7 +605,7 @@ $(function() {
           $('.loading-chart').addClass('display-none');
         },
         error: function() {
-          alert("failed");
+          console.log("failed");
         }
       }).responseText;
     })

@@ -757,176 +757,73 @@ section {
     section {
       background-position-y: -220px; } }
 
-article .article .article-wrapper .display-none {
-  display: none; }
-
-article .article .article-wrapper canvas {
-  margin: 80px 0; }
-
-article .article .article-wrapper .emp {
-  padding-bottom: 0;
-  margin-left: 5px; }
-
-article .article .article-wrapper .nav-tabs a {
-  color: #666; }
-
-article .article .article-wrapper .tab-content {
-  position: relative; }
-  article .article .article-wrapper .tab-content .loading-chart {
-    height: 265px; }
-    article .article .article-wrapper .tab-content .loading-chart img {
-      width: 30%;
-      position: absolute;
-      left: 35%;
-      top: 15%; }
-
-article .article .article-wrapper .table-wrap {
-  margin-bottom: 85px; }
-  article .article .article-wrapper .table-wrap table {
-    margin-bottom: 0; }
-    article .article .article-wrapper .table-wrap table .stock-time {
-      position: relative; }
-    article .article .article-wrapper .table-wrap table .loading-chart {
-      height: 435px; }
-    article .article .article-wrapper .table-wrap table .loading {
-      height: 370px; }
-      article .article .article-wrapper .table-wrap table .loading img {
-        width: 17%;
-        position: absolute;
-        left: 42%;
-        top: 136%; }
-    article .article .article-wrapper .table-wrap table .arrow-u {
-      position: relative;
-      bottom: 15px;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 8px solid red;
-      margin-right: 5px; }
-    article .article .article-wrapper .table-wrap table .arrow-d {
-      position: relative;
-      top: 15px;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 8px solid blue;
-      margin-right: 5px; }
-    article .article .article-wrapper .table-wrap table .volume {
-      border-left: 1px solid #ddd;
-      border-right: 1px solid #ddd; }
-    article .article .article-wrapper .table-wrap table .stock-header-tr1 {
-      font-size: 16px; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr1 {
-          font-size: 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr1 {
-          font-size: 14px; } }
-      article .article .article-wrapper .table-wrap table .stock-header-tr1 .lastDay {
-        font-size: 16px; }
+article .article .article-wrapper {
+  max-width: 870px;
+  width: 100%;
+  margin: 0 auto; }
+  article .article .article-wrapper .get-btn {
+    background-color: #23527c;
+    color: white;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+    width: 150px;
+    text-align: center; }
+  article .article .article-wrapper > ul {
+    padding: 10px 5px; }
+    article .article .article-wrapper > ul > li {
+      margin: 5px 10px 15px 10px; }
+      article .article .article-wrapper > ul > li h4 {
+        font-weight: bold;
+        font-size: 15px; }
+      article .article .article-wrapper > ul > li table {
+        margin-top: 15px; }
+      article .article .article-wrapper > ul > li li {
+        margin: 5px 10px; }
+  article .article .article-wrapper p {
+    font-size: 15px;
+    line-height: 20px; }
+  article .article .article-wrapper .more-wrap {
+    max-width: 870px; }
+    article .article .article-wrapper .more-wrap .more {
+      margin: 0 auto;
+      width: 14vw;
+      height: 5.8vh;
+      border: none;
+      border-radius: 25px; }
+      article .article .article-wrapper .more-wrap .more .show-more {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        line-height: 2;
+        color: #fff;
+        font-size: 18px;
+        background: #174A8E;
+        border: none;
+        border-radius: 50px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article .article-wrapper .table-wrap table .stock-header-tr1 .lastDay {
+          article .article .article-wrapper .more-wrap .more .show-more {
             font-size: 10px; } }
         @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article .article-wrapper .table-wrap table .stock-header-tr1 .lastDay {
+          article .article .article-wrapper .more-wrap .more .show-more {
             font-size: 14px; } }
-      article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
-        color: red;
-        font-size: 16px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article .article-wrapper .table-wrap table .stock-header-tr1 .top_price {
-            font-size: 14px; } }
-      article .article .article-wrapper .table-wrap table .stock-header-tr1 .volume-text {
-        font-size: 16px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article .article-wrapper .table-wrap table .stock-header-tr1 .volume-text {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article .article-wrapper .table-wrap table .stock-header-tr1 .volume-text {
-            font-size: 14px; } }
-    article .article .article-wrapper .table-wrap table .stock-header-tr2 .subject-icraft {
-      background: none;
-      border-top: none; }
-    article .article .article-wrapper .table-wrap table .stock-header-tr2 .start_price {
-      font-size: 16px; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr2 .start_price {
-          font-size: 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr2 .start_price {
-          font-size: 14px; } }
-    article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
-      color: blue;
-      font-size: 16px; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
-          font-size: 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .table-wrap table .stock-header-tr2 .low_price {
-          font-size: 14px; } }
-    article .article .article-wrapper .table-wrap table .tr-hover:hover {
-      background-color: #f5f5f5; }
-    article .article .article-wrapper .table-wrap table .tr-header {
-      background: #F5F5F5; }
-      article .article .article-wrapper .table-wrap table .tr-header > td {
-        border-top: 2px solid #aaa; }
-    article .article .article-wrapper .table-wrap table .subject {
-      text-align: center;
-      vertical-align: middle;
-      font-size: 16px;
-      font-weight: 700; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .table-wrap table .subject {
-          font-size: 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .table-wrap table .subject {
-          font-size: 14px; } }
-    article .article .article-wrapper .table-wrap table .subject-icraft {
+  article .article .article-wrapper table {
+    width: 100%; }
+    article .article .article-wrapper table tr + tr:hover {
+      background-color: #eee; }
+    article .article .article-wrapper table th {
+      background: #f5f5f5;
       border-top: 2px solid #aaa;
-      border-bottom: 1px solid #ddd;
-      background: #F5F5F5; }
-      article .article .article-wrapper .table-wrap table .subject-icraft + .subject-icraft {
-        background: none; }
-    article .article .article-wrapper .table-wrap table .subject-icraft-main {
-      border-right: 1px solid #ddd;
-      border-left: 1px solid #ddd; }
-      article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
-        font-size: 26px;
-        color: red; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
-            font-size: 14px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article .article-wrapper .table-wrap table .subject-icraft-main .now_price {
-            font-size: 18px; } }
-      article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
-        font-size: 16px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
-            font-size: 10px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          article .article .article-wrapper .table-wrap table .subject-icraft-main .diff {
-            font-size: 14px; } }
-      article .article .article-wrapper .table-wrap table .subject-icraft-main + td {
-        margin-right: 1px solid #ddd; }
-    article .article .article-wrapper .table-wrap table .subject-sub {
-      border-bottom: 1px solid #ddd; }
-    article .article .article-wrapper .table-wrap table td {
+      padding: 20px 0 !important;
       text-align: center;
-      padding-left: 15px;
-      height: 37px; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article .article-wrapper .table-wrap table td {
-          font-size: 10px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        article .article .article-wrapper .table-wrap table td {
-          font-size: 14px; } }
-  article .article .article-wrapper .table-wrap .pagination {
+      font-weight: 600;
+      font-size: 16px; }
+    article .article .article-wrapper table td {
+      padding: 20px 0 !important;
+      text-align: center; }
+  article .article .article-wrapper .pagination {
     display: block;
     margin: 0 auto;
     margin-top: 30px;
@@ -934,61 +831,27 @@ article .article .article-wrapper .table-wrap {
     height: auto;
     text-align: center;
     font-size: 0; }
-    article .article .article-wrapper .table-wrap .pagination li {
+    article .article .article-wrapper .pagination li {
       display: inline-block; }
-      article .article .article-wrapper .table-wrap .pagination li a {
-        cursor: pointer;
+      article .article .article-wrapper .pagination li a {
         color: #666;
         border: none;
         font-size: 15px;
         font-weight: 900; }
-        article .article .article-wrapper .table-wrap .pagination li a img {
+        article .article .article-wrapper .pagination li a img {
           display: inline-block;
           width: 12px;
           vertical-align: middle; }
-        article .article .article-wrapper .table-wrap .pagination li a:focus {
+        article .article .article-wrapper .pagination li a:focus {
           background-color: inherit; }
-        article .article .article-wrapper .table-wrap .pagination li a.page-num {
+        article .article .article-wrapper .pagination li a.page-num {
           background-color: inherit;
           margin: 0 10px; }
-          article .article .article-wrapper .table-wrap .pagination li a.page-num:hover {
-            background: #ddd; }
-      article .article .article-wrapper .table-wrap .pagination li.page-arrow {
+          article .article .article-wrapper .pagination li a.page-num:hover {
+            color: #337ab7; }
+      article .article .article-wrapper .pagination li.page-arrow {
         margin: 0 1px; }
-        article .article .article-wrapper .table-wrap .pagination li.page-arrow a {
-          border: 1px solid #eee;
-          border-radius: 0;
-          margin-left: 0; }
-  article .article .article-wrapper .table-wrap .pagination-2 {
-    display: block;
-    margin: 0 auto;
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    font-size: 0; }
-    article .article .article-wrapper .table-wrap .pagination-2 li {
-      display: inline-block; }
-      article .article .article-wrapper .table-wrap .pagination-2 li a {
-        cursor: pointer;
-        color: #666;
-        border: none;
-        font-size: 15px;
-        font-weight: 900; }
-        article .article .article-wrapper .table-wrap .pagination-2 li a img {
-          display: inline-block;
-          width: 12px;
-          vertical-align: middle; }
-        article .article .article-wrapper .table-wrap .pagination-2 li a:focus {
-          background-color: inherit; }
-        article .article .article-wrapper .table-wrap .pagination-2 li a.page-num {
-          background-color: inherit;
-          margin: 0 10px; }
-          article .article .article-wrapper .table-wrap .pagination-2 li a.page-num:hover {
-            background: #ddd; }
-      article .article .article-wrapper .table-wrap .pagination-2 li.page-arrow {
-        margin: 0 1px; }
-        article .article .article-wrapper .table-wrap .pagination-2 li.page-arrow a {
+        article .article .article-wrapper .pagination li.page-arrow a {
           border: 1px solid #eee;
           border-radius: 0;
           margin-left: 0; }
