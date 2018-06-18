@@ -101,6 +101,15 @@ article {
     
     }
   }
+  #output {
+    position: relative;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+    }
+  }
   .article-history:after {
     content: "";
     display: block;
