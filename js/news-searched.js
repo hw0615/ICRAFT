@@ -33,18 +33,20 @@ $(function () {
       for(var j=0; j < box.result.length; j++){        
         var trT = document.createElement("tr");         
         for(var i=0; i < boardTitle.length; i++){
-          if(i==1){  
-            var aT = document.createElement("a");   
-            $(aT).attr("href", "news-post.html?page=" + i  + "&news_id=" + box.result[j][boardTitle[0]]);
-            var tdT = document.createElement("td");                             
-            $(aT).append(box.result[j][boardTitle[i]]);        
-            $(tdT).append(aT);  
-            $(trT).append(tdT);                                
-          } else if(i==0 || i > 1){
-            var tdT = document.createElement("td");     
-            $(tdT).append(box.result[j][boardTitle[i]]);       
-            $(trT).append(tdT);             
-          } 
+          if(i!==2){ //body 제외
+            if(i==1){  
+              var aT = document.createElement("a");   
+              $(aT).attr("href", "news-post.html?page=" + i  + "&id=" + box.result[j][boardTitle[0]]);
+              var tdT = document.createElement("td");                             
+              $(aT).append(box.result[j][boardTitle[i]]);        
+              $(tdT).append(aT);  
+              $(trT).append(tdT);                                
+            } else if(i==0 || i > 1){
+              var tdT = document.createElement("td");     
+              $(tdT).append(box.result[j][boardTitle[i]]);       
+              $(trT).append(tdT);             
+            } 
+          }
         }      
         $(board).append(trT);
       }

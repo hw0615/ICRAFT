@@ -824,6 +824,14 @@ article .support-form .input-file {
   padding: 0;
   width: 205px; }
 
+article #output {
+  position: relative; }
+  article #output span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden; }
+
 article .article-history:after {
   content: "";
   display: block;

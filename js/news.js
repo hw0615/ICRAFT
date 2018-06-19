@@ -34,7 +34,7 @@ $(function () {
           if(i!==2){ //body 제외
             if(i==1){  
               var aT = document.createElement("a");   
-              $(aT).attr("href", "news-post.html?page=" + pageNum  + "&news_id=" + box.result[j][boardTitle[0]]);
+              $(aT).attr("href", "news-post.html?page=" + pageNum  + "&id=" + box.result[j][boardTitle[0]]);
               var tdT = document.createElement("td");                             
               $(aT).append(box.result[j][boardTitle[i]]);        
               $(tdT).append(aT);  
@@ -50,7 +50,8 @@ $(function () {
       }
 
       // MAKE PAGENATION
-      var pageLength = Math.ceil((box.total)/10);      
+      var pageLength = Math.ceil((box.total)/10);   
+      console.log('box.total :', box.total);   
       var pagination = document.getElementsByClassName("pagination")[0];
       // console.log('pagenation :', pagination);
       // console.log('pageLength :', pageLength);
@@ -71,11 +72,12 @@ $(function () {
       function makePageArrow(direction, pageNum,pageLength){
         switch(direction) {
           case "left":          
-            if( 0 < pageNum && pageNum < pageLength){              
+            if( 1 < pageNum && pageNum <= pageLength){              
               var pageNum = Number(pageNum) -1;               
               var pageLi = document.createElement("li");        
               var pageLeftArrow = document.createElement("a");
-              $(pageLeftArrow).attr("href", pageUrl[0] + pageNum + "#board")
+              console.log('pageUrl[0] :', pageUrl[0]);
+              $(pageLeftArrow).attr("href", pageUrl[0] + '?page=' + pageNum + "#board")
               var pageLeftArrowImg = document.createElement("img");
               $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
               $(pageLeftArrow).prepend(pageLeftArrowImg);

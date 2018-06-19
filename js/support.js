@@ -1,54 +1,65 @@
-function getData(){    
-    // var supportForm = document.getElementsByClassName("support-form")[0];
-    // var supportTitle = document.getElementById("title");
-    // var supportName = document.getElementById("name");
-    // var supportEmail = document.getElementById("eMail");
-    // var supportContent = document.getElementById("content");
-    // var box = {
-    //     "title" : $(supportTitle).val(),
-    //     "name" : $(supportName).val(),
-    //     "email" : $(supportEmail).val(),
-    //     "message" : $(supportContent).val(),        
-    // };    
-    getPost();
+var data = {
+    "title": '',
+    "name": '',
+    "email": '',
+    "message": '',
+    "filename": ''
+};
+
+function getData(){      
+    data['title'] = document.getElementById("title").value;
+    data['name'] = document.getElementById("name").value;
+    data['email'] = document.getElementById("email").value;
+    data['message'] = document.getElementById("content").value;  
+    var file = document.getElementById("file");  
+    var fileName = file.files[0].name;
+    var fileSize = file.files[0].size;  
+    var fileType = file.files[0].type;  
+    var supportFile = document.getElementById("file").files[0];      
+    var output = document.getElementById('output');          
+    
+    function getBase64(supportFile) {
+        var reader = new FileReader();         
+        reader.readAsDataURL(supportFile);                
+        reader.onload = function () {   
+            console.log('reader.result :', reader.result);        
+            console.log('data :',  reader.result.split('base64,')[1]);                        
+            var newSpan = document.createElement("span"); 
+            // and give it some content 
+            var newContent = document.createTextNode(reader.result.split('base64,')[1]); 
+            // add the text node to the newly created div
+            newSpan.appendChild(newContent)   
+            output.appendChild(newSpan)               
+        };        
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };    
+    }   
+    getBase64(supportFile);
+    
+    $('#output').bind('DOMNodeInserted DOMNodeRemoved', function() {
+        var baseCode = document.querySelector("#output span").innerHTML;
+        data['filename'] = baseCode;        
+        getPost(data);    
+    });
 }
 
-function getPost(){
-    console.log('box :', box);
-    
-    var supportTitle = document.getElementById("title");
-    var supportName = document.getElementById("name");
-    var supportEmail = document.getElementById("eMail");
-    var supportContent = document.getElementById("content");
-    var supportFile = document.getElementById("file");
-    var box = new FormData();
-    console.log('box :', box);
-    box.append( "title", $(supportTitle).val());
-    box.append( "name", $(supportName).val());
-    box.append("email", $(supportEmail).val());
-    box.append("message", $(supportContent).val());
-    box.append("filename" ,$(supportFile).files);
-    console.log('box :', box);
-
+function getPost(data){         
     $.ajax({
         method: 'POST',
-        url: _config.api.invokeUrl + '/contact',   
-        data: JSON.stringify(
-           box
-        ),
+        url: _config.api.invokeUrl + '/contact',           
+        data: JSON.stringify(data),
         contentType: 'application/json; charset=utf-8',
-        success: completePost,
-        error: function ajaxError(jqXHR, textStatus, errorThrown) {
-            console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
-            console.error('Response: ', jqXHR.responseText);
-            alert('An error occured when requesting your news:\n' + jqXHR.responseText);
-        }
+        success: completePost
+        
     });                
 }
-function completePost() {    
+
+function completePost() {        
     window.location.href = 'index.html';
 }
 
-$(".get-btn").click(function(){
-    getData()
+$(".get-btn").click(function(event){
+    event.preventDefault();
+    getData()    
 })
