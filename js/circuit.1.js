@@ -21,9 +21,7 @@ var Cognito = window.Cognito || {};
     // tab btn
     var tabBtn = $(".tab-btn a");    
     var tableLi = $(".table-tab li");    
-    var paginationLi = $(".pagination-tab li");
-    // console.log('paginationLi :', paginationLi);
-    // console.log('tabBtn[0] :', tabBtn[0]);
+console.log('tabBtn[0] :', tabBtn[0]);
     // get tab(recruit, news) data
     
     $(tabBtn[0]).on('click',function(event){        
@@ -39,7 +37,6 @@ var Cognito = window.Cognito || {};
             getTabArticles(cate,page)
         }
         printPagination();
-        pagenationOnOff(0);
     })
     $(tabBtn[0]).click();
     $(tabBtn[1]).on('click',function(event){
@@ -56,16 +53,8 @@ var Cognito = window.Cognito || {};
             getTabArticles(cate,page)
         }       
         printPagination(); 
-        pagenationOnOff(1);
     })
       
-    function pagenationOnOff(num){
-        $(paginationLi).css('display','none')
-        $(paginationLi[num]).css('display', 'block')
-        $(tabBtn).removeClass('active')
-        $(tabBtn[num]).addClass('active')
-        // console.log('num :', paginationLi);
-    }
     function getTabArticles(cate,page) {
         $.ajax({
             method: 'GET',
@@ -123,8 +112,7 @@ var Cognito = window.Cognito || {};
                     contentType: 'application/json; charset=utf-8',
                     success: function(data){
                         // console.log('Response received from API: recruitpage ', data);
-                        var targetPage = 0;
-                        makePagenation(data, targetPage)
+                        makePagenation(data)
                     },
                     error: function ajaxError(jqXHR, textStatus, errorThrown) {
                         console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
@@ -140,8 +128,7 @@ var Cognito = window.Cognito || {};
                     contentType: 'application/json; charset=utf-8',
                     success: function(data){
                         // console.log('Response received from API: newspage ', data);
-                        var targetPage = 1;
-                        makePagenation(data,targetPage)
+                        makePagenation(data)
                     },
                     error: function ajaxError(jqXHR, textStatus, errorThrown) {
                         console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
@@ -154,16 +141,17 @@ var Cognito = window.Cognito || {};
     }
     
     
-    function makePagenation(data,targetPage){
+    function makePagenation(data){
         var url = window.location.href;
-        var checkUrlKey = url.split("/").slice(-1)[0];                     
+        var checkUrlKey = url.split("/").slice(-1)[0];
+        var tagetPage = 0;               
         
         if(checkUrlKey !== 'pit-in.html'){      
             var paginationTab = document.getElementsByClassName("pagination-tab")[0]
-            var pagination = paginationTab.getElementsByClassName("pagination")[targetPage];    
-            // console.log('data.total :', data.total);            
+            var pagination = paginationTab.getElementsByClassName("pagination")[tagetPage];    
+            console.log('data.total :', data.total);            
             var pageLength = Math.ceil((data.total)/10); 
-            // console.log('pageLength :', pageLength);     
+            console.log('pageLength :', pageLength);     
             var pageNum = url.split("=")[1].replace(/[a-z,#,&,_]/g, ""); 
             $(pagination).empty();
             
@@ -180,7 +168,7 @@ var Cognito = window.Cognito || {};
                 $(pageLi).append(pageAT);     
                 $(pagination).append(pageLi);
             }                 
-            // console.log('tagetPage :', targetPage);
+            console.log('tagetPage :', tagetPage);
             function makePageArrow(direction, pageNum,pageLength){
                 switch(direction) {
                     case "left":          
@@ -198,8 +186,8 @@ var Cognito = window.Cognito || {};
                     break;          
                     case "right":          
                     if( pageNum < pageLength ){
-                        // console.log('pageNum :', pageNum);
-                        // console.log('pageLength :', pageLength);
+                        console.log('pageNum :', pageNum);
+                        console.log('pageLength :', pageLength);
                         var pageNum = Number(pageNum) +1;                                         
                         var pageLi = document.createElement("li");                  
                         var pageRightArrow = document.createElement("a");
@@ -360,7 +348,7 @@ var Cognito = window.Cognito || {};
         // load datas
         var article_id = getUrlParam('article');        
         if (article_id == undefined) { // circuit.html
-            // console.log('enter get all articles');
+            console.log('enter get all articles');
             var page = getUrlParam('page');
             // if (page == undefined){
             //     getAllArticles(1);
@@ -390,7 +378,7 @@ var Cognito = window.Cognito || {};
             window.location = $(this).data('href');
         });
 
-        // set method in pit-in.html
+        // set method in circuit.html
         $('#postForm').submit(handlePostArticle);
     });   
 

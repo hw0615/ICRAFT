@@ -11,14 +11,16 @@ function getData(){
     data['name'] = document.getElementById("name").value;
     data['email'] = document.getElementById("email").value;
     data['message'] = document.getElementById("content").value;    
-    var supportFile = document.getElementById("file").files[0];              
+    var supportFile = document.getElementById("file").files[0];  
+    console.log('supportFile :', supportFile);            
     var output = document.getElementById('output');          
-
+    
     function getBase64(supportFile) {
         var reader = new FileReader();
         // console.log('reader :', reader);   
         reader.readAsDataURL(supportFile);                
-        reader.onload = function () {           
+        reader.onload = function () {   
+            console.log('reader.result :', reader.result);        
             console.log('data :',  reader.result.split('base64,')[1]);                        
             var newSpan = document.createElement("span"); 
             // and give it some content 
@@ -33,10 +35,11 @@ function getData(){
         };    
     }   
     getBase64(supportFile);
-
+    
     $('#output').bind('DOMNodeInserted DOMNodeRemoved', function() {
-       var aaa = document.querySelector("#output span").innerHTML;
-       data['filename'] = aaa;  
+        var aaa = document.querySelector("#output span").innerHTML;
+        data['filename'] = aaa;  
+        // data['filename'] = document.getElementById("file").files[0];  
     //    console.log('object :', data['filename']);     
     //    console.log('data :', data);
        getPost(data);    
