@@ -3,7 +3,8 @@ var data = {
     "name": '',
     "email": '',
     "message": '',
-    "filename": ''
+    "filename": '',
+    "filedata": ''
 };
 
 function getData(){      
@@ -12,7 +13,7 @@ function getData(){
     data['email'] = document.getElementById("email").value;
     data['message'] = document.getElementById("content").value;  
     var file = document.getElementById("file");  
-    var fileName = file.files[0].name;
+    data['filename'] = file.files[0].name;
     var fileSize = file.files[0].size;  
     var fileType = file.files[0].type;  
     var supportFile = document.getElementById("file").files[0];      
@@ -39,24 +40,25 @@ function getData(){
     
     $('#output').bind('DOMNodeInserted DOMNodeRemoved', function() {
         var baseCode = document.querySelector("#output span").innerHTML;
-        data['filename'] = baseCode;        
+        data['filedata'] = baseCode;        
         getPost(data);    
     });
 }
 
-function getPost(data){         
+function getPost(data){   
+    console.log('data :', JSON.stringify(data));      
     $.ajax({
         method: 'POST',
         url: _config.api.invokeUrl + '/contact',           
         data: JSON.stringify(data),
         contentType: 'application/json; charset=utf-8',
-        success: completePost
-        
+        success: completePost        
     });                
 }
 
 function completePost() {        
-    window.location.href = 'index.html';
+    console.log('data :', data);
+    // window.location.href = 'index.html';
 }
 
 $(".get-btn").click(function(event){
