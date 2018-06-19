@@ -936,30 +936,18 @@ article .article .article-wrapper .table-wrap {
     height: auto;
     text-align: center;
     font-size: 0; }
-    article .article .article-wrapper .table-wrap .pagination li {
-      display: inline-block; }
-      article .article .article-wrapper .table-wrap .pagination li a {
-        cursor: pointer;
-        color: #666;
-        border: none;
-        font-size: 15px;
-        font-weight: 900; }
-        article .article .article-wrapper .table-wrap .pagination li a img {
-          display: inline-block;
-          width: 12px;
-          vertical-align: middle; }
-        article .article .article-wrapper .table-wrap .pagination li a:focus {
-          background-color: inherit; }
-        article .article .article-wrapper .table-wrap .pagination li a.page-num {
-          background-color: inherit; }
-          article .article .article-wrapper .table-wrap .pagination li a.page-num:hover {
-            background: #ddd; }
-      article .article .article-wrapper .table-wrap .pagination li.page-arrow {
-        margin: 0 1px; }
-        article .article .article-wrapper .table-wrap .pagination li.page-arrow a {
-          border: 1px solid #eee;
-          border-radius: 0;
-          margin-left: 0; }
+    article .article .article-wrapper .table-wrap .pagination .page-num, article .article .article-wrapper .table-wrap .pagination #prev, article .article .article-wrapper .table-wrap .pagination #next {
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      color: #666;
+      border: none;
+      font-size: 15px;
+      font-weight: 900;
+      text-decoration: none;
+      border-left: 1px solid #ddd; }
+      article .article .article-wrapper .table-wrap .pagination .page-num:hover, article .article .article-wrapper .table-wrap .pagination #prev:hover, article .article .article-wrapper .table-wrap .pagination #next:hover {
+        background: #ddd; }
   article .article .article-wrapper .table-wrap .pagination-2 {
     display: block;
     margin: 0 auto;

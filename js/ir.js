@@ -60,8 +60,8 @@ $(function() {
     }).responseText;
   }
 
-  function getSecondRealtime(index) {
-    // 실시간 표 
+  function getSecondRealtime() {
+    var index = Number(1)
     $.ajax({
       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/1",
       async: true,
@@ -72,21 +72,147 @@ $(function() {
         var data = data
         var stockMain = data.data
         var stock = stockMain.each_stock
-        console.log('reaktimetotal :', data.total);
+
+        // // 페이지네이션 목록 출력
+        // var total = data.total
+        // var pageLength = Math.ceil( total / 10 );
+        // var pagination = document.getElementsByClassName("pagination")[0];
+
+        // for( var i = 1; i <= pageLength; i++ ){
+        //   var pageLi = document.createElement("li");
+        //   var pageAT = document.createElement("a");        
+        //   $(pageLi).attr("class","page-item");   
+        //   $(pageAT).attr("class","page-link page-num");      
+        //   $(pageAT).append(i);   
+        //   $(pageLi).append(pageAT);     
+        //   $(pagination).append(pageLi);
+        // }
 
         // 페이지네이션 목록 출력
-        var total = data.total
+        var total = data.total  // 총 페이지 수
+        // var dataPerPage = 20;
+        var pageCount = 10;
         var pageLength = Math.ceil( total / 10 );
         var pagination = document.getElementsByClassName("pagination")[0];
+        
+        console.log('total :', total);
 
-        for( var i = 1; i <= pageLength; i++ ){
-          var pageLi = document.createElement("li");
-          var pageAT = document.createElement("a");        
-          $(pageLi).attr("class","page-item");   
-          $(pageAT).attr("class","page-link page-num");      
-          $(pageAT).append(i);   
-          $(pageLi).append(pageAT);     
-          $(pagination).append(pageLi);
+        function paging(total, pageCount, currentPage) {
+
+          console.log("currentPage : " + currentPage);
+        
+          // var totalPage = Math.ceil(total/dataPerPage);    // 총 페이지 수
+          var totalPage = Math.ceil( total / 10 );    // 총 페이지 수
+          var pageGroup = Math.ceil( currentPage / pageCount );    // 페이지 그룹
+          
+          console.log("pageGroup : " + pageGroup);
+          
+          var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
+          if(last > totalPage)
+              last = totalPage;
+          var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+          var next = last+1;
+          var prev = first-1;
+          
+          console.log("last : " + last);
+          console.log("first : " + first);
+          console.log("next : " + next);
+          console.log("prev : " + prev);
+  
+          
+          var html = "";
+
+          if(prev > 0)
+            html += "<li id='prev'> < </li> ";
+          
+          for( var i = first; i <= last; i++ ){
+            html += "<li class='page-num' id=" + i + ">" + i + "</li> ";
+          }
+          
+          if(last < totalPage)
+            html += "<li id='next'> > </li>";
+          
+          $(".pagination").html(html);    // 페이지 목록 생성
+          $(".pagination li#" + currentPage).css({
+            "text-decoration":"none", 
+            "color":"#FF8400", 
+            "font-weight":"bold"
+          });
+
+          // 현재 페이지 표시                                   
+          $(".pagination li").click(function(){
+              
+              var $item = $(this);
+              var $id = $item.attr("id");
+              var selectedPage = $item.text();
+              index = parseInt($(this).text())
+              
+              if($id == "next") {
+                selectedPage = next; 
+                index = parseInt(first) + 10
+              }
+              if($id == "prev") {
+                selectedPage = prev;
+                index = parseInt(last) - 10
+              }
+              $('.realtime-1').remove()
+
+              $.ajax({
+                url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
+                async: true,
+                type: "GET",
+                dataType: "json",
+                crossDomain: true,
+                success: function(data) {
+                  var data = data
+                  var stockMain = data.data
+                  var stock = stockMain.each_stock
+          
+                  for (var j = 0; j < stock.length; j++) {
+                    var el = stock[j];
+                    var dateTime = el.datetime.substr(el.datetime.length - 8)
+                    var dateTimeS = dateTime.substr(0,5) 
+                    var nego = el.nego
+                    var diff = el.diff
+                    var sell = el.sell
+                    var buy = el.buy
+                    var amountDiff = el.amount_diff
+
+                    // 시간별 시세 테이블 바디
+                    var realtimeTbody = $(".stock-time")
+                    var realtimeTr = $(".realtime-1")
+
+                    var newTr = realtimeTbody.append(
+                      "<tr class='tr-hover realtime-1'>" + 
+                      "<td>"+ dateTimeS + "</td>" + 
+                      "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
+                      "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+                      "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
+                      "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
+                      "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + 
+                      "</tr>"
+                    )
+
+                    if ( diff.toString().indexOf('-') !== -1 ) {
+                      $('.diff-t').attr('class', 'arrow-d')
+                    } else {
+                      $('.diff-t').attr('class', 'arrow-u')
+                    }
+                  }
+                  $('.number').number(true)
+                }, 
+                beforeSend:function(){
+                  $('.loading').removeClass('display-none');
+                },
+                complete:function(){
+                  $('.loading').addClass('display-none');
+                },
+                error: function() {
+                  console.log("failed");
+                }
+              }).responseText;
+              paging(total, pageCount, selectedPage);
+          });
         }
 
         for (var j = 0; j < stock.length; j++) {
@@ -121,73 +247,76 @@ $(function() {
           }
         }
         // function pagination() {
-          $('.page-item').each(function() {
-            $(this).click(function(){
-              $('.realtime-1').remove()
-              // getSecondRealtime(index);
-              var index = Number(1)
-              index = parseInt($(this).text())
+          // $('.page-item').each(function() {
+          //   $(this).click(function(){
+          //     $('.realtime-1').remove()
+          //     // getSecondRealtime(index);
+          //     var index = Number(1)
+          //     index = parseInt($(this).text())
 
-              $.ajax({
-                url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
-                async: true,
-                type: "GET",
-                dataType: "json",
-                crossDomain: true,
-                success: function(data) {
-                  var data = data
-                  var stockMain = data.data
-                  var stock = stockMain.each_stock
-                  // var total = stock.length
+          //     $.ajax({
+          //       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
+          //       async: true,
+          //       type: "GET",
+          //       dataType: "json",
+          //       crossDomain: true,
+          //       success: function(data) {
+          //         var data = data
+          //         var stockMain = data.data
+          //         var stock = stockMain.each_stock
+          //         // var total = stock.length
                   
-                  for (var j = 0; j < stock.length; j++) {
-                    var el = stock[j];
-                    var dateTime = el.datetime.substr(el.datetime.length - 8)
-                    var dateTimeS = dateTime.substr(0,5) 
-                    var nego = el.nego
-                    var diff = el.diff
-                    var sell = el.sell
-                    var buy = el.buy
-                    var amountDiff = el.amount_diff
+          //         for (var j = 0; j < stock.length; j++) {
+          //           var el = stock[j];
+          //           var dateTime = el.datetime.substr(el.datetime.length - 8)
+          //           var dateTimeS = dateTime.substr(0,5) 
+          //           var nego = el.nego
+          //           var diff = el.diff
+          //           var sell = el.sell
+          //           var buy = el.buy
+          //           var amountDiff = el.amount_diff
 
-                    // 시간별 시세 테이블 바디
-                    var realtimeTbody = $(".stock-time")
-                    // var realtimeTr = $(".realtime-1")
+          //           // 시간별 시세 테이블 바디
+          //           var realtimeTbody = $(".stock-time")
+          //           // var realtimeTr = $(".realtime-1")
 
-                    // var newTr = realtimeTbody.append(
-                    realtimeTbody.append(
-                      "<tr class='tr-hover realtime-1'>" + 
-                      "<td>" + dateTimeS + "</td>" + 
-                      "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
-                      "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
-                      "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
-                      "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
-                      "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>"  +
-                      "</tr>"
-                    )
+          //           // var newTr = realtimeTbody.append(
+          //           realtimeTbody.append(
+          //             "<tr class='tr-hover realtime-1'>" + 
+          //             "<td>" + dateTimeS + "</td>" + 
+          //             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
+          //             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+          //             "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
+          //             "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
+          //             "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>"  +
+          //             "</tr>"
+          //           )
 
-                    if ( diff.toString().indexOf('-') !== -1 ) {
-                      $('.diff-t').attr('class', 'arrow-d')
-                    } else {
-                      $('.diff-t').attr('class', 'arrow-u')
-                    }
-                  }
-                  $('.number').number(true)
-                }, 
-                beforeSend:function(){
-                  $('.loading').removeClass('display-none');
-                },
-                complete:function(){
-                  $('.loading').addClass('display-none');
-                },
-                  error: function() {
-                  console.log("failed");
-                }
-              }).responseText;
-            });
-          });
+          //           if ( diff.toString().indexOf('-') !== -1 ) {
+          //             $('.diff-t').attr('class', 'arrow-d')
+          //           } else {
+          //             $('.diff-t').attr('class', 'arrow-u')
+          //           }
+          //         }
+          //         $('.number').number(true)
+          //       }, 
+          //       beforeSend:function(){
+          //         $('.loading').removeClass('display-none');
+          //       },
+          //       complete:function(){
+          //         $('.loading').addClass('display-none');
+          //       },
+          //         error: function() {
+          //         console.log("failed");
+          //       }
+          //     }).responseText;
+          //   });
+          // });
         // }
         // pagination()
+        $("document").ready(function(){        
+          paging(total, pageCount, 1);
+        });
       }, 
       beforeSend:function(){
         $('.loading').removeClass('display-none');
@@ -201,7 +330,6 @@ $(function() {
     }).responseText;
   }
   function getTwoWeeksPages() {
-    // 2weeks
     var index = Number(1)
     $.ajax({
       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/2weeks/1",
@@ -212,11 +340,9 @@ $(function() {
       success: function(data) {
         var twoWeeksData = data
         var twoWeeks = data.data
-        // console.log('twoWeeksData :', twoWeeksData);
         
         // 페이지네이션 목록 출력
         var total = data.total  // 총 페이지 수
-        // var dataPerPage = 20;
         var pageCount = 10;
         var pageLength = Math.ceil( total / 10 );
         var pagination = document.getElementsByClassName("pagination-2")[0];
@@ -243,7 +369,6 @@ $(function() {
           console.log("next : " + next);
           console.log("prev : " + prev);
   
-          var $pingingView = $("#paging");
           
           var html = "";
           
@@ -263,16 +388,9 @@ $(function() {
             "color":"#FF8400", 
             "font-weight":"bold"
           });
-          // $("#paging").html(html);    // 페이지 목록 생성
-          // $("#paging li#" + currentPage).css({
-          //   "text-decoration":"none", 
-          //   "color":"#FF8400", 
-          //   "font-weight":"bold"
-          // });
 
           // 현재 페이지 표시                                   
           $(".pagination-2 li").click(function(){
-          // $("#paging li").click(function(){
               
               var $item = $(this);
               var $id = $item.attr("id");
@@ -344,15 +462,6 @@ $(function() {
               paging(total, pageCount, selectedPage);
           });
         }
-        // for( var i = 1; i <= pageLength; i++ ){
-        //   var pageLi = document.createElement("li");
-        //   var pageAT = document.createElement("a");        
-        //   $(pageLi).attr("class","page-item-2");   
-        //   $(pageAT).attr("class","page-link page-num");      
-        //   $(pageAT).append(i);   
-        //   $(pageLi).append(pageAT);     
-        //   $(pagination).append(pageLi);
-        // }
 
         for (var i = 0; i < twoWeeks.length; i++) {
           var el = twoWeeks[i];
