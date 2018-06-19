@@ -73,21 +73,6 @@ $(function() {
         var stockMain = data.data
         var stock = stockMain.each_stock
 
-        // // 페이지네이션 목록 출력
-        // var total = data.total
-        // var pageLength = Math.ceil( total / 10 );
-        // var pagination = document.getElementsByClassName("pagination")[0];
-
-        // for( var i = 1; i <= pageLength; i++ ){
-        //   var pageLi = document.createElement("li");
-        //   var pageAT = document.createElement("a");        
-        //   $(pageLi).attr("class","page-item");   
-        //   $(pageAT).attr("class","page-link page-num");      
-        //   $(pageAT).append(i);   
-        //   $(pageLi).append(pageAT);     
-        //   $(pagination).append(pageLi);
-        // }
-
         // 페이지네이션 목록 출력
         var total = data.total  // 총 페이지 수
         // var dataPerPage = 20;
@@ -99,13 +84,13 @@ $(function() {
 
         function paging(total, pageCount, currentPage) {
 
-          console.log("currentPage : " + currentPage);
+          console.log("currentPage-1 : " + currentPage);
         
           // var totalPage = Math.ceil(total/dataPerPage);    // 총 페이지 수
           var totalPage = Math.ceil( total / 10 );    // 총 페이지 수
           var pageGroup = Math.ceil( currentPage / pageCount );    // 페이지 그룹
           
-          console.log("pageGroup : " + pageGroup);
+          console.log("pageGroup-1 : " + pageGroup);
           
           var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
           if(last > totalPage)
@@ -113,11 +98,15 @@ $(function() {
           var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
           var next = last+1;
           var prev = first-1;
+          if ( last <= 10 ) {
+            first =  last - (pageCount-1) + 3
+            
+          }
           
-          console.log("last : " + last);
-          console.log("first : " + first);
-          console.log("next : " + next);
-          console.log("prev : " + prev);
+          console.log("last-1 : " + last);
+          console.log("first-1 : " + first);
+          console.log("next-1 : " + next);
+          console.log("prev-1 : " + prev);
   
           
           var html = "";
