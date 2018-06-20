@@ -770,3 +770,18 @@ article .article-wrapper {
   article .article-wrapper input, article .article-wrapper select {
     display: inline-block;
     margin-right: 10px; }
+
+article .input-file {
+  background: url("../img/clip.png") no-repeat right 2px;
+  background-size: 25px;
+  display: inline-block;
+  padding: 0;
+  width: 205px; }
+
+article #output {
+  position: relative; }
+  article #output span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden; }

@@ -43,7 +43,7 @@
                     <a id="signOut" href="#" class="">로그 아웃</a>
                 </li>
                 <li class="small-menu-list">
-                    <a href="circuit.html" class="">관리 모드</a>
+                    <a href="circuit.html?page=1" class="">관리 모드</a>
                 </li>
             </ul>
         </section>
@@ -51,28 +51,29 @@
             <p class="location">
                 <a href="#">홈</a>
                 <span>
-                    < </span>
+                    &#60; </span>
                         <a href="circuit.html">관리 모드</a>
                         <span>
-                            < </span>
+                            &#60; </span>
                                 <a href="#">내용 입력 및 수정</a>
             </p>
             <div class="article">
                 <div class="article-wrapper">
-                    <form id="postForm">                        
+                    <form id="postForm">
                         <label for="category">카테고리:</label>
                         <select name="category" id="category">
-                            <option value="news">뉴스</option>                            
                             <option value="recruit">채용게시판</option>
-                        </select>                        
-                        <input type="text" id="article_id">
+                            <option value="news">뉴스</option>
+                        </select>
+                        <input type="text" id="article_id" style="position: absolute; visibility: hidden">
                         <label for="subject">제목: </label>
                         <input id="article-title" type="text" name="subject">
                         <div class="cate-form"></div>
                         <textarea id="summernote" name="editordata"></textarea>
                         <input class="get-btn" type="submit" value="등록하기">
                     </form>
-                    <script src="./js/pit-in-form.js"></script>                
+                    <script src="./js/pit-in-form.js"></script>
+                    <p id='output'></p>
                 </div>
             </div>
         </article>
