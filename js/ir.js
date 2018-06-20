@@ -95,13 +95,10 @@ $(function() {
           var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
           if(last > totalPage)
               last = totalPage;
-          var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
-          var next = last+1;
-          var prev = first-1;
-          if ( last <= 10 ) {
-            first =  last - (pageCount-1) + 3
-            
-          }
+          var first = last - ( last - 1 );    // 화면에 보여질 첫번째 페이지 번호
+          // var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+          var next = last + 1;
+          var prev = first - 1;
           
           console.log("last-1 : " + last);
           console.log("first-1 : " + first);
@@ -125,7 +122,8 @@ $(function() {
           $(".pagination li#" + currentPage).css({
             "text-decoration":"none", 
             "color":"#FF8400", 
-            "font-weight":"bold"
+            "font-weight":"bold",
+            // "cursor" : "not-allowed"
           });
 
           // 현재 페이지 표시                                   
@@ -235,74 +233,6 @@ $(function() {
             $('.diff-t').attr('class', 'arrow-u')
           }
         }
-        // function pagination() {
-          // $('.page-item').each(function() {
-          //   $(this).click(function(){
-          //     $('.realtime-1').remove()
-          //     // getSecondRealtime(index);
-          //     var index = Number(1)
-          //     index = parseInt($(this).text())
-
-          //     $.ajax({
-          //       url: "https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/stock/realtime/" + index,
-          //       async: true,
-          //       type: "GET",
-          //       dataType: "json",
-          //       crossDomain: true,
-          //       success: function(data) {
-          //         var data = data
-          //         var stockMain = data.data
-          //         var stock = stockMain.each_stock
-          //         // var total = stock.length
-                  
-          //         for (var j = 0; j < stock.length; j++) {
-          //           var el = stock[j];
-          //           var dateTime = el.datetime.substr(el.datetime.length - 8)
-          //           var dateTimeS = dateTime.substr(0,5) 
-          //           var nego = el.nego
-          //           var diff = el.diff
-          //           var sell = el.sell
-          //           var buy = el.buy
-          //           var amountDiff = el.amount_diff
-
-          //           // 시간별 시세 테이블 바디
-          //           var realtimeTbody = $(".stock-time")
-          //           // var realtimeTr = $(".realtime-1")
-
-          //           // var newTr = realtimeTbody.append(
-          //           realtimeTbody.append(
-          //             "<tr class='tr-hover realtime-1'>" + 
-          //             "<td>" + dateTimeS + "</td>" + 
-          //             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
-          //             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
-          //             "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
-          //             "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
-          //             "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>"  +
-          //             "</tr>"
-          //           )
-
-          //           if ( diff.toString().indexOf('-') !== -1 ) {
-          //             $('.diff-t').attr('class', 'arrow-d')
-          //           } else {
-          //             $('.diff-t').attr('class', 'arrow-u')
-          //           }
-          //         }
-          //         $('.number').number(true)
-          //       }, 
-          //       beforeSend:function(){
-          //         $('.loading').removeClass('display-none');
-          //       },
-          //       complete:function(){
-          //         $('.loading').addClass('display-none');
-          //       },
-          //         error: function() {
-          //         console.log("failed");
-          //       }
-          //     }).responseText;
-          //   });
-          // });
-        // }
-        // pagination()
         $("document").ready(function(){        
           paging(total, pageCount, 1);
         });
@@ -372,10 +302,13 @@ $(function() {
               html += "<li id='next'> > </li>";
           
           $(".pagination-2").html(html);    // 페이지 목록 생성
+          console.log('$(".pagination2 li#" + currentPage) :', $(".pagination2 li#" + currentPage));
           $(".pagination-2 li#" + currentPage).css({
+          // $(".pagination-2 li#" + currentPage).css({
             "text-decoration":"none", 
             "color":"#FF8400", 
-            "font-weight":"bold"
+            "font-weight":"bold",
+            // "cursor" : "not-allowed"
           });
 
           // 현재 페이지 표시                                   
@@ -393,7 +326,7 @@ $(function() {
               if($id == "prev") {
                 selectedPage = prev;
                 index = parseInt(last) - 10
-              }
+              }              
               $('.realtime-2').remove()
 
               $.ajax({

@@ -743,6 +743,20 @@ footer #footer-wrapper {
       footer #footer-wrapper .text-area .footer-menu {
         display: none; } }
 
+@keyframes img {
+  0% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1;
+    transform: scale(1.1); } }
+
+@keyframes text {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translate3d(5%, 0px, 0px); } }
+
 .container-fluid section .img-wrapper {
   height: 580px; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -757,15 +771,19 @@ footer #footer-wrapper {
   .container-fluid section .img-wrapper .item1 {
     background-image: url("../img/bg1.jpg");
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    animation: img 8s infinite; }
   .container-fluid section .img-wrapper .item2 {
-    background-image: url("../img/bg2.jpg");
+    background-image: url("../img/green.jpg");
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    background-position-y: -220px;
+    animation: img 8s infinite; }
   .container-fluid section .img-wrapper .item3 {
-    background-image: url("../img/company2.jpg");
+    background-image: url("../img/bg3.jpg");
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    animation: img 8s infinite; }
   .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
     width: 100%;
     height: 580px; }
@@ -779,11 +797,13 @@ footer #footer-wrapper {
       .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
         height: 700px; } }
     .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
+      margin-left: -10%;
       font-size: 40px;
       text-align: center;
       text-shadow: 3px 3px 4px #000;
       color: #fff;
-      padding: 250px 0; }
+      padding: 250px 0;
+      animation: text 8s infinite; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
           font-size: 20px;
@@ -795,6 +815,10 @@ footer #footer-wrapper {
       @media only screen and (min-width: 1751px) {
         .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
           padding: 330px 0; } }
+  .container-fluid section .img-wrapper .carousel-control .glyphicon {
+    position: relative;
+    top: 45%;
+    font-size: 25px; }
 
 .container-fluid article .article {
   background: none;

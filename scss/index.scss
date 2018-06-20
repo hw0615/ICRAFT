@@ -4,6 +4,26 @@
 @import './header';
 @import './footer';
 
+@keyframes img {
+  0% {
+    opacity: 0.9;    
+  }
+	100% {
+    opacity: 1;
+    transform: scale(1.1);
+    // transform: translate3d(-58px, 0px, 0px);
+	}
+}
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+	100% {
+    opacity: 1;
+    transform: translate3d(5%, 0px, 0px);
+	}
+}
+
 .container-fluid {
   section {
     .img-wrapper {
@@ -23,20 +43,25 @@
           repeat: no-repeat;
           size: cover; 
         }
+        animation: img 8s infinite;
+
       }
       .item2 {
         background: {
-          image: url('../img/bg2.jpg');
+          image: url('../img/green.jpg');
           repeat: no-repeat;
           size: cover; 
+          position-y: -220px; 
         }
+        animation: img 8s infinite;
       }
       .item3 {
         background: {
-          image: url('../img/company2.jpg');
+          image: url('../img/bg3.jpg');
           repeat: no-repeat;
           size: cover; 
         }
+        animation: img 8s infinite;
       }
 
       .item1, .item2, .item3 {
@@ -52,11 +77,13 @@
           height: 700px;
         }
         .item-text {
+          margin-left: -10%;
           font-size: 40px;
           text-align: center;
           text-shadow: 3px 3px 4px #000;
           color: #fff;
           padding: 250px 0;
+          animation: text 8s infinite;
           @include respond-to($phone) {  
             font-size: 20px;
             padding: 180px 35px;            
@@ -68,6 +95,13 @@
           @include respond-to($large-desktop2) {
             padding: 330px 0;
           }
+        }
+      }
+      .carousel-control {
+        .glyphicon {
+          position: relative;
+          top: 45%;
+          font-size: 25px;
         }
       }
     }
