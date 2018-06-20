@@ -302,7 +302,7 @@ var Cognito = window.Cognito || {};
                 "object_name": category
             }),
             success: function(){
-                // window.location.href = 'circuit.html?page=1';            
+                window.location.href = 'circuit.html?page=1';            
             },
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting news: ', textStatus, ', Details: ', errorThrown);
