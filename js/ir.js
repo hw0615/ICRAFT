@@ -443,16 +443,21 @@ $(function() {
 
         for (var i = 0; i < stock.length; i++) {
           var el = stock[i];
+          console.log('el.datetime :', el.datetime);
           var dateTime = el.datetime.substr(el.datetime.length - 8)
           var dateTimeS = dateTime.substr(0,5) 
-          var nego = el.nego
+          var nego = el.nego.toString()
+          console.log('nego :', nego);
           var diff = el.diff
           var sell = el.sell
           var buy = el.buy
           var amountDiff = el.amount_diff
 
           labelBox.push(dateTimeS);
+          labelBox.reverse().sort()
           dataBox.push(nego)
+          dataBox.reverse()
+          console.log('dataBox :', dataBox);
 
           var ctx = document.getElementById('myChart').getContext('2d');
           var chart = new Chart(ctx, {
@@ -463,7 +468,7 @@ $(function() {
                   label: "1일",
                   backgroundColor: 'rgba(244, 249, 255)',
                   borderColor: 'rgba(23, 74, 142)',
-                  data: dataBox,
+                  data: dataBox
               }],
             },
             options: {
