@@ -16,12 +16,11 @@ $(function() {
         var data = data
         var stockMain = data.data
         var stock = stockMain.each_stock
-        console.log('data :', data);
 
         // 최상단 현재 아이크래프트 주가 정보
-        var lastDay = stockMain.lastday
+        var lastDay = stockMain.lastday.toString()
         var low_price = stockMain.low_price
-        var now_price = stockMain.now_price
+        var now_price = stockMain.now_price.toString()
         var start_price = stockMain.start_price
         var top_price = stockMain.top_price
         var volume = stockMain.volume
@@ -48,8 +47,11 @@ $(function() {
         if ( diff.toString().indexOf('-') !== -1 ) {
           $('.arrow').attr('class', 'arrow-d')
           $('.now_price').css('color', 'blue')
+          $('.diff').css('color', 'blue')
         } else {
           $('.arrow').attr('class', 'arrow-u')
+          $('.now_price').css('color', 'red')
+          $('.diff').css('color', 'red')
         }
 
         $('.number').number(true)
@@ -59,7 +61,6 @@ $(function() {
       }
     }).responseText;
   }
-
   function getSecondRealtime() {
     var index = Number(1)
     $.ajax({
@@ -123,7 +124,6 @@ $(function() {
             "text-decoration":"none", 
             "color":"#FF8400", 
             "font-weight":"bold",
-            // "cursor" : "not-allowed"
           });
 
           // 현재 페이지 표시                                   
@@ -160,7 +160,7 @@ $(function() {
                     var dateTime = el.datetime.substr(el.datetime.length - 8)
                     var dateTimeS = dateTime.substr(0,5) 
                     var nego = el.nego
-                    var diff = el.diff
+                    var diff = el.diff.toString()
                     var sell = el.sell
                     var buy = el.buy
                     var amountDiff = el.amount_diff
@@ -173,7 +173,7 @@ $(function() {
                       "<tr class='tr-hover realtime-1'>" + 
                       "<td>"+ dateTimeS + "</td>" + 
                       "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
-                      "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+                      "<td class='diff-num'>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
                       "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
                       "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
                       "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + 
@@ -182,8 +182,10 @@ $(function() {
 
                     if ( diff.toString().indexOf('-') !== -1 ) {
                       $('.diff-t').attr('class', 'arrow-d')
+                      // $('.diff-num').css('color', 'blue')
                     } else {
                       $('.diff-t').attr('class', 'arrow-u')
+                      // $('.diff-num').css('color', 'red')
                     }
                   }
                   $('.number').number(true)
@@ -207,10 +209,12 @@ $(function() {
           var dateTime = el.datetime.substr(el.datetime.length - 8)
           var dateTimeS = dateTime.substr(0,5) 
           var nego = el.nego
-          var diff = el.diff
+          var diff = el.diff.toString()
           var sell = el.sell
           var buy = el.buy
           var amountDiff = el.amount_diff
+
+          console.log('diff :', diff);
 
           // 시간별 시세 테이블 바디
           var realtimeTbody = $(".stock-time")
@@ -220,7 +224,7 @@ $(function() {
             "<tr class='tr-hover realtime-1'>" + 
             "<td>"+ dateTimeS + "</td>" + 
             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
-            "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
+            "<td class='diff-num'>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + sell + "</span>" + "</td>" +
             "<td>"+ "<span class='number'>" + buy + "</span>" + "</td>" + 
             "<td>"+ "<span class='number'>" + amountDiff + "</span>" + "</td>" + 
@@ -229,13 +233,16 @@ $(function() {
 
           if ( diff.toString().indexOf('-') !== -1 ) {
             $('.diff-t').attr('class', 'arrow-d')
+            // $('.diff-num').css('color', 'blue')
           } else {
             $('.diff-t').attr('class', 'arrow-u')
+            // $('.diff-num').css('color', 'red')
           }
         }
         $("document").ready(function(){        
           paging(total, pageCount, 1);
         });
+        $('.number').number(true);        
       }, 
       beforeSend:function(){
         $('.loading').removeClass('display-none');
@@ -433,55 +440,56 @@ $(function() {
       dataType: "json",
       crossDomain: true,
       success: function(data) {
-        
+        console.log('data-for-chart1 :', data);
         var stockMain = data.data
-        var stock = data.data.each_stock
+        var stock = stockMain.each_stock
+        var negoEach = stockMain.each_nego
 
         // 실시간 그래프 데이터 수집 배열
         var labelBox = [];
         var dataBox = [];
 
+        for (var k = 0; k < negoEach.length; k++) {
+          var el = negoEach[k];
+          dataBox.push(el.toString())
+        }
+
         for (var i = 0; i < stock.length; i++) {
           var el = stock[i];
-          console.log('el.datetime :', el.datetime);
           var dateTime = el.datetime.substr(el.datetime.length - 8)
           var dateTimeS = dateTime.substr(0,5) 
           var nego = el.nego.toString()
-          console.log('nego :', nego);
           var diff = el.diff
           var sell = el.sell
           var buy = el.buy
           var amountDiff = el.amount_diff
-
+            
           labelBox.push(dateTimeS);
           labelBox.reverse().sort()
-          dataBox.push(nego)
-          dataBox.reverse()
-          console.log('dataBox :', dataBox);
-
-          var ctx = document.getElementById('myChart').getContext('2d');
-          var chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: labelBox,
-              datasets: [{
-                  label: "1일",
-                  backgroundColor: 'rgba(244, 249, 255)',
-                  borderColor: 'rgba(23, 74, 142)',
-                  data: dataBox
-              }],
-            },
-            options: {
-              animation: {
-                duration: 0, // general animation time
-              },
-              hover: {
-                animationDuration: 0, // duration of animations when hovering an item
-              },
-              responsiveAnimationDuration: 0, // animation duration after a resize
-            }
-          });
         }
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labelBox,
+            datasets: [{
+              label: "1일",
+              backgroundColor: 'rgba(244, 249, 255)',
+              borderColor: 'rgba(23, 74, 142)',
+              data: dataBox
+            }],
+          },
+          options: {
+            animation: {
+              duration: 0, // general animation time
+            },
+            hover: {
+              animationDuration: 0, // duration of animations when hovering an item
+            },
+            responsiveAnimationDuration: 0, // animation duration after a resize
+          }
+        });
         $('.number').number(true);        
       }, 
       beforeSend:function(){
@@ -527,30 +535,30 @@ $(function() {
     
             dateArray.push(date)
             priceArray.push(price)
-    
-            var ctx = document.getElementById('myChart-m').getContext('2d');
-            var chart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: dateArray,
-                datasets: [{
-                    label: "1개월",
-                    backgroundColor: 'rgb(244, 249, 255)',
-                    borderColor: 'rgb(23, 74, 142)',
-                    data: priceArray,
-                }]
-              },
-              options: {
-                animation: {
-                  duration: 0, // general animation time
-                },
-                hover: {
-                  animationDuration: 0, // duration of animations when hovering an item
-                },
-                responsiveAnimationDuration: 0, // animation duration after a resize
-              }
-            });
           }
+
+          var ctx = document.getElementById('myChart-m').getContext('2d');
+          var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: dateArray,
+              datasets: [{
+                label: "1개월",
+                backgroundColor: 'rgb(244, 249, 255)',
+                borderColor: 'rgb(23, 74, 142)',
+                data: priceArray,
+              }]
+            },
+            options: {
+              animation: {
+                duration: 0, // general animation time
+              },
+              hover: {
+                animationDuration: 0, // duration of animations when hovering an item
+              },
+              responsiveAnimationDuration: 0, // animation duration after a resize
+            }
+          });
           
         }, 
         beforeSend:function(){
@@ -590,29 +598,29 @@ $(function() {
             dateArray.push(date)
             priceArray.push(price)
           
-            var ctx = document.getElementById('myChart-3m').getContext('2d');
-            var chart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: dateArray,
-                datasets: [{
-                    label: "3개월",
-                    backgroundColor: 'rgb(244, 249, 255)',
-                    borderColor: 'rgb(23, 74, 142)',
-                    data: priceArray,
-                }]
-              },
-              options: {
-                animation: {
-                  duration: 0, // general animation time
-                },
-                hover: {
-                  animationDuration: 0, // duration of animations when hovering an item
-                },
-                responsiveAnimationDuration: 0, // animation duration after a resize
-              }
-            });
           }
+          var ctx = document.getElementById('myChart-3m').getContext('2d');
+          var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: dateArray,
+              datasets: [{
+                label: "3개월",
+                backgroundColor: 'rgb(244, 249, 255)',
+                borderColor: 'rgb(23, 74, 142)',
+                data: priceArray,
+              }]
+            },
+            options: {
+              animation: {
+                duration: 0, // general animation time
+              },
+              hover: {
+                animationDuration: 0, // duration of animations when hovering an item
+              },
+              responsiveAnimationDuration: 0, // animation duration after a resize
+            }
+          });
     
         }, 
         beforeSend:function(){
@@ -652,32 +660,32 @@ $(function() {
             dateArray.push(date)
             priceArray.push(price)
           
-            var ctx = document.getElementById('myChart-y').getContext('2d');
-            var chart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: dateArray,
-                datasets: [{
-                    label: "1",
-                    backgroundColor: 'rgb(244, 249, 255)',
-                    borderColor: 'rgb(23, 74, 142)',
-                    data: priceArray,
-                }],
-                datasetStrokeWidth: 5,
-                pointDotRadius : 8,
-                borderWidth: 1
-              },
-              options: {
-                animation: {
-                  duration: 0, // general animation time
-                },
-                hover: {
-                  animationDuration: 0, // duration of animations when hovering an item
-                },
-                responsiveAnimationDuration: 0, // animation duration after a resize
-              }
-            });
           }
+          var ctx = document.getElementById('myChart-y').getContext('2d');
+          var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: dateArray,
+              datasets: [{
+                label: "1",
+                backgroundColor: 'rgb(244, 249, 255)',
+                borderColor: 'rgb(23, 74, 142)',
+                data: priceArray,
+              }],
+              datasetStrokeWidth: 5,
+              pointDotRadius : 8,
+              borderWidth: 1
+            },
+            options: {
+              animation: {
+                duration: 0, // general animation time
+              },
+              hover: {
+                animationDuration: 0, // duration of animations when hovering an item
+              },
+              responsiveAnimationDuration: 0, // animation duration after a resize
+            }
+          });
         }, 
         beforeSend:function(){
           $('.loading-chart').removeClass('display-none');
