@@ -140,6 +140,14 @@ article {
         text-align: center;
         vertical-align: middle;
       }
+      @include respond-to($phone) {
+        th:nth-child(1), td:nth-child(1) {
+          display:none;
+        }
+        th:nth-child(4), td:nth-child(4) {
+          display:none;
+        }
+      }
       .info-title {
         background-color: #eee;
         font-weight: 600;

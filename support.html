@@ -37,7 +37,7 @@
         </li>
         <li class="small-menu-list">
           <a href="support.html" class="active-menu">고객소리방</a>
-        </li>     
+        </li>
       </ul>
     </section>
     <article>
@@ -49,12 +49,17 @@
         <a href="#">고객소리방</a>
       </p>
       <div class="article">
-        <h3 class="article-title">고객소리방</h3>       
-        <p>
+        <h3 class="article-title">고객소리방</h3>
+        <p class="test">
             고객 및 주주 여러분의 소중한 의견을 듣겠습니다.
             문의할 내용을 작성하신 후 하단 확인 버튼을 눌러주세요.
-            보내주신 의견에 대해 빠른 답변을 드리겠습니다.            
-        </p> 
+            보내주신 의견에 대해 빠른 답변을 드리겠습니다.
+        </p>
+        <script>
+           var test = document.querySelector(".test");
+           var res = test.innerHTML.split("<")
+           console.log('test.innerText :', res);
+        </script>
         <form id="supportForm" class="support-form" method="post" enctype="multipart/form-data">                    
           <label for="title">제목</label>
           <input id="title" name="title" type="text" placeholder="Subject"/>
@@ -65,10 +70,10 @@
           <div class="col">
               <label for="email">이메일</label>
               <input id="email" name="email" type="text" placeholder="E-mail"/>   
-          </div>             
+          </div>
           <label for="">문의사항</label>
           <textarea id="content" name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>          
-          <input id="file" class="input-file" type="file" name="file">                    
+          <input id="file" class="input-file" type="file" name="file">
           <!-- <a class="get-btn" href="#">문의하기</a> -->
           <input class="get-btn" type="submit" value="문의하기">
         </form>

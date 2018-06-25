@@ -834,7 +834,7 @@ article .article-wrapper {
         position: relative; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           article .article-wrapper .talent-content .talent-lists li {
-            font-size: 15px;
+            font-size: 14px;
             width: 47%;
             float: none !important;
             display: inline-block;
@@ -896,7 +896,7 @@ article .article-wrapper {
           float: unset !important;
           display: inline-block;
           width: 48%;
-          font-size: 15px;
+          font-size: 14px;
           vertical-align: top;
           height: 56px; } }
   article .article-wrapper.benifit > h4 {

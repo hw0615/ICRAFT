@@ -847,6 +847,11 @@ article .article-wrapper {
       padding: 20px 5px !important;
       text-align: center;
       vertical-align: middle; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper table th:nth-child(1), article .article-wrapper table td:nth-child(1) {
+        display: none; }
+      article .article-wrapper table th:nth-child(4), article .article-wrapper table td:nth-child(4) {
+        display: none; } }
     article .article-wrapper table .info-title {
       background-color: #eee;
       font-weight: 600;

@@ -1,4 +1,4 @@
-@import './reset';  
+@import './reset';
 @import './common';
 @import './config';
 @import './header';
@@ -9,12 +9,12 @@
   margin: 0 !important;
 }
 section {
-  background: {    
+  background: {
     image: url('../img/recruitment-posts-01.jpg');
     repeat: no-repeat;
-    size: cover; 
-    position: center;      
-  }  
+    size: cover;
+    position: center;
+  }
 }
 article {
   .article-wrapper {
@@ -23,20 +23,35 @@ article {
     margin: 0 auto;
     margin-bottom: 30px;
     display:inline-block;
-    clear: both; 
+    clear: both;
     position: relative;
     .article-title {
       margin-top: 0;
       margin-bottom: 20px !important;
       padding-bottom: 20px !important;
-    }  
-    .note-editor {      
+    }
+    .note-editor {
       margin-top: 10px;
-    } 
+    }
     input, select {
       display: inline-block;
       margin-right: 10px;
     }
   }
- 
+  .input-file {
+    background: url("../img/clip.png") no-repeat right 2px;
+    background-size: 25px;
+    display: inline-block;
+    padding:0;
+    width: 205px;
+  }
+  #output {
+    position: relative;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+    }
+  }
 }

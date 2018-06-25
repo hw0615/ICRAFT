@@ -773,6 +773,16 @@ article .article-wrapper {
   max-width: 870px;
   width: 100%;
   margin: 0 auto; }
+  article .article-wrapper > img {
+    float: right;
+    width: 300px;
+    margin-top: -20px; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper > img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        float: unset; } }
   article .article-wrapper .get-btn {
     background-color: #23527c;
     color: white;
@@ -783,6 +793,9 @@ article .article-wrapper {
     padding: 10px;
     width: 150px;
     text-align: center; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper .get-btn {
+        margin-top: 20px; } }
   article .article-wrapper > ul {
     padding: 10px 5px; }
     article .article-wrapper > ul > li {
@@ -830,11 +843,17 @@ article .article-wrapper {
       border-top: 2px solid #aaa;
       padding: 20px 0 !important;
       text-align: center;
-      font-weight: 600;
-      font-size: 16px; }
+      font-weight: 600; }
     article .article-wrapper table td {
       padding: 20px 0 !important;
       text-align: center; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      article .article-wrapper table {
+        font-size: 14px; }
+        article .article-wrapper table th:nth-child(1), article .article-wrapper table td:nth-child(1) {
+          display: none; }
+        article .article-wrapper table th:nth-child(6), article .article-wrapper table td:nth-child(6) {
+          display: none; } }
   article .article-wrapper .pagination {
     display: block;
     margin: 0 auto;
