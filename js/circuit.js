@@ -212,6 +212,7 @@ var Cognito = window.Cognito || {};
       
       pagination = paginationTab.getElementsByClassName("pagination")[targetPage]
       var pageBtn = pagination.getElementsByClassName('page-link')
+      
       for(var z = 0; z < pageBtn.length; z++){
       $(pageBtn[z]).click(
         (function(category, page){

@@ -48,7 +48,7 @@
       }
       .item2 {
         background: {
-          image: url('../img/green.jpg');
+          image: url('../img/bg2.jpg');
           repeat: no-repeat;
           size: cover; 
           position-y: -220px; 
@@ -77,9 +77,9 @@
           height: 700px;
         }
         .item-text {
-          margin-left: -10%;
+          margin-left: 20%;
           font-size: 40px;
-          text-align: center;
+          text-align: left;
           text-shadow: 3px 3px 4px #000;
           color: #fff;
           padding: 250px 0;

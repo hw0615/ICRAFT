@@ -744,16 +744,13 @@ footer #footer-wrapper {
         display: none; } }
 
 section {
-  background-image: url("../img/company2.jpg");
+  background-image: url("../img/company.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: -100px; }
   @media only screen and (min-width: 601px) and (max-width: 991px) {
     section {
       background-position-y: -30px; } }
-  @media only screen and (min-width: 1751px) {
-    section {
-      background-position-y: -375px; } }
 
 article .article .article-img-logo {
   width: 290px;

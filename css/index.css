@@ -774,7 +774,7 @@ footer #footer-wrapper {
     background-size: cover;
     animation: img 8s infinite; }
   .container-fluid section .img-wrapper .item2 {
-    background-image: url("../img/green.jpg");
+    background-image: url("../img/bg2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -220px;
@@ -797,9 +797,9 @@ footer #footer-wrapper {
       .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
         height: 700px; } }
     .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
-      margin-left: -10%;
+      margin-left: 20%;
       font-size: 40px;
-      text-align: center;
+      text-align: left;
       text-shadow: 3px 3px 4px #000;
       color: #fff;
       padding: 250px 0;
