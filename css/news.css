@@ -774,6 +774,7 @@ article .article-wrapper {
   width: 100%;
   margin: 0 auto; }
   article .article-wrapper .search-bar {
+    display: none;
     float: right;
     margin-bottom: 20px;
     height: 35px;
@@ -807,6 +808,7 @@ article .article-wrapper {
       margin: 5px 10px; }
   article .article-wrapper .tab-btn {
     display: inline-block;
+    margin-top: 35px;
     width: 100%; }
     article .article-wrapper .tab-btn a {
       border: 2px solid #fefefe;
@@ -814,7 +816,7 @@ article .article-wrapper {
       color: black;
       float: left;
       padding: 10px 0;
-      width: 50%;
+      width: 33.33%;
       text-align: center;
       font-weight: 600; }
       article .article-wrapper .tab-btn a.active {

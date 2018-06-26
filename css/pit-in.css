@@ -785,3 +785,6 @@ article #output {
     top: 0;
     left: 0;
     visibility: hidden; }
+
+article .date-dis, article #submitter, article #info_url {
+  width: 200px; }

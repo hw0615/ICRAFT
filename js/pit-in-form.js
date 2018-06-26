@@ -24,10 +24,17 @@
             $(".cate-form").append(
                 "<label for='due-to'>접수기한</label>\n <input id='due-to' type='text' name='subject' placeholder='yyyy-mm-dd'>\n          <label for='type'>지원구분</label>\n          <select name='type' id='type'>\n              <option value='newcomer'>신입</option>\n              <option value='experienced '>경력</option>\n          </select>\n          <label for='available'>지원가능여부</label>\n          <select name='available' id='available'>\n              <option value='possible'>가능</option>\n              <option value='impossible'>불가능</option>\n </select>"
             )
+            $('.note-editor').css('display', 'block')
         } else if(commutCate == "news"){
             $(".cate-form").append(
-                "<label for='date'>\uB0A0\uC9DC: </label>\n          <input id='date' type='text' name='subject' value='" + res + "' placeholder='" + res + "' disabled>\n  <label for='toMain'>메인에 게시하기</label>\n<input id='toMain' name='toMain' type='checkbox'>\n <label for='mainImg'>이미지</label>\n  <input id='mainImg' class='input-file' type='file' name='mainImg' >" 
+                "<label for='date'>날짜 </label>\n          <input id='date' type='text' name='subject' value='" + res + "' placeholder='" + res + "' disabled>\n  <label for='toMain'>메인에 게시하기</label>\n<input id='toMain' name='toMain' type='checkbox'>\n <label for='mainImg'>이미지</label>\n  <input id='mainImg' class='input-file' type='file' name='mainImg' >" 
             )
+            $('.note-editor').css('display', 'block')
+        } else if(commutCate == "disclosure"){
+            $(".cate-form").append(
+                "<label for='date'>날짜</label>\n          <input id='date' class='date-dis' type='text' name='subject' value='" + res + "' placeholder='" + 'yyyy-mm-dd' + "' >\n  <label for='submitter'>제출인</label>\n<input id='submitter' name='submitter' type='text'>\n <label for='info_url'>url</label>\n  <input id='info_url' type='text' name='info_url' >" 
+            )
+            $('.note-editor').css('display', 'none')
         }
     }
 
