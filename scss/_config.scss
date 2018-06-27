@@ -7,6 +7,7 @@ $color-key: #174A8E;
     image: url('../img/company.jpg');
     repeat: no-repeat;
     size: cover; 
+    position-x: -0.8px;
     position-y: -100px;
   }
   @include respond-to($tablet) {

@@ -11,7 +11,7 @@ article {
   .article {
     .article-wrapper {
       .emp {
-        font-size: 15.3px;
+        font-size: 14.8px;
         padding-bottom: 0;
         @include respond-to($phone) {
           font-size: 11px; 

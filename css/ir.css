@@ -171,7 +171,7 @@ legend, caption {
           float: left;
           width: 100%;
           min-width: 100px;
-          font-size: 14px;
+          font-size: 15px;
           color: #fff;
           text-decoration: none; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -287,8 +287,8 @@ legend, caption {
       .container-fluid article .article .article-text {
         font-size: 16px;
         font-weight: 400;
-        text-align: left;
         line-height: 1.5;
+        text-align: justify;
         margin: 20px 0;
         color: #333; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -927,6 +927,12 @@ article .article .article-wrapper .table-wrap {
           font-size: 10px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
         article .article .article-wrapper .table-wrap table td {
+          font-size: 14px; } }
+      @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article .article-wrapper .table-wrap table td span {
+          font-size: 10px; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
+        article .article .article-wrapper .table-wrap table td span {
           font-size: 14px; } }
   article .article .article-wrapper .table-wrap .pagination {
     display: block;

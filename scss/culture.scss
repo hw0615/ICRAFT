@@ -44,11 +44,12 @@ article {
           border-top: 1px solid $color-key;
           border-bottom: 1px solid $color-key;
           padding: 15px 10px 15px 10px;
+          margin: 12px 0;
           text-align: center;
         }
       }
       .article-right {
-        width: 50%;
+        width: 51%;
         @include respond-to($tablet) {
           width: 45%;
         }
@@ -126,7 +127,7 @@ article {
           font-weight: 600;
           border-top: 1px solid $color-key;
           border-bottom: 1px solid $color-key;
-          padding: 25px 42px 25px 42px;
+          padding: 25px 40px 25px 40px;
           text-align: center;
           margin: 30px auto;
           @include respond-to($phone) {

@@ -171,7 +171,7 @@ legend, caption {
           float: left;
           width: 100%;
           min-width: 100px;
-          font-size: 14px;
+          font-size: 15px;
           color: #fff;
           text-decoration: none; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -287,8 +287,8 @@ legend, caption {
       .container-fluid article .article .article-text {
         font-size: 16px;
         font-weight: 400;
-        text-align: left;
         line-height: 1.5;
+        text-align: justify;
         margin: 20px 0;
         color: #333; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -747,6 +747,7 @@ section {
   background-image: url("../img/company.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: -0.8px;
   background-position-y: -100px; }
   @media only screen and (min-width: 601px) and (max-width: 991px) {
     section {
@@ -754,7 +755,7 @@ section {
 
 article .article .txt-box {
   float: left;
-  width: 530px;
+  width: 600px;
   margin-right: 25px; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
     article .article .txt-box {
@@ -813,7 +814,7 @@ article .article .img-wrapper {
         height: 50%; } }
   article .article .img-wrapper .img-sign {
     float: right;
-    margin-top: 5px;
+    margin-top: 25px;
     width: 150px;
     height: 35px;
     object-fit: cover;
