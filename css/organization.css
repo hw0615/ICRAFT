@@ -298,7 +298,8 @@ legend, caption {
           .container-fluid article .article .article-text {
             font-size: 14px; } }
       .container-fluid article .article .emp {
-        font-size: 22px;
+        font-size: 24px;
+        text-align: justify;
         font-weight: 600;
         line-height: 1.8;
         color: #174A8E;
@@ -753,9 +754,22 @@ section {
     section {
       background-position-y: -30px; } }
 
-article .article .emp {
+article .article .emp-or {
   text-align: center;
-  margin: 50px 0; }
+  margin: 50px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #174A8E;
+  padding-bottom: 10px; }
+  @media only screen and (min-width: 280px) and (max-width: 600px) {
+    article .article .emp-or {
+      font-size: 12px;
+      width: 100%; } }
+  @media only screen and (min-width: 601px) and (max-width: 991px) {
+    article .article .emp-or {
+      font-size: 16px;
+      width: 100%; } }
 
 article .article-text {
   line-height: 1.5;

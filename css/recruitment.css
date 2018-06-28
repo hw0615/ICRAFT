@@ -298,7 +298,8 @@ legend, caption {
           .container-fluid article .article .article-text {
             font-size: 14px; } }
       .container-fluid article .article .emp {
-        font-size: 22px;
+        font-size: 24px;
+        text-align: justify;
         font-weight: 600;
         line-height: 1.8;
         color: #174A8E;
@@ -917,80 +918,27 @@ article .article-wrapper {
       left: 0; }
   article .article-wrapper.benifit .benifit-summary {
     padding: 20px;
-    text-align: center; }
-    @media only screen and (min-width: 280px) and (max-width: 600px) {
-      article .article-wrapper.benifit .benifit-summary {
-        padding: 0;
-        margin-bottom: 40px; } }
-    article .article-wrapper.benifit .benifit-summary span {
-      border: 2px solid #4a5667;
-      border-radius: 100%;
+    text-align: center;
+    margin-bottom: 50px; }
+    article .article-wrapper.benifit .benifit-summary .benifit-1, article .article-wrapper.benifit .benifit-summary .benifit-2, article .article-wrapper.benifit .benifit-summary .benifit-3 {
       display: inline-block;
-      width: 180px;
-      height: 180px;
-      line-height: 180px;
-      text-align: center;
-      position: relative; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        article .article-wrapper.benifit .benifit-summary span {
-          border: none;
-          width: 100px;
-          height: 100px; } }
-      article .article-wrapper.benifit .benifit-summary span img {
-        display: inline-block;
-        margin-top: 20px;
-        width: 120px;
-        line-height: 20px;
-        position: relative; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article-wrapper.benifit .benifit-summary span img {
-            top: -10px;
-            margin: 0;
-            width: 80px; } }
-      article .article-wrapper.benifit .benifit-summary span i {
-        color: #4a5667;
-        position: absolute;
-        bottom: 27px;
-        left: 50%;
-        margin-left: -55px;
-        line-height: 20px;
-        width: 110px;
-        height: 20px;
-        text-align: center;
-        font-style: unset;
-        font-weight: 600;
-        font-size: 16px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          article .article-wrapper.benifit .benifit-summary span i {
-            bottom: -12px;
-            font-size: 15px; } }
-    article .article-wrapper.benifit .benifit-summary span + span {
-      margin-left: 20px; }
-    article .article-wrapper.benifit .benifit-summary .plus {
       position: relative;
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      margin: 0 10px;
-      /* Vertical line */
-      /* horizontal line */ }
-      article .article-wrapper.benifit .benifit-summary .plus:before, article .article-wrapper.benifit .benifit-summary .plus:after {
-        content: "";
-        position: absolute;
-        background-color: #4a5667;
-        transition: transform 0.25s ease-out; }
-      article .article-wrapper.benifit .benifit-summary .plus:before {
-        top: 0;
-        left: 55%;
-        width: 2px;
-        height: 100%;
-        margin-left: -2px; }
-      article .article-wrapper.benifit .benifit-summary .plus:after {
-        top: 48%;
-        left: 0;
+      margin-bottom: 30px; }
+      article .article-wrapper.benifit .benifit-summary .benifit-1 span, article .article-wrapper.benifit .benifit-summary .benifit-2 span, article .article-wrapper.benifit .benifit-summary .benifit-3 span {
         width: 100%;
-        height: 2px;
-        margin-top: -2px; }
+        text-align: center;
+        position: absolute;
+        bottom: -25px;
+        left: 0; }
+      article .article-wrapper.benifit .benifit-summary .benifit-1 img, article .article-wrapper.benifit .benifit-summary .benifit-2 img, article .article-wrapper.benifit .benifit-summary .benifit-3 img {
+        display: inline-block;
+        position: relative;
+        margin-top: 20px;
+        width: 150px; }
+        @media only screen and (min-width: 280px) and (max-width: 600px) {
+          article .article-wrapper.benifit .benifit-summary .benifit-1 img, article .article-wrapper.benifit .benifit-summary .benifit-2 img, article .article-wrapper.benifit .benifit-summary .benifit-3 img {
+            margin: 0;
+            width: 100px; } }
     article .article-wrapper.benifit .benifit-summary .dotdotdot {
       display: inline-block;
       width: 100px;
@@ -998,8 +946,11 @@ article .article-wrapper {
       background-image: radial-gradient(circle at center, #4a5667 2px, transparent 2px);
       background-size: 100px 20px;
       position: relative;
-      top: -30px; }
+      top: -65px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
+        article .article-wrapper.benifit .benifit-summary .dotdotdot {
+          display: none; } }
+      @media only screen and (min-width: 601px) and (max-width: 991px) {
         article .article-wrapper.benifit .benifit-summary .dotdotdot {
           display: none; } }
   article .article-wrapper.benifit ul {

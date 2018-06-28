@@ -298,7 +298,8 @@ legend, caption {
           .container-fluid article .article .article-text {
             font-size: 14px; } }
       .container-fluid article .article .emp {
-        font-size: 22px;
+        font-size: 24px;
+        text-align: justify;
         font-weight: 600;
         line-height: 1.8;
         color: #174A8E;
@@ -763,7 +764,7 @@ article .article-wrapper .article-img {
       height: auto; } }
 
 article .article-wrapper .article-box {
-  margin-bottom: 80px; }
+  margin-bottom: 160px; }
   article .article-wrapper .article-box .article-left {
     width: 45%;
     float: left;
@@ -775,7 +776,7 @@ article .article-wrapper .article-box {
       font-weight: 600;
       border-top: 1px solid #174A8E;
       border-bottom: 1px solid #174A8E;
-      padding: 15px 10px 15px 10px;
+      padding: 15px 18px 15px 18px;
       margin: 12px 0;
       text-align: center; }
   article .article-wrapper .article-box .article-right {

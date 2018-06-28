@@ -9,9 +9,22 @@ section {
 }
 article { 
   .article {
-    .emp {
+    .emp-or {
       text-align: center;
       margin: 50px 0;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.8;
+      color: $color-key;
+      padding-bottom: 10px;
+      @include respond-to($phone) {
+        font-size: 12px;
+        width: 100%;
+      }
+      @include respond-to($tablet) {
+        font-size: 16px;        
+        width: 100%;
+      }
     }
     &-text {
       line-height: 1.5;

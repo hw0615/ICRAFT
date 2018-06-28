@@ -298,7 +298,8 @@ legend, caption {
           .container-fluid article .article .article-text {
             font-size: 14px; } }
       .container-fluid article .article .emp {
-        font-size: 22px;
+        font-size: 24px;
+        text-align: justify;
         font-weight: 600;
         line-height: 1.8;
         color: #174A8E;
