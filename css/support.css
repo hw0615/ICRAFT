@@ -789,9 +789,8 @@ article .article-wrapper {
     line-height: 20px; }
 
 article p {
-  margin: 0 0 20px 0;
-  font-size: 15px;
-  letter-spacing: -1px; }
+  margin: 0 0 50px 0;
+  font-size: 15px; }
 
 article .support-form label {
   display: block;

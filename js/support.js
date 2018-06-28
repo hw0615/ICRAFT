@@ -58,7 +58,8 @@ function getPost(data){
 
 function completePost() {
     // console.log('data :', data);
-    window.location.href = 'index.html';
+    alert('완료되었습니다.')
+    window.location.href = 'support.html';
 }
 
 $(".get-btn").click(function(event){
