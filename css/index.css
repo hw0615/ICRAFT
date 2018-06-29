@@ -67,6 +67,9 @@ legend, caption {
     html::before {
       display: none; } }
 
+.list-style {
+  list-style: circle; }
+
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
@@ -290,7 +293,8 @@ legend, caption {
         line-height: 1.5;
         text-align: justify;
         margin: 20px 0;
-        color: #333; }
+        color: #333;
+        letter-spacing: -0.6px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .article-text {
             font-size: 10px; } }
@@ -452,7 +456,8 @@ header {
           min-width: 160px;
           max-height: 0;
           background: #fff;
-          transition: max-height 0.75s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
+          transition: max-height 0.75s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+          list-style: none; }
           header .nav-container .nav-menu-list-sub > li {
             visibility: hidden;
             max-height: 0;
@@ -809,37 +814,56 @@ footer #footer-wrapper {
     @media only screen and (min-width: 1751px) {
       .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
         height: 700px; } }
-    .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
-      vertical-align: middle;
-      font-size: 40px;
-      text-align: center;
-      font-weight: 900;
-      text-shadow: 3px 3px 4px #000;
-      color: #fff;
-      padding: 250px 0;
-      animation: text 1.5s both;
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%); }
+  .container-fluid section .img-wrapper .item-text {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    vertical-align: middle;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: 3px 3px 4px #000;
+    color: #fff;
+    padding: 250px 0;
+    animation: text 1.5s both;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid section .img-wrapper .item-text {
+        font-size: 14px;
+        padding: 180px 35px;
+        top: 0;
+        left: 0; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      .container-fluid section .img-wrapper .item-text {
+        font-size: 20px;
+        padding: 200px 0;
+        top: 0;
+        left: 20%; } }
+    @media only screen and (min-width: 992px) and (max-width: 1250px) {
+      .container-fluid section .img-wrapper .item-text {
+        top: 3%;
+        left: 20%; } }
+    @media only screen and (min-width: 1251px) and (max-width: 1750px) {
+      .container-fluid section .img-wrapper .item-text {
+        top: 2%;
+        left: 20%; } }
+    @media only screen and (min-width: 1751px) {
+      .container-fluid section .img-wrapper .item-text {
+        top: 5%;
+        left: 30%; } }
+    .container-fluid section .img-wrapper .item-text .text-emp {
+      font-size: 55px;
+      padding-bottom: 15px; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
-        .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
-          font-size: 14px;
+        .container-fluid section .img-wrapper .item-text .text-emp {
+          font-size: 16px;
           padding: 180px 35px; } }
       @media only screen and (min-width: 601px) and (max-width: 991px) {
-        .container-fluid section .img-wrapper .item1 .item-text, .container-fluid section .img-wrapper .item2 .item-text, .container-fluid section .img-wrapper .item3 .item-text {
-          font-size: 20px;
+        .container-fluid section .img-wrapper .item-text .text-emp {
+          font-size: 30px;
           padding: 200px 0; } }
-      .container-fluid section .img-wrapper .item1 .item-text .text-emp, .container-fluid section .img-wrapper .item2 .item-text .text-emp, .container-fluid section .img-wrapper .item3 .item-text .text-emp {
-        font-size: 65px;
-        padding-bottom: 15px; }
-        @media only screen and (min-width: 280px) and (max-width: 600px) {
-          .container-fluid section .img-wrapper .item1 .item-text .text-emp, .container-fluid section .img-wrapper .item2 .item-text .text-emp, .container-fluid section .img-wrapper .item3 .item-text .text-emp {
-            font-size: 19px;
-            padding: 180px 35px; } }
-        @media only screen and (min-width: 601px) and (max-width: 991px) {
-          .container-fluid section .img-wrapper .item1 .item-text .text-emp, .container-fluid section .img-wrapper .item2 .item-text .text-emp, .container-fluid section .img-wrapper .item3 .item-text .text-emp {
-            font-size: 30px;
-            padding: 200px 0; } }
   .container-fluid section .img-wrapper .carousel-control .glyphicon {
     position: relative;
     top: 45%;

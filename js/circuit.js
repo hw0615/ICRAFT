@@ -455,14 +455,17 @@ var Cognito = window.Cognito || {};
         'image': '',
         'to_main': ''
       }
-      getBase64();
-      $('#output').bind('DOMNodeInserted DOMNodeRemoved', function () {
-        var baseCode = document.querySelector("#output span").innerHTML; //encoded code by base64
-        box['image'] = baseCode;
-        box['to_main'] = $('#toMain').prop("checked");
-        // console.log('box :', box);
-        postArticle(category, box);
-      });
+      if ( box['image'] === '') {
+        console.log('box["image"] :', box['image']);
+      } else {
+        getBase64();
+        $('#output').bind('DOMNodeInserted DOMNodeRemoved', function () {
+          var baseCode = document.querySelector("#output span").innerHTML; //encoded code by base64
+          box['image'] = baseCode;
+          box['to_main'] = $('#toMain').prop("checked");
+        });
+      }
+      postArticle(category, box);s
     } else if (category == "disclosure") {
       var date = $('#date').val();
       var url = $('#info_url').val()

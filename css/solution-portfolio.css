@@ -67,6 +67,9 @@ legend, caption {
     html::before {
       display: none; } }
 
+.list-style {
+  list-style: circle; }
+
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
@@ -290,7 +293,8 @@ legend, caption {
         line-height: 1.5;
         text-align: justify;
         margin: 20px 0;
-        color: #333; }
+        color: #333;
+        letter-spacing: -0.6px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .article-text {
             font-size: 10px; } }
@@ -452,7 +456,8 @@ header {
           min-width: 160px;
           max-height: 0;
           background: #fff;
-          transition: max-height 0.75s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
+          transition: max-height 0.75s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+          list-style: none; }
           header .nav-container .nav-menu-list-sub > li {
             visibility: hidden;
             max-height: 0;
@@ -831,7 +836,7 @@ article .article .article-wrapper img {
 
 article .article .article-wrapper ul {
   background: #eee;
-  padding: 10px 5px; }
+  padding: 10px 15px; }
   article .article .article-wrapper ul li {
     margin: 5px 10px 5px 10px; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {

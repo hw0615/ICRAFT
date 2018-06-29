@@ -27,7 +27,7 @@
             $('.note-editor').css('display', 'block')
         } else if(commutCate == "news"){
             $(".cate-form").append(
-                "<label for='date'>날짜 </label>\n          <input id='date' type='text' name='subject' value='" + res + "' placeholder='" + res + "' disabled>\n  <label for='toMain'>메인에 게시하기</label>\n<input id='toMain' name='toMain' type='checkbox'>\n <label for='mainImg'>이미지</label>\n  <input id='mainImg' class='input-file' type='file' name='mainImg' >" 
+                "<label for='date'>날짜 </label>\n          <input id='date' type='text' name='subject' value='" + res + "' placeholder='" + res + "'>\n  <label for='toMain'>메인에 게시하기</label>\n<input id='toMain' name='toMain' type='checkbox'>\n <label for='mainImg'>대표이미지</label>\n  <input id='mainImg' class='input-file' type='file' name='mainImg' >" 
             )
             $('.note-editor').css('display', 'block')
         } else if(commutCate == "disclosure"){

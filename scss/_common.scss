@@ -9,7 +9,9 @@ html {
     }
   }
 }
-
+.list-style {
+  list-style: circle;
+}
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
@@ -276,6 +278,7 @@ html {
         text-align: justify;
         margin: 20px 0;
         color: #333;
+        letter-spacing: -0.6px;
         @include respond-to($phone) {
           font-size: 10px;        
         }

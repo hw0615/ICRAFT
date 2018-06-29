@@ -39,6 +39,9 @@ section {
 }
 article { 
   .article {
+    .emp {
+      letter-spacing: -0.5px;
+    }
     .article-title {
       margin-top: 50px;
       p {
@@ -226,7 +229,7 @@ article {
       }
       ul {
         background: #eee;
-        padding: 10px 5px;
+        padding: 10px 15px;
         li {
           margin: 5px 10px 5px 10px;
           @include respond-to($phone) {
@@ -308,6 +311,8 @@ article {
         .article-text {
           .list-sub {
             margin-left: 20px;
+            // list-style: none;
+            list-style: square;
           }
         }
       }

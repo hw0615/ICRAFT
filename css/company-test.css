@@ -67,6 +67,9 @@ legend, caption {
     html::before {
       display: none; } }
 
+.list-style {
+  list-style: circle; }
+
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
@@ -290,7 +293,8 @@ legend, caption {
         line-height: 1.5;
         text-align: justify;
         margin: 20px 0;
-        color: #333; }
+        color: #333;
+        letter-spacing: -0.6px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .article-text {
             font-size: 10px; } }

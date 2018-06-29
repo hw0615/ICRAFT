@@ -39,6 +39,9 @@ article {
         @include respond-to($phone) {
           width: 100%;
         }
+        .value {
+          letter-spacing: 0.5px;
+        }
         .article-text {
           font-weight: 600;          
           border-top: 1px solid $color-key;
@@ -78,6 +81,7 @@ article {
           }
           .article-text {
             margin: 5px 0 20px 0;
+            letter-spacing: -0.3px;
           }
         }
         @include respond-to($phone) {
@@ -127,7 +131,7 @@ article {
           font-weight: 600;
           border-top: 1px solid $color-key;
           border-bottom: 1px solid $color-key;
-          padding: 25px 40px 25px 40px;
+          padding: 25px 35px 25px 35px;
           text-align: center;
           margin: 30px auto;
           @include respond-to($phone) {

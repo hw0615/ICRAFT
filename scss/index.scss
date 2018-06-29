@@ -89,38 +89,56 @@
         @include respond-to($large-desktop2) {
           height: 700px;
         }
-        .item-text {
-
-          vertical-align: middle;
-          font-size: 40px;
-          text-align: center;
-          font-weight: 900;
-          text-shadow: 3px 3px 4px #000;
-          color: #fff;
-          padding: 250px 0;
-          animation: text 1.5s both;
-          -webkit-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+      }
+      .item-text {
+        position: absolute;
+        top: 5%;
+        left: 25%;
+        vertical-align: middle;
+        font-size: 40px;
+        text-align: center;
+        font-weight: 900;
+        text-shadow: 3px 3px 4px #000;
+        color: #fff;
+        padding: 250px 0;
+        animation: text 1.5s both;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        @include respond-to($phone) {  
+          font-size: 14px;
+          padding: 180px 35px;            
+          top: 0;
+          left: 0;
+        }
+        @include respond-to($tablet) {
+          font-size: 20px;
+          padding: 200px 0;            
+          top: 0;
+          left: 20%;
+        }
+        @include respond-to($desktop) { 
+          top: 3%;
+          left: 20%;
+        }
+        @include respond-to($large-desktop) {
+          top: 2%;
+          left: 20%;
+        }
+        @include respond-to($large-desktop2) {
+          top: 5%;
+          left: 30%;
+        }
+        .text-emp {
+          font-size: 55px;
+          padding-bottom: 15px;
           @include respond-to($phone) {  
-            font-size: 14px;
+            font-size: 16px;
             padding: 180px 35px;            
           }
           @include respond-to($tablet) {
-            font-size: 20px;
+            font-size: 30px;
             padding: 200px 0;            
-          }
-          .text-emp {
-            font-size: 65px;
-            padding-bottom: 15px;
-            @include respond-to($phone) {  
-              font-size: 19px;
-              padding: 180px 35px;            
-            }
-            @include respond-to($tablet) {
-              font-size: 30px;
-              padding: 200px 0;            
-            }
           }
         }
       }
