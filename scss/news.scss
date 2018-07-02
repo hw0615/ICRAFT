@@ -175,6 +175,7 @@ article {
       font-size: 0;      
       li {
         display:inline-block;
+        cursor: pointer;
         a {
           color: #666;  
           border:none;        
@@ -204,7 +205,7 @@ article {
             margin-left: 0;
           }          
         }
-      }        
+      }    
     }    
 
     .board-btn {

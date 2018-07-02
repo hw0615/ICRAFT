@@ -118,6 +118,19 @@ article {
           background-color: #eee;
         }
       }
+      .display-none {
+        display: none;
+      }
+      .loading {
+        height: 610px;
+        img {
+          width: 15%;
+          position: absolute;
+          left: 44.5%;
+          // top: 25%;
+          top: 136%;
+        }
+      }
       th {        
         background: #f5f5f5;        
         border-top: 2px solid #aaa;        
@@ -139,47 +152,70 @@ article {
         }
       }
     }
-    .pagination {    
+    // .pagination {    
+    //   display: block;
+    //   margin: 0 auto;
+    //   margin-top: 30px;
+    //   width: auto;
+    //   height: auto;
+    //   text-align: center;
+    //   font-size: 0;      
+    //   li {
+    //     display:inline-block;
+    //     a {
+    //       color: #666;  
+    //       border:none;        
+    //       font-size: 15px;
+    //       font-weight: 900;
+    //       img {
+    //         display: inline-block;
+    //         width: 12px;
+    //         vertical-align: middle;
+    //       }
+    //       &:focus {
+    //         background-color: inherit;
+    //       }
+    //       &.page-num {
+    //         background-color:  inherit;           
+    //         margin: 0 10px;
+    //         &:hover {
+    //           color: #337ab7;
+    //         }
+    //       }
+    //     }
+    //     &.page-arrow {
+    //       margin: 0 1px;
+    //       a {
+    //         border: 1px solid #eee;
+    //         border-radius: 0;
+    //         margin-left: 0;
+    //       }          
+    //     }
+    //   }        
+    // }
+    .pagination {  
       display: block;
       margin: 0 auto;
       margin-top: 30px;
-      width: auto;
+      width: 100%;
       height: auto;
       text-align: center;
       font-size: 0;      
-      li {
-        display:inline-block;
-        a {
-          color: #666;  
-          border:none;        
-          font-size: 15px;
-          font-weight: 900;
-          img {
-            display: inline-block;
-            width: 12px;
-            vertical-align: middle;
-          }
-          &:focus {
-            background-color: inherit;
-          }
-          &.page-num {
-            background-color:  inherit;           
-            margin: 0 10px;
-            &:hover {
-              color: #337ab7;
-            }
-          }
-        }
-        &.page-arrow {
-          margin: 0 1px;
-          a {
-            border: 1px solid #eee;
-            border-radius: 0;
-            margin-left: 0;
-          }          
+      .page-num, #prev, #next {
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        color: #666;
+        border: none;
+        font-size: 15px;
+        font-weight: 900;
+        text-decoration: none;
+        border-left: 1px solid #ddd;
+        &:hover {
+          background: #ddd
         }
       }        
-    }    
+    }     
   }
 
   .article-history:after {

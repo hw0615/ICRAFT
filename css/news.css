@@ -877,7 +877,8 @@ article .article-wrapper {
     text-align: center;
     font-size: 0; }
     article .article-wrapper .pagination li {
-      display: inline-block; }
+      display: inline-block;
+      cursor: pointer; }
       article .article-wrapper .pagination li a {
         color: #666;
         border: none;

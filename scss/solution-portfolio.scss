@@ -191,11 +191,11 @@ article {
           width: 30%;
           @include respond-to($phone) {
             width: 100%;
-            position: unset;
+            position: relative;
           }
           @include respond-to($tablet) {
             width: 100%;
-            position: unset;            
+            position: relative;
           }
         }
       }

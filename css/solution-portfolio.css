@@ -932,11 +932,11 @@ article .article .article-wrapper .article-right {
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       article .article .article-wrapper .article-right img {
         width: 100%;
-        position: unset; } }
+        position: relative; } }
     @media only screen and (min-width: 601px) and (max-width: 991px) {
       article .article .article-wrapper .article-right img {
         width: 100%;
-        position: unset; } }
+        position: relative; } }
 
 article .article .article-solution {
   position: relative; }

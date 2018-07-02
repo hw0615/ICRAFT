@@ -242,38 +242,38 @@ var Cognito = window.Cognito || {};
         })(cate,z))
       }
 
-      function makePageArrow(direction, pageNum, pageLength) {
-        switch (direction) {
-          case "left":
-            if (1 < pageNum && pageNum < pageLength) {
-              var pageNum = Number(pageNum) - 1;
-              var pageLi = document.createElement("li");
-              var pageLeftArrow = document.createElement("a");
-              $(pageLeftArrow).attr("href", "circuit.html?page=" + pageNum + "#board")
-              var pageLeftArrowImg = document.createElement("img");
-              $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
-              $(pageLeftArrow).prepend(pageLeftArrowImg);
-              $(pageLi).append(pageLeftArrow);
-              $(pagination).prepend(pageLi);
-            }
-            break;
-          case "right":
-            if (pageNum < pageLength) {
-              var pageNum = Number(pageNum) + 1;
-              var pageLi = document.createElement("li");
-              var pageRightArrow = document.createElement("a");
-              $(pageRightArrow).attr("href", "circuit.html?page=" + pageNum + "#board")
-              var pageRightArrowImg = document.createElement("img");
-              $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
-              $(pageRightArrow).append(pageRightArrowImg);
-              $(pageLi).append(pageRightArrow);
-              $(pagination).append(pageLi);
-            }
-            break;
-        }
-      }
-      makePageArrow("left", pageNum, pageLength);
-      makePageArrow("right", pageNum, pageLength);
+      // function makePageArrow(direction, pageNum, pageLength) {
+      //   switch (direction) {
+      //     case "left":
+      //       if (1 < pageNum && pageNum < pageLength) {
+      //         var pageNum = Number(pageNum) - 1;
+      //         var pageLi = document.createElement("li");
+      //         var pageLeftArrow = document.createElement("a");
+      //         $(pageLeftArrow).attr("href", "circuit.html?page=" + pageNum + "#board")
+      //         var pageLeftArrowImg = document.createElement("img");
+      //         $(pageLeftArrowImg).attr("src", "img/icon-left-arrow.png");
+      //         $(pageLeftArrow).prepend(pageLeftArrowImg);
+      //         $(pageLi).append(pageLeftArrow);
+      //         $(pagination).prepend(pageLi);
+      //       }
+      //       break;
+      //     case "right":
+      //       if (pageNum < pageLength) {
+      //         var pageNum = Number(pageNum) + 1;
+      //         var pageLi = document.createElement("li");
+      //         var pageRightArrow = document.createElement("a");
+      //         $(pageRightArrow).attr("href", "circuit.html?page=" + pageNum + "#board")
+      //         var pageRightArrowImg = document.createElement("img");
+      //         $(pageRightArrowImg).attr("src", "img/icon-right-arrow.png");
+      //         $(pageRightArrow).append(pageRightArrowImg);
+      //         $(pageLi).append(pageRightArrow);
+      //         $(pagination).append(pageLi);
+      //       }
+      //       break;
+      //   }
+      // }
+      // makePageArrow("left", pageNum, pageLength);
+      // makePageArrow("right", pageNum, pageLength);
     }
   }
 
@@ -313,7 +313,7 @@ var Cognito = window.Cognito || {};
       },
       data: JSON.stringify(box),
       contentType: 'application/json; charset= utf-8',
-      success: completePostArticleRequest(box),
+      success: completePostArticleRequest,
       error: function ajaxError(jqXHR, textStatus, errorThrown) {
         console.error('Error posting news: ', textStatus, ', Details: ', errorThrown);
         console.error('Response: ', jqXHR.responseText);
@@ -324,7 +324,7 @@ var Cognito = window.Cognito || {};
 
 
 
-  function completePostArticleRequest(box) {
+  function completePostArticleRequest() {
     alert('등록되었습니다.')
     // console.log('result :', box);
     window.location.href = 'circuit.html?page=1';
@@ -464,8 +464,8 @@ var Cognito = window.Cognito || {};
           box['image'] = baseCode;
           box['to_main'] = $('#toMain').prop("checked");
         });
+        postArticle(category, box);
       }
-      postArticle(category, box);s
     } else if (category == "disclosure") {
       var date = $('#date').val();
       var url = $('#info_url').val()
