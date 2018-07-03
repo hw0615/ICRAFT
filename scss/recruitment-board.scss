@@ -27,6 +27,9 @@ section {
   }
 }
 article {
+  .display-none {
+    display: none;
+  }
   &#board {
     min-height: 673px;        
   }
@@ -123,12 +126,6 @@ article {
       }
       .loading {
         height: 550px;
-        img {
-          width: 15%;
-          position: absolute;
-          left: 44%;
-          top: 106%;
-        }
       }
       th {        
         background: #f5f5f5;        
@@ -150,6 +147,11 @@ article {
           display:none;
         }
       }
+    }
+    #empty-table {
+      text-align: center;
+      font-size: 16px;
+      padding: 300px 0;
     }
     .pagination {  
       display: block;

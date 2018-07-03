@@ -810,8 +810,6 @@ article .article-wrapper {
     article .article-wrapper > ul > li h4 {
       font-weight: bold;
       font-size: 15px; }
-    article .article-wrapper > ul > li li {
-      margin: 5px 10px; }
   article .article-wrapper .tab-btn {
     display: inline-block;
     margin-top: 35px;
@@ -844,6 +842,10 @@ article .article-wrapper {
     margin-bottom: 0; }
     article .article-wrapper table tr + tr:hover {
       background-color: #f9f9f9; }
+    article .article-wrapper table .display-none {
+      display: none; }
+    article .article-wrapper table .loading {
+      height: 610px; }
     article .article-wrapper table th {
       background: #f5f5f5;
       border-top: 2px solid #aaa;
@@ -882,7 +884,7 @@ article .article-wrapper {
       article .article-wrapper .pagination li a {
         color: #666;
         border: none;
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 900; }
         article .article-wrapper .pagination li a img {
           display: inline-block;
@@ -901,6 +903,26 @@ article .article-wrapper {
           border: 1px solid #eee;
           border-radius: 0;
           margin-left: 0; }
+  article .article-wrapper .pagination {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 0; }
+    article .article-wrapper .pagination .page-num, article .article-wrapper .pagination #prev, article .article-wrapper .pagination #next {
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      color: #666;
+      border: none;
+      font-size: 15px;
+      font-weight: 900;
+      text-decoration: none;
+      border-left: 1px solid #ddd; }
+      article .article-wrapper .pagination .page-num:hover, article .article-wrapper .pagination #prev:hover, article .article-wrapper .pagination #next:hover {
+        background: #ddd; }
   article .article-wrapper .board-btn {
     background-color: #eee;
     color: black;

@@ -472,7 +472,7 @@ var Cognito = window.Cognito || {};
                         box['to_main'] = toMain;
                         postArticle(category, box);
                     });
-               
+
             } else if(image.length == 0){
                 alert('체크박스 오른쪽, 대표이미지를 선택하세요')
             }

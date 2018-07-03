@@ -767,6 +767,10 @@ footer #footer-wrapper {
     -ms-transform: matrix(1, 0, 0, 1, 0, 0);
     transform: matrix(1, 0, 0, 1, 0, 0); } }
 
+.container-fluid section .carousel-control.right,
+.container-fluid section .carousel-control.left {
+  background: none; }
+
 .container-fluid section .img-wrapper {
   height: 580px; }
   @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -815,55 +819,56 @@ footer #footer-wrapper {
       .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
         height: 700px; } }
   .container-fluid section .img-wrapper .item-text {
-    position: absolute;
-    top: 5%;
-    left: 25%;
+    position: relative;
+    height: 0;
     vertical-align: middle;
     font-size: 40px;
     text-align: center;
-    font-weight: 900;
     text-shadow: 3px 3px 4px #000;
     color: #fff;
-    padding: 250px 0;
     animation: text 1.5s both;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%); }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       .container-fluid section .img-wrapper .item-text {
-        font-size: 14px;
-        padding: 180px 35px;
-        top: 0;
-        left: 0; } }
+        font-size: 12px;
+        top: -190px; } }
     @media only screen and (min-width: 601px) and (max-width: 991px) {
       .container-fluid section .img-wrapper .item-text {
-        font-size: 20px;
-        padding: 200px 0;
-        top: 0;
-        left: 20%; } }
+        font-size: 24px;
+        top: -220px; } }
     @media only screen and (min-width: 992px) and (max-width: 1250px) {
       .container-fluid section .img-wrapper .item-text {
-        top: 3%;
-        left: 20%; } }
+        top: -290px; } }
     @media only screen and (min-width: 1251px) and (max-width: 1750px) {
       .container-fluid section .img-wrapper .item-text {
-        top: 2%;
-        left: 20%; } }
+        top: -280px; } }
     @media only screen and (min-width: 1751px) {
       .container-fluid section .img-wrapper .item-text {
-        top: 5%;
-        left: 30%; } }
-    .container-fluid section .img-wrapper .item-text .text-emp {
-      font-size: 55px;
-      padding-bottom: 15px; }
-      @media only screen and (min-width: 280px) and (max-width: 600px) {
-        .container-fluid section .img-wrapper .item-text .text-emp {
-          font-size: 16px;
-          padding: 180px 35px; } }
-      @media only screen and (min-width: 601px) and (max-width: 991px) {
-        .container-fluid section .img-wrapper .item-text .text-emp {
-          font-size: 30px;
-          padding: 200px 0; } }
+        top: -330px; } }
+  .container-fluid section .img-wrapper .text-emp {
+    position: relative;
+    height: 0;
+    font-size: 48px;
+    font-weight: 900; }
+    @media only screen and (min-width: 280px) and (max-width: 600px) {
+      .container-fluid section .img-wrapper .text-emp {
+        font-size: 18px;
+        top: -220px; } }
+    @media only screen and (min-width: 601px) and (max-width: 991px) {
+      .container-fluid section .img-wrapper .text-emp {
+        font-size: 30px;
+        top: -260px; } }
+    @media only screen and (min-width: 992px) and (max-width: 1250px) {
+      .container-fluid section .img-wrapper .text-emp {
+        top: -360px; } }
+    @media only screen and (min-width: 1251px) and (max-width: 1750px) {
+      .container-fluid section .img-wrapper .text-emp {
+        top: -350px; } }
+    @media only screen and (min-width: 1751px) {
+      .container-fluid section .img-wrapper .text-emp {
+        top: -400px; } }
   .container-fluid section .img-wrapper .carousel-control .glyphicon {
     position: relative;
     top: 45%;
@@ -1208,7 +1213,6 @@ footer #footer-wrapper {
         .container-fluid article .article .article-3 .article-left a .main-box {
           height: 305px;
           transition: all .1s ease-in-out;
-          background-image: url("../img/img-test.png");
           background-repeat: no-repeat;
           background-size: cover; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -1235,7 +1239,7 @@ footer #footer-wrapper {
             transform: scaleX(1); }
           .container-fluid article .article .article-3 .article-left a .main-box-bottom {
             padding: 25px 25px;
-            height: auto;
+            height: 180px;
             background: #fff; }
             .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-title {
               font-size: 22px;

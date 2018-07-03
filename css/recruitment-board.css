@@ -768,6 +768,9 @@ section {
     font-size: 20px;
     box-sizing: border-box; }
 
+article .display-none {
+  display: none; }
+
 article#board {
   min-height: 673px; }
 
@@ -848,11 +851,6 @@ article .article-wrapper {
       display: none; }
     article .article-wrapper table .loading {
       height: 550px; }
-      article .article-wrapper table .loading img {
-        width: 15%;
-        position: absolute;
-        left: 44%;
-        top: 106%; }
     article .article-wrapper table th {
       background: #f5f5f5;
       border-top: 2px solid #aaa;
@@ -869,6 +867,10 @@ article .article-wrapper {
           display: none; }
         article .article-wrapper table th:nth-child(6), article .article-wrapper table td:nth-child(6) {
           display: none; } }
+  article .article-wrapper #empty-table {
+    text-align: center;
+    font-size: 16px;
+    padding: 300px 0; }
   article .article-wrapper .pagination {
     display: block;
     margin: 0 auto;

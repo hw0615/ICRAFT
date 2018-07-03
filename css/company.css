@@ -759,6 +759,9 @@ section {
     section {
       background-position-y: -30px; } }
 
+article .article .article-text {
+  letter-spacing: -0.8px !important; }
+
 article .article .txt-box {
   float: left;
   width: 600px;

@@ -31,6 +31,10 @@
 
 .container-fluid {
   section {
+    .carousel-control.right,
+    .carousel-control.left {
+      background: none;
+    }
     .img-wrapper {
       height: 580px;
       @include respond-to($phone) {  
@@ -91,55 +95,56 @@
         }
       }
       .item-text {
-        position: absolute;
-        top: 5%;
-        left: 25%;
+        position: relative;
+        height: 0;
         vertical-align: middle;
         font-size: 40px;
         text-align: center;
-        font-weight: 900;
         text-shadow: 3px 3px 4px #000;
         color: #fff;
-        padding: 250px 0;
         animation: text 1.5s both;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
-        @include respond-to($phone) {  
-          font-size: 14px;
-          padding: 180px 35px;            
-          top: 0;
-          left: 0;
+        @include respond-to($phone) {   
+          font-size: 12px;        
+          top: -190px;
         }
         @include respond-to($tablet) {
-          font-size: 20px;
-          padding: 200px 0;            
-          top: 0;
-          left: 20%;
+          font-size: 24px;
+          top: -220px;
         }
         @include respond-to($desktop) { 
-          top: 3%;
-          left: 20%;
+          top: -290px;
         }
         @include respond-to($large-desktop) {
-          top: 2%;
-          left: 20%;
+          top: -280px;
         }
         @include respond-to($large-desktop2) {
-          top: 5%;
-          left: 30%;
+          top: -330px;
         }
-        .text-emp {
-          font-size: 55px;
-          padding-bottom: 15px;
-          @include respond-to($phone) {  
-            font-size: 16px;
-            padding: 180px 35px;            
-          }
-          @include respond-to($tablet) {
-            font-size: 30px;
-            padding: 200px 0;            
-          }
+      }
+      .text-emp {
+        position: relative;
+        height: 0;
+        font-size: 48px;
+        font-weight: 900;
+        @include respond-to($phone) {  
+          font-size: 18px;  
+          top: -220px;     
+        }
+        @include respond-to($tablet) {
+          font-size: 30px;
+          top: -260px;
+        }
+        @include respond-to($desktop) { 
+          top: -360px;
+        }
+        @include respond-to($large-desktop) {
+          top: -350px;
+        }
+        @include respond-to($large-desktop2) {
+          top: -400px;
         }
       }
       .carousel-control {
@@ -576,7 +581,6 @@
               height: 305px;
               transition: all .1s ease-in-out;
               background: {
-                image: url('../img/img-test.png');
                 repeat: no-repeat;
                 size: cover; 
               }
@@ -607,7 +611,7 @@
               }  
               &-bottom {
                 padding: 25px 25px;
-                height: auto;
+                height: 180px;
                 background: #fff;
                 .bottom-title {
                   font-size: 22px;

@@ -9,7 +9,9 @@ section {
 }
 article {
   .article {
-
+    .article-text {
+      letter-spacing: -0.8px !important; 
+    }
     .txt-box {
       float: left;
       width: 600px;

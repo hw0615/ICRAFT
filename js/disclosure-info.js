@@ -22,18 +22,11 @@ $(function() {
       success: function(data){ 
 
         var box = data.result
-        console.log('box :', box);
-        // var board = $("#board .table tbody");
-        // var boardTitle = [];
         
-        // var tableT = document.createElement("table");
-
         // 페이지네이션 목록 출력
         var total = data.total  // 총 페이지 수
         // var dataPerPage = 20;
         var pageCount = 10;
-        // var pageLength = Math.ceil( total / 10 );
-        // var pagination = document.getElementsByClassName("pagination")[0];
 
         function paging(total, pageCount, currentPage) {
 

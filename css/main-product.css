@@ -774,17 +774,19 @@ section {
       top: 35px;
       left: 0;
       padding: 50px 5%; }
-      section .small-menu .article-nav-hover ul li {
-        cursor: pointer;
-        text-align: center;
-        float: left;
-        width: 205px;
-        padding: 10px;
-        margin: 3px 3px;
-        border: 1px solid #ddd; }
-        section .small-menu .article-nav-hover ul li:hover {
-          background-color: #174A8E;
-          color: #fff; }
+      section .small-menu .article-nav-hover ul {
+        list-style: none; }
+        section .small-menu .article-nav-hover ul li {
+          cursor: pointer;
+          text-align: center;
+          float: left;
+          width: 205px;
+          padding: 10px;
+          margin: 3px 3px;
+          border: 1px solid #ddd; }
+          section .small-menu .article-nav-hover ul li:hover {
+            background-color: #174A8E;
+            color: #fff; }
 
 article .article .emp {
   letter-spacing: -0.5px; }
