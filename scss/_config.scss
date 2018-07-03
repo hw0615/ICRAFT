@@ -4,16 +4,17 @@ $color-key: #174A8E;
 // bg-img 
 @mixin company-img {
   background: {
-    image: url('../img/company2.jpg');
+    image: url('../img/company.jpg');
     repeat: no-repeat;
     size: cover; 
+    position-x: -0.8px;
     position-y: -100px;
   }
   @include respond-to($tablet) {
     background-position-y: -30px;    
   }
   @include respond-to($large-desktop2) {
-    background-position-y: -375px;
+    // background-position-y: -375px;
   }
 }
 

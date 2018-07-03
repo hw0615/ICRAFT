@@ -67,6 +67,14 @@ article {
         padding: 10px;
         margin: 3px 3px;
         border: 1px solid #ddd;
+        @include respond-to($phone) {
+          font-size: 9px;
+          width: 47%; 
+        }
+        @include respond-to($tablet) {
+          font-size: 11px;
+          width: 48%; 
+        }
         &:hover {
           background-color: $color-key;
           color: #fff;
@@ -84,7 +92,7 @@ article {
       }
       ul {
         background: #eee;
-        padding: 10px 5px;
+        padding: 10px 15px;
         li {
           margin: 5px 10px 5px 10px;
           @include respond-to($phone) {
@@ -183,11 +191,11 @@ article {
           width: 30%;
           @include respond-to($phone) {
             width: 100%;
-            position: unset;
+            position: relative;
           }
           @include respond-to($tablet) {
             width: 100%;
-            position: unset;            
+            position: relative;
           }
         }
       }

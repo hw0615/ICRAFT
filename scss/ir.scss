@@ -10,6 +10,9 @@ section {
 article {
   .article {
     .article-wrapper {
+      .display-none {
+        display: none;
+      }
       canvas {
         margin: 80px 0;
       }
@@ -22,24 +25,40 @@ article {
           color: #666;
         }
       }
+      .tab-content {
+        position: relative;
+        .loading-chart {
+          height: 265px;
+          img {
+            width: 30%;
+            position: absolute;
+            left: 35%;
+            top: 15%;
+          }
+        }
+      }
       .table-wrap {
         margin-bottom: 85px;
         table {
           margin-bottom: 0;
-          .stock-time {
+          .stock-time, .stock-time2 {
             position: relative;
+          }
+          .loading-chart {
+            height: 435px;
           }
           .loading {
             height: 370px;
             img {
-              width: 30%;
+              width: 11%;
               position: absolute;
-              left: 35%;
-              top: 25%;
+              left: 44.5%;
+              // top: 25%;
+              top: 136%;
             }
           }
-          .display-none {
-            display: none;
+          .loading-2 {
+            height: 370px;
           }
           .arrow-u{
             position: relative;
@@ -201,9 +220,17 @@ article {
             @include respond-to($tablet) {
               font-size: 14px;
             }
+            span {
+              @include respond-to($phone) {
+                font-size: 10px;
+              }
+              @include respond-to($tablet) {
+                font-size: 14px;
+              }
+            }
           }
         }
-        .pagination {    
+        .pagination {  
           display: block;
           margin: 0 auto;
           margin-top: 30px;
@@ -211,38 +238,41 @@ article {
           height: auto;
           text-align: center;
           font-size: 0;      
-          li {
-            display:inline-block;
-            a {
-              cursor: pointer;
-              color: #666;  
-              border:none;        
-              font-size: 15px;
-              font-weight: 900;
-              img {
-                display: inline-block;
-                width: 12px;
-                vertical-align: middle;
-              }
-              &:focus {
-                background-color: inherit;
-              }
-              &.page-num {
-                background-color:  inherit;           
-                margin: 0 10px;
-                &:hover {
-                  // color: #337ab7;
-                  background: #ddd;
-                }
-              }
+          .page-num, #prev, #next {
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            color: #666;
+            border: none;
+            font-size: 15px;
+            font-weight: 900;
+            text-decoration: none;
+            border-left: 1px solid #ddd;
+            &:hover {
+              background: #ddd
             }
-            &.page-arrow {
-              margin: 0 1px;
-              a {
-                border: 1px solid #eee;
-                border-radius: 0;
-                margin-left: 0;
-              }          
+          }        
+        }
+        .pagination-2 {  
+          display: block;
+          margin: 0 auto;
+          margin-top: 30px;
+          width: 100%;
+          height: auto;
+          text-align: center;
+          font-size: 0;      
+          .page-num, #prev, #next {
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            color: #666;
+            border: none;
+            font-size: 15px;
+            font-weight: 900;
+            text-decoration: none;
+            border-left: 1px solid #ddd;
+            &:hover {
+              background: #ddd
             }
           }        
         }

@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>ICRAFT</title>
+  <title>주가정보 | 아이크래프트(주)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Awesome Description Here" />
+  <meta name="description" content="주가정보 | 아이크래프트(주)" />
   <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
   <meta name="robots" content="noindex,nofollow" />
   <meta property="og:title" content="아이크래프트(주)" />
@@ -15,11 +15,10 @@
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:url" content="http://www.icraft21.com/" />
   <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-  <meta property="og:description" content="아이크래프트(주)" />
+  <meta property="og:description" content="주가정보 | 아이크래프트(주)" />
   <link rel="shortcut icon" href="img/favicon.ico">  
-  <!-- <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/ir.css" />
+  <link rel="stylesheet" type="text/css" href="css/ir.css?ver=1.03" />
 </head>
 
 <body>
@@ -29,7 +28,7 @@
       <div class="img-wrapper">
         <div class="img-text-group">
           <p class="img-text-title">I.R</p>
-          <p class="img-text-des">유비쿼터스 네트워크 세상을 열어가는 전문 IT기업 아이크래프트</p>
+          <p class="img-text-des">코스닥 상장 기업으로서의 사회적 책임을 다하고 지속적으로 성장하는 아이크래프트</p>
         </div>
       </div>
       <ul class="small-menu">
@@ -40,7 +39,7 @@
           <a href="financial-info.html" class="">재무정보</a>
         </li>
         <li class="small-menu-list">
-          <a href="account-info.html" class="">경영공시</a>
+          <a href="disclosure-info.html?page=1" class="">공시정보</a>
         </li>
         <li class="small-menu-list">
           <a href="regulation-info.html" class="">내부 정보 관리 규정</a>                
@@ -59,10 +58,10 @@
           <div class="article-wrapper">
             <h2 class="article-title">주가정보</h2>
             <div class="table-wrap">
+              <p class="emp">아이크래프트</p>
               <table class="table">
                 <caption>아이크래프트 주가 차트입니다.</caption>
                 <tbody class="stock-header">
-                  <p class="emp">아이크래프트</p>
                   <tr class="stock-header-tr1">
                     <td width="15%" rowspan="2" class="subject subject-icraft subject-icraft-main" scope="row"></td>
                   </tr>
@@ -97,8 +96,11 @@
               <canvas role="tabpanel" class="tab-pane fade" id="myChart-m"></canvas>
               <canvas role="tabpanel" class="tab-pane fade" id="myChart-3m"></canvas>
               <canvas role="tabpanel" class="tab-pane fade" id="myChart-y"></canvas>
+              <div class="loading-chart display-none">
+                <img src="./img/loading.gif" alt="로딩">
+              </div>
             </div>
-            <t class="table-wrap">
+            <div class="table-wrap">
               <table class="table">
                 <caption>아이크래프트 주가 시간별시세 차트입니다.</caption>
                 <p class="article-text">시간별시세</p>                  
@@ -119,13 +121,7 @@
                 </tbody>
               </table>
               <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <!-- <li class="page-item page-arrow"><a class="page-link" href="#"><img src="img/icon-left-arrow.png" alt=""></a></li>
-                  <li class="page-item"><a class="page-link page-num" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link page-num" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link page-num" href="#">3</a></li>
-                  <li class="page-item page-arrow"><a class="page-link" href="#"><img src="img/icon-right-arrow.png" alt=""></a></li> -->
-                </ul>
+                <ul class="pagination"></ul>
               </nav>
             </div>
             <div class="table-wrap">
@@ -142,16 +138,13 @@
                     <td width="10%" class="subject" scope="row">저가</td>
                     <td width="10%" class="subject" scope="row">거래량</td>
                   </tr>
+                  <tr class="loading-2 display-none">
+                    <td></td>
+                  </tr>
                 </tbody>
               </table>
               <nav aria-label="Page navigation example">
-                <ul class="pagination-2">
-                  <!-- <li class="page-item page-arrow"><a class="page-link" href="#"><img src="img/icon-left-arrow.png" alt=""></a></li>
-                  <li class="page-item"><a class="page-link page-num" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link page-num" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link page-num" href="#">3</a></li>
-                  <li class="page-item page-arrow"><a class="page-link" href="#"><img src="img/icon-right-arrow.png" alt=""></a></li> -->
-                </ul>
+                <ul class="pagination-2"></ul>
               </nav>
             </div>
           </div>
@@ -168,4 +161,4 @@
   <script type="text/javascript" src="js/ir.js"></script>
 </body>
 
-</html>
+</html> 

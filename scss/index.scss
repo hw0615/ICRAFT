@@ -4,6 +4,31 @@
 @import './header';
 @import './footer';
 
+@keyframes img {
+  0% {
+    opacity: 0.9;    
+  }
+	100% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    // transform: translate3d(-58px, 0px, 0px);
+	}
+}
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+	100% {
+    opacity: 1;
+    // transform: translate3d(5%, 0px, 0px);
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+    -ms-transform: matrix(1, 0, 0, 1, 0, 0);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+	}
+}
+
 .container-fluid {
   section {
     .img-wrapper {
@@ -19,24 +44,37 @@
       }
       .item1 {
         background: {
-          image: url('../img/bg1.jpg');
+          image: url('../img/bg1-bg.jpg');
           repeat: no-repeat;
           size: cover; 
         }
+        animation: img 8s infinite;
+        @include respond-to($large-desktop2) {
+          background-position-y: -250px;
+        }
+
       }
       .item2 {
         background: {
-          image: url('../img/bg2.jpg');
+          image: url('../img/bg2-bg.jpg');
           repeat: no-repeat;
           size: cover; 
+        }
+        animation: img 8s infinite;
+        @include respond-to($large-desktop) {
+          background-position-y: -100px;
+        }
+        @include respond-to($large-desktop2) {
+          background-position-y: -200px;
         }
       }
       .item3 {
         background: {
-          image: url('../img/company2.jpg');
+          image: url('../img/bg3-bg.jpg');
           repeat: no-repeat;
           size: cover; 
         }
+        animation: img 8s infinite;
       }
 
       .item1, .item2, .item3 {
@@ -51,23 +89,64 @@
         @include respond-to($large-desktop2) {
           height: 700px;
         }
-        .item-text {
-          font-size: 40px;
-          text-align: center;
-          text-shadow: 3px 3px 4px #000;
-          color: #fff;
-          padding: 250px 0;
+      }
+      .item-text {
+        position: absolute;
+        top: 5%;
+        left: 25%;
+        vertical-align: middle;
+        font-size: 40px;
+        text-align: center;
+        font-weight: 900;
+        text-shadow: 3px 3px 4px #000;
+        color: #fff;
+        padding: 250px 0;
+        animation: text 1.5s both;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        @include respond-to($phone) {  
+          font-size: 14px;
+          padding: 180px 35px;            
+          top: 0;
+          left: 0;
+        }
+        @include respond-to($tablet) {
+          font-size: 20px;
+          padding: 200px 0;            
+          top: 0;
+          left: 20%;
+        }
+        @include respond-to($desktop) { 
+          top: 3%;
+          left: 20%;
+        }
+        @include respond-to($large-desktop) {
+          top: 2%;
+          left: 20%;
+        }
+        @include respond-to($large-desktop2) {
+          top: 5%;
+          left: 30%;
+        }
+        .text-emp {
+          font-size: 55px;
+          padding-bottom: 15px;
           @include respond-to($phone) {  
-            font-size: 20px;
+            font-size: 16px;
             padding: 180px 35px;            
           }
           @include respond-to($tablet) {
-            font-size: 24px;
+            font-size: 30px;
             padding: 200px 0;            
           }
-          @include respond-to($large-desktop2) {
-            padding: 330px 0;
-          }
+        }
+      }
+      .carousel-control {
+        .glyphicon {
+          position: relative;
+          top: 45%;
+          font-size: 25px;
         }
       }
     }
@@ -102,7 +181,7 @@
           a {
             text-decoration: none;  
             .main-box {
-              height: 405px;
+              height: 420px;
               transition: all .1s ease-in-out;
               background: {
                 image: url('../img/mbg-company-info.jpg');
@@ -144,8 +223,8 @@
                 transform: scaleX(1);
               }  
               &-bottom {
-                padding: 25px;
-                height: 70px;
+                padding: 15px;
+                height: 55px;
                 background: #fff;
                 @include respond-to($phone) {  
                   height: 35px;
@@ -543,6 +622,13 @@
                 }
                 .bottom-txt {
                   font-size: 18px;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 3;
+                  -webkit-box-orient: vertical;
+                  height: 60px;
+                  line-height: 20px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                   @include respond-to($phone) {  
                     font-size: 12px;
                   }
@@ -589,7 +675,7 @@
               .box-title {
                 display: inline-block;
                 color: #333;
-                font-size: 24px;
+                font-size: 22px;
                 margin: 30px;
                 @include respond-to($phone) {  
                   font-size: 14px;

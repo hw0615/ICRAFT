@@ -19,7 +19,7 @@ article {
       }
     }
     .article-box {
-      margin-bottom: 80px;
+      margin-bottom: 160px;
       .article-left {
         width: 45%;
         float: left;
@@ -39,16 +39,20 @@ article {
         @include respond-to($phone) {
           width: 100%;
         }
+        .value {
+          letter-spacing: 0.5px;
+        }
         .article-text {
           font-weight: 600;          
           border-top: 1px solid $color-key;
           border-bottom: 1px solid $color-key;
-          padding: 15px 10px 15px 10px;
+          padding: 15px 18px 15px 18px;
+          margin: 12px 0;
           text-align: center;
         }
       }
       .article-right {
-        width: 50%;
+        width: 51%;
         @include respond-to($tablet) {
           width: 45%;
         }
@@ -77,6 +81,7 @@ article {
           }
           .article-text {
             margin: 5px 0 20px 0;
+            letter-spacing: -0.3px;
           }
         }
         @include respond-to($phone) {
@@ -126,7 +131,7 @@ article {
           font-weight: 600;
           border-top: 1px solid $color-key;
           border-bottom: 1px solid $color-key;
-          padding: 25px 42px 25px 42px;
+          padding: 25px 35px 25px 35px;
           text-align: center;
           margin: 30px auto;
           @include respond-to($phone) {
