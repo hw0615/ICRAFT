@@ -185,7 +185,6 @@ var Cognito = window.Cognito || {};
     var url = window.location.href;
     var checkUrlKey = url.split("/").slice(-1)[0];
     var cate = cate;
-      console.log('cate :', cate);
     if (checkUrlKey !== 'pit-in.html') {
       var paginationTab = document.getElementsByClassName("pagination-tab")[0]
       var pagination = paginationTab.getElementsByClassName("pagination")[targetPage];
@@ -296,15 +295,12 @@ var Cognito = window.Cognito || {};
   }
 
   function completeArticleRequest(result) {
-    console.log('Response received from API: ', result);
     $('#article-title').val(result['result'].title);
     $('#summernote').summernote('code', result['result'].body);
   }
 
   // post article
   function postArticle(category, box) {
-    console.log('box :', box);
-    console.log('JSON.stringify(box) :', JSON.stringify(box));
     $.ajax({
       type: 'POST',
       url: _config.api.invokeUrl + '/' + category,
@@ -327,7 +323,7 @@ var Cognito = window.Cognito || {};
   function completePostArticleRequest() {
     alert('등록되었습니다.')
     // console.log('result :', box);
-    // window.location.href = 'circuit.html?page=1';
+    window.location.href = 'circuit.html?page=1';
   }
 
   // Initialize
@@ -449,8 +445,6 @@ var Cognito = window.Cognito || {};
             var date = $('#date').val();
             var toMain = $('#toMain').prop("checked");
             var image = $('#mainImg').val();
-            console.log('toMain :', toMain);
-            console.log('image :', image);
 
             var box = {
                 'id': article_id,
@@ -463,14 +457,18 @@ var Cognito = window.Cognito || {};
             
             if ( toMain === false) {
                 postArticle(category, box);
-            } else if(toMain === true){
-                getBase64();
-                $('#output').bind('DOMNodeInserted DOMNodeRemoved', function () {
-                    var baseCode = document.querySelector("#output span").innerHTML; //encoded code by base64
-                    box['image'] = baseCode;
-                    box['to_main'] = toMain;
-                    postArticle(category, box);
-                });
+            } else if( toMain === true && image.length > 0){
+
+                    getBase64();
+                    $('#output').bind('DOMNodeInserted DOMNodeRemoved', function () {
+                        var baseCode = document.querySelector("#output span").innerHTML; //encoded code by base64
+                        box['image'] = baseCode;
+                        box['to_main'] = toMain;
+                        postArticle(category, box);
+                    });
+               
+            } else if(image.length == 0){
+                alert('체크박스 오른쪽, 대표이미지를 선택하세요')
             }
         } else if (category == "disclosure") {
         var date = $('#date').val();
