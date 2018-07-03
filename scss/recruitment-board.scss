@@ -122,13 +122,13 @@ article {
         display: none;
       }
       .loading {
-        height: 610px;
+        height: 550px;
         img {
           width: 15%;
           position: absolute;
-          left: 44.5%;
+          left: 44%;
           // top: 25%;
-          top: 136%;
+          top: 106%;
         }
       }
       th {        
@@ -152,47 +152,6 @@ article {
         }
       }
     }
-    // .pagination {    
-    //   display: block;
-    //   margin: 0 auto;
-    //   margin-top: 30px;
-    //   width: auto;
-    //   height: auto;
-    //   text-align: center;
-    //   font-size: 0;      
-    //   li {
-    //     display:inline-block;
-    //     a {
-    //       color: #666;  
-    //       border:none;        
-    //       font-size: 15px;
-    //       font-weight: 900;
-    //       img {
-    //         display: inline-block;
-    //         width: 12px;
-    //         vertical-align: middle;
-    //       }
-    //       &:focus {
-    //         background-color: inherit;
-    //       }
-    //       &.page-num {
-    //         background-color:  inherit;           
-    //         margin: 0 10px;
-    //         &:hover {
-    //           color: #337ab7;
-    //         }
-    //       }
-    //     }
-    //     &.page-arrow {
-    //       margin: 0 1px;
-    //       a {
-    //         border: 1px solid #eee;
-    //         border-radius: 0;
-    //         margin-left: 0;
-    //       }          
-    //     }
-    //   }        
-    // }
     .pagination {  
       display: block;
       margin: 0 auto;

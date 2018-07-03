@@ -102,9 +102,6 @@ $(function() {
               success: function(data) {
                 console.log('data.result :', data.result);
                 var data = data.result
-                // var stockMain = data.data
-                // var stock = stockMain.each_stock
-        
                 for (var j = 0; j < data.length; j++) {
                   var el = data[j];
                   console.log('el :', el);
@@ -118,6 +115,11 @@ $(function() {
                     available = '불가능'
                   }
                   var kinds = el.kinds;
+                  if ( kinds === 'newcomer' ) {
+                    kinds = '신입'
+                  } else {
+                    kinds = '경력'
+                  }
                   var count = el.count;
 
                   // // 시간별 시세 테이블 바디
@@ -151,41 +153,82 @@ $(function() {
 
         }
 
-        // DATA SUBTITLE
-        for(var key in box.result[0]){
-          boardTitle.push(key)
-        }              
-        // MAKE AND APPEND TR TD
-        for(var j=0; j < box.result.length; j++){        
-          var trT = document.createElement("tr");
-          $(trT).attr('class', 'list')         
-          for(var i=0; i < boardTitle.length; i++){
-            if(i !== 2){
-              if(i==1){  
-                var aT = document.createElement("a");               
-                $(aT).attr("href", "recruitment-posts.html?page=" + i  + "&id=" + box.result[j][boardTitle[0]]);
-                var tdT = document.createElement("td");                             
-                $(aT).append(box.result[j][boardTitle[i]]);        
-                $(tdT).append(aT);  
-                $(trT).append(tdT);                                
-              } else if(i == 5){
-                console.log(i);
-                var tdT = document.createElement("td");  
-                if(box.result[j][boardTitle[i]] == true){
-                  $(tdT).append("가능");       
-                  $(trT).append(tdT);     
-                } else {
-                  $(tdT).append("불가능");         
-                  $(trT).append(tdT);  
-                }  
-              } else if(i==0 || i > 1){
-                var tdT = document.createElement("td");     
-                $(tdT).append(box.result[j][boardTitle[i]]);       
-                $(trT).append(tdT);             
-              } 
-            }
-          }      
-          $(board).append(trT);
+        // // DATA SUBTITLE
+        // for(var key in box.result[0]){
+        //   boardTitle.push(key)
+        // }              
+        // // MAKE AND APPEND TR TD
+        // for(var j=0; j < box.result.length; j++){        
+        //   var trT = document.createElement("tr");
+        //   $(trT).attr('class', 'list')         
+        //   for(var i=0; i < boardTitle.length; i++){
+        //     console.log('boardTitle :', boardTitle);
+        //     if(i !== 2){
+        //       if(i==1){  
+        //         var aT = document.createElement("a");               
+        //         $(aT).attr("href", "recruitment-posts.html?page=" + i  + "&id=" + box.result[j][boardTitle[0]]);
+        //         var tdT = document.createElement("td");                             
+        //         $(aT).append(box.result[j][boardTitle[i]]);        
+        //         $(tdT).append(aT);  
+        //         $(trT).append(tdT);                                
+        //       } else if (i == 4) {
+
+        //       } else if(i == 5){
+        //         console.log(i);
+        //         var tdT = document.createElement("td");  
+        //         if(box.result[j][boardTitle[i]] == true){
+        //           $(tdT).append("가능");       
+        //           $(trT).append(tdT);     
+        //         } else {
+        //           $(tdT).append("불가능");         
+        //           $(trT).append(tdT);  
+        //         }  
+        //       } else if(i==0 || i > 1){
+        //         var tdT = document.createElement("td");     
+        //         $(tdT).append(box.result[j][boardTitle[i]]);       
+        //         $(trT).append(tdT);             
+        //       } 
+        //     }
+        //   }      
+        //   $(board).append(trT);
+        // }
+
+        var data = data.result
+
+        for (var j = 0; j < data.length; j++) {
+          var el = data[j];
+          console.log('el :', el);
+          var id = el.id;
+          var title = el.title;
+          var date = el.date;
+          var available = el.available;
+          if (available === true) {
+            available = '가능'
+          } else {
+            available = '불가능'
+          }
+          var kinds = el.kinds;
+          if ( kinds === 'newcomer' ) {
+            kinds = '신입'
+          } else {
+            kinds = '경력'
+          }
+          var count = el.count;
+
+          // // 시간별 시세 테이블 바디
+          var Tbody = $(".table tbody")
+          // var realtimeTr = $(".realtime-1")
+
+          var newTr = Tbody.append(
+            "<tr class='list'>" + 
+            "<td>" + id + "</td>" + 
+            "<td>" + "<a href='recruitment-posts.html?page=" + id + "'>" + title + "</a>" + "</td>" + 
+            "<td>" + date + "</td>" +
+            "<td>" + kinds + "</td>" +
+            "<td>" + available + "</td>" +
+            "<td>" + count + "</td>" +
+            "</tr>"
+          )
         }
         $("document").ready(function(){        
           paging(total, pageCount, 1);

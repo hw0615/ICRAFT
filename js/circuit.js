@@ -105,13 +105,19 @@ var Cognito = window.Cognito || {};
     switch (cate) {
       case "recruit":
         var available;
-        if (text['available'] == true) {
+        var kinds;
+        if (text['available'] === true) {
           available = "가능"
         } else {
           available = "불가능"
         }
+        if (text['kinds'] === 'newcomer') {
+          kinds = '신입'
+        } else if (text['kinds'] === 'experienced ') {
+          kinds = '경력'
+        }
         $('#recruit tbody').append($(
-          '<tr>\n <td>' + text['id'] + '</td>\n <td><a href="pit-in.html?recruit' + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n <td>' + text['date'] + '</td>\n <td>' + text['kinds'] + '</td>\n <td>' + available + '</td>\n <td>' + text['count'] + '</td>\n <td><button class="get-btn" onclick="deleteArticle(\'recruit\',' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>\n </tr>'
+          '<tr>\n <td>' + text['id'] + '</td>\n <td><a href="pit-in.html?recruit' + '&id=' + text['id'] + '">' + text['title'] + '</a></td>\n <td>' + text['date'] + '</td>\n <td>' + kinds + '</td>\n <td>' + available + '</td>\n <td>' + text['count'] + '</td>\n <td><button class="get-btn" onclick="deleteArticle(\'recruit\',' + text['id'] + ')" style="margin-top:0; width: 50px">\uC0AD\uC81C</button></td>\n </tr>'
         ));
         break;
       case "news":
