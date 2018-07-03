@@ -191,7 +191,6 @@ var Cognito = window.Cognito || {};
     var url = window.location.href;
     var checkUrlKey = url.split("/").slice(-1)[0];
     var cate = cate;
-      console.log('cate :', cate);
     if (checkUrlKey !== 'pit-in.html') {
       var paginationTab = document.getElementsByClassName("pagination-tab")[0]
       var pagination = paginationTab.getElementsByClassName("pagination")[targetPage];
@@ -302,15 +301,12 @@ var Cognito = window.Cognito || {};
   }
 
   function completeArticleRequest(result) {
-    console.log('Response received from API: ', result);
     $('#article-title').val(result['result'].title);
     $('#summernote').summernote('code', result['result'].body);
   }
 
   // post article
   function postArticle(category, box) {
-    console.log('box :', box);
-    console.log('JSON.stringify(box) :', JSON.stringify(box));
     $.ajax({
       type: 'POST',
       url: _config.api.invokeUrl + '/' + category,
@@ -425,80 +421,88 @@ var Cognito = window.Cognito || {};
     }
   }
 
-  function handlePostArticle(event) {
-    event.preventDefault();
+    function handlePostArticle(event) {
+        event.preventDefault();
 
-    var category = $('#category').val();
-    var article_id = $('#article_id').val();
-    if (article_id == "") {
-      article_id = -1;
+        var category = $('#category').val();
+        var article_id = $('#article_id').val();
+        if (article_id == "") {
+            article_id = -1;
+        }
+        var title = $('#article-title').val();
+        var body = $('#summernote').summernote('code');
+        var output = document.getElementById('output');
+
+        if (category == "recruit") {
+            var kinds = $('#type').val();
+            var date = $('#due-to').val();
+            var available = $('#available').val();
+            var box = {
+                'id': article_id,
+                'title': title,
+                'body': body,
+                'date': date,
+                'kinds': kinds,
+                'available': available
+            }
+            postArticle(category, box);   
+
+        } else if (category == "news") {
+            var date = $('#date').val();
+            var toMain = $('#toMain').prop("checked");
+            var image = $('#mainImg').val();
+
+            var box = {
+                'id': article_id,
+                'title': title,
+                'body': body,
+                'date': date,
+                'image': '',
+                'to_main': ''
+            }
+            
+            if ( toMain === false) {
+                postArticle(category, box);
+            } else if( toMain === true && image.length > 0){
+
+                    getBase64();
+                    $('#output').bind('DOMNodeInserted DOMNodeRemoved', function () {
+                        var baseCode = document.querySelector("#output span").innerHTML; //encoded code by base64
+                        box['image'] = baseCode;
+                        box['to_main'] = toMain;
+                        postArticle(category, box);
+                    });
+               
+            } else if(image.length == 0){
+                alert('체크박스 오른쪽, 대표이미지를 선택하세요')
+            }
+        } else if (category == "disclosure") {
+        var date = $('#date').val();
+        var url = $('#info_url').val()
+        var submitter = $('#submitter').val()
+        var box = {
+            'id': article_id,
+            'title': title,
+            'submitter': submitter,
+            'info_url': url,
+            'date': date
+        }
+            postArticle(category, box);
+        }
     }
-    var title = $('#article-title').val();
-    var body = $('#summernote').summernote('code');
-    var output = document.getElementById('output');
 
-    if (category == "recruit") {
-      var kinds = $('#type').val();
-      var date = $('#due-to').val();
-      var available = $('#available').val();
-      var box = {
-        'id': article_id,
-        'title': title,
-        'body': body,
-        'date': date,
-        'kinds': kinds,
-        'available': available
-      }
-      postArticle(category, box);
-
-    } else if (category == "news") {
-      var date = $('#date').val();
-      var box = {
-        'id': article_id,
-        'title': title,
-        'body': body,
-        'date': date,
-        'image': '',
-        'to_main': ''
-      }
-      if ( box['image'] === '') {
-        console.log('box["image"] :', box['image']);
-      } else {
-        getBase64();
-        $('#output').bind('DOMNodeInserted DOMNodeRemoved', function () {
-          var baseCode = document.querySelector("#output span").innerHTML; //encoded code by base64
-          box['image'] = baseCode;
-          box['to_main'] = $('#toMain').prop("checked");
-        });
-        postArticle(category, box);
-      }
-    } else if (category == "disclosure") {
-      var date = $('#date').val();
-      var url = $('#info_url').val()
-      var submitter = $('#submitter').val()
-      var box = {
-        'id': article_id,
-        'title': title,
-        'submitter': submitter,
-        'info_url': url,
-        'date': date
-      }
-      postArticle(category, box);
+    function getBase64() {
+        var file = document.getElementById("mainImg").files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            var newSpan = document.createElement("span");
+            var newContent = document.createTextNode(reader.result);
+            newSpan.appendChild(newContent)
+            output.appendChild(newSpan)
+            };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
     }
-  }
-
-  function getBase64() {
-    var file = document.getElementById("mainImg").files[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      var newSpan = document.createElement("span");
-      var newContent = document.createTextNode(reader.result.split('base64,')[1]);
-      newSpan.appendChild(newContent)
-      output.appendChild(newSpan)
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
-  }
 }(jQuery));
