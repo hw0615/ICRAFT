@@ -259,6 +259,18 @@ legend, caption {
           padding: 60px 75px 60px 75px; } }
       .container-fluid article .article .sol {
         height: 25px; }
+      .container-fluid article .article .spac-6 {
+        letter-spacing: -0.6px; }
+      .container-fluid article .article .spac-7 {
+        letter-spacing: -0.7px; }
+      .container-fluid article .article .spac5 {
+        letter-spacing: 0.5px; }
+      .container-fluid article .article .spac1 {
+        letter-spacing: 0.1px; }
+      .container-fluid article .article .spac-2 {
+        letter-spacing: -0.2px; }
+      .container-fluid article .article .spac8 {
+        letter-spacing: 0.8px; }
       .container-fluid article .article .article-title {
         font-size: 40px;
         font-weight: 600;
