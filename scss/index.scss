@@ -22,10 +22,12 @@
   }
 	100% {
     opacity: 1;
-    // transform: translate3d(5%, 0px, 0px);
-    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(1, 0, 0, 1, 0, 0);
-    transform: matrix(1, 0, 0, 1, 0, 0);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    -ms-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    // -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+    // -ms-transform: matrix(1, 0, 0, 1, 0, 0);
+    // transform: matrix(1, 0, 0, 1, 0, 0);
 	}
 }
 
@@ -93,6 +95,12 @@
         @include respond-to($large-desktop2) {
           height: 700px;
         }
+      }
+      .animation {
+        // animation: text 1.5s both;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
       }
       .item-text {
         position: relative;
@@ -710,11 +718,11 @@
                   color: #fff;
                   @include respond-to($phone) {  
                     font-size: 12px;
-                    padding: 10px 15px 0 0;                    
+                    padding: 10px 15px 0 0;
                   }
                   @include respond-to($tablet) {
                     font-size: 14px;
-                    padding: 10px 15px 0 0;                    
+                    padding: 10px 15px 0 0;
                   }
                 }
               }

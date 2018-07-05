@@ -3,9 +3,9 @@
         url: 'https://nllyo9o76k.execute-api.ap-northeast-2.amazonaws.com/prod/news/main',
         dataType: "JSON",
         success: function(data){ 
-          console.log('data :', data);
-            var box =  $.parseJSON(data.body)  
-            makeArticle(box)    
+          // console.log('data :', data);
+          var box =  $.parseJSON(data.body)  
+          makeArticle(box)    
         },
         error: function(){
             console.log('실패');
@@ -18,8 +18,7 @@
         var body = box.body;
         var id = box.id
 
-        console.log('id :', id);
-
+        // console.log('id :', id);
         
         $('#newsBox').css('background-image','url(' + href +')')
         $('#newsTitle').text(title)

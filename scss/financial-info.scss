@@ -9,6 +9,17 @@ section {
 }
 article {
   .article {
+    .right {
+      float: right;
+      font-size: 14px;
+      margin-bottom: 10px;
+      @include respond-to($phone) {
+        font-size: 10px;
+      }
+      @include respond-to($tablet) {
+        font-size: 12px;
+      }
+    }
     table {
       width: 100%;
       .tr-header {
