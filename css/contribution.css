@@ -259,38 +259,6 @@ legend, caption {
           padding: 60px 75px 60px 75px; } }
       .container-fluid article .article .sol {
         height: 25px; }
-      .container-fluid article .article .spac-2 {
-        letter-spacing: -0.2px !important; }
-      .container-fluid article .article .spac-3 {
-        letter-spacing: -0.3px !important; }
-      .container-fluid article .article .spac-4 {
-        letter-spacing: -0.4px !important; }
-      .container-fluid article .article .spac-5 {
-        letter-spacing: -0.5px !important; }
-      .container-fluid article .article .spac-6 {
-        letter-spacing: -0.6px !important; }
-      .container-fluid article .article .spac-7 {
-        letter-spacing: -0.7px !important; }
-      .container-fluid article .article .spac-8 {
-        letter-spacing: -0.8px !important; }
-      .container-fluid article .article .spac1 {
-        letter-spacing: 0.1px !important; }
-      .container-fluid article .article .spac2 {
-        letter-spacing: 0.2px !important; }
-      .container-fluid article .article .spac3 {
-        letter-spacing: 0.3px !important; }
-      .container-fluid article .article .spac4 {
-        letter-spacing: 0.4px !important; }
-      .container-fluid article .article .spac5 {
-        letter-spacing: 0.5px !important; }
-      .container-fluid article .article .spac6 {
-        letter-spacing: 0.6px !important; }
-      .container-fluid article .article .spac7 {
-        letter-spacing: 0.7px !important; }
-      .container-fluid article .article .spac8 {
-        letter-spacing: 0.8px !important; }
-      .container-fluid article .article .spac9 {
-        letter-spacing: 0.9px !important; }
       .container-fluid article .article .article-title {
         font-size: 40px;
         font-weight: 600;
@@ -324,6 +292,7 @@ legend, caption {
         font-weight: 400;
         line-height: 1.5;
         text-align: justify;
+        word-break: keep-all;
         margin: 20px 0;
         color: #333;
         letter-spacing: -0.6px; }
@@ -336,6 +305,7 @@ legend, caption {
       .container-fluid article .article .emp {
         font-size: 24px;
         text-align: justify;
+        word-break: keep-all;
         font-weight: 600;
         line-height: 1.8;
         color: #174A8E;
@@ -817,7 +787,9 @@ article .article .article-wrapper table {
         font-size: 12px; } }
   article .article .article-wrapper table td {
     vertical-align: middle;
-    letter-spacing: -0.8px; }
+    letter-spacing: -0.8px;
+    word-break: keep-all;
+    text-align: justify; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       article .article .article-wrapper table td {
         font-size: 10px; } }

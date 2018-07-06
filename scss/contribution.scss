@@ -38,6 +38,8 @@ article {
         td {
           vertical-align: middle;
           letter-spacing: -0.8px;
+          word-break: keep-all;
+          text-align: justify;
           @include respond-to($phone) {
             font-size: 10px; 
           }
