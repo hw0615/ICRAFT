@@ -17,10 +17,10 @@
         var title = box.title;
         var body = box.body;
         var id = box.id
-
         // console.log('id :', id);
         
-        $('#newsBox').css('background-image','url(' + href +')')
+        // $('#newsBox').css('background-image','url(' + href +')')
+        $('#newsImg').attr('src', href)
         $('#newsTitle').text(title)
         $('#newsBody').append(body)
         $('#newsMain').attr('href', 'news-post.html?page=1&id='+id)

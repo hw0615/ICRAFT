@@ -1220,7 +1220,8 @@ footer #footer-wrapper {
           height: 305px;
           transition: all .1s ease-in-out;
           background-repeat: no-repeat;
-          background-size: cover; }
+          background-size: cover;
+          background-color: #fff; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
             .container-fluid article .article .article-3 .article-left a .main-box {
               height: 200px; } }
@@ -1239,6 +1240,8 @@ footer #footer-wrapper {
             @media only screen and (min-width: 601px) and (max-width: 991px) {
               .container-fluid article .article .article-3 .article-left a .main-box .box-title {
                 font-size: 16px; } }
+          .container-fluid article .article .article-3 .article-left a .main-box img {
+            width: 100%; }
           .container-fluid article .article .article-3 .article-left a .main-box:hover {
             transform: scale(1.01); }
           .container-fluid article .article .article-3 .article-left a .main-box:hover > .box-title:after {
@@ -1257,21 +1260,28 @@ footer #footer-wrapper {
               @media only screen and (min-width: 601px) and (max-width: 991px) {
                 .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-title {
                   font-size: 16px; } }
-            .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
-              font-size: 18px;
-              display: -webkit-box;
-              -webkit-line-clamp: 3;
-              -webkit-box-orient: vertical;
+            .container-fluid article .article .article-3 .article-left a .main-box-bottom p {
+              width: 475px;
               height: 60px;
               line-height: 20px;
               overflow: hidden;
               text-overflow: ellipsis; }
-              @media only screen and (min-width: 280px) and (max-width: 600px) {
-                .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
-                  font-size: 12px; } }
-              @media only screen and (min-width: 601px) and (max-width: 991px) {
-                .container-fluid article .article .article-3 .article-left a .main-box-bottom .bottom-txt {
-                  font-size: 14px; } }
+              .container-fluid article .article .article-3 .article-left a .main-box-bottom p .span {
+                font-size: 18px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                width: 450px;
+                height: 60px;
+                line-height: 20px;
+                overflow: hidden;
+                text-overflow: ellipsis; }
+                @media only screen and (min-width: 280px) and (max-width: 600px) {
+                  .container-fluid article .article .article-3 .article-left a .main-box-bottom p .span {
+                    font-size: 12px; } }
+                @media only screen and (min-width: 601px) and (max-width: 991px) {
+                  .container-fluid article .article .article-3 .article-left a .main-box-bottom p .span {
+                    font-size: 14px; } }
     .container-fluid article .article .article-3 .article-right {
       position: relative;
       width: 48.8%;

@@ -237,6 +237,7 @@
               }  
               &-bottom {
                 padding: 15px;
+                // width: 450px;
                 height: 55px;
                 background: #fff;
                 @include respond-to($phone) {  
@@ -257,7 +258,7 @@
                     font-size: 14px;
                   }
                   span {
-                    float: right;        
+                    float: right;
                   }
                 }
               }
@@ -591,6 +592,7 @@
               background: {
                 repeat: no-repeat;
                 size: cover; 
+                color: #fff;
               }
               @include respond-to($phone) {  
                 height: 200px;
@@ -610,6 +612,9 @@
                 @include respond-to($tablet) {
                   font-size: 16px;
                 }
+              }
+              img {
+                width: 100%;
               }
               &:hover{
                 transform: scale(1.01);
@@ -632,20 +637,29 @@
                     font-size: 16px;
                   }
                 }
-                .bottom-txt {
-                  font-size: 18px;
-                  display: -webkit-box;
-                  -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
+                p {
+                  width: 475px;
                   height: 60px;
                   line-height: 20px;
                   overflow: hidden;
                   text-overflow: ellipsis;
-                  @include respond-to($phone) {  
-                    font-size: 12px;
-                  }
-                  @include respond-to($tablet) {
-                    font-size: 14px;
+                  .span {
+                  // .bottom-txt {
+                    font-size: 18px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    width: 450px;
+                    height: 60px;
+                    line-height: 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    @include respond-to($phone) {  
+                      font-size: 12px;
+                    }
+                    @include respond-to($tablet) {
+                      font-size: 14px;
+                    }
                   }
                 }
               }
