@@ -25,9 +25,14 @@
     // -webkit-transform: translate3d(0px, 0px, 0px);
     // -ms-transform: translate3d(0px, 0px, 0px);
     // transform: translate3d(0px, 0px, 0px);
-    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(1, 0, 0, 1, 0, 0);
-    transform: matrix(1, 0, 0, 1, 0, 0);
+
+    // -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+    // -ms-transform: matrix(1, 0, 0, 1, 0, 0);
+    // transform: matrix(1, 0, 0, 1, 0, 0);
+
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
 	}
 }
 
@@ -96,24 +101,19 @@
           height: 700px;
         }
       }
-      .animation {
-        // animation: text 1.5s both;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-      }
       .item-text {
         position: relative;
         height: 0;
+        left: -50%;
         vertical-align: middle;
         font-size: 40px;
         text-align: center;
         text-shadow: 3px 3px 4px #000;
         color: #fff;
         animation: text 1.5s both;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
+        // -webkit-transform: translateX(-50%);
+        // -ms-transform: translateX(-50%);
+        // transform: translateX(-50%);
         @include respond-to($phone) {   
           font-size: 12px;        
           top: -190px;

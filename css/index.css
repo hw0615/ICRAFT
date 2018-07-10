@@ -765,9 +765,9 @@ footer #footer-wrapper {
     opacity: 0; }
   100% {
     opacity: 1;
-    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(1, 0, 0, 1, 0, 0);
-    transform: matrix(1, 0, 0, 1, 0, 0); } }
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%); } }
 
 .container-fluid section .carousel-control.right,
 .container-fluid section .carousel-control.left {
@@ -820,22 +820,16 @@ footer #footer-wrapper {
     @media only screen and (min-width: 1751px) {
       .container-fluid section .img-wrapper .item1, .container-fluid section .img-wrapper .item2, .container-fluid section .img-wrapper .item3 {
         height: 700px; } }
-  .container-fluid section .img-wrapper .animation {
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%); }
   .container-fluid section .img-wrapper .item-text {
     position: relative;
     height: 0;
+    left: -50%;
     vertical-align: middle;
     font-size: 40px;
     text-align: center;
     text-shadow: 3px 3px 4px #000;
     color: #fff;
-    animation: text 1.5s both;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%); }
+    animation: text 1.5s both; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       .container-fluid section .img-wrapper .item-text {
         font-size: 12px;
