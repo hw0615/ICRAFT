@@ -170,7 +170,7 @@ $(function() {
                     var realtimeTr = $(".realtime-1")
 
                     var newTr = realtimeTbody.append(
-                      "<tr class='tr-hover realtime-1'>" + 
+                      "<tr class='realtime-1'>" + 
                       "<td>"+ dateTimeS + "</td>" + 
                       "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
                       "<td class='diff-num'>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
@@ -221,7 +221,7 @@ $(function() {
           var realtimeTr = $(".realtime-1")
 
           var newTr = realtimeTbody.append(
-            "<tr class='tr-hover realtime-1'>" + 
+            "<tr class='realtime-1'>" + 
             "<td>"+ dateTimeS + "</td>" + 
             "<td>"+ "<span class='number'>" + nego + "</span>" + "</td>" + 
             "<td class='diff-num'>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
@@ -361,7 +361,7 @@ $(function() {
                     // var realtimeTr = $(".realtime-2")
                     
                     var newTr = realtimeTbody.append(
-                      "<tr class='tr-hover realtime-2'>" + "<td>" + date + "</td>" +  
+                      "<tr class='realtime-2'>" + "<td>" + date + "</td>" +  
                       "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
                       "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
                       "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
@@ -407,7 +407,7 @@ $(function() {
           var realtimeTr = $(".realtime-2")
           
           var newTr = realtimeTbody.append(
-            "<tr class='tr-hover realtime-2'>" + "<td>" + date + "</td>" +  
+            "<tr class='realtime-2'>" + "<td>" + date + "</td>" +  
             "<td>"+ "<span class='number'>" + price + "</span>" + "</td>" +
             "<td>"+ "<span class='diff-t'>" + "</span>" + diff + "</td>" +
             "<td>"+ "<span class='number'>" + start_price + "</span>" + "</td>" +
