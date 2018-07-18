@@ -422,13 +422,13 @@
           @include respond-to($phone) {  
             width: 45.5%;
             padding: 25px;
-            height: 180px;            
+            height: 195px;            
             margin-bottom: 25px;          
           }
           @include respond-to($tablet) {
             width: 47.5%;
             padding: 25px;
-            height: 250px;            
+            height: 300px;            
             margin-bottom: 25px;          
           }
           a {
@@ -525,14 +525,14 @@
                   padding: 10px 0;
                   background: none;
                   @include respond-to($phone) {  
-                    font-size: 8px;
-                    padding: 5px 0;
-                    margin-top: 10px;
+                    font-size: 6px;
+                    padding: 2px 0;
+                    margin-top: 30px;
                   }
                   @include respond-to($tablet) {
-                    font-size: 10px;
-                    padding: 5px 0;
-                    margin-top: 15px;                    
+                    font-size: 8px;
+                    padding: 4px 0;
+                    margin-top: 45px;                    
                   }
                   &:hover {
                     background: $color-key;
@@ -615,6 +615,8 @@
               }
               img {
                 width: 100%;
+                height: 100%;
+                padding-bottom: 45px;
               }
               &:hover{
                 transform: scale(1.01);
@@ -632,18 +634,27 @@
                   color: #333;
                   @include respond-to($phone) {  
                     font-size: 14px;
+                    width: 100%;
                   }
                   @include respond-to($tablet) {
                     font-size: 16px;
+                    width: 100%;
                   }
                 }
                 p {
-                  width: 475px;
+                  // width: 475px;
+                  width: 100%;
                   height: 60px;
                   line-height: 20px;
                   overflow: hidden;
                   text-overflow: ellipsis;
-                  .span {
+                  @include respond-to($phone) {  
+                    font-size: 12px;
+                  }
+                  @include respond-to($tablet) {
+                    font-size: 14px;
+                  }
+                  span {
                   // .bottom-txt {
                     font-size: 18px;
                     display: -webkit-box;
@@ -656,9 +667,11 @@
                     text-overflow: ellipsis;
                     @include respond-to($phone) {  
                       font-size: 12px;
+                      width: 100%;
                     }
                     @include respond-to($tablet) {
                       font-size: 14px;
+                      width: 100%;
                     }
                   }
                 }
