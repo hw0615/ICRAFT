@@ -66,6 +66,22 @@ header {
           transition: max-height 0.3s ease;
         }
       }
+      span {
+        position: absolute;
+        right: 0;
+        margin: 10px 25px 0 0 ;
+        .lang {
+          font-size: 12.5px;
+          color: #333;
+          text-decoration: none;
+        }
+        .lang-kr {
+          margin: 0 5px 5px 0;
+        }
+        .lang-en {
+          margin: 0 0 5px 5px;
+        }
+      }
     }
   }
   .nav-container {
@@ -227,6 +243,22 @@ header {
         a {          
           img {
             max-height: 25px;
+          }
+        }
+        span {
+          position: absolute;
+          right: 0;
+          margin: 10px 25px 0 0;
+          .lang {
+            font-size: 12.5px;
+            color: #333;
+            text-decoration: none;
+          }
+          .lang-kr {
+            margin: 0 5px 5px 0;
+          }
+          .lang-en {
+            margin: 0 0 5px 5px;
           }
         }
       }

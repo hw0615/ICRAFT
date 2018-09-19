@@ -667,7 +667,7 @@ $(function() {
             data: {
               labels: dateArray,
               datasets: [{
-                label: "1",
+                label: "1년",
                 backgroundColor: 'rgb(244, 249, 255)',
                 borderColor: 'rgb(23, 74, 142)',
                 data: priceArray,
