@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>I.R | ICRAFT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="I.R | ICRAFT" />
+  <meta name="keywords" content="ICRAFT" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="A professional IT company that opens the world of ubiquitous network" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://www.icraft21.com/" />
+  <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="I.R | ICRAFT" />
+  <link rel="shortcut icon" href="img/favicon.ico">  
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/ir.css?ver=1.05" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header"></header>
+    <section>
+      <div class="img-wrapper">
+        <div class="img-text-group">
+          <p class="img-text-title">IR</p>
+          <p class="img-text-des">ICRAFT continues to grow by fulfilling its social responsibilities as a KOSDAQ listed company</p>
+        </div>
+      </div>
+      <ul class="small-menu">
+        <li class="small-menu-list">
+          <a href="#" class="active-menu">Stock Price Information</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="financial-info_en.html" class="">Financial Information</a>
+        </li>
+        <!-- <li class="small-menu-list">
+          <a href="disclosure-info_en.html?page=1" class="">Disclosure Information</a>
+        </li> -->
+        <!-- <li class="small-menu-list">
+          <a href="regulation-info_en.html" class="">내부 정보 관리 규정</a>
+        </li> -->
+      </ul>
+    </section>
+    <article>
+      <p class="location">
+        <a href="index_en.html">HOME</a>
+        <span> < </span>
+        <a href="#">IR</a>
+        <span> < </span>
+        <a href="#">Stock Price Information</a>
+      </p>
+      <div class="article">
+          <div class="article-wrapper">
+            <h2 class="article-title">Stock Price Information</h2>
+            <div class="table-wrap">
+              <p class="emp">ICRAFT</p>
+              <table class="table">
+                <caption>ICRAFT Stock Price Information</caption>
+                <tbody class="stock-header">
+                  <tr class="stock-header-tr1">
+                    <td width="15%" rowspan="2" class="subject subject-icraft subject-icraft-main" scope="row"></td>
+                  </tr>
+                  <tr class="stock-header-tr2"></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#myChart" id="chart1" aria-controls="myChart" aria-expanded="false" rol="tab" data-toggle="tab">
+                  Day
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#myChart-m" id="chart2" aria-controls="myChart-m" aria-expanded="false" rol="tab" data-toggle="tab">
+                  One Month
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#myChart-3m" id="chart3" aria-controls="myChart-3m" aria-expanded="false" rol="tab" data-toggle="tab">
+                  3 Months
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#myChart-y" id="chart4" aria-controls="myChart-y" aria-expanded="false" rol="tab" data-toggle="tab">
+                  Year
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <canvas role="tabpanel" class="tab-pane fade active in" id="myChart"></canvas>
+              <canvas role="tabpanel" class="tab-pane fade" id="myChart-m"></canvas>
+              <canvas role="tabpanel" class="tab-pane fade" id="myChart-3m"></canvas>
+              <canvas role="tabpanel" class="tab-pane fade" id="myChart-y"></canvas>
+              <div class="loading-chart display-none">
+                <img src="./img/loading.gif" alt="로딩">
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <caption>Hourly price Chart of ICRAFT Stock Price Information.</caption>
+                <p class="article-text">Hourly price</p>
+                <tbody class="stock-time">
+                  <tr class="tr-header">
+                    <td width="15%" class="subject" scope="row">Closing time</td>
+                    <td width="15%" class="subject" scope="row">Closing price</td>
+                    <td width="15%" class="subject" scope="row">Diff</td>
+                    <td width="15%" class="subject" scope="row">Buy</td>
+                    <td width="15%" class="subject" scope="row">Sell</td>
+                    <td width="15%" class="subject" scope="row">Variation</td>
+                  </tr>
+                  <tr class="loading display-none">
+                    <td>
+                      <img src="./img/loading.gif" alt="loading">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination"></ul>
+              </nav>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <caption>Daily price Chart of ICRAFT Stock Price Information.</caption>
+                <tbody class="stock-time2">
+                  <p class="article-text">Daily price</p>
+                  <tr class="tr-header">
+                    <td width="10%" class="subject" scope="row">Date</td>
+                    <td width="10%" class="subject" scope="row">Close</td>
+                    <td width="10%" class="subject" scope="row">Day before</td>
+                    <td width="10%" class="subject" scope="row">Open</td>
+                    <td width="10%" class="subject" scope="row">High</td>
+                    <td width="10%" class="subject" scope="row">Low</td>
+                    <td width="10%" class="subject" scope="row">Volume</td>
+                  </tr>
+                  <tr class="loading-2 display-none">
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination-2"></ul>
+              </nav>
+            </div>
+          </div>
+      </div>
+    </article>
+    <footer id="footer"></footer>
+    <button class="move-top">&uarr;</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="./js/common_en.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script type="text/javascript" src="js/jquery.number.min.js"></script>
+  <script type="text/javascript" src="js/ir_en.js"></script>
+</body>
+
+</html> 
