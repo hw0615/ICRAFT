@@ -2,23 +2,22 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>ICRAFT</title>
+    <title>관리자 페이지 | 아이크래프트(주)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="아이크래프트 로그인" />
+    <meta name="description" content="관리자 페이지 | 아이크래프트(주)" />
     <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
     <meta name="robots" content="noindex,nofollow" />
-    <meta property="og:title" content="아이크래프트(주)" />
+    <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:url" content="http://www.icraft21.com/" />
-    <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-    <meta property="og:description" content="아이크래프트(주)" />
+    <meta property="og:url" content="https://www.icraft21.com/" />
+    <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+    <meta property="og:description" content="관리자 페이지 | 아이크래프트(주)" />
     <link rel="shortcut icon" href="img/favicon.ico">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/company.css" />
+    <link rel="stylesheet" type="text/css" href="css/signin.css?ver=1.04" />
 </head>
 
 <body>
@@ -50,21 +49,25 @@
         <article>
             <p class="location">
                 <a href="#">홈</a>
-                <span>
-                    < </span>
-                        <a href="#">등록</a>
+                <span>< </span>
+                <a href="#">등록</a>
             </p>
             <div class="article">
                 <h2 class="article-title">Register</h1>
-                <form id="registrationForm">
-                    <input type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
-                    <input type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
-                    <input type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
-
-                    <input type="submit" value="Let's ICRAFT">
+                    <p class="msg">
+                            <strong style="color:red; font-weight: bold">경고</strong>                                                                                            
+                            <br/>
+                            <span> 사용자 등록이 허용되지 않으며, 본 페이지 관리자에게 문의시 임시 활성화되는 페이지 입니다.</span>
+                        </p>                 
+                <form id="registrationForm" >
+                    <label for="id">ID</label>
+                    <input name="id" type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+                    <label for="pass">PASS</label>
+                    <input name="pass" type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+                    <label for="repass">REPASS</label>
+                    <input name="repass" type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
+                    <input class="get-btn" type="submit" value="Let's ICRAFT">
                 </form>
-                <br/>
-                <p>경고: 사용자 등록이 허용되지 않으며, 본 페이지 관리자에게 문의시 임시 활성화되는 페이지 입니다.</p>
             </div>
         </article>
         <footer id="footer"></footer>

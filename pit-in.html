@@ -3,28 +3,28 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>ICRAFT</title>
+    <title>관리자 페이지 | 아이크래프트(주)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="Awesome Description Here" />
+    <meta name="description" content="관리자 페이지 | 아이크래프트(주)" />
     <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
     <meta name="robots" content="noindex,nofollow" />
-    <meta property="og:title" content="아이크래프트(주)" />
+    <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:url" content="http://www.icraft21.com/" />
-    <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-    <meta property="og:description" content="아이크래프트(주)" />
+    <meta property="og:url" content="https://www.icraft21.com/" />
+    <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+    <meta property="og:description" content="관리자 페이지 | 아이크래프트(주)" />
     <link rel="shortcut icon" href="img/favicon.ico">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/admin.css" />
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/pit-in.css?ver=1.04" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 
 </head>
 
@@ -43,7 +43,7 @@
                     <a id="signOut" href="#" class="">로그 아웃</a>
                 </li>
                 <li class="small-menu-list">
-                    <a href="circuit.html" class="">관리 모드</a>
+                    <a href="circuit.html?page=1" class="">관리 모드</a>
                 </li>
             </ul>
         </section>
@@ -51,21 +51,30 @@
             <p class="location">
                 <a href="#">홈</a>
                 <span>
-                    < </span>
+                    &#60; </span>
                         <a href="circuit.html">관리 모드</a>
                         <span>
-                            < </span>
+                            &#60; </span>
                                 <a href="#">내용 입력 및 수정</a>
             </p>
             <div class="article">
                 <div class="article-wrapper">
                     <form id="postForm">
-                        <input type="hidden" id="article_id">
+                        <label for="category">카테고리:</label>
+                        <select name="category" id="category">
+                            <option value="recruit">채용게시판</option>
+                            <option value="news">뉴스</option>
+                            <option value="disclosure">공시정보</option>
+                        </select>
+                        <input type="text" id="article_id" style="position: absolute; visibility: hidden">
                         <label for="subject">제목: </label>
                         <input id="article-title" type="text" name="subject">
+                        <div class="cate-form"></div>
                         <textarea id="summernote" name="editordata"></textarea>
                         <input class="get-btn" type="submit" value="등록하기">
                     </form>
+                    <script src="./js/pit-in-form.js"></script>
+                    <p id='output'></p>
                 </div>
             </div>
         </article>

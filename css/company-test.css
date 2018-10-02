@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@font-face {
+  font-family: 'Spoqa Han Sans';
+  src: url("../fonts/SpoqaHanSansRegular.woff") format("woff"), url("../fonts/SpoqaHanSansRegular.woff2") format("woff2"); }
+
 html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td,
 del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
@@ -6,7 +10,7 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
   vertical-align: baseline;
   /* font-family: inherit; */
   /* font-family: 'Roboto', sans-serif; */
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  font-family: 'Spoqa Han Sans';
   font-weight: inherit;
   font-style: inherit;
   font-size: 14px;
@@ -34,7 +38,6 @@ ol, ul, a {
 
 /* tables still need cellspacing="0" in the markup */
 table {
-  border-collapse: separate;
   border-spacing: 0; }
 
 caption, th, td {
@@ -64,6 +67,9 @@ legend, caption {
     html::before {
       display: none; } }
 
+.list-style {
+  list-style: circle; }
+
 .container-fluid {
   padding: 0;
   padding-right: 0 !important;
@@ -80,22 +86,29 @@ legend, caption {
   .container-fluid .get-btn {
     background-color: #23527c;
     color: white;
+    border: none;
     border-radius: 2px;
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 10px;
     width: 150px;
     text-align: center; }
     .container-fluid .get-btn:hover {
       background-color: #355f84; }
+  .container-fluid .pagination {
+    width: auto; }
+    .container-fluid .pagination li.active .page-link {
+      background-color: #ddd;
+      color: #666; }
   .container-fluid section {
     position: relative;
     width: 100%;
     margin: 0 auto; }
     @media only screen and (min-width: 280px) and (max-width: 600px) {
       .container-fluid section {
-        background-position-y: 0; } }
+        background-position-y: 0;
+        padding-top: 60px; } }
     .container-fluid section .img-wrapper {
       width: 100%;
       height: 450px; }
@@ -161,7 +174,7 @@ legend, caption {
           float: left;
           width: 100%;
           min-width: 100px;
-          font-size: 14px;
+          font-size: 15px;
           color: #fff;
           text-decoration: none; }
           @media only screen and (min-width: 280px) and (max-width: 600px) {
@@ -206,7 +219,8 @@ legend, caption {
       font-weight: 600; }
       @media only screen and (min-width: 280px) and (max-width: 600px) {
         .container-fluid article .location {
-          margin: 14px 0 10px 0; } }
+          margin: 10px 0;
+          padding: 10px 0; } }
       .container-fluid article .location a {
         font-size: 12px;
         color: #666;
@@ -217,6 +231,8 @@ legend, caption {
         @media only screen and (min-width: 601px) and (max-width: 991px) {
           .container-fluid article .location a {
             font-size: 12px; } }
+        .container-fluid article .location a:last-child {
+          font-weight: 800; }
       .container-fluid article .location span {
         display: inline-block;
         width: 20px;
@@ -274,10 +290,12 @@ legend, caption {
       .container-fluid article .article .article-text {
         font-size: 16px;
         font-weight: 400;
-        text-align: left;
         line-height: 1.5;
+        text-align: justify;
+        word-break: keep-all;
         margin: 20px 0;
-        color: #333; }
+        color: #333;
+        letter-spacing: -0.6px; }
         @media only screen and (min-width: 280px) and (max-width: 600px) {
           .container-fluid article .article .article-text {
             font-size: 10px; } }
@@ -285,7 +303,9 @@ legend, caption {
           .container-fluid article .article .article-text {
             font-size: 14px; } }
       .container-fluid article .article .emp {
-        font-size: 22px;
+        font-size: 24px;
+        text-align: justify;
+        word-break: keep-all;
         font-weight: 600;
         line-height: 1.8;
         color: #174A8E;
@@ -315,9 +335,8 @@ legend, caption {
     width: 45px;
     max-width: 45px;
     height: 45px;
-    font-size: 32px;
-    padding: 0;
-    padding-top: 5px; }
+    font-size: 25px;
+    padding: 0; }
 
 section {
   width: 1050px;

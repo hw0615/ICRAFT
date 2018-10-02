@@ -1,0 +1,56 @@
+@import './reset';  
+@import './common';
+@import './config';
+@import './header';
+@import './footer';
+
+section {
+  @include ir-img;
+}
+article {
+  .article {
+    .right {
+      float: right;
+      font-size: 14px;
+      margin-bottom: 10px;
+      @include respond-to($phone) {
+        font-size: 10px;
+      }
+      @include respond-to($tablet) {
+        font-size: 12px;
+      }
+    }
+    table {
+      width: 100%;
+      .tr-header {
+        background: #F5F5F5;
+        > td {
+          border-top: 2px solid #aaa;
+        }
+      }
+      .subject {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 16px;
+        font-weight: 700;
+        @include respond-to($phone) {
+          font-size: 10px;
+        }
+        @include respond-to($tablet) {
+          font-size: 14px;
+        }
+      }
+      td {
+        font-size: 16px;
+        text-align: center;
+        padding-left: 15px;
+        @include respond-to($phone) {
+          font-size: 10px;
+        }
+        @include respond-to($tablet) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -4,8 +4,44 @@
 @import './header';
 @import './footer';
 
+@keyframes img {
+  0% {
+    opacity: 0.9;    
+  }
+	100% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    // transform: translate3d(-58px, 0px, 0px);
+	}
+}
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+	100% {
+    opacity: 1;
+    // -webkit-transform: translate3d(0px, 0px, 0px);
+    // -ms-transform: translate3d(0px, 0px, 0px);
+    // transform: translate3d(0px, 0px, 0px);
+
+    // -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+    // -ms-transform: matrix(1, 0, 0, 1, 0, 0);
+    // transform: matrix(1, 0, 0, 1, 0, 0);
+
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+	}
+}
+
 .container-fluid {
   section {
+    .carousel-control.right,
+    .carousel-control.left {
+      background: none;
+    }
     .img-wrapper {
       height: 580px;
       @include respond-to($phone) {  
@@ -19,24 +55,37 @@
       }
       .item1 {
         background: {
-          image: url('../img/bg1.jpg');
+          image: url('../img/bg1-bg.jpg');
           repeat: no-repeat;
           size: cover; 
         }
+        animation: img 8s infinite;
+        @include respond-to($large-desktop2) {
+          background-position-y: -250px;
+        }
+
       }
       .item2 {
         background: {
-          image: url('../img/bg2.jpg');
+          image: url('../img/bg2-bg.jpg');
           repeat: no-repeat;
           size: cover; 
+        }
+        animation: img 8s infinite;
+        @include respond-to($large-desktop) {
+          background-position-y: -100px;
+        }
+        @include respond-to($large-desktop2) {
+          background-position-y: -200px;
         }
       }
       .item3 {
         background: {
-          image: url('../img/company2.jpg');
+          image: url('../img/bg3-bg.jpg');
           repeat: no-repeat;
           size: cover; 
         }
+        animation: img 8s infinite;
       }
 
       .item1, .item2, .item3 {
@@ -51,23 +100,66 @@
         @include respond-to($large-desktop2) {
           height: 700px;
         }
-        .item-text {
-          font-size: 40px;
-          text-align: center;
-          text-shadow: 3px 3px 4px #000;
-          color: #fff;
-          padding: 250px 0;
-          @include respond-to($phone) {  
-            font-size: 20px;
-            padding: 180px 35px;            
-          }
-          @include respond-to($tablet) {
-            font-size: 24px;
-            padding: 200px 0;            
-          }
-          @include respond-to($large-desktop2) {
-            padding: 330px 0;
-          }
+      }
+      .item-text {
+        position: relative;
+        height: 0;
+        left: -50%;
+        vertical-align: middle;
+        font-size: 40px;
+        text-align: center;
+        text-shadow: 3px 3px 4px #000;
+        color: #fff;
+        animation: text 1.5s both;
+        // -webkit-transform: translateX(-50%);
+        // -ms-transform: translateX(-50%);
+        // transform: translateX(-50%);
+        @include respond-to($phone) {   
+          font-size: 12px;        
+          top: -190px;
+        }
+        @include respond-to($tablet) {
+          font-size: 24px;
+          top: -220px;
+        }
+        @include respond-to($desktop) { 
+          top: -290px;
+        }
+        @include respond-to($large-desktop) {
+          top: -280px;
+        }
+        @include respond-to($large-desktop2) {
+          top: -330px;
+        }
+      }
+      .text-emp {
+        position: relative;
+        height: 0;
+        font-size: 48px;
+        font-weight: 900;
+        @include respond-to($phone) {  
+          font-size: 18px;  
+          top: -220px;     
+        }
+        @include respond-to($tablet) {
+          font-size: 30px;
+          top: -260px;
+        }
+        @include respond-to($desktop) { 
+          top: -360px;
+        }
+        @include respond-to($large-desktop) {
+          top: -350px;
+        }
+        @include respond-to($large-desktop2) {
+          top: -400px;
+        }
+      }
+      .carousel-control {
+        .glyphicon {
+          position: relative;
+          top: 45%;
+          font-size: 25px;
         }
       }
     }
@@ -102,7 +194,7 @@
           a {
             text-decoration: none;  
             .main-box {
-              height: 405px;
+              height: 420px;
               transition: all .1s ease-in-out;
               background: {
                 image: url('../img/mbg-company-info.jpg');
@@ -144,8 +236,9 @@
                 transform: scaleX(1);
               }  
               &-bottom {
-                padding: 25px;
-                height: 70px;
+                padding: 15px;
+                // width: 450px;
+                height: 55px;
                 background: #fff;
                 @include respond-to($phone) {  
                   height: 35px;
@@ -165,7 +258,7 @@
                     font-size: 14px;
                   }
                   span {
-                    float: right;        
+                    float: right;
                   }
                 }
               }
@@ -329,13 +422,13 @@
           @include respond-to($phone) {  
             width: 45.5%;
             padding: 25px;
-            height: 180px;            
+            height: 195px;            
             margin-bottom: 25px;          
           }
           @include respond-to($tablet) {
             width: 47.5%;
             padding: 25px;
-            height: 250px;            
+            height: 300px;            
             margin-bottom: 25px;          
           }
           a {
@@ -432,14 +525,14 @@
                   padding: 10px 0;
                   background: none;
                   @include respond-to($phone) {  
-                    font-size: 8px;
-                    padding: 5px 0;
-                    margin-top: 10px;
+                    font-size: 6px;
+                    padding: 2px 0;
+                    margin-top: 30px;
                   }
                   @include respond-to($tablet) {
-                    font-size: 10px;
-                    padding: 5px 0;
-                    margin-top: 15px;                    
+                    font-size: 8px;
+                    padding: 4px 0;
+                    margin-top: 45px;                    
                   }
                   &:hover {
                     background: $color-key;
@@ -497,9 +590,9 @@
               height: 305px;
               transition: all .1s ease-in-out;
               background: {
-                image: url('../img/img-test.png');
                 repeat: no-repeat;
                 size: cover; 
+                color: #fff;
               }
               @include respond-to($phone) {  
                 height: 200px;
@@ -520,6 +613,11 @@
                   font-size: 16px;
                 }
               }
+              img {
+                width: 100%;
+                height: 100%;
+                padding-bottom: 45px;
+              }
               &:hover{
                 transform: scale(1.01);
               }  
@@ -528,7 +626,7 @@
               }  
               &-bottom {
                 padding: 25px 25px;
-                height: auto;
+                height: 180px;
                 background: #fff;
                 .bottom-title {
                   font-size: 22px;
@@ -536,18 +634,45 @@
                   color: #333;
                   @include respond-to($phone) {  
                     font-size: 14px;
+                    width: 100%;
                   }
                   @include respond-to($tablet) {
                     font-size: 16px;
+                    width: 100%;
                   }
                 }
-                .bottom-txt {
-                  font-size: 18px;
+                p {
+                  // width: 475px;
+                  width: 100%;
+                  height: 60px;
+                  line-height: 20px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                   @include respond-to($phone) {  
                     font-size: 12px;
                   }
                   @include respond-to($tablet) {
                     font-size: 14px;
+                  }
+                  span {
+                  // .bottom-txt {
+                    font-size: 18px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    width: 450px;
+                    height: 60px;
+                    line-height: 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    @include respond-to($phone) {  
+                      font-size: 12px;
+                      width: 100%;
+                    }
+                    @include respond-to($tablet) {
+                      font-size: 14px;
+                      width: 100%;
+                    }
                   }
                 }
               }
@@ -589,15 +714,15 @@
               .box-title {
                 display: inline-block;
                 color: #333;
-                font-size: 24px;
+                font-size: 22px;
                 margin: 30px;
                 @include respond-to($phone) {  
                   font-size: 14px;
-                  margin: 30px 0 0 30px;
+                  margin: 30px 30px;
                 }
                 @include respond-to($tablet) {
                   font-size: 18px;
-                  margin: 30px 0 0 30px;                  
+                  margin: 30px 30px;                  
                 }
               }
               &:hover{
@@ -620,11 +745,11 @@
                   color: #fff;
                   @include respond-to($phone) {  
                     font-size: 12px;
-                    padding: 10px 15px 0 0;                    
+                    padding: 10px 15px 0 0;
                   }
                   @include respond-to($tablet) {
                     font-size: 14px;
-                    padding: 10px 15px 0 0;                    
+                    padding: 10px 15px 0 0;
                   }
                 }
               }

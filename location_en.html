@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Location | ICRAFT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Location | ICRAFT" />
+  <meta name="keywords" content="ICRAFT" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="A professional IT company that opens the world of ubiquitous network" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://www.icraft21.com/" />
+  <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="Location | ICRAFT" />
+  <link rel="shortcut icon" href="img/favicon.ico">  
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/location_en.css?ver=1.05" />
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header"></header>
+    <section>
+      <div class="img-wrapper">
+        <div class="img-text-group">
+          <p class="img-text-title">About ICRAFT</p>
+          <p class="img-text-des">A professional IT company that opens the world of ubiquitous network</p>
+        </div>
+      </div>
+      <ul class="small-menu">
+        <li class="small-menu-list">
+          <a href="overview_en.html" class="">Overview</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="ci_en.html" class="">C.I</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="culture_en.html" class="">Culture</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="contribution_en.html" class="">Contribution</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="#" class="active-menu">Location</a>
+        </li>
+      </ul>
+    </section>
+    <article>
+      <p class="location">
+        <a href="index_en.html">HOME</a>
+        <span> < </span>
+        <a href="company_en.html">About ICRAFT</a>
+        <span> < </span>
+        <a href="#">Location</a>
+      </p>
+      <div class="article">
+        <h2 class="article-title">Location</h2>
+        <div class="article-wrapper">
+          <div class="article-box">
+            <!-- <p class="emp">아이크래프트 본사 안내입니다</p> -->
+            <div id="map_view"></div>
+            <span class="article-text-group">
+              <p class="article-text-title">Location</p>
+              <p class="article-text">12F, 726, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea</p>
+            </span>
+            <span class="article-text-group">
+              <p class="article-text-title">CONTACT NUMBER</p>
+              <p class="article-text">82-2-541-0474</p>
+            </span>
+            <span class="article-text-group">
+              <p class="article-text-title">FAX NUMBER</p>
+              <p class="article-text">82-2-543-1442</p>
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <footer id="footer"></footer>
+    <button class="move-top">&uarr;</button>    
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="./js/common_en.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=ko"></script>  -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ7rD5btbnjLbE0MYRouQ_CVbeYO1EqVk&callback=initialize" type="text/javascript"></script> 
+  <script>
+    window.onload = function() {
+      initialize();
+    }
+
+    function initialize() {
+
+			var Y_point			= 37.519409;		
+			var X_point			= 127.035196;		
+
+			var zoomLevel		= 17;						
+
+			var markerTitle		= "ICRAFT";
+			var markerMaxWidth	= 300;
+
+			var contentString	= '<div>' +
+			'<h2>ICRAFT</h2><br>'+
+			'<p>A professional IT company that opens the world of ubiquitous network<br />' +
+			'</div>';
+
+			var myLatlng = new google.maps.LatLng(Y_point, X_point);
+			var mapOptions = {
+								zoom: zoomLevel,
+								center: myLatlng,
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(document.getElementById('map_view'), mapOptions);
+
+			var marker = new google.maps.Marker({
+													position: myLatlng,
+													map: map,
+													title: markerTitle
+			});
+
+			var infowindow = new google.maps.InfoWindow(
+														{
+															content: contentString,
+															maxWidth: markerMaxWidth
+														}
+			);
+
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+      });
+
+      function openMarker() {
+				infowindow.open(map, marker);        
+      }
+      openMarker();
+		}
+  </script>
+</body>
+
+</html>

@@ -3,23 +3,22 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>ICRAFT</title>
+  <title>고객지원 | 아이크래프트(주)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Awesome Description Here" />
+  <meta name="description" content="고객지원 | 아이크래프트(주)" />
   <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
   <meta name="robots" content="noindex,nofollow" />
-  <meta property="og:title" content="아이크래프트(주)" />
+  <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:url" content="http://www.icraft21.com/" />
-  <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-  <meta property="og:description" content="아이크래프트(주)" />
+  <meta property="og:url" content="https://www.icraft21.com/" />
+  <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="고객지원 | 아이크래프트(주)" />
   <link rel="shortcut icon" href="img/favicon.ico">    
-  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/support.css" />
+  <link rel="stylesheet" type="text/css" href="css/support.css?ver=1.04" />
 </head>
 
 <body>
@@ -34,11 +33,11 @@
       </div>
       <ul class="small-menu">
         <li class="small-menu-list">
-          <a href="news.html" class="">News</a>
+          <a href="news.html?page=1" class="">News</a>
         </li>
         <li class="small-menu-list">
           <a href="support.html" class="active-menu">고객소리방</a>
-        </li>     
+        </li>
       </ul>
     </section>
     <article>
@@ -50,51 +49,46 @@
         <a href="#">고객소리방</a>
       </p>
       <div class="article">
-        <h3 class="article-title">고객소리방</h3>       
-        <p>
-            고객 및 주주 여러분의 소중한 의견을 듣겠습니다.
-            문의할 내용을 작성하신 후 하단 확인 버튼을 눌러주세요.
-            보내주신 의견에 대해 빠른 답변을 드리겠습니다.            
-        </p> 
-        <form class="support-form" action="">                    
-          <label for="">제목</label>
-          <input type="text" placeholder="Subject"/>
+        <h3 class="article-title">고객소리방</h3>
+        <p class="test">
+            고객 및 주주 여러분의 소중한 의견을 듣겠습니다.&nbsp;<br><br>
+            문의할 내용을 작성하신 후 하단 확인 버튼을 눌러주세요.<br><br>
+            보내주신 의견에 대해 빠른 답변을 드리겠습니다.
+        </p>
+        <script>
+           var test = document.querySelector(".test");
+           var res = test.innerHTML.split("<")
+           console.log('test.innerText :', res);
+        </script>
+        <form id="supportForm" class="support-form" method="post" enctype="multipart/form-data">                    
+          <label for="title">제목</label>
+          <input id="title" name="title" type="text" placeholder="Subject"/>
           <div class="col">
-              <label for="">이름</label>
-              <input type="text" placeholder="Name"/>              
+              <label for="name">이름</label>
+              <input id="name" name="name" type="text" placeholder="Name"/>              
           </div>
           <div class="col">
-              <label for="">이메일</label>
-              <input type="text" placeholder="E-mail"/>   
-          </div>             
+              <label for="email">이메일</label>
+              <input id="email" name="email" type="text" placeholder="E-mail"/>   
+          </div>
           <label for="">문의사항</label>
-          <textarea name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>          
-          <input class="input-file" type="file" name="profile">          
-          <p>개인정보 사용 동의서</p>
-          <input style="width: 30px; vertical-align: top;" type="checkbox" id="private-agree" aria-label="개인정보 사용 동의 체크박스"/>
-          <strong for="private-agree">필수 수집/이용 항목</strong>
-          <table>
-            <tr>
-              <td>수집항목</td>
-              <td>목적</td>
-              <td>보유기간</td>
-            </tr>
-            <tr>
-              <td>성명, 이메일주소</td>
-              <td>문의사항 응대</td>
-              <td>수집/이용 목적이 달성될 때까지</td>
-            </tr>
-          </table>
-          <a class="get-btn" href="submit">문의하기</a>
+          <textarea id="content" name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>          
+          <input id="file" class="input-file" type="file" name="file">
+          <!-- <a class="get-btn" href="#">문의하기</a> -->
+          <input class="get-btn" type="submit" value="확인">
         </form>
+        <p id="output"></p>   
       </div>
     </article>
     <footer id="footer"></footer>
     <button class="move-top">&uarr;</button>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.2.2/dist/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/support.js"></script>
 </body>
 
 </html>

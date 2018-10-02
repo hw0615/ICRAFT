@@ -110,7 +110,7 @@ var Cognito = window.Cognito || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                window.location.href = 'circuit.html';
+                window.location.href = 'circuit.html?page=1';
             },
             function signinError(err) {
                 alert(err);

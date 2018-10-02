@@ -20,6 +20,7 @@ section {
       left: 0;
       padding: 50px 5%;
       ul {
+        list-style: none;
         li {
           cursor: pointer;
           text-align: center;
@@ -32,16 +33,6 @@ section {
             background-color: $color-key;
             color: #fff;
           }
-          @include respond-to($phone) {
-            width: 100%; 
-            height: 100%;
-            font-size: 10px;          
-          }
-          @include respond-to($tablet) {
-            width: 100%;
-            height: 100%;
-            font-size: 14px;
-          }
         }
       }
     }    
@@ -49,6 +40,9 @@ section {
 }
 article { 
   .article {
+    .emp {
+      letter-spacing: -0.5px;
+    }
     .article-title {
       margin-top: 50px;
       p {
@@ -74,12 +68,13 @@ article {
           color: #fff;
         }
         @include respond-to($phone) {
-          width: 100%; 
+          width: 47%; 
           height: 100%;
-          font-size: 10px;          
+          font-size: 10px;  
+          padding: 5px;                  
         }
         @include respond-to($tablet) {
-          width: 100%;
+          width: 48%;
           height: 100%;
           font-size: 14px;
         }
@@ -235,7 +230,7 @@ article {
       }
       ul {
         background: #eee;
-        padding: 10px 5px;
+        padding: 10px 25px;
         li {
           margin: 5px 10px 5px 10px;
           @include respond-to($phone) {
@@ -317,7 +312,12 @@ article {
         .article-text {
           .list-sub {
             margin-left: 20px;
+            // list-style: none;
+            list-style: square;
           }
+        }
+        .spac35 {
+          letter-spacing: 0.35px;
         }
       }
       .article-left-img {

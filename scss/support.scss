@@ -60,15 +60,15 @@ article {
     }   
   }
   p {
-    margin: 0 0 20px 0; 
+    margin: 0 0 50px 0; 
     font-size: 15px;
-    letter-spacing: -1px; 
+    // letter-spacing: -1px; 
   }
   .support-form {
     label{
       display: block; 
       box-sizing: border-box; 
-      margin-top: 10px;   
+      margin: 10px 0;   
       clear: both;        
     }
     input {
@@ -96,9 +96,15 @@ article {
       display: inline-block;
       padding:0;      
       width: 205px;
-    }    
-    p {
-    
+    }       
+  }
+  #output {
+    position: relative;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
     }
   }
   .article-history:after {

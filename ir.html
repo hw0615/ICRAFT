@@ -3,23 +3,22 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>ICRAFT</title>
+  <title>주가정보 | 아이크래프트(주)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Awesome Description Here" />
+  <meta name="description" content="주가정보 | 아이크래프트(주)" />
   <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
   <meta name="robots" content="noindex,nofollow" />
-  <meta property="og:title" content="아이크래프트(주)" />
+  <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:url" content="http://www.icraft21.com/" />
-  <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-  <meta property="og:description" content="아이크래프트(주)" />
+  <meta property="og:url" content="https://www.icraft21.com/" />
+  <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="주가정보 | 아이크래프트(주)" />
   <link rel="shortcut icon" href="img/favicon.ico">  
-  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/company.css" />
+  <link rel="stylesheet" type="text/css" href="css/ir.css?ver=1.05" />
 </head>
 
 <body>
@@ -28,33 +27,127 @@
     <section>
       <div class="img-wrapper">
         <div class="img-text-group">
-          <p class="img-text-title">I.R</p>
-          <p class="img-text-des">유비쿼터스 네트워크 세상을 열어가는 전문 IT기업 아이크래프트</p>
+          <p class="img-text-title">IR</p>
+          <p class="img-text-des">코스닥 상장 기업으로서의 사회적 책임을 다하고 지속적으로 성장하는 아이크래프트</p>
         </div>
       </div>
       <ul class="small-menu">
         <li class="small-menu-list">
-          <a href=".html" class="">주가정보</a>
+          <a href="#" class="active-menu">주가정보</a>
         </li>
         <li class="small-menu-list">
-          <a href=".html" class="">재무정보</a>
+          <a href="financial-info.html" class="">재무정보</a>
         </li>
         <li class="small-menu-list">
-          <a href=".html" class="">경영공시</a>
+          <a href="disclosure-info.html?page=1" class="">공시정보</a>
         </li>
         <li class="small-menu-list">
-          <a href=".html" class="">내부 정보 관리 규정</a>                
+          <a href="regulation-info.html" class="">내부 정보 관리 규정</a>
         </li>
       </ul>
     </section>
     <article>
       <p class="location">
-        <a href="#">홈</a>
+        <a href="index.html">홈</a>
         <span> < </span>
         <a href="#">IR</a>
+        <span> < </span>
+        <a href="#">주가정보</a>
       </p>
       <div class="article">
-        <div id="stock"></div>
+          <div class="article-wrapper">
+            <h2 class="article-title">주가정보</h2>
+            <div class="table-wrap">
+              <p class="emp">아이크래프트</p>
+              <table class="table">
+                <caption>아이크래프트 주가 차트입니다.</caption>
+                <tbody class="stock-header">
+                  <tr class="stock-header-tr1">
+                    <td width="15%" rowspan="2" class="subject subject-icraft subject-icraft-main" scope="row"></td>
+                  </tr>
+                  <tr class="stock-header-tr2"></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#myChart" id="chart1" aria-controls="myChart" aria-expanded="false" rol="tab" data-toggle="tab">
+                  1일
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#myChart-m" id="chart2" aria-controls="myChart-m" aria-expanded="false" rol="tab" data-toggle="tab">
+                  1개월
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#myChart-3m" id="chart3" aria-controls="myChart-3m" aria-expanded="false" rol="tab" data-toggle="tab">
+                  3개월
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#myChart-y" id="chart4" aria-controls="myChart-y" aria-expanded="false" rol="tab" data-toggle="tab">
+                  1년
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <canvas role="tabpanel" class="tab-pane fade active in" id="myChart"></canvas>
+              <canvas role="tabpanel" class="tab-pane fade" id="myChart-m"></canvas>
+              <canvas role="tabpanel" class="tab-pane fade" id="myChart-3m"></canvas>
+              <canvas role="tabpanel" class="tab-pane fade" id="myChart-y"></canvas>
+              <div class="loading-chart display-none">
+                <img src="./img/loading.gif" alt="로딩">
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <caption>아이크래프트 주가 시간별시세 차트입니다.</caption>
+                <p class="article-text">시간별시세</p>                  
+                <tbody class="stock-time">
+                  <tr class="tr-header">
+                    <td width="15%" class="subject" scope="row">체결시각</td>
+                    <td width="15%" class="subject" scope="row">체결가</td>
+                    <td width="15%" class="subject" scope="row">전일비</td>
+                    <td width="15%" class="subject" scope="row">매도</td>
+                    <td width="15%" class="subject" scope="row">매수</td>
+                    <td width="15%" class="subject" scope="row">변동량</td>
+                  </tr>
+                  <tr class="loading display-none">
+                    <td>
+                      <img src="./img/loading.gif" alt="로딩">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination"></ul>
+              </nav>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <caption>아이크래프트 주가 일별시세 차트입니다.</caption>
+                <tbody class="stock-time2">
+                  <p class="article-text">일별시세</p>                  
+                  <tr class="tr-header">
+                    <td width="10%" class="subject" scope="row">날짜</td>
+                    <td width="10%" class="subject" scope="row">종가</td>
+                    <td width="10%" class="subject" scope="row">전일비</td>
+                    <td width="10%" class="subject" scope="row">시가</td>
+                    <td width="10%" class="subject" scope="row">고가</td>
+                    <td width="10%" class="subject" scope="row">저가</td>
+                    <td width="10%" class="subject" scope="row">거래량</td>
+                  </tr>
+                  <tr class="loading-2 display-none">
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination-2"></ul>
+              </nav>
+            </div>
+          </div>
       </div>
     </article>
     <footer id="footer"></footer>
@@ -63,6 +156,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="./js/common.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script type="text/javascript" src="js/jquery.number.min.js"></script>
+  <script type="text/javascript" src="js/ir.js"></script>
 </body>
 
-</html>
+</html> 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Support | ICRAFT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Support | ICRAFT" />
+  <meta name="keywords" content="ICRAFT" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://www.icraft21.com/" />
+  <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="Support | ICRAFT" />
+  <link rel="shortcut icon" href="img/favicon.ico">    
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/support.css?ver=1.04" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header"></header>
+    <section>
+      <div class="img-wrapper">
+        <div class="img-text-group">
+          <p class="img-text-title">Support</p>
+          <p class="img-text-des">We make customer satisfaction the top value of the company</p>
+        </div>
+      </div>
+      <ul class="small-menu">
+        <li class="small-menu-list">
+          <a href="news_en.html?page=1" class="">News</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="support_en.html" class="active-menu">Customer Support</a>
+        </li>
+      </ul>
+    </section>
+    <article>
+      <p class="location">
+        <a href="index_en.html">HOME</a>
+        <span> < </span>
+        <a href="#">Support</a>
+        <span> < </span>
+        <a href="#">Customer Support</a>
+      </p>
+      <div class="article">
+        <h3 class="article-title">We listen to your voice</h3>
+        <p class="test">
+          We would like to hear your valuable opinions from customers and shareholders.<br><br>
+          Please fill out the inquiry and press the bottom check button.<br><br>
+          Please fill out the inquiry and press the bottom check button.
+        </p>
+        <script>
+          var test = document.querySelector(".test");
+          var res = test.innerHTML.split("<")
+          console.log('test.innerText :', res);
+        </script>
+        <form id="supportForm" class="support-form" method="post" enctype="multipart/form-data">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" placeholder="Title"/>
+          <div class="col">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Name"/>
+          </div>
+          <div class="col">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="text" placeholder="E-mail"/>
+          </div>
+          <label for="">Contents</label>
+          <textarea id="content" name="" id="" cols="30" rows="10" placeholder="Contents"></textarea>
+          <input id="file" class="input-file" type="file" name="file">
+          <!-- <a class="get-btn" href="#">문의하기</a> -->
+          <input class="get-btn" type="submit" value="Send">
+        </form>
+        <p id="output"></p>
+      </div>
+    </article>
+    <footer id="footer"></footer>
+    <button class="move-top">&uarr;</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.2.2/dist/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="./js/common_en.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/support.js"></script>
+</body>
+
+</html>

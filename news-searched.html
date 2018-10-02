@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>뉴스 | 아이크래프트(주)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="뉴스 | 아이크래프트(주)" />
+  <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://www.icraft21.com/" />
+  <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+  <meta property="og:description" content="뉴스 | 아이크래프트(주)" />
+  <link rel="shortcut icon" href="img/favicon.ico">    
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/news.css?ver=1.04" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header id="header"></header>
+    <section>
+      <div class="img-wrapper">
+        <div class="img-text-group">
+          <p class="img-text-title">고객지원</p>
+          <p class="img-text-des">유비쿼터스 네트워크 세상을 열어가는 전문 IT기업 아이크래프트</p>
+        </div>
+      </div>
+      <ul class="small-menu">
+        <li class="small-menu-list">
+          <a href="news.html?page=1" class="active-menu">News</a>
+        </li>
+        <li class="small-menu-list">
+          <a href="support.html" class="">고객소리방</a>
+        </li>     
+      </ul>
+    </section>
+    <article>
+      <p class="location">
+        <a href="index.html">홈</a>
+        <span> < </span>
+        <a href="#">고객지원</a>
+        <span> < </span>
+        <a href="#">News</a>
+      </p>
+      <div id="board" class="article">
+        <div class="article-wrapper">        
+          <h3 class="article-title">News</h3>
+          <form class="search-bar" action="">
+            <input type="text" name="search"/>
+            <a class="get-btn btn-primary">검색</a>
+          </form>
+          <table class="table tableArea">
+            <colgroup>
+              <col style="width:15%;"/>
+              <col style="width:50%;"/>
+              <col style="width:20%;"/>
+              <col style="width:15%;"/>
+            </colgroup>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>날짜</th>
+              <th>조회 수</th>
+            </tr>                                 
+          </table>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination"></ul>
+          </nav>
+        </div>
+      </div> 
+    </article>
+    <footer id="footer"></footer>
+    <button class="move-top">&uarr;</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="js/config.js"></script>  
+  <script src="./js/news-searched.js"></script>
+  <script src="./js/news-search.js"></script>
+</body>
+
+</html>

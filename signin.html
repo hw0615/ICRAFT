@@ -2,23 +2,22 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>ICRAFT</title>
+    <title>관리자 페이지 | 아이크래프트(주)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="아이크래프트 로그인" />
+    <meta name="description" content="관리자 페이지 | 아이크래프트(주)" />
     <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
     <meta name="robots" content="noindex,nofollow" />
-    <meta property="og:title" content="아이크래프트(주)" />
+    <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:url" content="http://www.icraft21.com/" />
-    <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-    <meta property="og:description" content="아이크래프트(주)" />
+    <meta property="og:url" content="https://www.icraft21.com/" />
+    <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+    <meta property="og:description" content="관리자 페이지 | 아이크래프트(주)" />
     <link rel="shortcut icon" href="img/favicon.ico">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/company.css" />
+    <link rel="stylesheet" type="text/css" href="css/signin.css?ver=1.04" />
 </head>
 
 <body>
@@ -50,22 +49,25 @@
         <article>
             <p class="location">
                 <a href="#">홈</a>
-                <span>
-                    < </span>
-                        <a href="#">등록</a>
+                <span>< </span>
+                <a href="#">등록</a>
             </p>
             <div class="article">
                 <h2 class="article-title">Sign In</h1>
-                    <form id="signinForm">
-                        <input type="email" id="emailInputSignin" placeholder="Email" required>
-                        <input type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
-
-                        <input type="submit" value="Sign in">
-                    </form>
+                <p class="msg">
+                    <strong style="color:red; font-weight: bold">경고</strong>                                    
+                    <span>아이크래프트 담당자용 페이지 입니다.</span>
                     <br/>
-                <p><strong style="color:red">경고:</strong></p>
-                <p>아이크래프트 담당자용 페이지 입니다.</p>
-                <p>담당자 외에 로그인을 하거나 관리모드로 접속하여 불이익을 받게 되어도 당사는 일체 책임을 지지 않습니다.</p>
+                    <br/>
+                    <span>담당자 외에 로그인을 하거나 관리모드로 접속하여 불이익을 받게 되어도 당사는 일체 책임을 지지 않습니다.</span>
+                </p>    
+                <form id="signinForm">
+                    <label for="id">ID</label>
+                    <input name="id" type="email" id="emailInputSignin" placeholder="Email" required>
+                    <label for="pass">PASS</label>
+                    <input name="pass" type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
+                    <input class="get-btn" type="submit" value="Sign in">
+                </form>                                    
             </div>
         </article>
         <footer id="footer"></footer>

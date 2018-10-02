@@ -1,24 +1,24 @@
+<!DOCTYPE html>
 <html lang="ko" xml:lang="ko">
 
 <head>
     <meta charset="UTF-8" />
-    <title>ICRAFT</title>
+    <title>관리자 페이지 | 아이크래프트(주)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="아이크래프트 로그인" />
+    <meta name="description" content="관리자 페이지 | 아이크래프트(주)" />
     <meta name="keywords" content="ICRAFT 아이크래프트(주)" />
     <meta name="robots" content="noindex,nofollow" />
-    <meta property="og:title" content="아이크래프트(주)" />
+    <meta property="og:title" content="초연결 인프라 세상을 열어가는 전문기업 아이크래프트" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:url" content="http://www.icraft21.com/" />
-    <meta property="og:image" content="http://www.icraft21.com/image.jpg" />
-    <meta property="og:description" content="아이크래프트(주)" />
+    <meta property="og:url" content="https://www.icraft21.com/" />
+    <meta property="og:image" content="https://www.icraft21.com/image.jpg" />
+    <meta property="og:description" content="로그인 | 아이크래프트(주)" />
     <link rel="shortcut icon" href="img/favicon.ico">
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/news.css" />
+    <link rel="stylesheet" type="text/css" href="css/news.css?ver=1.04" />
 </head>
 
 <body>
@@ -39,58 +39,116 @@
                     <a id="signOut" href="#" class="">로그 아웃</a>
                 </li>
                 <li class="small-menu-list">
-                    <a href="circuit.html" class="">관리 모드</a>
+                    <a href="circuit.html?page=1" class="active-menu">관리 모드</a>
                 </li>
             </ul>
         </section>
         <article>
             <p class="location">
                 <a href="#">홈</a>
-                <span>
-                    < </span>
+                <span>&#60;</span>
                         <a href="#">등록</a>
             </p>
             <div class="article">
                 <div id="board">
                     <div class="article-wrapper">
-                        <h3 class="article-title">News</h3>
+                        <h3 class="article-title">관리자 페이지</h3>
                         <form class="search-bar" action="">
                             <input type="text" name="search" id="" />
                             <a class="get-btn btn-primary">검색</a>
                         </form>
-                        <a id="create-post" class="get-btn btn-primary">생성</a>
-                        <table class="table" id="updates">
-                            <colgroup>
-                                <col style="width:60%;" />
-                                <col style="width:25%;" />
-                                <col style="width:15%;" />
-                            </colgroup>
-                            <tr>
-                                <th>제목</th>
-                                <th>날짜</th>
-                                <th>조회 수</th>
-                            </tr>
-                        </table>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item page-arrow">
-                                    <a class="page-link" href="#">
-                                        <img src="img/icon-left-arrow.png" alt="">
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link page-num" href="/circuit.html">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link page-num" href="/circuit.html?page=2">2</a>
-                                </li>
-                                <li class="page-item page-arrow">
-                                    <a class="page-link" href="#">
-                                        <img src="img/icon-right-arrow.png" alt="">
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <a href="pit-in.html" id="create-post" class="get-btn btn-primary" style="margin-top: 0;">생성</a>
+                        <div class="tab-btn">
+                            <a class="active" href="#">채용게시판</a>
+                            <a href="#">NEWS</a>
+                            <a href="#">공시정보</a>
+                        </div>
+                        <ul class="table-tab">
+                            <li class="active">
+                                <table class="table" id="recruit">
+                                    <colgroup>
+                                      <col>
+                                      <col>
+                                      <col>
+                                      <col>
+                                      <col>
+                                      <col>
+                                      <col>
+                                    </colgroup>
+                                    <thead>
+                                      <tr>
+                                           <th>번호</th>
+                                           <th>공고제목</th>
+                                           <th>접수기한</th>
+                                           <th>지원구분</th>
+                                           <th>지원가능여부</th>
+                                           <th>조회수</th>
+                                           <th></th>
+                                       </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <table class="table" id="news">
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                      <tr>
+                                        <th>번호</th>
+                                        <th>제목</th>
+                                        <th>날짜</th>
+                                        <th>조회 수</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <table class="table" id="disclosure">
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                      <tr>
+                                          <th>번호</th>
+                                          <th>보고서명</th>
+                                          <th>접수일자</th>
+                                          <th>제출인</th>
+                                          <th></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </li>
+                        </ul>
+                        <ul class="pagination-tab">
+                            <li class="active">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination"></ul>
+                                </nav>
+                            </li>
+                            <li>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination"></ul>
+                                </nav>
+                            </li>
+                            <li>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination"></ul>
+                                </nav>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
