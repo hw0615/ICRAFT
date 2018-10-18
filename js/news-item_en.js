@@ -44,7 +44,7 @@ $(function () {
       // MAKE LIST BUTTON
 
       var boardBtn = document.createElement("a")
-      $(boardBtn).attr("href", "news.html?page="+ pageNum + "#board");      
+      $(boardBtn).attr("href", "news_en.html?page="+ pageNum + "#board");      
       $(boardBtn).attr("class", "board-btn");
       $(boardBtn).append("List");
       $(".tableArea").append(boardBtn)
